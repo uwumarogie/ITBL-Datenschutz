@@ -4,17 +4,17 @@ on:
   pull_request:
     branches:
       - main
-
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v2
 
       - name: Setup pnpm
         uses: pnpm/action-setup@v2.0.1
         with:
-          version: latest
+          version: "latest"
 
       - name: Install Dependencies
         run: pnpm install
