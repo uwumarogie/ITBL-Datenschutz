@@ -23,7 +23,7 @@ jobs:
         run: pnpm lint
 
       - name: Check Format
-        run: pnpm format:check
+        run: pnpm prettier --check
 
       - name: Build
         run: pnpm build
