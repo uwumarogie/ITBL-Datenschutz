@@ -1,10 +1,3 @@
 export default function Home() {
-  return <div>
-
-
-
-
-
-
-    ysfsfds</div>;
+  return <div>ysfsfds</div>;
 }
