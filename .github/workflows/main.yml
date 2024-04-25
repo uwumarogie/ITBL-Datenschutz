@@ -18,12 +18,12 @@ jobs:
 
       - name: Install Dependencies
         run: pnpm install
-
+s
       - name: Check Lint
         run: pnpm lint
 
       - name: Check Format
-        run: pnpm format
+        run: pnpm format:check
 
       - name: Build
         run: pnpm build
