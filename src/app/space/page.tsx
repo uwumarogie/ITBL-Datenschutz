@@ -1,10 +1,9 @@
-"use client"
+"use client";
 
 import Image from "next/image";
 import Link from "next/link";
 import ExerciseLink from "@/components/exercise-link";
-import {useState} from "react";
-import clsx from "clsx";
+import { useState } from "react";
 
 export default function Page() {
   return (
@@ -22,10 +21,7 @@ export default function Page() {
           </div>
           <h2 className="text-white text-3xl font-bold">SafeSpace</h2>
         </div>
-
-
-          <Section />
-
+        <Section />
         <UnlockMasterQuiz />
       </div>
 
@@ -41,7 +37,7 @@ export default function Page() {
   );
 }
 
-export function ExerciseNavigation() {
+function ExerciseNavigation() {
   return (
     <div className="flex flex-col justify-center">
       <div className="flex flex-row mt-5 space-x-5">
@@ -82,7 +78,7 @@ export function ExerciseNavigation() {
   );
 }
 
-export function UnlockMasterQuiz() {
+function UnlockMasterQuiz() {
   return (
     <div className="flex flex-col relative justify-start items-start space-y-2 min-w-[250px] h-[250px] bg-blue-contrast rounded-xl mx-auto p-4">
       <h3 className="text-white text-lg">Master Quiz</h3>
@@ -123,45 +119,34 @@ export function UnlockMasterQuiz() {
   );
 }
 
+function Section() {
+  const [first, setFirst] = useState(true);
+  const [second, setSecond] = useState(false);
+  const [third, setThird] = useState(false);
+  const [fourth, setFourth] = useState(false);
+  return (
+    <div className="flex-grow justify-center items-center mt-10 min-h-48 bg-gradient-to-r from-blue-background to-white">
+      <div className="flex items-center justify-center flex-row space-x-5 min-w-60 max-w-96 min-h-16 rounded-br-3xl bg-blue-background z-30"></div>
 
+      <div className="flex items-center justify-center flex-row space-x-5 min-w-60 rounded-tr-3xl max-w-96 min-h-16 rounded-l-full bg-white z-30">
+        <span>Logo</span>
+        <span>Erkunden</span>
+      </div>
 
-export function Section() {
-    const [first, setFirst] = useState(true);
-    const [second, setSecond] = useState(false);
-    const [third, setThird] = useState(false);
-    const [fourth, setFourth] = useState(false);
+      <div className="flex items-center justify-center flex-row space-x-5 min-w-60 rounded-tr-full max-w-96 min-h-16 rounded-l-full bg-blue-background z-30">
+        <span>Logo</span>
+        <span>Fortschritt</span>
+      </div>
 
+      <div className="flex items-center justify-center flex-row space-x-5 min-w-60 rounded-tr-3xl max-w-96 min-h-16 rounded-l-full rounded-r-3xl bg-white z-30">
+        <span>Logo</span>
+        <span>Leaderboard</span>
+      </div>
 
-
-    return (
-        <div
-            className="flex-grow justify-center items-center mt-10 min-h-48 bg-gradient-to-r from-blue-background to-white">
-            <div className="flex items-center justify-center flex-row space-x-5 min-w-60 max-w-96 min-h-16 rounded-br-3xl bg-blue-background z-30"></div>
-
-
-            <div
-                className="flex items-center justify-center flex-row space-x-5 min-w-60 rounded-tr-3xl max-w-96 min-h-16 rounded-l-full bg-white z-30">
-                <span>Logo</span>
-                <span>Erkunden</span>
-            </div>
-
-            <div
-                className="flex items-center justify-center flex-row space-x-5 min-w-60 rounded-tr-full max-w-96 min-h-16 rounded-l-full bg-blue-background z-30">
-                <span>Logo</span>
-                <span>Fortschritt</span>
-            </div>
-
-            <div
-                className="flex items-center justify-center flex-row space-x-5 min-w-60 rounded-tr-3xl max-w-96 min-h-16 rounded-l-full rounded-r-3xl bg-white z-30">
-                <span>Logo</span>
-                <span>Leaderboard</span>
-            </div>
-
-            <div
-                className="flex items-center justify-center flex-row space-x-5 min-w-60 rounded-tr-3xl max-w-96 min-h-16 rounded-l-full rounded-r-3xl bg-white z-30">
-                <span>Logo</span>
-                <span>ChatBot</span>
-            </div>
-        </div>
-    )
+      <div className="flex items-center justify-center flex-row space-x-5 min-w-60 rounded-tr-3xl max-w-96 min-h-16 rounded-l-full rounded-r-3xl bg-white z-30">
+        <span>Logo</span>
+        <span>ChatBot</span>
+      </div>
+    </div>
+  );
 }
