@@ -14,7 +14,7 @@ const config: Config = {
         "blue-master": "#5543A5",
       },
       height: {
-        "screen-minus-1rem": "calc(100% - 3rem)",
+        "screen-minus-3rem": "calc(100% - 3rem)",
       },
     },
   },
