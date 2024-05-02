@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { displayText } from "@/util/starting-site";
+import { displayText } from "@/util/startingSiteFunctions";
 
 export default function ExerciseLink({
   slug,
