@@ -48,8 +48,8 @@ export function Section() {
         onClick={() => setSection("1")}
         href="/space"
         className={clsx(
-          "flex items-center justify-start px-28 flex-row space-x-5 min-w-60 max-w-96 min-h-16 active:text-orange-600 text-white bg-blue-background",
-          first && "bg-white rounded-l-full text-orange-600",
+          "flex items-center justify-start px-28 flex-row space-x-5 min-w-60 max-w-96 min-h-16 bg-blue-background",
+          first ? "bg-white rounded-l-full text-orange-600": "text-white",
           second && "rounded-br-3xl",
         )}
       >
@@ -76,11 +76,11 @@ export function Section() {
         onClick={() => setSection("2")}
         href="/space"
         className={clsx(
-          "flex items-center justify-start px-28 flex-row space-x-5 min-w-60 max-w-96 min-h-16 text-white",
+          "flex items-center justify-start px-28 flex-row space-x-5 min-w-60 max-w-96 min-h-16",
           first && "rounded-tr-3xl",
           second
             ? "bg-white rounded-l-full text-orange-600 rounded-tr-3xl"
-            : "bg-blue-background",
+            : "bg-blue-background text-white",
           third && "rounded-br-3xl",
         )}
       >
@@ -107,9 +107,9 @@ export function Section() {
         onClick={() => setSection("3")}
         href="/space"
         className={clsx(
-          "flex items-center justify-start px-28  flex-row space-x-5 min-w-60 max-w-96 min-h-16 bg-blue-background text-white",
+          "flex items-center justify-start px-28  flex-row space-x-5 min-w-60 max-w-96 min-h-16 bg-blue-background",
           fourth && "rounded-br-3xl",
-          third && "bg-white rounded-l-full text-orange-600",
+          third ? "bg-white rounded-l-full text-orange-600" : "text-white",
           second && "rounded-tr-3xl",
         )}
       >
@@ -136,10 +136,10 @@ export function Section() {
         onClick={() => setSection("4")}
         href="/space"
         className={clsx(
-          "flex items-center justify-start px-28 flex-row space-x-5 min-w-60 max-w-96 min-h-16 text-white",
+          "flex items-center justify-start px-28 flex-row space-x-5 min-w-60 max-w-96 min-h-16",
           fourth
             ? "bg-white text-orange-600 rounded-l-full"
-            : "bg-blue-background",
+            : "bg-blue-background text-white",
           third && "rounded-tr-3xl bg-blue-background",
         )}
       >

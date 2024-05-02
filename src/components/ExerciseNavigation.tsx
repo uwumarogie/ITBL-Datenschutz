@@ -1,11 +1,16 @@
 import ExerciseLink from "@/components/ExerciseLink";
+import React from "react";
 
 export function ExerciseNavigation() {
   return (
+      <div>
+      <h1 className="text-blue-background text-4xl font-extrabold">
+          Sicher unterwegs in sozialen Medien
+      </h1>
     <div className="flex flex-col justify-center">
-      <div className="flex flex-row mt-5 space-x-5">
-        <ExerciseLink
-          slug="/space/intro"
+        <div className="flex flex-row mt-5 space-x-5">
+            <ExerciseLink
+                slug="/space/intro"
           text="Intro & Overview"
           imageSrc="/intro.png"
         />
@@ -38,5 +43,6 @@ export function ExerciseNavigation() {
         />
       </div>
     </div>
+      </div>
   );
 }

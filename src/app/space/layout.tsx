@@ -8,7 +8,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <div className="bg-blue-background min-h-screen overflow-auto bg-fixed">
       <div className="flex flex-row justify-center items-center min-h-screen p-5">
-        <div className="flex flex-col w-1/4 min-h-[630px] justify-between">
+        <div className="flex flex-col w-1/4 min-h-[625px] justify-between">
+
           <div className="flex flex-row space-x-4 justify-center items-center">
             <Link
               href="/space"
@@ -24,20 +25,17 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             </Link>
             <h2 className="text-white text-3xl font-bold">SafeSpace</h2>
           </div>
+
           <Section />
           <UnlockMasterQuiz />
         </div>
 
         <div className="flex-grow flex justify-center items-center w-3/4 z-10">
-          <div className="bg-white rounded-3xl p-6 w-full min-h-[625px]">
-            <h1 className="text-blue-background text-4xl font-extrabold">
-              Sicher unterwegs in sozialen Medien
-            </h1>
+          <div className="bg-white rounded-3xl p-6 w-full min-h-[725px]">
             {children}
           </div>
         </div>
       </div>
-      {children}
     </div>
   );
 }
