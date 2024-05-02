@@ -1,6 +1,7 @@
 'use client'
 
 import {useState} from "react";
+import clsx from "clsx"
 
 interface QuizParams {
     className?: string,
@@ -23,7 +24,7 @@ export default function Quiz(quiz: QuizParams) {
     const [selection, setSelection] = useState()
 
     function onClick(index) {
-        if (quiz.showCorrectAnswer && selection) return;
+        if (quiz.showCorrectAnswer && selection != undefined) return;
         setSelection(index)
         const isDone = quiz.showCorrectAnswer ? (selection != undefined) : (index == quiz.correctAnswer)
         quiz.onSelect?.call(this, index, isDone)
@@ -38,12 +39,14 @@ export default function Quiz(quiz: QuizParams) {
 
     }
 
+    const showCursorClass = () => quiz.showCorrectAnswer && selection != undefined ? "cursor-auto" : null
+
     return (<div className={quiz.className}>
         <h3 className="text-xl font-semibold mb-2">{quiz.question}</h3>
         <p className={"mb-10"}>{quiz.hint}</p>
         <div className={"answers grid grid-cols-2 gap-4"}>
             {quiz.answers.map((answer, index) => (
-                <button key={index} className={"button transition-colors " + selectionClass(index)} onClick={() => {
+                <button key={index} className={clsx("button transition-colors ", selectionClass(index), showCursorClass())} onClick={() => {
                     onClick(index)
                 }}>
                     {answer}
