@@ -13,9 +13,6 @@ const config: Config = {
         "blue-contrast": "#014F86",
         "blue-master": "#5543A5",
       },
-      height: {
-        "screen-minus-3rem": "calc(100% - 3rem)",
-      },
     },
   },
   plugins: [],
