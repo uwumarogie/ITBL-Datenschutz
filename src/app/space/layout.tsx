@@ -9,7 +9,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     <div className="bg-blue-background min-h-screen overflow-auto bg-fixed">
       <div className="flex flex-row justify-center items-center min-h-screen p-5">
         <div className="flex flex-col w-1/4 min-h-[625px] justify-between">
-
           <div className="flex flex-row space-x-4 justify-center items-center">
             <Link
               href="/space"
@@ -30,8 +29,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           <UnlockMasterQuiz />
         </div>
 
-        <div className="flex-grow flex justify-center items-center w-3/4 z-10">
-          <div className="bg-white rounded-3xl p-6 w-full min-h-[725px]">
+        <div className="flex flex-row justify-center items-center w-3/4">
+          <div className="bg-white rounded-3xl p-6 w-full min-h-[700px]">
             {children}
           </div>
         </div>

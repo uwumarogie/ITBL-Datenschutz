@@ -49,7 +49,7 @@ export function Section() {
         href="/space"
         className={clsx(
           "flex items-center justify-start px-28 flex-row space-x-5 min-w-60 max-w-96 min-h-16 bg-blue-background",
-          first ? "bg-white rounded-l-full text-orange-600": "text-white",
+          first ? "bg-white rounded-l-full text-orange-600" : "text-white",
           second && "rounded-br-3xl",
         )}
       >
