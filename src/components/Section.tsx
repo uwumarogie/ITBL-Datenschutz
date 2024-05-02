@@ -48,10 +48,8 @@ export function Section() {
         onClick={() => setSection("1")}
         href="/space"
         className={clsx(
-          "flex items-center justify-start px-28 flex-row space-x-5 min-w-60 max-w-96 min-h-16 text-white",
-          first
-            ? "bg-white rounded-l-full text-orange-600"
-            : "bg-blue-background",
+          "flex items-center justify-start px-28 flex-row space-x-5 min-w-60 max-w-96 min-h-16 active:text-orange-600 text-white bg-blue-background",
+          first && "bg-white rounded-l-full text-orange-600",
           second && "rounded-br-3xl",
         )}
       >
@@ -61,6 +59,7 @@ export function Section() {
             alt="Erkunden"
             width={20}
             height={20}
+            className="scale-100"
           />
         ) : (
           <Image
@@ -91,6 +90,7 @@ export function Section() {
             alt="Fortschritt"
             width={20}
             height={20}
+            className="scale-100"
           />
         ) : (
           <Image
@@ -119,6 +119,7 @@ export function Section() {
             alt="Leaderboard"
             width={20}
             height={20}
+            className="scale-100"
           />
         ) : (
           <Image
@@ -148,6 +149,7 @@ export function Section() {
             alt="Chatbot"
             width={20}
             height={20}
+            className="scale-100"
           />
         ) : (
           <Image
