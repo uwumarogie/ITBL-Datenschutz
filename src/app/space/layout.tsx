@@ -1,8 +1,8 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Section } from "@/app/space/page";
 import { UnlockMasterQuiz } from "@/components/UnlockMasterQuiz";
+import {Section} from "@/components/Section";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
