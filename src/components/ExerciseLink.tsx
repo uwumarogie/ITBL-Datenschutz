@@ -3,15 +3,11 @@ import Image from "next/image";
 import { displayText } from "@/util/startingSiteFunctions";
 
 type ExerciseLink = {
-    slug: string;
-    text: string;
-    imageSrc: string;
+  slug: string;
+  text: string;
+  imageSrc: string;
 };
-export default function ExerciseLink({
-  slug,
-  text,
-  imageSrc,
-}: ExerciseLink) {
+export default function ExerciseLink({ slug, text, imageSrc }: ExerciseLink) {
   const modifiedText = displayText(text);
   return (
     <Link
