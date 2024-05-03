@@ -3,7 +3,7 @@
 import {useState} from "react";
 import clsx from "clsx"
 
-interface QuizParams {
+export interface QuizParams {
     className?: string,
     question: string,
     hint?: string,
@@ -26,7 +26,8 @@ export default function Quiz(quiz: QuizParams) {
     function onClick(index) {
         if (quiz.showCorrectAnswer && selection != undefined) return;
         setSelection(index)
-        const isDone = quiz.showCorrectAnswer ? (selection != undefined) : (index == quiz.correctAnswer)
+        const isDone = quiz.showCorrectAnswer ? (index != undefined) : (index == quiz.correctAnswer)
+        console.log("Quiz", isDone, quiz.showCorrectAnswer, selection)
         quiz.onSelect?.call(this, index, isDone)
     }
 
