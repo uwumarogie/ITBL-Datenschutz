@@ -11,23 +11,23 @@ export function Section() {
   const [third, setThird] = useState(false);
   const [fourth, setFourth] = useState(false);
 
-  function setSection(id: "1" | "2" | "3" | "4") {
-    if (id === "1") {
+  function setSection(id: 1 | 2 | 3 | 4) {
+    if (id === 1) {
       setFirst(true);
       setSecond(false);
       setThird(false);
       setFourth(false);
-    } else if (id === "2") {
+    } else if (id === 2) {
       setFirst(false);
       setSecond(true);
       setThird(false);
       setFourth(false);
-    } else if (id === "3") {
+    } else if (id === 3) {
       setFirst(false);
       setSecond(false);
       setThird(true);
       setFourth(false);
-    } else if (id === "4") {
+    } else if (id === 4) {
       setFirst(false);
       setSecond(false);
       setThird(false);
@@ -44,7 +44,7 @@ export function Section() {
         )}
       ></div>
       <Link
-        onClick={() => setSection("1")}
+        onClick={() => setSection(1)}
         href="/space"
         className={clsx(
           "flex items-center justify-start px-28 flex-row space-x-5 min-w-60 max-w-96 min-h-16 bg-blue-background",
@@ -72,7 +72,7 @@ export function Section() {
       </Link>
 
       <Link
-        onClick={() => setSection("2")}
+        onClick={() => setSection(2)}
         href="/space"
         className={clsx(
           "flex items-center justify-start px-28 flex-row space-x-5 min-w-60 max-w-96 min-h-16",
@@ -103,7 +103,7 @@ export function Section() {
       </Link>
 
       <Link
-        onClick={() => setSection("3")}
+        onClick={() => setSection(3)}
         href="/space"
         className={clsx(
           "flex items-center justify-start px-28  flex-row space-x-5 min-w-60 max-w-96 min-h-16 bg-blue-background",
@@ -132,7 +132,7 @@ export function Section() {
       </Link>
 
       <Link
-        onClick={() => setSection("4")}
+        onClick={() => setSection(4)}
         href="/space"
         className={clsx(
           "flex items-center justify-start px-28 flex-row space-x-5 min-w-60 max-w-96 min-h-16",
