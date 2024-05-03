@@ -15,7 +15,7 @@ export default function ExerciseLink({
   return (
     <Link
       href={slug}
-      className="flex justify-center min-w-[337px] max-h-[337px] bg-sky-200 rounded-2xl"
+      className="flex justify-center min-w-[337px] max-h-[337px] bg-sky-200 rounded-2xl p-2"
     >
       <div className="flex flex-col justify-center">
         <h3 className="text-center text-blue-background text-xl min-w-[50px]">

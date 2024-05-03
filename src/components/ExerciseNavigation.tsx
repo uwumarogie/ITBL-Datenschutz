@@ -23,8 +23,8 @@ const exerciseLinksData = [
 
 export function ExerciseNavigation() {
   return (
-    <>
-      <h1 className="text-blue-background text-4xl font-extrabold mt-2">
+    <div className="px-6">
+      <h1 className="text-blue-background text-4xl font-extrabold mt-3">
         Sicher unterwegs in sozialen Medien
       </h1>
       <div className="flex flex-col justify-center">
@@ -48,6 +48,6 @@ export function ExerciseNavigation() {
           ))}
         </div>
       </div>
-    </>
+    </div>
   );
 }
