@@ -43,7 +43,6 @@ export function Section() {
           first && "rounded-br-3xl",
         )}
       ></div>
-
       <Link
         onClick={() => setSection("1")}
         href="/space"

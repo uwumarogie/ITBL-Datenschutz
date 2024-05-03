@@ -2,15 +2,16 @@ import Link from "next/link";
 import Image from "next/image";
 import { displayText } from "@/util/startingSiteFunctions";
 
+type ExerciseLink = {
+    slug: string;
+    text: string;
+    imageSrc: string;
+};
 export default function ExerciseLink({
   slug,
   text,
   imageSrc,
-}: {
-  slug: string;
-  text: string;
-  imageSrc: string;
-}) {
+}: ExerciseLink) {
   const modifiedText = displayText(text);
   return (
     <Link

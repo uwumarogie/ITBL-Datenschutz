@@ -1,3 +1,3 @@
 export default function Intro() {
-  return <div>Intro</div>;
+  return <div className="min-w-[1100px] ">Intro</div>;
 }

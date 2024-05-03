@@ -23,7 +23,7 @@ const exerciseLinksData = [
 
 export function ExerciseNavigation() {
   return (
-    <div className="px-6">
+    <div className="px-3">
       <h1 className="text-blue-background text-4xl font-extrabold mt-3">
         Sicher unterwegs in sozialen Medien
       </h1>
