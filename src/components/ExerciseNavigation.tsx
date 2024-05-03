@@ -3,7 +3,7 @@ import ExerciseLink from "@/components/ExerciseLink";
 const exerciseLinksData = [
   { slug: "/space/intro", text: "Intro & Overview", imageSrc: "/intro.png" },
   {
-    slug: "/space/password",
+    slug: "/space/passwort",
     text: "Passwort Sicherheit",
     imageSrc: "/passwort.png",
   },
