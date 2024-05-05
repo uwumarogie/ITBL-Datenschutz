@@ -4,11 +4,3 @@
 
 :root {
 }
-
-.max-h-sidebar {
-    max-height: calc(95vh - 3rem)
-}
-
-.grid-container {
-    height: calc(100% - 40px)
-}

@@ -31,10 +31,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           <UnlockMasterQuiz />
         </div>
 
-        <div className="flex flex-row justify-center grow">
-          <div className="bg-white rounded-3xl py-6 w-full">
-            {children}
-          </div>
+        <div className="flex flex-row justify-center grow min-w-[220px]">
+          <div className="bg-white rounded-3xl py-6 w-full">{children}</div>
         </div>
       </div>
     </div>

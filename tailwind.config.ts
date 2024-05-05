@@ -13,6 +13,12 @@ const config: Config = {
         "blue-contrast": "#014F86",
         "blue-master": "#5543A5",
       },
+      maxHeight: {
+        sidebar: "calc(95vh - 3rem)",
+      },
+      height: {
+        "reduced-40": "calc(100% - 40px)",
+      },
     },
   },
   plugins: [],

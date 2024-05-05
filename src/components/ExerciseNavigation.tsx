@@ -27,10 +27,15 @@ export function ExerciseNavigation() {
       <h1 className="text-blue-background text-lg md:text-l lg:text-2xl max-h-[60px] font-extrabold mb-2 px-6">
         Sicher unterwegs in sozialen Medien
       </h1>
-      <div className="flex flex-col grid-container justify-center overflow-y-auto px-6">
+      <div className="flex flex-col h-reduced-40 justify-center overflow-y-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-2 h-full">
           {exerciseLinksData.map(({ slug, text, imageSrc }, index) => (
-            <ExerciseLink key={index} slug={slug} text={text} imageSrc={imageSrc} />
+            <ExerciseLink
+              key={index}
+              slug={slug}
+              text={text}
+              imageSrc={imageSrc}
+            />
           ))}
         </div>
       </div>
