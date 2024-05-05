@@ -21,17 +21,17 @@ export interface QuizParams {
  */
 export default function Quiz(quiz: QuizParams) {
 
-    const [selection, setSelection] = useState()
+    const [selection, setSelection] = useState<number>()
 
-    function onClick(index) {
+    function onClick(index: number) {
         if (quiz.showCorrectAnswer && selection != undefined) return;
         setSelection(index)
         const isDone = quiz.showCorrectAnswer ? (index != undefined) : (index == quiz.correctAnswer)
         console.log("Quiz", isDone, quiz.showCorrectAnswer, selection)
-        quiz.onSelect?.call(this, index, isDone)
+        quiz.onSelect?.(index, isDone)
     }
 
-    const selectionClass = (index) => {
+    const selectionClass = (index: number) => {
         if(quiz.showCorrectAnswer && selection != undefined && index == quiz.correctAnswer) {
             return "bg-lime-500"
         } else {

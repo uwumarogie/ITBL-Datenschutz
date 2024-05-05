@@ -1,7 +1,6 @@
 import Quiz, {QuizParams} from "@/app/components/quiz";
 import {useState} from "react";
 import clsx from "clsx";
-import {next} from "sucrase/dist/types/parser/tokenizer";
 
 
 export interface QuizListParams {
@@ -23,7 +22,7 @@ export default function QuizList({quizzes, className, onFinish}: QuizListParams)
         isDone: false
     })))
 
-    const quizStateClasses = (index) => {
+    const quizStateClasses = (index: number) => {
         let classes = "rounded-full w-10 h-10 inline-flex justify-center items-center font-bold "
         if (index == currentQuizIndex) {
             classes += "bg-orange-500 text-white"
@@ -45,7 +44,7 @@ export default function QuizList({quizzes, className, onFinish}: QuizListParams)
         return classes
     }
 
-    function onSelect(quizIndex, selection, isDone) {
+    function onSelect(quizIndex: number, selection: number, isDone: boolean) {
         console.log(quizIndex, selection, isDone)
         setQuizzesState(
             quizzesState.map((state, index) => {
@@ -78,7 +77,7 @@ export default function QuizList({quizzes, className, onFinish}: QuizListParams)
 
     function finishQuiz() {
         if(showSummary) {
-            onFinish?.call(this)
+            onFinish?.()
         }else{
             setCurrentQuizIndex(quizzes.length)
             setShowSummary(true)
@@ -126,7 +125,9 @@ export default function QuizList({quizzes, className, onFinish}: QuizListParams)
                 showSummary && (
                     <div className="summary mb-6">
                         <h3 className="text-xl font-semibold mb-2">Du hast es geschafft!</h3>
-                        <p>Du hast {quizzesState.map(state => state.isSolved).reduce((v, acc) => acc + (v ? 1 : 0), 0)} von {quizzesState.length} Fragen richtig beantwortet.</p>
+                        <p>Du
+                            hast {quizzesState.map(state => state.isSolved).reduce((acc, v) => (acc + (v ? 1 : 0)), 0)} von {quizzesState.length} Fragen
+                            richtig beantwortet.</p>
                     </div>
                 )
             }
