@@ -1,5 +1,5 @@
-import Quiz, {QuizParams} from "@/app/components/quiz";
-import {useState} from "react";
+import Quiz, { QuizParams } from "@/app/components/quiz";
+import { useState } from "react";
 import clsx from "clsx";
 
 export interface QuizListParams {
