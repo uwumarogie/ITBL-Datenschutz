@@ -25,7 +25,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               </Link>
               <h2 className="text-white text-3xl font-bold">SafeSpace</h2>
             </div>
-
             <Section />
           </div>
           <UnlockMasterQuiz />
