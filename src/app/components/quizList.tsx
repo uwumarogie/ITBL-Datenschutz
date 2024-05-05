@@ -80,6 +80,7 @@ export default function QuizList({quizzes, className, onFinish}: QuizListParams)
         if(showSummary) {
             onFinish?.call(this)
         }else{
+            setCurrentQuizIndex(quizzes.length)
             setShowSummary(true)
         }
     }
@@ -123,16 +124,16 @@ export default function QuizList({quizzes, className, onFinish}: QuizListParams)
 
             {
                 showSummary && (
-                    <div className="summary">
+                    <div className="summary mb-6">
                         <h3 className="text-xl font-semibold mb-2">Du hast es geschafft!</h3>
-                        <p>Du hast {quizzesState.map(state => state.isSolved).reduce((v, acc) => acc + (v ? 1 : 0), 0)}</p>
+                        <p>Du hast {quizzesState.map(state => state.isSolved).reduce((v, acc) => acc + (v ? 1 : 0), 0)} von {quizzesState.length} Fragen richtig beantwortet.</p>
                     </div>
                 )
             }
 
             <div className="ml-100 flex justify-end">
                 {/*<button onClick={previousQuiz} className={clsx(currentQuizIndex == 0 && "opacity-0 pointer-events-none")}>Zurück</button>*/}
-                {quizzesState[currentQuizIndex].isDone && (
+                {quizzesState[currentQuizIndex]?.isDone && (
                     currentQuizIndex == quizzes.length - 1
                         ? (<button onClick={finishQuiz}>Abschließen</button>)
                         : (<button onClick={nextQuiz}>Weiter</button>)
