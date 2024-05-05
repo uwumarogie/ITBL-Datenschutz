@@ -31,7 +31,7 @@ export default function QuizSandboxPage() {
     } as QuizParams;
   });
 
-  function onSelect(selection, isDone) {
+  function onSelect(selection: number, isDone: boolean) {
     // alert(selection)
     console.log(selection, isDone);
     setDone(isDone);
