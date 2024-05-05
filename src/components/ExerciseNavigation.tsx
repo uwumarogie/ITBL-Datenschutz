@@ -17,15 +17,15 @@ const exerciseLinksData = [
     text: "Daten Verarbeitung",
     imageSrc: "/data-processing.png",
   },
-  { 
-    slug: "/space/phishing", 
-    text: "Phishing", 
-    imageSrc: "/phishing.png"
+  {
+    slug: "/space/phishing",
+    text: "Phishing",
+    imageSrc: "/phishing.png",
   },
-  { 
-    slug: "/space/rechte", 
-    text: "Meine Rechte", 
-    imageSrc: "/rights.png" 
+  {
+    slug: "/space/rechte",
+    text: "Meine Rechte",
+    imageSrc: "/rights.png",
   },
 ];
 
