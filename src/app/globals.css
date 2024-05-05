@@ -5,15 +5,15 @@
 :root {
 }
 
-button{
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
+button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
 
-    padding: 10px 20px;
-    border-radius: 16px;
-    background: #FB6D3A;
+  padding: 10px 20px;
+  border-radius: 16px;
+  background: #fb6d3a;
 
-    color: #ffffff;
-    font-weight: 500;
+  color: #ffffff;
+  font-weight: 500;
 }
