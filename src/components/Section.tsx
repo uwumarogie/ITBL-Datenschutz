@@ -36,10 +36,10 @@ export function Section() {
   }
 
   return (
-    <div className="flex-grow justify-center items-center mt-10 min-h-48 bg-gradient-to-r from-blue-background to-white">
+    <div className="justify-center items-center mt-10 min-h-48 bg-gradient-to-r from-blue-background to-white">
       <div
         className={clsx(
-          "flex items-center justify-center flex-row space-x-5 min-w-60 max-w-96 min-h-16 bg-blue-background z-30",
+          "flex items-center justify-center flex-row space-x-5 min-w-60 max-w-96 min-h-4 bg-blue-background z-30",
           first && "rounded-br-3xl",
         )}
       ></div>
@@ -160,6 +160,12 @@ export function Section() {
         )}
         <span className="text-center">ChatBot</span>
       </Link>
+      <div
+        className={clsx(
+          "flex items-center justify-center flex-row space-x-5 min-w-60 max-w-96 min-h-4 bg-blue-background z-30 ",
+          fourth && "rounded-tr-3xl",
+        )}
+      ></div>
     </div>
   );
 }

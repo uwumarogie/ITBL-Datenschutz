@@ -16,7 +16,7 @@ export function UnlockMasterQuiz() {
 
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        className="absolute bottom-0 right-0"
+        className="absolute bottom-0 right-0 rounded-br-xl"
         width="179"
         height="161"
         viewBox="0 0 179 161"
