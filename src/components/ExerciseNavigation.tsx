@@ -32,7 +32,7 @@ const exerciseLinksData = [
 export function ExerciseNavigation() {
   return (
     <div className="h-full">
-      <h1 className="text-blue-background text-lg md:text-l lg:text-2xl max-h-[60px] font-extrabold mb-2 px-6">
+      <h1 className="text-blue-background text-lg md:text-l lg:text-2xl xl:text-4xl max-h-[60px] font-extrabold mb-2 px-6">
         Sicher unterwegs in sozialen Medien
       </h1>
       <div className="flex flex-col h-reduced-40 justify-center overflow-y-auto px-6">
