@@ -1,7 +1,7 @@
 import { ExerciseNavigation } from "@/components/ExerciseNavigation";
 export default function Page() {
   return (
-    <div>
+    <div className="h-full">
       <ExerciseNavigation />
     </div>
   );
