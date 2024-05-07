@@ -36,7 +36,7 @@ export function Section() {
   }
 
   return (
-    <div className="justify-center items-center mt-10 min-h-48 bg-gradient-to-r from-blue-background to-white">
+    <div className="justify-center items-center mt-10 min-h-48 bg-gradient-to-r from-blue-background to-white ml-6">
       <div
         className={clsx(
           "flex items-center justify-center flex-row space-x-5 min-w-60 max-w-96 min-h-4 bg-blue-background z-30",

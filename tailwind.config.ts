@@ -17,7 +17,7 @@ const config: Config = {
         sidebar: "calc(95vh - 3rem)",
       },
       height: {
-        "reduced-40": "calc(100% - 40px)",
+        "reduced-40": "calc(100% - 60px)",
       },
     },
   },

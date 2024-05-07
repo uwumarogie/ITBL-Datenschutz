@@ -7,7 +7,7 @@ import { Section } from "@/components/Section";
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <div className="bg-blue-background min-h-screen overflow-auto bg-fixed">
-      <div className="flex justify-center h-screen py-11 px-8">
+      <div className="flex justify-center h-screen py-11 pr-8">
         <div className="flex flex-col w-[340px] max-h-sidebar justify-between align-center">
           <div>
             <div className="flex flex-row space-x-4 justify-center items-center mt-5">
