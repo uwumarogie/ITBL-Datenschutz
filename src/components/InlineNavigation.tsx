@@ -3,7 +3,7 @@ import { NavButton, NavButtonType } from "@/components/NavButton";
 const navButtons: Omit<NavButtonType, "number">[] = [
   { href: "/space/intro", isFinished: false },
   { href: "/space/passwort", isFinished: false },
-  { href: "/space/privatsphäre", isFinished: false },
+  { href: "/space/privatsphaere", isFinished: false },
   { href: "/space/daten-verarbeitung", isFinished: false },
   { href: "/space/phishing", isFinished: false },
   { href: "/space/rechte", isFinished: false },

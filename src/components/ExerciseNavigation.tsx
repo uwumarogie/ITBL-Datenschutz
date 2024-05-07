@@ -8,7 +8,7 @@ const exerciseLinksData = [
     imageSrc: "/passwort.png",
   },
   {
-    slug: "/space/privatsphäre",
+    slug: "/space/privatsphaere",
     text: "Privatsphäre",
     imageSrc: "/privacy.png",
   },

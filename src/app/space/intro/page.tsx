@@ -1,4 +1,3 @@
-"use client";
 import { InlineNavigation } from "@/components/InlineNavigation";
 export default function Intro() {
   return (
