@@ -1,6 +1,7 @@
-import Quiz, {QuizParams} from "@/app/components/Quiz";
+import Quiz, {QuizParams} from "@/components/Quiz";
 import {useState} from "react";
 import clsx from "clsx";
+import Button from "@/components/Button";
 
 export type QuizListProps = {
   className?: string
@@ -143,9 +144,9 @@ export default function QuizList({
       <div className="ml-100 flex justify-end">
         {quizzesState[currentQuizIndex]?.isDone &&
           (currentQuizIndex == quizzes.length - 1 ? (
-            <button onClick={finishQuiz}>Abschließen</button>
+            <Button onClick={finishQuiz}>Abschließen</Button>
           ) : (
-            <button onClick={nextQuiz}>Weiter</button>
+            <Button onClick={nextQuiz}>Weiter</Button>
           ))}
       </div>
     </div>

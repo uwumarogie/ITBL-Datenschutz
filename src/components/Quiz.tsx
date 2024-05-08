@@ -2,6 +2,7 @@
 
 import {useState} from "react";
 import clsx from "clsx";
+import Button from "@/components/Button";
 
 export type QuizParams = {
     className?: string;
@@ -54,19 +55,17 @@ export default function Quiz(quiz: QuizParams) {
             <p className="mb-10">{quiz.hint}</p>
             <div className="answers grid grid-cols-1 lg:grid-cols-2 gap-4">
                 {quiz.answers.map((answer, index) => (
-                    <button
+                    <Button
                         key={index}
                         className={clsx(
-                            "button transition-colors",
                             selectionClass(index),
                             showCursorClass(),
                         )}
                         onClick={() => {
                             onClick(index);
-                        }}
-                    >
+                        }}>
                         {answer}
-                    </button>
+                    </Button>
                 ))}
             </div>
 

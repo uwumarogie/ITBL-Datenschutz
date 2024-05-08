@@ -1,8 +1,9 @@
 "use client";
 
-import QuizList from "@/app/components/QuizList";
-import Quiz, {QuizParams} from "@/app/components/Quiz";
+import QuizList from "@/components/QuizList";
+import Quiz, {QuizParams} from "@/components/Quiz";
 import {useState} from "react";
+import Button from "@/components/Button";
 
 export default function QuizSandboxPage() {
   const answers = [
@@ -41,9 +42,9 @@ export default function QuizSandboxPage() {
       <QuizList className="mx-32 my-8 w-1/2" quizzes={quizzes} />
 
       <div className="my-10 h-1 bg-slate-100" />
-      <button onClick={() => setShowCorrectAnswer(!showCorrectAnswer)}>
+      <Button onClick={() => setShowCorrectAnswer(!showCorrectAnswer)}>
         {showCorrectAnswer ? "Disable" : "Enable"} showCorrectAnswer
-      </button>
+      </Button>
       <Quiz
         className="mx-32 my-8 w-1/2"
         question="Warum ist die Banane krumm?"
