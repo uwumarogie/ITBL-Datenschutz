@@ -1,18 +1,19 @@
-import Quiz, { QuizParams } from "@/app/components/quiz";
-import { useState } from "react";
+import Quiz, {QuizParams} from "@/app/components/Quiz";
+import {useState} from "react";
 import clsx from "clsx";
 
-export interface QuizListParams {
-  className?: string;
-  quizzes: QuizParams[];
-  onFinish?: () => void;
+export type QuizListProps = {
+  className?: string
+  quizzes: QuizParams[]
+  // Is called once all quizzes have been finished and the user sees the results
+  onFinish?: () => void
 }
 
 export default function QuizList({
   quizzes,
   className,
   onFinish,
-}: QuizListParams) {
+}: QuizListProps) {
   const [currentQuizIndex, setCurrentQuizIndex] = useState(0);
   const [showSummary, setShowSummary] = useState(false);
   const quiz = quizzes[currentQuizIndex];
@@ -26,7 +27,7 @@ export default function QuizList({
     })),
   );
 
-  const quizStateClasses = (index: number) => {
+  function quizStateClasses(index: number) {
     let classes =
       "rounded-full w-10 h-10 inline-flex justify-center items-center font-bold ";
     if (index == currentQuizIndex) {
@@ -53,7 +54,6 @@ export default function QuizList({
   };
 
   function onSelect(quizIndex: number, selection: number, isDone: boolean) {
-    console.log(quizIndex, selection, isDone);
     setQuizzesState(
       quizzesState.map((state, index) => {
         if (quizIndex == index) {
@@ -116,7 +116,7 @@ export default function QuizList({
                 onSelect={(selection, isDone) => {
                   onSelect(currentQuizIndex, selection, isDone);
                 }}
-              />
+               className={undefined}/>
             </div>
           ))}
         </div>
@@ -136,7 +136,6 @@ export default function QuizList({
       )}
 
       <div className="ml-100 flex justify-end">
-        {/*<button onClick={previousQuiz} className={clsx(currentQuizIndex == 0 && "opacity-0 pointer-events-none")}>Zurück</button>*/}
         {quizzesState[currentQuizIndex]?.isDone &&
           (currentQuizIndex == quizzes.length - 1 ? (
             <button onClick={finishQuiz}>Abschließen</button>

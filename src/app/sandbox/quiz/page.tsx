@@ -1,8 +1,8 @@
 "use client";
 
-import QuizList from "@/app/components/quizList";
-import Quiz, { QuizParams } from "@/app/components/quiz";
-import { useState } from "react";
+import QuizList from "@/app/components/QuizList";
+import Quiz, {QuizParams} from "@/app/components/Quiz";
+import {useState} from "react";
 
 export default function QuizSandboxPage() {
   const answers = [
@@ -32,7 +32,6 @@ export default function QuizSandboxPage() {
   });
 
   function onSelect(selection: number, isDone: boolean) {
-    // alert(selection)
     console.log(selection, isDone);
     setDone(isDone);
   }
@@ -47,14 +46,14 @@ export default function QuizSandboxPage() {
       </button>
       <Quiz
         className="mx-32 my-8 w-1/2"
-        question={"Warum ist die Banane krumm?"}
+        question="Warum ist die Banane krumm?"
         answers={answers}
         hint={longHint}
         showCorrectAnswer={showCorrectAnswer}
         correctAnswer={0}
         hintAnswers={hintAnswers}
         onSelect={onSelect}
-      ></Quiz>
+      />
     </div>
   );
 }
