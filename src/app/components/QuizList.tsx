@@ -18,7 +18,12 @@ export default function QuizList({
   const [showSummary, setShowSummary] = useState(false);
   const quiz = quizzes[currentQuizIndex];
 
-  const [quizzesState, setQuizzesState] = useState(
+  const [quizzesState, setQuizzesState] = useState<{
+    quiz: QuizParams,
+    selection: number,
+    isSolved: boolean,
+    isDone: boolean
+  }[]>(
     quizzes.map((quiz, index) => ({
       quiz,
       selection: -1,
