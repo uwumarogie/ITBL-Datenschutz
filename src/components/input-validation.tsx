@@ -8,8 +8,8 @@ import {
   getColor,
   SUCCESS_COLOR,
 } from "@/util/passwort-validation";
-import {CheckMarkGreen} from "@/components/check-mark-green";
-import {GreyCheckMark} from "@/components/grey-check-mark";
+import { CheckMarkGreen } from "@/components/check-mark-green";
+import { GreyCheckMark } from "@/components/grey-check-mark";
 
 export function InputValidation({ input = "" }: { input: string }) {
   const validations = [
@@ -35,12 +35,8 @@ export function InputValidation({ input = "" }: { input: string }) {
 
 function Indicator({ color }: { color: string }) {
   if (color === SUCCESS_COLOR) {
-    return (
-     <CheckMarkGreen/>
-    );
+    return <CheckMarkGreen />;
   } else {
-    return (
-      <GreyCheckMark/>
-    );
+    return <GreyCheckMark />;
   }
 }
