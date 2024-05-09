@@ -23,7 +23,7 @@ export function NavButton({ href, isFinished, number }: NavButtonType) {
       )}
       href={href}
     >
-      <span className="hidden md:flex lg:flex">
+      <span className="flex">
         {isFinished ? (
           <Image
             src="/white-tick-button.svg"

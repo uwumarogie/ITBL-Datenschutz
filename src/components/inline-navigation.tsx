@@ -11,7 +11,7 @@ const navButtons: Omit<NavButtonType, "number">[] = [
 
 export function InlineNavigation() {
   return (
-    <div className="grid grid-cols-3 md:grid-cols-6 lg:grid-cols-6 gap-2 md:gap-10 lg:gap-20  p-2 max-w-full">
+    <div className="flex flex-row justify-between w-full">
       {navButtons.map(({ href, isFinished }, index) => (
         <NavButton
           key={href}
