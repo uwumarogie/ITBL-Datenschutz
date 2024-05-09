@@ -11,10 +11,10 @@ const navButtons: Omit<NavButtonType, "number">[] = [
 
 export function InlineNavigation() {
   return (
-    <div className="flex flex-row space-x-16">
+    <div className="grid grid-cols-3 md:grid-cols-6 md:gap-x-32 gap-2 p-2 max-w-80">
       {navButtons.map(({ href, isFinished }, index) => (
         <NavButton
-          key={index}
+          key={href}
           number={index + 1}
           href={href}
           isFinished={isFinished}

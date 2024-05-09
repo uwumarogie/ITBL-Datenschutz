@@ -1,9 +1,9 @@
 "use client";
 
-import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import clsx from "clsx";
+import { usePathname } from "next/navigation";
 
 export type NavButtonType = {
   href: string;
@@ -12,18 +12,18 @@ export type NavButtonType = {
 };
 
 export function NavButton({ href, isFinished, number }: NavButtonType) {
-  const [active, setActive] = useState(false);
+  const router = usePathname();
+  const active = router === href;
 
   return (
     <Link
       className={clsx(
-        "flex min-w-12 min-h-12 rounded-xl bg-blue-background font-bold  text-white justify-center items-center",
+        "flex min-w-8 min-h-8 md:min-w-12 md:min-h-12 rounded-xl bg-blue-background font-bold text-white justify-center items-center cursor-pointer transition-colors duration-150",
         active && "bg-orange-600",
       )}
       href={href}
-      onClick={() => setActive((prevState) => !prevState)}
     >
-      <>
+      <span className="hidden md:flex lg:flex">
         {isFinished ? (
           <Image
             src="/white-tick-button.svg"
@@ -34,7 +34,7 @@ export function NavButton({ href, isFinished, number }: NavButtonType) {
         ) : (
           number
         )}
-      </>
+      </span>
     </Link>
   );
 }
