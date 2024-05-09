@@ -5,7 +5,8 @@ import clsx from "clsx";
 import Link from "next/link";
 import Image from "next/image";
 
-export function Section() {
+export function DesktopSection() {
+  const iconSize = 30;
   const [first, setFirst] = useState(true);
   const [second, setSecond] = useState(false);
   const [third, setThird] = useState(false);
@@ -56,16 +57,16 @@ export function Section() {
           <Image
             src="/section/discover-active.svg"
             alt="Erkunden"
-            width={20}
-            height={20}
+            width={iconSize}
+            height={iconSize}
             className="scale-100"
           />
         ) : (
           <Image
             src="/section/discover.svg"
             alt="Erkunden"
-            width={20}
-            height={20}
+            width={iconSize}
+            height={iconSize}
           />
         )}
         <span className="text-center">Erkunden</span>
@@ -87,16 +88,16 @@ export function Section() {
           <Image
             src="/section/pace-active.svg"
             alt="Fortschritt"
-            width={20}
-            height={20}
+            width={iconSize}
+            height={iconSize}
             className="scale-100"
           />
         ) : (
           <Image
             src="/section/pace.svg"
             alt="Fortschritt"
-            width={20}
-            height={20}
+            width={iconSize}
+            height={iconSize}
           />
         )}
         <span className="text-center ">Fortschritt</span>
@@ -116,16 +117,16 @@ export function Section() {
           <Image
             src="/section/leaderboard-active.svg"
             alt="Leaderboard"
-            width={20}
-            height={20}
+            width={iconSize}
+            height={iconSize}
             className="scale-100"
           />
         ) : (
           <Image
             src="/section/leaderboard.svg"
             alt="Leaderboard"
-            width={20}
-            height={20}
+            width={iconSize}
+            height={iconSize}
           />
         )}
         <span className="text-center">Leaderboard</span>
@@ -146,16 +147,16 @@ export function Section() {
           <Image
             src="/section/chatbot-active.svg"
             alt="Chatbot"
-            width={20}
-            height={20}
+            width={iconSize}
+            height={iconSize}
             className="scale-100"
           />
         ) : (
           <Image
             src="/section/chatbot.svg"
             alt="Chatbot"
-            width={20}
-            height={20}
+            width={iconSize}
+            height={iconSize}
           />
         )}
         <span className="text-center">ChatBot</span>
