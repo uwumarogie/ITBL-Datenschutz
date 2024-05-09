@@ -1,7 +1,7 @@
-import { InlineNavigation } from "@/components/InlineNavigation";
+import { InlineNavigation } from "@/components/inline-navigation";
 export default function Rights() {
   return (
-    <div className="min-w-[1100px]">
+    <div className="flex min-w-[1100px] p-4 justify-start">
       <InlineNavigation />
     </div>
   );

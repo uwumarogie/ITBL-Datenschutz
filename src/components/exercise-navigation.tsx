@@ -1,4 +1,4 @@
-import ExerciseLink from "@/components/ExerciseLink";
+import ExerciseLink from "@/components/exercise-link";
 
 const exerciseLinksData = [
   { slug: "/space/intro", text: "Intro & Overview", imageSrc: "/intro.png" },

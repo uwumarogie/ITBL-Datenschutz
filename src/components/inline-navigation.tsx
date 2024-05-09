@@ -1,4 +1,4 @@
-import { NavButton, NavButtonType } from "@/components/NavButton";
+import { NavButton, NavButtonType } from "@/components/nav-button";
 
 const navButtons: Omit<NavButtonType, "number">[] = [
   { href: "/space/intro", isFinished: false },
@@ -11,7 +11,7 @@ const navButtons: Omit<NavButtonType, "number">[] = [
 
 export function InlineNavigation() {
   return (
-    <div className="grid grid-cols-3 md:grid-cols-6 md:gap-x-32 gap-2 p-2 max-w-80">
+    <div className="grid grid-cols-3 md:grid-cols-6 lg:grid-cols-6 gap-2 md:gap-10 lg:gap-20  p-2 max-w-full">
       {navButtons.map(({ href, isFinished }, index) => (
         <NavButton
           key={href}
