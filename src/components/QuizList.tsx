@@ -4,11 +4,11 @@ import clsx from "clsx";
 import Button from "@/components/Button";
 
 export type QuizListProps = {
-  className?: string
-  quizzes: QuizParams[]
+  className?: string;
+  quizzes: QuizParams[];
   // Is called once all quizzes have been finished and the user sees the results
-  onFinish?: () => void
-}
+  onFinish?: () => void;
+};
 
 export default function QuizList({
   quizzes,
@@ -19,12 +19,14 @@ export default function QuizList({
   const [showSummary, setShowSummary] = useState(false);
   const quiz = quizzes[currentQuizIndex];
 
-  const [quizzesState, setQuizzesState] = useState<{
-    quiz: QuizParams,
-    selection: number,
-    isSolved: boolean,
-    isDone: boolean
-  }[]>(
+  const [quizzesState, setQuizzesState] = useState<
+    {
+      quiz: QuizParams;
+      selection: number;
+      isSolved: boolean;
+      isDone: boolean;
+    }[]
+  >(
     quizzes.map((quiz, index) => ({
       quiz,
       selection: -1,
@@ -57,7 +59,7 @@ export default function QuizList({
       classes += "bg-slate-200 text-sky-800";
     }
     return classes;
-  };
+  }
 
   function onSelect(quizIndex: number, selection: number, isDone: boolean) {
     setQuizzesState(
@@ -122,7 +124,8 @@ export default function QuizList({
                 onSelect={(selection, isDone) => {
                   onSelect(currentQuizIndex, selection, isDone);
                 }}
-               className={undefined}/>
+                className={undefined}
+              />
             </div>
           ))}
         </div>
