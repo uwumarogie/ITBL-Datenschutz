@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export function UnlockMasterQuiz() {
   return (
-    <div className="flex flex-col relative justify-start items-start space-y-2 min-w-[225px] h-[250px] bg-blue-contrast rounded-xl mx-auto p-4 scale-95">
+    <div className="flex flex-col relative justify-start items-start space-y-2 min-w-[225px] h-[250px] bg-blue-contrast rounded-xl mx-auto p-4 scale-95 mb-6">
       <h3 className="text-white text-lg">Master Quiz</h3>
       <span className="font-light text-sm opacity-35 text-white">
         Teste all deinen Wissen
