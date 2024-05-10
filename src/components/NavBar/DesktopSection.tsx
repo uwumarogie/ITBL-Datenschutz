@@ -37,10 +37,10 @@ export function DesktopSection() {
   }
 
   return (
-    <div className="justify-center items-center mt-10 min-h-48 bg-gradient-to-r from-blue-background to-white ml-6">
+    <div className="justify-center items-center min-h-48 bg-gradient-to-r from-blue-background to-white ml-6">
       <div
         className={clsx(
-          "flex items-center justify-center flex-row space-x-5 min-w-60 max-w-96 min-h-4 bg-blue-background z-30",
+          "flex items-center justify-center flex-row space-x-5 min-w-60 max-w-96 min-h-10 bg-blue-background z-30",
           first && "rounded-br-3xl",
         )}
       ></div>
@@ -163,7 +163,7 @@ export function DesktopSection() {
       </Link>
       <div
         className={clsx(
-          "flex items-center justify-center flex-row space-x-5 min-w-60 max-w-96 min-h-4 bg-blue-background z-30 ",
+          "flex items-center justify-center flex-row space-x-5 min-w-60 max-w-96 min-h-5 bg-blue-background z-30 ",
           fourth && "rounded-tr-3xl",
         )}
       ></div>

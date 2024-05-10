@@ -14,7 +14,7 @@ const config: Config = {
         "blue-master": "#5543A5",
       },
       height: {
-        "reduced-40": "calc(100% - 60px)",
+        "reduced-40": "calc(100% - 43px)",
         "reduced-safari": "calc(100vh - 90px)",
       },
     },

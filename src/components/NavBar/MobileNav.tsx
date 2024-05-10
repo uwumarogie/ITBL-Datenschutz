@@ -14,7 +14,7 @@ export function MobileNav() {
 
   return (
     <div className="relative flex flex-row max-h-sidebar justify-between align-center mb-3 gap-x-4">
-      <div
+      <nav
         className="flex items-center bg-blue-contrast rounded-xl max-h-14 min-w-14 justify-center p-4"
         onClick={toggleOverlay}
       >
@@ -25,7 +25,7 @@ export function MobileNav() {
           height={20}
           className="mx-auto"
         />
-      </div>
+      </nav>
       <MobileSection />
       {showOverlay && <Overlay />}
     </div>
