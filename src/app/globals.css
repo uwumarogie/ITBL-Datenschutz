@@ -4,16 +4,3 @@
 
 :root {
 }
-
-button {
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-
-  padding: 10px 20px;
-  border-radius: 16px;
-  background: #fb6d3a;
-
-  color: #ffffff;
-  font-weight: 500;
-}
