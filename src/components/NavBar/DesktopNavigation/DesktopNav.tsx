@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { UnlockMasterQuiz } from "@/components/UnlockMasterQuiz";
+import { UnlockMasterQuiz } from "@/components/unlock-master-quiz";
 import { DesktopSection } from "@/components/NavBar/DesktopNavigation/DesktopSection";
 import { Section } from "../Section";
 
