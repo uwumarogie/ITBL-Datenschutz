@@ -10,7 +10,8 @@ type ButtonProps = {
 
 export default function Button({children, onClick, className}: ButtonProps) {
     const buttonStyle = "inline-flex justify-center align-center bg-orange-500 px-6 py-3 text-white font-medium rounded-2xl transition-colors "
+    const buttonHoverStyle = "hover:bg-orange-600"
     return (
-        <button className={clsx(buttonStyle, className)} onClick={onClick}>{children}</button>
+        <button className={clsx(buttonStyle, className, onClick && buttonHoverStyle)} onClick={onClick}>{children}</button>
     )
 }
