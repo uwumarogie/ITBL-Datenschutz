@@ -1,14 +1,14 @@
-import ExerciseLink from "@/components/ExerciseLink";
+import ExerciseLink from "@/components/exercise-link";
 
 const exerciseLinksData = [
   { slug: "/space/intro", text: "Intro & Overview", imageSrc: "/intro.png" },
   {
-    slug: "/space/password",
+    slug: "/space/passwort",
     text: "Passwort Sicherheit",
     imageSrc: "/passwort.png",
   },
   {
-    slug: "/space/privatsphäre",
+    slug: "/space/privatsphaere",
     text: "Privatsphäre",
     imageSrc: "/privacy.png",
   },
