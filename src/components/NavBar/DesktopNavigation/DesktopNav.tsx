@@ -1,7 +1,8 @@
 import Link from "next/link";
 import Image from "next/image";
 import { UnlockMasterQuiz } from "@/components/UnlockMasterQuiz";
-import { DesktopSection } from "@/components/NavBar/DesktopSection";
+import { DesktopSection } from "@/components/NavBar/DesktopNavigation/DesktopSection";
+import { Section } from "../Section";
 
 export function DesktopNav() {
   return (
@@ -22,7 +23,7 @@ export function DesktopNav() {
           </Link>
           <h2 className="text-white text-3xl font-bold">SafeSpace</h2>
         </div>
-        <DesktopSection />
+        <Section />
       </div>
       <UnlockMasterQuiz />
     </div>

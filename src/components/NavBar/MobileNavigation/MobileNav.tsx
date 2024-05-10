@@ -1,9 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import { MobileSection } from "./MobileSection";
 import React, { useState } from "react";
 import { Overlay } from "./MobileOverlay";
+import { Section } from "../Section";
 
 export function MobileNav() {
   const [showOverlay, setOverlay] = useState(false);
@@ -26,7 +26,7 @@ export function MobileNav() {
           className="mx-auto"
         />
       </nav>
-      <MobileSection />
+      <Section />
       {showOverlay && <Overlay />}
     </div>
   );
