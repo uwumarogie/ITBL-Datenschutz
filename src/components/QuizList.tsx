@@ -1,5 +1,5 @@
-import Quiz, {QuizParams} from "@/components/Quiz";
-import {useState} from "react";
+import Quiz, { QuizParams } from "@/components/Quiz";
+import { useState } from "react";
 import clsx from "clsx";
 import Button from "@/components/Button";
 

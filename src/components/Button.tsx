@@ -1,6 +1,6 @@
 "use client";
 
-import {MouseEventHandler, PropsWithChildren} from "react";
+import { MouseEventHandler, PropsWithChildren } from "react";
 import clsx from "clsx";
 
 type ButtonProps = {
