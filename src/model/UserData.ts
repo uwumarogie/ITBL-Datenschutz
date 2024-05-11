@@ -1,9 +1,9 @@
 export interface UserData {
   username: string;
   quizzes: {
-    [quizId: string]: boolean
-  },
+    [quizId: string]: boolean;
+  };
   achievements: {
-    [achievementId: string]: boolean
-  }
+    [achievementId: string]: boolean;
+  };
 }

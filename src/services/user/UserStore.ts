@@ -11,7 +11,7 @@ export interface UserStore {
    * Loads the UserData object and caches it on the client.
    * Can be null, if no user has been set up yet or no user could be loaded.
    */
-  loadUser: () => Promise<UserData | null>
+  loadUser: () => Promise<UserData | null>;
 
   /**
    * Returns the current user. Promise is rejected, if the user has not been
@@ -27,7 +27,7 @@ export interface UserStore {
    * changing the user data.
    * @return True, if the action was performed successfully.
    */
-  saveUser: () => Promise<boolean>
+  saveUser: () => Promise<boolean>;
 
   setQuizSolved: (quizId: string, solved: boolean) => Promise<void>;
   setAchievement: (achievementId: string, unlocked: boolean) => Promise<void>;
