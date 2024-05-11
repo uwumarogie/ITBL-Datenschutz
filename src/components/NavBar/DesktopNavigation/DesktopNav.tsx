@@ -1,10 +1,12 @@
+"use client"
 import Link from "next/link";
 import Image from "next/image";
-import { UnlockMasterQuiz } from "@/components/unlock-master-quiz";
-import { DesktopSection } from "@/components/NavBar/DesktopNavigation/DesktopSection";
+import { ActionCard } from "@/components/action-card";
 import { Section } from "../Section";
+import { useRouter } from "next/navigation";
 
 export function DesktopNav() {
+  const router = useRouter()
   return (
     <div className="flex flex-col w-[340px] h-full justify-between align-center">
       <div>
@@ -25,7 +27,15 @@ export function DesktopNav() {
         </div>
         <Section />
       </div>
-      <UnlockMasterQuiz />
+      <ActionCard
+        title="Master Quiz"
+        description="Teste all dein Wissen"
+        iconSrc="/star.svg"
+        buttonText="Start"
+        primaryColor="#014F86"
+        secondaryColor="#2A6F97"
+        onClick={() => router.push("/sandbox/quiz")}
+      />
     </div>
   );
 }
