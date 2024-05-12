@@ -11,15 +11,17 @@ const navButtons: Omit<NavButtonType, "number">[] = [
 
 export function InlineNavigation() {
   return (
-    <div className="flex flex-row justify-between w-full">
-      {navButtons.map(({ href, isFinished }, index) => (
-        <NavButton
-          key={href}
-          number={index + 1}
-          href={href}
-          isFinished={isFinished}
-        />
-      ))}
+    <div className="max-w-[700px] sm:pb-6">
+      <div className="grid grid-cols-3 gap-6 sm:flex sm:flex-row sm:justify-between sm:w-full">
+        {navButtons.map(({ href, isFinished }, index) => (
+          <NavButton
+            key={href}
+            number={index + 1}
+            href={href}
+            isFinished={isFinished}
+          />
+        ))}
+      </div>
     </div>
   );
 }

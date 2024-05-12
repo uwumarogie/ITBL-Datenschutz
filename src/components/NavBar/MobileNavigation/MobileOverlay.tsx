@@ -1,11 +1,14 @@
 import Link from "next/link";
 import Image from "next/image";
+import { InlineNavigation } from "@/components/inline-navigation";
 
 export function Overlay() {
   return (
     <div className="absolute left-[-0.3rem] right-[-0.3rem] top-full mt-2 bg-white shadow-xl px-5 py-9 z-50 rounded-3xl">
-      <div className="flex flex-row gap-x-3 justify-between">
-        <p>Navigation will happen here</p>
+      <div className="flex flex-row gap-x-3 justify-around">
+        <div className="flex items-center">
+          <InlineNavigation />
+        </div>
 
         <Link
           href="/space/spaceholder"
