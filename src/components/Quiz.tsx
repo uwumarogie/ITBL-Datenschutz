@@ -1,13 +1,13 @@
 "use client";
 
-import { useState } from "react";
+import React, { useState } from "react";
 import clsx from "clsx";
 import Button from "@/components/Button";
 
 export type QuizParams = {
   className?: string;
   question: string;
-  hint?: string;
+  hint?: string | React.ReactNode;
   answers: string[];
   correctAnswer: number;
   hintAnswers?: string[];

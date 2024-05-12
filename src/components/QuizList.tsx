@@ -142,16 +142,16 @@ export default function QuizList({
               .reduce((acc, v) => acc + (v ? 1 : 0), 0)}{" "}
             von {quizzesState.length} Fragen richtig beantwortet.
           </p>
-          <Link href="/space/passwort/">Weiter</Link>
+          <Link href="/space/passwort/strength">Weiter</Link>
         </div>
       )}
 
       <div className="ml-100 flex justify-end">
         {quizzesState[currentQuizIndex]?.isDone &&
-          (currentQuizIndex == quizzes.length - 1 ? (
-            <Button onClick={finishQuiz}>Abschließen</Button>
+          (currentQuizIndex === quizzes.length - 1 ? (
+            <Button onClick={finishQuiz} className="mb-10">Abschließen</Button>
           ) : (
-            <Button onClick={nextQuiz}>Weiter</Button>
+            <Button onClick={nextQuiz} className="mb-10">Weiter</Button>
           ))}
       </div>
     </div>

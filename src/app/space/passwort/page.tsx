@@ -12,16 +12,16 @@ export default function Passwort() {
         <div className="hidden sm:block">
             <InlineNavigation/>
         </div>
-        <div className="flex justify-start p-3 lg:p-5 sm:mt-10 lg:mt-4">
+        <div className="flex justify-start p-3 lg:p-5 sm:mt-10 lg:mt-1">
         <IntroductionText />
       </div>
 
-      <div className="flex flex-row space-x-8 sm:mt-8 lg:mt-4">
+      <div className="flex flex-row space-x-8 sm:mt-8 lg:mt-2">
         <div className="flex flex-col relative justify-start items-start space-y-2 min-w-[300px] h-auto bg-module-blue rounded-xl mx-auto lg:p-5 p-2 sm:p-10 scale-95 lg:mb-6 mb-14">
           <h3 className="text-blue-background text-2xl sm:text-3xl underline">
             Safety first
           </h3>
-          <span className="font-light text-xl sm:text-base text-blue-background">
+          <span className="font-light text-base text-blue-background">
             Lerne was ein gutes Passwort ausmacht
           </span>
           <Link
@@ -70,7 +70,7 @@ export default function Passwort() {
 
 function IntroductionText() {
   return (
-    <div className="flex justify-center items-center flex-col space-y-4">
+    <div className="flex justify-center items-center flex-col space-y-2">
       <h1 className="text-3xl lg:text-4xl text-blue-background">Passwortsicherheit</h1>
       <span className="text-base lg:text-xl sm:text-wrap md:text-wrap lg:text-center">
         Starke Passwörter sind wichtig, um deine personenbezogenen Daten <br />{" "}

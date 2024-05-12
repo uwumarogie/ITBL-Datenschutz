@@ -1,5 +1,4 @@
 "use client"
-import {useState} from "react";
 import QuizList from "@/components/QuizList";
 import {QuizParams} from "@/components/Quiz";
 import {InlineNavigation} from "@/components/inline-navigation";
@@ -8,9 +7,9 @@ const quizzes: QuizParams[] = [
     {
         question: "Ein Hacker möchte sich in deinen Social Media Account hacken. Häufig verwendete Passwörter werden zuerst geknackt. Welches der Passwörter ist am sichersten?",
         answers: ["123456789", "hallo", "iloveyou", "asdfgh"],
-        hint: "Liste der Top Ten deutscher Passwörter 2023: (https://hpi.de/news/jahrgaenge/2023/123456789-ist-das-beliebteste-passwort-2023-in-deutschland.html)",
+        hint: <span>Liste der Top Ten deutscher Passwörter 2023:  <a href="https://hpi.de/news/jahrgaenge/2023/123456789-ist-das-beliebteste-passwort-2023-in-deutschland.html" className="underline">Siehe Link</a> </span>,
         showCorrectAnswer: true,
-        correctAnswer: 3,
+        correctAnswer: 0,
     },
     {
         question: "Neben den häufigsten Passwörtern werden auch gängige Wiederholungs- oder Tastaturmuster überprüft. Dazu gehört ebenfalls das Hinzufügen einer Zahl oder eines üblichen Sonderzeichens am Anfang oder Ende eines sonst simplen Passwortes. Welches der Passwörter ist am sichersten?",
@@ -42,18 +41,13 @@ const quizzes: QuizParams[] = [
     },
 ];
 
-
-
-
 export default function StartGame() {
-    const [isDone, setDone] = useState(false);
     return (
         <div className="flex flex-col max-w-[1100px] p-4 justify-start" style={{height: 'calc(100vh - 150px)', overflowY: 'scroll'}}>
             <div className="hidden lg:flex">
                 <InlineNavigation />
             </div>
             <QuizList className="lg:mx-28 lg:my-28 justify-center scale-100 lg:scale-110" quizzes={quizzes}/>
-            {isDone && <button onClick={() => console.log("Reviewing answers...")}>Review Answers</button>}
         </div>
     )
 }
