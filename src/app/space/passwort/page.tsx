@@ -9,8 +9,9 @@ import Link from "next/link";
 export default function Passwort() {
   return (
     <div className="flex flex-col max-w-[1100px] px-6 justify-start">
-    <InlineNavigation />
-
+        <div className="hidden sm:block">
+            <InlineNavigation />
+        </div>
       <div className="flex justify-start p-3 lg:p-5 sm:mt-10 lg:mt-4">
         <IntroductionText />
       </div>
