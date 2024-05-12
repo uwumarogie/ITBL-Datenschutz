@@ -18,7 +18,7 @@ export function NavButton({ href, isFinished, number }: NavButtonType) {
   return (
     <Link
       className={clsx(
-        "flex min-w-8 min-h-8 md:min-w-12 md:min-h-12 rounded-xl bg-blue-background font-bold text-white justify-center items-center cursor-pointer transition-colors duration-150",
+        "flex min-w-12 min-h-12 sm:min-w-8 sm:min-h-8 md:min-w-12 md:min-h-12 rounded-xl bg-blue-background font-bold text-white justify-center items-center cursor-pointer transition-colors duration-150",
         active && "bg-orange-600",
       )}
       href={href}
