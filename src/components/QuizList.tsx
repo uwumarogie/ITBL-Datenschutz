@@ -2,6 +2,7 @@ import Quiz, { QuizParams } from "@/components/Quiz";
 import { useState } from "react";
 import clsx from "clsx";
 import Button from "@/components/Button";
+import Link from "next/link";
 
 export type QuizListProps = {
   className?: string;
@@ -99,7 +100,7 @@ export default function QuizList({
 
   return (
     <div className={className}>
-      <div className="py-6 flex gap-6">
+      <div className="py-4 flex gap-6 justify-center items-center">
         {quizzesState.map((state, index) => (
           <div key={index} className={quizStateClasses(index)}>
             {index + 1}
@@ -141,6 +142,7 @@ export default function QuizList({
               .reduce((acc, v) => acc + (v ? 1 : 0), 0)}{" "}
             von {quizzesState.length} Fragen richtig beantwortet.
           </p>
+          <Link href="/space/passwort/">Weiter</Link>
         </div>
       )}
 
