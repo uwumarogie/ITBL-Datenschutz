@@ -9,10 +9,10 @@ import Link from "next/link";
 export default function Passwort() {
   return (
     <div className="flex flex-col max-w-[1100px] px-6 justify-start">
-        <div className="hidden sm:block">
-            <InlineNavigation/>
-        </div>
-        <div className="flex justify-start p-3 lg:p-5 sm:mt-10 lg:mt-1">
+      <div className="hidden sm:block">
+        <InlineNavigation />
+      </div>
+      <div className="flex justify-start p-3 lg:p-5 sm:mt-10 lg:mt-1">
         <IntroductionText />
       </div>
 
@@ -71,7 +71,9 @@ export default function Passwort() {
 function IntroductionText() {
   return (
     <div className="flex justify-center items-center flex-col space-y-2">
-      <h1 className="text-3xl lg:text-4xl text-blue-background">Passwortsicherheit</h1>
+      <h1 className="text-3xl lg:text-4xl text-blue-background">
+        Passwortsicherheit
+      </h1>
       <span className="text-base lg:text-xl sm:text-wrap md:text-wrap lg:text-center">
         Starke Passwörter sind wichtig, um deine personenbezogenen Daten <br />{" "}
         zu schützen. Je besser das Passwort, desto schwerer kann man dich <br />{" "}

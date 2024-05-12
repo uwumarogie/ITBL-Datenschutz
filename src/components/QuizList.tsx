@@ -149,9 +149,13 @@ export default function QuizList({
       <div className="ml-100 flex justify-end">
         {quizzesState[currentQuizIndex]?.isDone &&
           (currentQuizIndex === quizzes.length - 1 ? (
-            <Button onClick={finishQuiz} className="mb-10">Abschließen</Button>
+            <Button onClick={finishQuiz} className="mb-10">
+              Abschließen
+            </Button>
           ) : (
-            <Button onClick={nextQuiz} className="mb-10">Weiter</Button>
+            <Button onClick={nextQuiz} className="mb-10">
+              Weiter
+            </Button>
           ))}
       </div>
     </div>
