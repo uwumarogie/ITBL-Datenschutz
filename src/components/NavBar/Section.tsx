@@ -1,8 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { MobileSection } from "./MobileNavigation/MobileSection";
-import { DesktopSection } from "./DesktopNavigation/DesktopSection";
+import { MobileSection } from "./MobileNavigation/mobile-section";
+import { DesktopSection } from "./DesktopNavigation/desktop-section";
 
 export type Props = {
   setSection: (activeSection: SectionName) => void;

@@ -1,13 +1,14 @@
-import Quiz, { QuizParams } from "@/components/Quiz";
+"use client";
+import Quiz from "@/components/quiz";
 import { useState } from "react";
 import clsx from "clsx";
-import Button from "@/components/Button";
+import Button from "@/components/button";
 import Link from "next/link";
+import { QuizParams } from "@/util/password-quiz-data";
 
 export type QuizListProps = {
   className?: string;
   quizzes: QuizParams[];
-  // Is called once all quizzes have been finished and the user sees the results
   onFinish?: () => void;
 };
 
@@ -18,7 +19,6 @@ export default function QuizList({
 }: QuizListProps) {
   const [currentQuizIndex, setCurrentQuizIndex] = useState(0);
   const [showSummary, setShowSummary] = useState(false);
-  const quiz = quizzes[currentQuizIndex];
 
   const [quizzesState, setQuizzesState] = useState<
     {
@@ -28,7 +28,7 @@ export default function QuizList({
       isDone: boolean;
     }[]
   >(
-    quizzes.map((quiz, index) => ({
+    quizzes.map((quiz) => ({
       quiz,
       selection: -1,
       isSolved: false,
@@ -84,10 +84,10 @@ export default function QuizList({
     setCurrentQuizIndex(currentQuizIndex + 1);
   }
 
-  function previousQuiz() {
-    if (currentQuizIndex == 0) return;
-    setCurrentQuizIndex(currentQuizIndex - 1);
-  }
+  //function previousQuiz() {
+  // if (currentQuizIndex == 0) return;
+  //setCurrentQuizIndex(currentQuizIndex - 1);
+  //}
 
   function finishQuiz() {
     if (showSummary) {
@@ -142,7 +142,7 @@ export default function QuizList({
               .reduce((acc, v) => acc + (v ? 1 : 0), 0)}{" "}
             von {quizzesState.length} Fragen richtig beantwortet.
           </p>
-          <Link href="/space/passwort/strength">Weiter</Link>
+          <Link href={"/space/passwort/strength"}>Weiter</Link>
         </div>
       )}
 

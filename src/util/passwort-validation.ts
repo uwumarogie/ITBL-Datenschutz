@@ -11,11 +11,7 @@ export function containDigits(word: string) {
 }
 
 export function containSpecialCharacters(word: string) {
-  return /[!§$%&]/.test(word);
-}
-
-export function containUmlaut(word: string) {
-  return /[äöüÄÖÜ]/.test(word);
+  return /[!§$%&äöüÄÖÜ]/.test(word);
 }
 
 //TODO: Add more special functions to make the password even more secure and difficult to guess
@@ -26,9 +22,7 @@ export function difficultToGuess(word: string) {
     containLowerCaseLetters(word) &&
     containCapitalLetters(word) &&
     containDigits(word) &&
-    containSpecialCharacters(word) &&
-    containUmlaut(word)
-  );
+    containSpecialCharacters(word));
 }
 
 export const SUCCESS_COLOR = "#2E8B57";

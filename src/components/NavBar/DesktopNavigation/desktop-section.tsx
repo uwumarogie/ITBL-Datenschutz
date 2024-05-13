@@ -2,7 +2,7 @@
 
 import clsx from "clsx";
 import { Props } from "../Section";
-import { DesktopSectionItem } from "./DesktopSectionItem";
+import { DesktopSectionItem } from "./desktop-section-item";
 
 export function DesktopSection({
   setSection,

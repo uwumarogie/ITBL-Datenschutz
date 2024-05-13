@@ -2,19 +2,8 @@
 
 import React, { useState } from "react";
 import clsx from "clsx";
-import Button from "@/components/Button";
-
-export type QuizParams = {
-  className?: string;
-  question: string;
-  hint?: string | React.ReactNode;
-  answers: string[];
-  correctAnswer: number;
-  hintAnswers?: string[];
-  onSelect?: (selection: number, isDone: boolean) => void;
-  // If enabled, the user only has a single try. After selection, it will show the solution to the user.
-  showCorrectAnswer?: boolean;
-};
+import Button from "@/components/button";
+import { QuizParams } from "@/util/password-quiz-data";
 
 export default function Quiz(quiz: QuizParams) {
   const [selection, setSelection] = useState<number | undefined>(undefined);
