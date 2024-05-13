@@ -31,4 +31,5 @@ export interface UserStore {
 
   setQuizSolved: (quizId: string, solved: boolean) => Promise<void>;
   setAchievement: (achievementId: string, unlocked: boolean) => Promise<void>;
+  initUser: (username: string) => Promise<void>;
 }
