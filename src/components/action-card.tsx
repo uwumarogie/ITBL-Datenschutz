@@ -42,14 +42,8 @@ export function ActionCard({
       >
         <circle opacity="0.5" cx="123" cy="123" r="123" fill={secondaryColor} />
       </svg>
-      <div className="flex justify-end w-full z-50">
-        <Image
-          src={iconSrc}
-          alt={title}
-          width={130}
-          height={130}
-          className=""
-        />
+      <div className="flex justify-end w-full z-50 scale-90">
+        <Image src={iconSrc} alt={title} width={130} height={130} />
       </div>
     </div>
   );
