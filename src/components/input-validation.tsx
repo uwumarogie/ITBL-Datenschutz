@@ -15,7 +15,10 @@ export function InputValidation({ input = "" }: { input: string }) {
     { check: containLowerCaseLetters, label: "Kleinbuchstaben" },
     { check: containCapitalLetters, label: "Großbuchstaben" },
     { check: containDigits, label: "Zahlen" },
-    { check: containSpecialCharacters, label: "Sonderzeichen (z.B. !§$%&äöüÄÖÜ)" },
+    {
+      check: containSpecialCharacters,
+      label: "Sonderzeichen (z.B. !§$%&äöüÄÖÜ)",
+    },
     { check: difficultToGuess, label: "Passwort schwer zu erraten" },
   ];
 

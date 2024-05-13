@@ -22,7 +22,8 @@ export function difficultToGuess(word: string) {
     containLowerCaseLetters(word) &&
     containCapitalLetters(word) &&
     containDigits(word) &&
-    containSpecialCharacters(word));
+    containSpecialCharacters(word)
+  );
 }
 
 export const SUCCESS_COLOR = "#2E8B57";

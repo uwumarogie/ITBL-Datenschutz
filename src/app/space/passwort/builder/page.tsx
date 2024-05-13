@@ -1,5 +1,5 @@
 import { InlineNavigation } from "@/components/inline-navigation";
-import {SecurePasswordInput} from "@/components/secure-password-input";
+import { SecurePasswordInput } from "@/components/secure-password-input";
 
 export default function Builder() {
   return (
@@ -8,10 +8,9 @@ export default function Builder() {
         <InlineNavigation />
       </div>
 
-        <div className=" ">
-            <SecurePasswordInput/>
-        </div>
-
+      <div className=" ">
+        <SecurePasswordInput />
+      </div>
     </div>
   );
 }
