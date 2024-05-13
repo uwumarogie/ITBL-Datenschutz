@@ -8,10 +8,10 @@ import { IntroductionText } from "@/components/introduction-text";
 
 export default function PasswordStrength() {
   return (
-    <div className="flex flex-col max-w-[1100px] px-6 justify-start">
-      <div className="hidden lg:block">
-        <InlineNavigation />
-      </div>
+      <div className="flex flex-col max-w-[1100px] px-2 lg:px-6 justify-start">
+        <div className="hidden lg:block">
+          <InlineNavigation/>
+        </div>
 
       <div className="flex justify-start">
         <IntroductionText

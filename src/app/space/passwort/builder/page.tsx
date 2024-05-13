@@ -8,7 +8,7 @@ import { useRouter } from "next/navigation";
 export default function Builder() {
   const router = useRouter();
   return (
-    <div className="flex flex-col max-w-[1100px] px-6 justify-start">
+    <div className="flex flex-col max-w-[1100px] px-2 lg:px-6 justify-start">
       <div className="hidden lg:block">
         <InlineNavigation />
       </div>
