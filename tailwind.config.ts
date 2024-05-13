@@ -16,7 +16,7 @@ const config: Config = {
       },
       height: {
         "reduced-40": "calc(100% - 43px)",
-        "reduced-safari": "calc(100vh - 90px)",
+        "reduced-safari": "calc(100vh - 50px)",
       },
     },
   },

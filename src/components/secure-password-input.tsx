@@ -7,7 +7,7 @@ export function SecurePasswordInput() {
   const [input, setInput] = useState("");
   return (
     <div className="flex flex-col justify-start max-w-full space-y-2 p-4">
-      <h1 className="text-2xl lg:text-2xl text-blue-background underline-offset-4">
+      <h1 className="text-2xl lg:text-2xl text-blue-background underline decoration-3">
         Erstellle ein sicheres Passwort!
       </h1>
       <input

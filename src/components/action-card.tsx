@@ -5,7 +5,7 @@ type ActionCardProps = {
   title: string;
   description: string;
   buttonText: string;
-  iconSrc: string;
+  iconSrc?: string;
   primaryColor: string;
   secondaryColor: string;
   onClick: () => void;
@@ -43,11 +43,11 @@ export function ActionCard({
         <circle opacity="0.5" cx="123" cy="123" r="123" fill={secondaryColor} />
       </svg>
       <Image
-        src={iconSrc}
+        src={iconSrc || ""}
         alt={title}
         width={130}
         height={130}
-        className="absolute translate-x-[55%] translate-y-[85%]"
+        className="absolute bottom-0 right-0"
       />
     </div>
   );
