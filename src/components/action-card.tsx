@@ -23,11 +23,11 @@ export function ActionCard({
 }: ActionCardProps) {
   return (
     <div
-      className="flex flex-col relative justify-start items-start space-y-2 min-w-[225px] h-[270px] rounded-xl mx-auto p-4 scale-95 mb-6"
+      className="flex flex-col relative justify-start items-start min-w-[225px] h-[270px] rounded-xl mx-auto p-4 scale-95 mb-6"
       style={{ backgroundColor: primaryColor }}
     >
-      <h3 className="text-white text-lg">{title}</h3>
-      <span className="font-light text-sm opacity-35 text-white">
+      <h3 className="text-white text-lg pb-2">{title}</h3>
+      <span className="font-light text-sm opacity-35 text-white pb-2">
         {description}
       </span>
       <Button className="z-50" onClick={onClick}>
@@ -43,13 +43,15 @@ export function ActionCard({
       >
         <circle opacity="0.5" cx="123" cy="123" r="123" fill={secondaryColor} />
       </svg>
-      <Image
-        src={iconSrc}
-        alt={title}
-        width={130}
-        height={130}
-        className="absolute translate-x-[55%] translate-y-[85%]"
-      />
+      <div className="flex justify-end w-full z-50">
+        <Image
+          src={iconSrc}
+          alt={title}
+          width={130}
+          height={130}
+          className=""
+        />
+      </div>
     </div>
   );
 }
