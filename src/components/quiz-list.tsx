@@ -144,7 +144,7 @@ export default function QuizList({
               .reduce((acc, v) => acc + (v ? 1 : 0), 0)}{" "}
             von {quizzesState.length} Fragen richtig beantwortet.
           </p>
-          <Button onClick={() => router.push("/space/passwort/strength")}>
+          <Button onClick={() => router.push("/space/passwort/builder")}>
             Weiter
           </Button>
         </div>
