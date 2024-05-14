@@ -18,9 +18,9 @@ export default function Builder() {
               description="Bewerte die Sicherheit unserer Passwörter"
               iconSrc="/star.svg"
               buttonText="Spiel starten"
-              primaryColor="#014F86"
+              primaryColor="#A9D6E5"
               secondaryColor="#2A6F97"
-              titleColor="white"
+              titleColor="#2A6F97"
               onClick={() => router.push("/space/passwort/strength")}
             />
           </div>
@@ -30,9 +30,9 @@ export default function Builder() {
               description="Lerne was ein gutes Passwort ausmacht"
               iconSrc="/star.svg"
               buttonText="Erneut spielen"
-              primaryColor="#014F86"
+              primaryColor="#A9D6E5"
               secondaryColor="#2A6F97"
-              titleColor="white"
+              titleColor="#2A6F97"
               onClick={() => router.push("/space/passwort/builder")}
             />
           </div>
