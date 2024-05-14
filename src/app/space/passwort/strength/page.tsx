@@ -1,18 +1,14 @@
 "use client";
 
-import { InlineNavigation } from "@/components/inline-navigation";
 import { useState } from "react";
-import Link from "next/link";
 import { PasswordData, passwordData } from "@/util/password-quiz-data";
 import { IntroductionText } from "@/components/introduction-text";
+import Button from "@/components/button";
+import { useRouter } from "next/navigation";
 
 export default function PasswordStrength() {
   return (
     <div className="flex flex-col max-w-[1100px] px-2 lg:px-6 justify-start">
-      <div className="hidden lg:block">
-        <InlineNavigation />
-      </div>
-
       <div className="flex justify-start">
         <IntroductionText
           headline="Bewerte die Stärke des Passworts"
@@ -31,6 +27,8 @@ const PasswordStrengthDisplay = ({
 }: {
   passwords: Array<PasswordData>;
 }) => {
+  const router = useRouter();
+
   const [totalPoints, setTotalPoints] = useState(0);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const currentQuestion = passwords[currentQuestionIndex];
@@ -51,9 +49,9 @@ const PasswordStrengthDisplay = ({
   return (
     <div className="grid grid-rows-1 lg:grid-cols-2 space-y-6 mt-8">
       {currentQuestionIndex === passwords.length ? (
-        <div>
-          <Link href="/space/passwort/builder">Next Module</Link>
-        </div>
+        <Button onClick={() => router.push("/space/privatsphaere")}>
+          Nächstes Modul
+        </Button>
       ) : (
         <>
           <div className="flex justify-center items-center  lg:space-y-8 sm:space-y-16 gap-y-8">

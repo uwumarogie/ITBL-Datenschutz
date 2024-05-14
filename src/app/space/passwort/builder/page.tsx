@@ -9,10 +9,6 @@ export default function Builder() {
   const router = useRouter();
   return (
     <div className="flex flex-col max-w-[1100px] px-2 lg:px-6 justify-start">
-      <div className="hidden lg:block">
-        <InlineNavigation />
-      </div>
-
       <div className="flex flex-col">
         <SecurePasswordInput />
         <div className="flex-row space-x-5 scale-75 mb-36 items-start mr-96 hidden lg:flex">
@@ -23,6 +19,7 @@ export default function Builder() {
             buttonText="Spiel starten"
             primaryColor="#014F86"
             secondaryColor="#2A6F97"
+            titleColor="white"
             onClick={() => router.push("/space/passwort/strength")}
           />
           <ActionCard
@@ -32,6 +29,7 @@ export default function Builder() {
             buttonText="Erneut spielen"
             primaryColor="#014F86"
             secondaryColor="#2A6F97"
+            titleColor="white"
             onClick={() => router.push("/space/passwort/builder")}
           />
         </div>

@@ -1,20 +1,20 @@
 "use client";
 import QuizList from "@/components/quiz-list";
-import { InlineNavigation } from "@/components/inline-navigation";
 import { quizzes } from "@/util/password-quiz-data";
+import Image from "next/image";
 
 export default function StartGame() {
   return (
-    <div
-      className="flex flex-col max-w-[1100px] px-2 lg:px-4 justify-start"
-      style={{ height: "calc(100vh - 150px)", overflowY: "scroll" }}
-    >
-      <div className="hidden lg:block">
-        <InlineNavigation />
+    <div className="flex flex-wrap">
+      <div className="flex flex-col px-2 lg:px-4 justify-start max-w-[1100px] sm:mt-8">
+        <QuizList className="" quizzes={quizzes} />
       </div>
-      <QuizList
-        className="lg:mx-28 lg:my-28 justify-center scale-100 lg:scale-110"
-        quizzes={quizzes}
+      <Image
+        src="/smartphone-pw.png"
+        alt="passwort safety"
+        width={400}
+        height={400}
+        className="m-auto"
       />
     </div>
   );
