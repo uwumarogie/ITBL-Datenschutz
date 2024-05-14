@@ -7,10 +7,7 @@ import { DesktopSection } from "./DesktopNavigation/DesktopSection";
 
 export type Props = {
   setSection: (activeSection: SectionName) => void;
-  first: boolean;
-  second: boolean;
-  third: boolean;
-  fourth: boolean;
+  activeSection: SectionName;
   sectionItems: SectionItem[];
 };
 
@@ -27,16 +24,24 @@ type SectionItem = {
   srcInactive: string;
   alt: string;
   href: string;
-  isActive: boolean;
 };
 
 export function Section() {
   const path = usePathname();
-  const [first, setFirst] = useState(false);
-  const [second, setSecond] = useState(false);
-  const [third, setThird] = useState(false);
-  const [fourth, setFourth] = useState(false);
+  const getActiveSection = () => {
+    if (path.startsWith("/space")) {
+      return SectionName.ERKUNDEN;
+    } else if (path.startsWith("/archievements")) {
+      return SectionName.FORTSCHRITT;
+    } else if (path.startsWith("/leaderboard")) {
+      return SectionName.LEADERBOARD;
+    } else if (path.startsWith("/chatbot")) {
+      return SectionName.CHATBOT;
+    }
+    return SectionName.ERKUNDEN;
+  };
 
+  const [activeSection, setSection] = useState(getActiveSection);
   const sectionItems: SectionItem[] = [
     {
       sectionName: SectionName.ERKUNDEN,
@@ -44,7 +49,6 @@ export function Section() {
       srcInactive: "/section/discover.svg",
       alt: "Erkunden",
       href: "/space",
-      isActive: first,
     },
     {
       sectionName: SectionName.FORTSCHRITT,
@@ -52,7 +56,6 @@ export function Section() {
       srcInactive: "/section/pace.svg",
       alt: "Fortschritt",
       href: "/archievements",
-      isActive: second,
     },
     {
       sectionName: SectionName.LEADERBOARD,
@@ -60,7 +63,6 @@ export function Section() {
       srcInactive: "/section/leaderboard.svg",
       alt: "Leaderboard",
       href: "/leaderboard",
-      isActive: third,
     },
     {
       sectionName: SectionName.CHATBOT,
@@ -68,44 +70,12 @@ export function Section() {
       srcInactive: "/section/chatbot.svg",
       alt: "Chatbot",
       href: "/chatbot",
-      isActive: fourth,
     },
   ];
 
-  const setSection = (activeSection: SectionName) => {
-    if (activeSection === SectionName.ERKUNDEN) {
-      setFirst(true);
-      setSecond(false);
-      setThird(false);
-      setFourth(false);
-    } else if (activeSection === SectionName.FORTSCHRITT) {
-      setFirst(false);
-      setSecond(true);
-      setThird(false);
-      setFourth(false);
-    } else if (activeSection === SectionName.LEADERBOARD) {
-      setFirst(false);
-      setSecond(false);
-      setThird(true);
-      setFourth(false);
-    } else if (activeSection === SectionName.CHATBOT) {
-      setFirst(false);
-      setSecond(false);
-      setThird(false);
-      setFourth(true);
-    }
-  };
-
   useEffect(() => {
-    if (path.startsWith("/space")) {
-      setSection(SectionName.ERKUNDEN);
-    } else if (path === "/archievements") {
-      setSection(SectionName.FORTSCHRITT);
-    } else if (path === "/leaderboard") {
-      setSection(SectionName.LEADERBOARD);
-    } else if (path === "/chatbot") {
-      setSection(SectionName.CHATBOT);
-    }
+    const activeSection = getActiveSection();
+    setSection(activeSection);
   }, [path]);
 
   return (
@@ -113,10 +83,7 @@ export function Section() {
       <div className="hidden sm:block">
         <DesktopSection
           setSection={setSection}
-          first={first}
-          second={second}
-          third={third}
-          fourth={fourth}
+          activeSection={activeSection}
           sectionItems={sectionItems}
         />
       </div>
@@ -124,10 +91,7 @@ export function Section() {
       <div className="sm:hidden">
         <MobileSection
           setSection={setSection}
-          first={first}
-          second={second}
-          third={third}
-          fourth={fourth}
+          activeSection={activeSection}
           sectionItems={sectionItems}
         />
       </div>
