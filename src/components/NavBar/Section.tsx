@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import { MobileSection } from "./MobileNavigation/MobileSection";
 import { DesktopSection } from "./DesktopNavigation/DesktopSection";
 
@@ -30,7 +31,8 @@ type SectionItem = {
 };
 
 export function Section() {
-  const [first, setFirst] = useState(true);
+  const path = usePathname();
+  const [first, setFirst] = useState(false);
   const [second, setSecond] = useState(false);
   const [third, setThird] = useState(false);
   const [fourth, setFourth] = useState(false);
@@ -93,6 +95,18 @@ export function Section() {
       setFourth(true);
     }
   };
+
+  useEffect(() => {
+    if (path.startsWith("/space")) {
+      setSection(SectionName.ERKUNDEN);
+    } else if (path === "/archievements") {
+      setSection(SectionName.FORTSCHRITT);
+    } else if (path === "/leaderboard") {
+      setSection(SectionName.LEADERBOARD);
+    } else if (path === "/chatbot") {
+      setSection(SectionName.CHATBOT);
+    }
+  }, [path]);
 
   return (
     <div className="flex items-center sm:block">
