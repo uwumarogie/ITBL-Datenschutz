@@ -13,7 +13,6 @@ type ActionCardProps = {
   secondaryColor: string;
   titleColor: string;
   redirectPath: string;
-  className?: string;
 };
 
 export function ActionCard({
@@ -25,7 +24,6 @@ export function ActionCard({
   secondaryColor,
   titleColor,
   redirectPath,
-  className,
 }: ActionCardProps) {
   const router = useRouter();
   return (
