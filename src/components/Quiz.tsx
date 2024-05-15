@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import clsx from "clsx";
-import Button, {ButtonStyle} from "@/components/Button";
+import Button, { ButtonStyle } from "@/components/Button";
 
 export type QuizParams = {
   className?: string;
@@ -30,17 +30,17 @@ export default function Quiz(quiz: QuizParams) {
 
   function buttonStyle(index: number): ButtonStyle {
     if (
-        quiz.showCorrectAnswer &&
-        selection != undefined &&
-        index == quiz.correctAnswer
+      quiz.showCorrectAnswer &&
+      selection != undefined &&
+      index == quiz.correctAnswer
     ) {
       return "green";
     } else {
       return selection == index
-          ? index == quiz.correctAnswer
-              ? "green"
-              : "red"
-          : "default";
+        ? index == quiz.correctAnswer
+          ? "green"
+          : "red"
+        : "default";
     }
   }
   function showCursorClass() {
