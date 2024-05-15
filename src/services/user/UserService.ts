@@ -1,12 +1,19 @@
 import { UserData } from "@/model/UserData";
-import { LocalStorageUserStore } from "@/services/user/LocalStorageUserStore";
+import { LocalStorageUserService } from "@/services/user/LocalStorageUserService";
 
-let userStore = new LocalStorageUserStore();
-export function getUserStore() {
-  return userStore;
+export function createDefaultUserService() {
+  return new LocalStorageUserService();
 }
 
-export interface UserStore {
+export interface UserService {
+  /**
+   * This method is called whenever the UI state of the UserData should be updated.
+   * It is best to call this method together with saveUser().
+   * This method is being replaced by the UserServiceContext and replaces any implementation.
+   * @param userData
+   */
+  onUpdate: (userData: UserData) => void;
+
   /**
    * Loads the UserData object and caches it on the client.
    * Can be null, if no user has been set up yet or no user could be loaded.

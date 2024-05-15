@@ -1,7 +1,7 @@
-import { UserStore } from "@/services/user/UserStore";
+import { UserService } from "@/services/user/UserService";
 import { UserData } from "@/model/UserData";
 
-export class LocalStorageUserStore implements UserStore {
+export class LocalStorageUserService implements UserService {
   private USER_STORE_KEY = "user";
 
   private user: UserData | null = null;
@@ -10,7 +10,7 @@ export class LocalStorageUserStore implements UserStore {
     this.init();
   }
 
-  private async init() {
+  private init() {
     try {
       const userString = window.localStorage.getItem(this.USER_STORE_KEY);
       if (userString) {
@@ -20,6 +20,8 @@ export class LocalStorageUserStore implements UserStore {
       this.user = null;
     }
   }
+
+  onUpdate(userData: UserData) {}
 
   async loadUser(): Promise<UserData | null> {
     return this.user;
@@ -41,14 +43,16 @@ export class LocalStorageUserStore implements UserStore {
         this.USER_STORE_KEY,
         JSON.stringify(this.user),
       );
+      this.onUpdate(this.user);
       return true;
     } catch (e) {
       return false;
     }
   }
+
   async setQuizSolved(quizId: string, solved: boolean) {
-    const user = await this.getUser();
-    user.quizzes[quizId] = solved;
+    if (this.user == null) return;
+    this.user.quizzes[quizId] = solved;
     await this.saveUser();
   }
 
