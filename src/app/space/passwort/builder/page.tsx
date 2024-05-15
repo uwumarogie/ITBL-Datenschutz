@@ -34,7 +34,6 @@ export default function Builder() {
                 secondaryColor="#2A6F97"
                 titleColor="#2A6F97"
                 redirectPath="/space/passwort/quiz/"
-                className="scale-[95%]"
               />
             </div>
           </div>
