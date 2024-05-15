@@ -9,7 +9,7 @@ import Button from "@/components/button";
 export default function PasswordStrength() {
   return (
     <div className="flex flex-col max-w-[1100px] px-2 lg:px-6 justify-start">
-      <div className="flex justify-start">
+      <div className="flex justify-start mt-4">
         <IntroductionText
           headline="Bewerte die Stärke des Passworts"
           text="    Ein Passwort gilt nur als stark, wenn alle Kriterien erfüllt sind. Ist
@@ -50,7 +50,7 @@ const PasswordStrengthDisplay = ({
     <div className="grid grid-rows-1 lg:grid-cols-2 space-y-6 mt-8">
       {currentQuestionIndex === passwords.length ? (
         <Button onClick={() => router.push("/space/passwort/builder")}>
-          Next Module
+          Weiter
         </Button>
       ) : (
         <>

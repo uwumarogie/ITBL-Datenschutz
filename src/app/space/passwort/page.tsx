@@ -1,4 +1,5 @@
 "use client";
+
 import { IntroductionText } from "@/components/introduction-text";
 import { ActionCard } from "@/components/action-card";
 import { useRouter } from "next/navigation";
@@ -7,7 +8,7 @@ import Image from "next/image";
 export default function Passwort() {
   const router = useRouter();
   return (
-    <div className="flex flex-wrap items-start">
+    <div className="flex flex-wrap items-start max-w-[1800px]">
       <div className="flex flex-col justify-start max-w-full xl:max-w-[calc(100%-400px)]">
         <div className="flex justify-start p-3 lg:p-5 lg:mt-1">
           <IntroductionText
@@ -18,38 +19,27 @@ export default function Passwort() {
             Passworts und was sollte ich eher vermeiden?"
           />
         </div>
-
-        <div className="flex flex-row">
-          <div className="sm:mx-auto md:mx-auto">
-            <ActionCard
-              title="Safety first"
-              description="Lerne was ein gutes Passwort ausmacht"
-              buttonText="Spiel starten"
-              iconSrc="/safety-first.svg"
-              primaryColor="#A9D6E5"
-              secondaryColor="#2A6F97"
-              titleColor="#014F86"
-              redirectPath="/space/passwort/quiz"
-            />
-          </div>
-
-          <Image
-            src="/computer.svg"
-            alt="passwort safety"
-            width={300}
-            height={300}
-            className="m-auto hidden lg:flex"
+        <div className="max-w-[300px] mx-3">
+          <ActionCard
+            title="Safety first"
+            description="Lerne was ein gutes Passwort ausmacht"
+            buttonText="Spiel starten"
+            iconSrc="/safety-first.svg"
+            primaryColor="#A9D6E5"
+            secondaryColor="#2A6F97"
+            titleColor="#014F86"
+            redirectPath="/space/passwort/quiz"
           />
         </div>
       </div>
-        <Image
-          src="/computer.svg"
-          alt="passwort safety"
-          layout="responsive"
-          width={400}
-          height={400}
-          className="m-auto min-w-[200px] max-w-[400px] flex-shrink-0"
-        />
+      <Image
+        src="/computer.svg"
+        alt="passwort safety"
+        layout="responsive"
+        width={400}
+        height={400}
+        className="m-auto min-w-[200px] max-w-[400px] flex-shrink-0"
+      />
     </div>
   );
 }
