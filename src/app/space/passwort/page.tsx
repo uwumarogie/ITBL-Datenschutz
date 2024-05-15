@@ -7,14 +7,14 @@ import Image from "next/image";
 export default function Passwort() {
   const router = useRouter();
   return (
-    <div className="flex flex-wrap">
-      <div className="flex flex-col justify-start max-w-[700px]">
+    <div className="flex flex-wrap items-start">
+      <div className="flex flex-col justify-start max-w-full xl:max-w-[calc(100%-400px)]">
         <div className="flex justify-start p-3 lg:p-5 lg:mt-1">
           <IntroductionText
             headline="Passwortsicherheit"
             text="Starke Passwörter sind wichtig, um deine personenbezogenen Daten
-          zu schützen. Je besser das Passwort, desto schwerer kann man dich
-          Hacken. Aber was sind eigentlich wichtige Bestandteile eines sicheren
+            zu schützen. Je besser das Passwort, desto schwerer kann man dich
+            Hacken. Aber was sind eigentlich wichtige Bestandteile eines sicheren
             Passworts und was sollte ich eher vermeiden?"
           />
         </div>
@@ -42,6 +42,14 @@ export default function Passwort() {
           />
         </div>
       </div>
+        <Image
+          src="/computer.svg"
+          alt="passwort safety"
+          layout="responsive"
+          width={400}
+          height={400}
+          className="m-auto min-w-[200px] max-w-[400px] flex-shrink-0"
+        />
     </div>
   );
 }
