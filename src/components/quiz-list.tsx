@@ -3,7 +3,6 @@ import Quiz from "@/components/quiz";
 import { useState } from "react";
 import clsx from "clsx";
 import Button from "@/components/button";
-import Link from "next/link";
 import { QuizParams } from "@/util/password-quiz-data";
 import { useRouter } from "next/navigation";
 
@@ -111,7 +110,7 @@ export default function QuizList({
       </div>
 
       {!showSummary && (
-        <div className="quiz mb-10">
+        <div className="mb-10">
           {quizzesState.map(({ quiz, isDone, isSolved, selection }, index) => (
             <div
               className={clsx("", currentQuizIndex != index && "hidden")}
@@ -144,7 +143,7 @@ export default function QuizList({
               .reduce((acc, v) => acc + (v ? 1 : 0), 0)}{" "}
             von {quizzesState.length} Fragen richtig beantwortet.
           </p>
-          <Button onClick={() => router.push("/space/passwort/builder")}>
+          <Button onClick={() => router.push("/space/passwort/strength")}>
             Weiter
           </Button>
         </div>

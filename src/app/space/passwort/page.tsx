@@ -1,5 +1,4 @@
 "use client";
-
 import { IntroductionText } from "@/components/introduction-text";
 import { ActionCard } from "@/components/action-card";
 import { useRouter } from "next/navigation";
@@ -20,24 +19,29 @@ export default function Passwort() {
           />
         </div>
 
-        <ActionCard
-          title="Safety first"
-          description="Lerne was ein gutes Passwort ausmacht"
-          buttonText="Spiel starten"
-          iconSrc="/safety-first.svg"
-          primaryColor="#A9D6E5"
-          secondaryColor="#2A6F97"
-          titleColor="#014F86"
-          onClick={() => router.push("passwort/quiz")}
-        />
+        <div className="flex flex-row">
+          <div className="sm:mx-auto md:mx-auto">
+            <ActionCard
+              title="Safety first"
+              description="Lerne was ein gutes Passwort ausmacht"
+              buttonText="Spiel starten"
+              iconSrc="/safety-first.svg"
+              primaryColor="#A9D6E5"
+              secondaryColor="#2A6F97"
+              titleColor="#014F86"
+              redirectPath="/space/passwort/quiz"
+            />
+          </div>
+
+          <Image
+            src="/computer.svg"
+            alt="passwort safety"
+            width={300}
+            height={300}
+            className="m-auto hidden lg:flex"
+          />
+        </div>
       </div>
-      <Image
-        src="/computer.svg"
-        alt="passwort safety"
-        width={400}
-        height={400}
-        className="m-auto"
-      />
     </div>
   );
 }

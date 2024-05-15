@@ -1,5 +1,8 @@
+"use client";
+
 import Image from "next/image";
 import Button from "./button";
+import { useRouter } from "next/navigation";
 
 type ActionCardProps = {
   title: string;
@@ -9,7 +12,8 @@ type ActionCardProps = {
   primaryColor: string;
   secondaryColor: string;
   titleColor: string;
-  onClick: () => void;
+  redirectPath: string;
+  className?: string;
 };
 
 export function ActionCard({
@@ -20,8 +24,10 @@ export function ActionCard({
   primaryColor,
   secondaryColor,
   titleColor,
-  onClick,
+  redirectPath,
+  className,
 }: ActionCardProps) {
+  const router = useRouter();
   return (
     <div
       className="min-w-[225px] h-[270px] rounded-xl p-4 scale-95"
@@ -41,7 +47,7 @@ export function ActionCard({
           >
             {description}
           </span>
-          <Button className="z-50" onClick={onClick}>
+          <Button className="z-50" onClick={() => router.push(redirectPath)}>
             {buttonText}
           </Button>
         </div>

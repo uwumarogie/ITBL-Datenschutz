@@ -3,8 +3,8 @@
 import { useState } from "react";
 import { PasswordData, passwordData } from "@/util/password-quiz-data";
 import { IntroductionText } from "@/components/introduction-text";
+import { redirect, useRouter } from "next/navigation";
 import Button from "@/components/button";
-import { useRouter } from "next/navigation";
 
 export default function PasswordStrength() {
   return (
@@ -49,35 +49,40 @@ const PasswordStrengthDisplay = ({
   return (
     <div className="grid grid-rows-1 lg:grid-cols-2 space-y-6 mt-8">
       {currentQuestionIndex === passwords.length ? (
-        <Button onClick={() => router.push("/space/privatsphaere")}>
-          Nächstes Modul
+        <Button onClick={() => router.push("/space/passwort/builder")}>
+          Next Module
         </Button>
       ) : (
         <>
-          <div className="flex justify-center items-center  lg:space-y-8 sm:space-y-16 gap-y-8">
+          <div className="flex flex-col justify-center items-center lg:space-y-8 sm:space-y-16 lg:gap-y-1 gap-y-4">
             <span className="flex bg-blue-contrast p-4 min-w-52 rounded-xl text-white justify-center items-center">
               Password: {currentQuestion.password}
+            </span>
+            <span className="text-xl text-blue-background">
+              {" "}
+              Punkte: {currentQuestion.points}
+            </span>
+            <span className="text-xl text-blue-background">
+              Dein Score: {totalPoints}
             </span>
           </div>
 
           <div className="flex flex-col lg:space-y-8 space-y-4">
             <button
-              onClick={() => {
-                handleButtonClick(2);
-              }}
-              className="flex justify-center items-center rounded-xl bg-orange-600 p-4 text-white font-light"
+              onClick={() => handleButtonClick(2)}
+              className="flex justify-center items-center rounded-xl bg-orange-600 p-4 hover:bg-orange-500 text-white font-light"
             >
               stark
             </button>
             <button
               onClick={() => handleButtonClick(1)}
-              className="flex justify-center items-center rounded-xl bg-orange-600 p-4 text-white font-light"
+              className="flex justify-center items-center rounded-xl bg-orange-600 hover:bg-orange-500 p-4 text-white font-light"
             >
               mittel
             </button>
             <button
               onClick={() => handleButtonClick(0)}
-              className="flex justify-center items-center rounded-xl bg-orange-600 p-4 text-white font-light"
+              className="flex justify-center items-center rounded-xl bg-orange-600 hover:bg-orange-500 p-4 text-white font-light"
             >
               schwach
             </button>

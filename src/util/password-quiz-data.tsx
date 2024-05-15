@@ -29,11 +29,11 @@ export const quizzes: QuizParams[] = [
       </span>
     ),
     showCorrectAnswer: true,
-    correctAnswer: 0,
+    correctAnswer: 3,
   },
   {
     question:
-      "Neben den häufigsten Passwörtern werden auch gängige Wiederholungs- oder Tastaturmuster überprüft. Dazu gehört ebenfalls das Hinzufügen einer Zahl oder eines üblichen Sonderzeichens am Anfang oder Ende eines sonst simplen Passwortes. Welches der Passwörter ist am sichersten?",
+      "Auch gängige Muster wie Wiederholungen und Tastaturfolgen sowie das Hinzufügen von Zahlen oder Sonderzeichen am Anfang oder Ende einfacher Passwörter werden geprüft. Welches Passwort ist am sichersten?",
     answers: ["asdfgh", "abcd1234", "hallo!", "{username}"],
     hint: "Vermeide Wiederholungen und einfache Muster. Das Hinzufügen von Sonderzeichen verbessert die Sicherheit.",
     showCorrectAnswer: true,

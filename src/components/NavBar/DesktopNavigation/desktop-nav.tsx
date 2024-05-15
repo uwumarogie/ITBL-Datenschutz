@@ -36,7 +36,7 @@ export function DesktopNav() {
           primaryColor="#014F86"
           secondaryColor="#2A6F97"
           titleColor="white"
-          onClick={() => router.push("/sandbox/quiz")}
+          redirectPath="/sandbox/quiz"
         />
       </div>
     </div>
