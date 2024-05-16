@@ -15,12 +15,20 @@ export function HintCard({
     iconSrc,
     hint
 }: ActionCardProps) {
-    const [showHint, setShowHint] = useState(false)
+    const [showHint, setShowHint] = useState(false);
     return (
-        <div className="rounded-xl p-4 scale-95 w-full h-full" style={{ background: "rgba(251, 109, 58, 0.15)" }}>
+        <div className="relative rounded-xl p-4 scale-95 w-full h-full" style={{ background: "rgba(251, 109, 58, 0.15)" }}>
+            <div className="absolute top-[-26] left-[-26] w-16 h-16 rounded-full flex items-center justify-center">
+                <Image
+                    src="/question-mark.svg"
+                    alt="Question Mark"
+                    width={50}
+                    height={50}
+                />
+            </div>
             <div className="flex flex-col h-full justify-between">
                 {showHint ? (
-                    <div className="flex flex-col w-full ">
+                    <div className="flex flex-col w-full">
                         <div className="flex flex-col items-end">
                             <Image
                                 src="/cancel.svg"
@@ -46,7 +54,7 @@ export function HintCard({
                             </Button>
                         </div>
                         <div className="flex justify-center w-full">
-                            <Image src={iconSrc} alt={text} layout="responsive" width={120} height={120} className="max-w-[300px]" />
+                            <Image src={iconSrc} alt={text} layout="responsive" width={400} height={400} className="max-w-[200px] sm:max-w-[300px]" />
                         </div>
                     </div>
                 )}

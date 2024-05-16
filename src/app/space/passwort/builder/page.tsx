@@ -8,13 +8,13 @@ import { HintCard } from "@/components/hint-card";
 export default function Builder() {
   const router = useRouter();
   return (
-    <div className="flex flex-row flex-wrap">
-      <div className="flex flex-col max-w-[1100px] px-2 lg:px-6 justify-start mt-[-1rem] mb-4">
-        <div className="flex flex-col mr-8">
+    <div className="flex flex-row flex-wrap h-full">
+      <div className="flex flex-col max-w-[1100px] px-2 justify-start mt-[-1rem] mb-4">
+        <div className="flex flex-col xl:mr-8">
           <SecurePasswordInput />
-          <div className="flex flex-row lg:pt-1 sm:pt-12">
-            <div className="flex flex-col lg:flex-row gap-x-8">
-              <div className="max-w-[200px] mx-auto">
+          <div className="flex flex-row lg:pt-12">
+            <div className="flex flex-row flex-wrap justify-center">
+              <div className="max-w-[250px]">
                 <ActionCard
                   title="Passwort Profi"
                   description="Bewerte die Sicherheit unserer Passwörter"
@@ -26,7 +26,7 @@ export default function Builder() {
                   redirectPath="/space/passwort/strength/"
                 />
               </div>
-              <div className="max-w-[200px] mx-auto">
+              <div className="max-w-[250px]">
                 <ActionCard
                   title="Safety First"
                   description="Lerne was ein gutes Passwort ausmacht"
@@ -42,7 +42,7 @@ export default function Builder() {
           </div>
         </div>
       </div>
-      <div className="max-w-[450px] ml-6">
+      <div className="max-w-[450px] max-h-[400px] sm:max-h-[700px] mx-2 lg:mx-6 w-full h-full">
         <HintCard
           text="Was denkst du wie lange es dauern würde dein Passwort zu knacken?"
           buttonText="Lösung anzeigen"
