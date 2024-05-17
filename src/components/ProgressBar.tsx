@@ -1,7 +1,6 @@
 import clsx from "clsx";
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import { useTimeout } from "@/util/timeout";
 
 export type ProgressBarProps = {
   progress: number;

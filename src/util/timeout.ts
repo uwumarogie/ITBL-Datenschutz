@@ -1,4 +1,3 @@
-import { number } from "prop-types";
 import { useEffect } from "react";
 
 export function useTimeout(func: () => void, duration: number) {
