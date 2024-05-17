@@ -1,33 +1,18 @@
 "use client";
 
-import AchievementCard, {
-  Achievement,
-} from "@/components/Achievements/AchievementCard";
+import AchievementCard from "@/components/Achievements/AchievementCard";
 import { useState } from "react";
 import { ProgressBar } from "@/components/ProgressBar";
+import {Achievement, AchievementData} from "@/util/achievement-data";
+import {useUserData} from "@/services/user/UserServiceContext";
 
 export default function Achievements() {
   const [progress, setProgress] = useState(0.6);
-
-  const achievements: Achievement[] = [
-    {
-      title: "Datenschutz-Held",
-      description:
-        "Du bist jetzt in seinem Gebiet ein Profi. Kläre eine Person in deinem Umfeld auf und überwiege sie ein sicheres Passwort zu erstellen.",
-      progress: false,
-      icon: "rights.png",
-    },
-    {
-      title: "Phishing-Fänger",
-      description: "Erkenne und melde 2 Phishing-Versuche.",
-      progress: true,
-    },
-    {
-      title: "Werbe-Guru",
-      description: "Erziele 5 perfekte Werbeangebote.",
-      progress: true,
-    },
-  ].sort((a, b) => {
+  const { userData } = useUserData()
+  const achievements = AchievementData.achievements.map(a => ({
+    ...a,
+    progress: userData.achievements[a.id] ?? false
+  } as Achievement)).sort((a, b) => {
     if (a.progress && !b.progress) {
       return 1;
     } else if (b.progress && !a.progress) {
@@ -35,7 +20,7 @@ export default function Achievements() {
     } else {
       return 0;
     }
-  });
+  })
   const steps = [
     {
       progress: 0.1,
@@ -65,6 +50,7 @@ export default function Achievements() {
         {achievements.map((a) => (
           <AchievementCard
             key={a.title}
+            id={a.id}
             title={a.title}
             description={a.description}
             progress={a.progress}
