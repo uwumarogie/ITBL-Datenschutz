@@ -9,6 +9,7 @@ type ButtonProps = {
   onClick?: MouseEventHandler<HTMLButtonElement> | undefined;
   className?: string | undefined;
   style?: ButtonStyle;
+  disabled?: boolean | undefined;
 } & PropsWithChildren;
 
 export default function Button({
@@ -18,8 +19,9 @@ export default function Button({
   style,
 }: ButtonProps) {
   const buttonBase =
-    "inline-flex justify-center items-center align-center px-6 py-3 font-medium rounded-2xl transition-colors ";
+    "inline-flex justify-center items-center align-center px-6 py-3 font-medium rounded-2xl transition-colors";
   let buttonStyle = "text-white bg-orange-500";
+  const buttonDisabledStyle = "bg-gray-300 text-white";
   let buttonHoverStyle = "hover:bg-orange-600";
   if (style == "green") {
     buttonStyle = "text-white bg-lime-500";
@@ -28,16 +30,16 @@ export default function Button({
     buttonStyle = "text-white bg-red-500";
     buttonHoverStyle = "hover:bg-red-600";
   }
+  
+  const mergedStyle = clsx(
+    buttonBase,
+    disabled ? buttonDisabledStyle : buttonStyle,
+    className,
+    onClick ? "cursor-pointer" : "cursor-default",
+    onClick && buttonHoverStyle
+  );
   return (
-    <button
-      className={clsx(
-        buttonBase,
-        buttonStyle,
-        className,
-        onClick && buttonHoverStyle,
-      )}
-      onClick={onClick}
-    >
+    <button className={mergedStyle} onClick={onClick} disabled={disabled}>
       {children}
     </button>
   );
