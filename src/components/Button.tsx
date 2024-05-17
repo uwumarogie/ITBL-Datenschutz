@@ -17,6 +17,7 @@ export default function Button({
   onClick,
   className,
   style,
+  disabled
 }: ButtonProps) {
   const buttonBase =
     "inline-flex justify-center items-center align-center px-6 py-3 font-medium rounded-2xl transition-colors";

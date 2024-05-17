@@ -31,7 +31,7 @@ export function Section() {
   const getActiveSection = () => {
     if (path.startsWith("/space")) {
       return SectionName.ERKUNDEN;
-    } else if (path.startsWith("/archievements")) {
+    } else if (path.startsWith("/achievements")) {
       return SectionName.FORTSCHRITT;
     } else if (path.startsWith("/leaderboard")) {
       return SectionName.LEADERBOARD;
@@ -55,7 +55,7 @@ export function Section() {
       srcActive: "/section/pace-active.svg",
       srcInactive: "/section/pace.svg",
       alt: "Fortschritt",
-      href: "/archievements",
+      href: "/achievements",
     },
     {
       sectionName: SectionName.LEADERBOARD,
