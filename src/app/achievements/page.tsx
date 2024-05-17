@@ -3,24 +3,29 @@
 import AchievementCard from "@/components/Achievements/AchievementCard";
 import { useState } from "react";
 import { ProgressBar } from "@/components/ProgressBar";
-import {Achievement, AchievementData} from "@/util/achievement-data";
-import {useUserData} from "@/services/user/UserServiceContext";
+import { Achievement, AchievementData } from "@/util/achievement-data";
+import { useUserData } from "@/services/user/UserServiceContext";
 
 export default function Achievements() {
   const [progress, setProgress] = useState(0.6);
-  const { userData } = useUserData()
-  const achievements = AchievementData.achievements.map(a => ({
-    ...a,
-    progress: userData.achievements[a.id] ?? false
-  } as Achievement)).sort((a, b) => {
-    if (a.progress && !b.progress) {
-      return 1;
-    } else if (b.progress && !a.progress) {
-      return -1;
-    } else {
-      return 0;
-    }
-  })
+  const { userData } = useUserData();
+  const achievements = AchievementData.achievements
+    .map(
+      (a) =>
+        ({
+          ...a,
+          progress: userData.achievements[a.id] ?? false,
+        }) as Achievement,
+    )
+    .sort((a, b) => {
+      if (a.progress && !b.progress) {
+        return 1;
+      } else if (b.progress && !a.progress) {
+        return -1;
+      } else {
+        return 0;
+      }
+    });
   const steps = [
     {
       progress: 0.1,

@@ -5,9 +5,7 @@ import Image from "next/image";
 import { useState } from "react";
 import clsx from "clsx";
 import { Star } from "@phosphor-icons/react";
-import {Achievement} from "@/util/achievement-data";
-
-
+import { Achievement } from "@/util/achievement-data";
 
 export default function AchievementCard({
   title,

@@ -1,4 +1,3 @@
-
 export type Achievement = {
   id: string;
   title: string;
@@ -8,13 +7,13 @@ export type Achievement = {
 };
 
 export namespace AchievementData {
-
   export const achievements: Achievement[] = [
     {
       id: "datenschutz-held",
       title: "Datenschutz-Held",
-      description: "Du bist jetzt in seinem Gebiet ein Profi. Kläre eine Person in deinem Umfeld auf und überwiege sie ein sicheres Passwort zu erstellen.",
-      progress: false
+      description:
+        "Du bist jetzt in seinem Gebiet ein Profi. Kläre eine Person in deinem Umfeld auf und überwiege sie ein sicheres Passwort zu erstellen.",
+      progress: false,
     },
     {
       id: "werbe-guru",
@@ -28,5 +27,5 @@ export namespace AchievementData {
       description: "Erkenne und melde 2 Phishing-Versuche.",
       progress: true,
     },
-  ]
+  ];
 }
