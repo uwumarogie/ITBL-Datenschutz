@@ -7,7 +7,7 @@ import Button, { ButtonStyle } from "@/components/button";
 export type QuizParams = {
   className?: string;
   question: string;
-  hint?: string;
+  hint?: string | React.ReactNode;
   answers: string[];
   correctAnswer: number;
   hintAnswers?: string[];
