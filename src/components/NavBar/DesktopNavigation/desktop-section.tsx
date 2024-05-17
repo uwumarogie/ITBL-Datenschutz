@@ -2,7 +2,7 @@
 
 import clsx from "clsx";
 import { Props, SectionName } from "../Section";
-import {DesktopSectionItem} from "@/components/NavBar/DesktopNavigation/desktop-section-item";
+import { DesktopSectionItem } from "@/components/NavBar/DesktopNavigation/desktop-section-item";
 
 export function DesktopSection({
   setSection,
