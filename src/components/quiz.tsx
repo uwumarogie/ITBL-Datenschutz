@@ -2,8 +2,19 @@
 
 import React, { useState } from "react";
 import clsx from "clsx";
-import Button from "@/components/button";
-import { QuizParams } from "@/util/password-quiz-data";
+import Button, { ButtonStyle } from "@/components/Button";
+
+export type QuizParams = {
+  className?: string;
+  question: string;
+  hint?: string;
+  answers: string[];
+  correctAnswer: number;
+  hintAnswers?: string[];
+  onSelect?: (selection: number, isDone: boolean) => void;
+  // If enabled, the user only has a single try. After selection, it will show the solution to the user.
+  showCorrectAnswer?: boolean;
+};
 
 export default function Quiz(quiz: QuizParams) {
   const [selection, setSelection] = useState<number | undefined>(undefined);
@@ -17,22 +28,21 @@ export default function Quiz(quiz: QuizParams) {
     quiz.onSelect?.(index, isDone);
   }
 
-  function selectionClass(index: number) {
+  function buttonStyle(index: number): ButtonStyle {
     if (
       quiz.showCorrectAnswer &&
       selection != undefined &&
       index == quiz.correctAnswer
     ) {
-      return "bg-lime-500";
+      return "green";
     } else {
       return selection == index
         ? index == quiz.correctAnswer
-          ? "bg-lime-500"
-          : "bg-red-500"
-        : "";
+          ? "green"
+          : "red"
+        : "default";
     }
   }
-
   function showCursorClass() {
     return quiz.showCorrectAnswer && selection != undefined
       ? "cursor-auto"
@@ -47,7 +57,8 @@ export default function Quiz(quiz: QuizParams) {
         {quiz.answers.map((answer, index) => (
           <Button
             key={index}
-            className={clsx(selectionClass(index), showCursorClass())}
+            className={clsx(showCursorClass())}
+            style={buttonStyle(index)}
             onClick={() => {
               onClick(index);
             }}

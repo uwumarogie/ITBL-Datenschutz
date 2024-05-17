@@ -1,15 +1,12 @@
 "use client";
 
 import clsx from "clsx";
-import { Props } from "../Section";
-import { DesktopSectionItem } from "./desktop-section-item";
+import { Props, SectionName } from "../Section";
+import { DesktopSectionItem } from "./DesktopSectionItem";
 
 export function DesktopSection({
   setSection,
-  first,
-  second,
-  third,
-  fourth,
+  activeSection,
   sectionItems,
 }: Props) {
   return (
@@ -17,30 +14,31 @@ export function DesktopSection({
       <div
         className={clsx(
           "flex items-center justify-center flex-row space-x-5 min-w-60 max-w-96 min-h-10 bg-blue-background z-30",
-          first && "rounded-br-3xl",
+          activeSection === SectionName.ERKUNDEN && "rounded-br-3xl",
         )}
       />
       {sectionItems.map(
-        (
-          { sectionName, isActive, srcActive, srcInactive, alt, href },
-          index,
-        ) => (
+        ({ sectionName, srcActive, srcInactive, alt, href }, index) => (
           <DesktopSectionItem
             key={index}
             setSection={setSection}
             sectionName={sectionName}
-            isActive={isActive}
+            isActive={activeSection === sectionName}
             srcActive={srcActive}
             srcInactive={srcInactive}
             alt={alt}
             href={href}
             className={clsx(
               "flex items-center justify-start px-28 flex-row space-x-5 min-w-60 max-w-96 min-h-16 bg-blue-background",
-              isActive
+              activeSection === sectionName
                 ? "bg-white rounded-l-full text-orange-600"
                 : "text-white",
-              index > 0 && sectionItems[index - 1].isActive && "rounded-tr-3xl",
-              index < 3 && sectionItems[index + 1].isActive && "rounded-br-3xl",
+              index > 0 &&
+                sectionItems[index - 1].sectionName === activeSection &&
+                "rounded-tr-3xl",
+              index < 3 &&
+                sectionItems[index + 1].sectionName === activeSection &&
+                "rounded-br-3xl",
             )}
           />
         ),
@@ -48,7 +46,7 @@ export function DesktopSection({
       <div
         className={clsx(
           "flex items-center justify-center flex-row space-x-5 min-w-60 max-w-96 min-h-5 bg-blue-background z-30 ",
-          fourth && "rounded-tr-3xl",
+          activeSection === SectionName.CHATBOT && "rounded-tr-3xl",
         )}
       />
     </div>
