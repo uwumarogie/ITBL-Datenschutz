@@ -1,12 +1,16 @@
-import { InlineNavigation } from "@/components/inline-navigation";
+"use client";
+
+import Button from "@/components/Button";
+import { useRouter } from "next/navigation";
 
 export default function DataProcessing() {
+  const router = useRouter();
+
   return (
-    <div className="px-6">
-      <div className="hidden sm:block">
-        <InlineNavigation />
-      </div>
-      <p>Datenverarbeitung</p>
+    <div className="relative h-full w-full flex flex-col">
+      <Button onClick={() => router.push("/space/daten-verarbeitung/0")}>
+        Modul starten
+      </Button>
     </div>
   );
 }
