@@ -17,7 +17,7 @@ export default function Button({
   onClick,
   className,
   style,
-  disabled
+  disabled,
 }: ButtonProps) {
   const buttonBase =
     "inline-flex justify-center items-center align-center px-6 py-3 font-medium rounded-2xl transition-colors";
@@ -31,13 +31,13 @@ export default function Button({
     buttonStyle = "text-white bg-red-500";
     buttonHoverStyle = "hover:bg-red-600";
   }
-  
+
   const mergedStyle = clsx(
     buttonBase,
     disabled ? buttonDisabledStyle : buttonStyle,
     className,
     onClick ? "cursor-pointer" : "cursor-default",
-    onClick && buttonHoverStyle
+    onClick && buttonHoverStyle,
   );
   return (
     <button className={mergedStyle} onClick={onClick} disabled={disabled}>
