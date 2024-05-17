@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import clsx from "clsx";
-import Button, { ButtonStyle } from "@/components/Button";
+import Button, {ButtonStyle} from "@/components/button";
 
 export type QuizParams = {
   className?: string;

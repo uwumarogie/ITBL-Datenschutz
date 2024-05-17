@@ -2,8 +2,8 @@
 
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
-import { MobileSection } from "./MobileNavigation/MobileSection";
-import { DesktopSection } from "./DesktopNavigation/DesktopSection";
+import {DesktopSection} from "@/components/NavBar/DesktopNavigation/desktop-section";
+import {MobileSection} from "@/components/NavBar/MobileNavigation/mobile-section";
 
 export type Props = {
   setSection: (activeSection: SectionName) => void;
