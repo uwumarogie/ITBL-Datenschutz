@@ -8,7 +8,7 @@ import {
   SUCCESS_COLOR,
 } from "@/util/passwort-validation";
 import { CheckMarkGreen } from "@/components/check-mark-green";
-import { GreyCheckMark } from "@/components/grey-check-mark";
+import { RedCrossMark} from "@/components/red-cross-mark";
 
 export function InputValidation({ input = "" }: { input: string }) {
   const validations = [
@@ -38,6 +38,6 @@ function Indicator({ color }: { color: string }) {
   if (color === SUCCESS_COLOR) {
     return <CheckMarkGreen />;
   } else {
-    return <GreyCheckMark />;
+    return <RedCrossMark />;
   }
 }

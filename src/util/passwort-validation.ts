@@ -27,7 +27,7 @@ export function difficultToGuess(word: string) {
 }
 
 export const SUCCESS_COLOR = "#2E8B57";
-const FAILURE_COLOR = "#858585";
+const FAILURE_COLOR = "#FF0000";
 
 export function getColor(condition: boolean) {
   return condition ? SUCCESS_COLOR : FAILURE_COLOR;
