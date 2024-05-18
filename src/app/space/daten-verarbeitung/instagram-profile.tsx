@@ -91,7 +91,7 @@ export default function InstagramProfile({
           {profile.posts.map((post, index) => (
             <div
               key={index}
-              className="aspect-square hover:scale-105 transition-all cursor-pointer"
+              className="aspect-square hover:scale-105 hover:shadow-2xl transition-all cursor-pointer"
               onClick={() => setCurrentPost(post)}
             >
               <Image
