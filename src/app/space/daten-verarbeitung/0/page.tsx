@@ -75,6 +75,13 @@ export default function DataProcessing0() {
   const [state, setState] = useState(0);
   const router = useRouter();
 
+  useEffect(() => {
+    const id = setTimeout(() => {
+      setState(1)
+    }, 200)
+    return () => clearTimeout(id)
+  }, []);
+
   function onClick() {
     setState((state) => (state + 1) % states.length);
     console.log(state);

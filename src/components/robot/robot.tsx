@@ -12,9 +12,11 @@ export default function Robot({
   expression,
   headRotation,
   className,
+  onClick,
   style,
 }: RobotProps & {
   className?: string | undefined;
+  onClick?: () => void,
   style?: CSSProperties | undefined;
 }) {
   const transitionTimingFunction = "cubic-bezier(0.34, 2, 0.64, 0.88)";
@@ -51,6 +53,7 @@ export default function Robot({
       overflow="visible"
       className={className}
       style={{animation: "hover-lg 5s infinite",...style}}
+      onClick={onClick}
     >
       <g style={headStyle} id="head">
         <path
