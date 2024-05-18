@@ -77,9 +77,9 @@ export default function DataProcessing0() {
 
   useEffect(() => {
     const id = setTimeout(() => {
-      setState(1)
-    }, 200)
-    return () => clearTimeout(id)
+      setState(1);
+    }, 200);
+    return () => clearTimeout(id);
   }, []);
 
   function onClick() {

@@ -11,16 +11,16 @@
 }
 
 @keyframes hover-lg {
-   0% {
-     translate: 0 0;
-   }
-   50% {
-     translate: 0 10px;
-   }
-   100% {
-     translate: 0 0;
-   }
- }
+  0% {
+    translate: 0 0;
+  }
+  50% {
+    translate: 0 10px;
+  }
+  100% {
+    translate: 0 0;
+  }
+}
 
 #eyes {
   #eye-left,
