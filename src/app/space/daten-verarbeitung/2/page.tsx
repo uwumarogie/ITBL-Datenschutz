@@ -103,7 +103,7 @@ export default function DataProcessing2() {
       >
         {advertisements.map((advertisement) => (
           <div
-            key={advertisement}
+            key={advertisement.id}
             className="bg-blue-200 rounded-xl w-full flex flex-shrink-0"
             onClick={() => onAdvertisementClick(advertisement)}
           >
