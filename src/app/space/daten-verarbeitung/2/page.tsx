@@ -30,31 +30,37 @@ const states: {
 ];
 
 const advertisements: {
+  id: string,
   imageSrc: string;
   name: string;
   description: string;
 }[] = [
   {
+    id: "0",
     imageSrc: "/phishing.png",
     name: "Antivirenschutz",
     description: "Beschreibung für eine Antivirensoftware",
   },
   {
+    id: "1",
     imageSrc: "/phishing.png",
     name: "Antivirenschutz",
     description: "Beschreibung für eine Antivirensoftware",
   },
   {
+    id: "2",
     imageSrc: "/phishing.png",
     name: "Antivirenschutz",
     description: "Beschreibung für eine Antivirensoftware",
   },
   {
+    id: "3",
     imageSrc: "/phishing.png",
     name: "Antivirenschutz",
     description: "Beschreibung für eine Antivirensoftware",
   },
   {
+    id: "4",
     imageSrc: "/phishing.png",
     name: "Antivirenschutz",
     description: "Beschreibung für eine Antivirensoftware",
@@ -97,6 +103,7 @@ export default function DataProcessing2() {
       >
         {advertisements.map((advertisement) => (
           <div
+            key={advertisement}
             className="bg-blue-200 rounded-xl w-full flex flex-shrink-0"
             onClick={() => onAdvertisementClick(advertisement)}
           >
