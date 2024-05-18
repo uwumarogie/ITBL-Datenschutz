@@ -11,7 +11,7 @@ export default function DataProgressingLayout({
       <div className="hidden sm:block">
         <InlineNavigation />
       </div>
-      <div className="w-full h-full">{children}</div>
+      <div className="w-full h-full overflow-hidden">{children}</div>
     </div>
   );
 }

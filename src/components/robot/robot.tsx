@@ -50,7 +50,7 @@ export default function Robot({
       xmlns="http://www.w3.org/2000/svg"
       overflow="visible"
       className={className}
-      style={style}
+      style={{animation: "hover-lg 5s infinite",...style}}
     >
       <g style={headStyle} id="head">
         <path
