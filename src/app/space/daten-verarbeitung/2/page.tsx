@@ -30,7 +30,7 @@ const states: {
 ];
 
 const advertisements: {
-  id: string,
+  id: string;
   imageSrc: string;
   name: string;
   description: string;
