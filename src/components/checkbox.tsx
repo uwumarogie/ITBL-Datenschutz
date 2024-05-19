@@ -9,7 +9,7 @@ type CheckboxProps = {
   style?: React.CSSProperties;
   isChecked: boolean;
   index: number;
-  handleCheckboxChanged: (index: number) => void
+  handleCheckboxChanged: (index: number) => void;
 };
 
 export default function Checkbox({
@@ -18,7 +18,7 @@ export default function Checkbox({
   style,
   isChecked,
   index,
-  handleCheckboxChanged
+  handleCheckboxChanged,
 }: CheckboxProps) {
   const [isHovered, setIsHovered] = useState(false);
 
@@ -33,7 +33,7 @@ export default function Checkbox({
         <div
           className={clsx(
             "relative h-5 w-5 md:h-6 md:w-6 2xl:w-8 2xl:h-8 rounded border-2 border-orange-300 bg-orange-500 transition duration-300",
-            isChecked && "bg-orange-600 border-orange-600"
+            isChecked && "bg-orange-600 border-orange-600",
           )}
           onClick={() => handleCheckboxChanged(index)}
         >

@@ -93,14 +93,14 @@ export default function Perso() {
       prevCheckboxes.map((checkbox, i) =>
         i === index
           ? { ...checkbox, isChecked: !checkbox.isChecked }
-          : checkbox
-      )
+          : checkbox,
+      ),
     );
   };
 
   const validateInput = () => {
     const correct = checkboxes.every(
-      (checkbox) => checkbox.isChecked === checkbox.isPersonenbezogen
+      (checkbox) => checkbox.isChecked === checkbox.isPersonenbezogen,
     );
     setIsCorrect(correct);
     if (correct) {
@@ -115,12 +115,12 @@ export default function Perso() {
       <div>
         <div className="flex flex-col space-y-2 pb-4 max-w-[700px]">
           <h1 className="text-xl lg:text-3xl text-blue-background pb-2 font-semibold">
-            Finde alle personenbezogenen Daten, die sich auf der Vorderseite eines
-            Ausweis befinden
+            Finde alle personenbezogenen Daten, die sich auf der Vorderseite
+            eines Ausweis befinden
           </h1>
           <span className="text-base lg:text-base sm:text-wrap md:text-wrap text-blue-background">
-            Klicke alle Felder auf dem Ausweis an, die ein personenbezogenes Datum
-            sind
+            Klicke alle Felder auf dem Ausweis an, die ein personenbezogenes
+            Datum sind
           </span>
         </div>
         <div className="relative w-full lg:max-w-[40vw]">
@@ -145,14 +145,13 @@ export default function Perso() {
           ))}
         </div>
       </div>
-      <Button
-        className="m-4 w-24 h-11"
-        onClick={validateInput}
-      >
+      <Button className="m-4 w-24 h-11" onClick={validateInput}>
         Weiter
       </Button>
       {message && (
-        <div className={`m-4 p-4 text-white ${isCorrect ? "bg-green-500" : "bg-red-500"}`}>
+        <div
+          className={`m-4 p-4 text-white ${isCorrect ? "bg-green-500" : "bg-red-500"}`}
+        >
           {message}
         </div>
       )}
