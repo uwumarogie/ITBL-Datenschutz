@@ -54,7 +54,7 @@ export default function Perso() {
       title="Finde alle personenbezogenen Daten, die sich auf der Vorderseite
       eines Ausweis befinden"
       description="Klicke alle Felder auf dem Ausweis an, die personenbezogen sind"
-      nextPageHref="/space/privatsphaere/perso/quiz"
+      nextPageHref="/space/privatsphaere/quiz"
     />
   );
 }
