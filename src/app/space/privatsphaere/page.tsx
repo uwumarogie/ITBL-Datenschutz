@@ -11,11 +11,11 @@ export default function Privacy() {
           Was sind personenbezogene Daten?
         </h1>
         <span className="text-base lg:text-base sm:text-wrap md:text-wrap text-blue-background">
-          "Personenbezogene Daten sind alle Informationen, die sich auf
+          &quot;Personenbezogene Daten sind alle Informationen, die sich auf
           eine identifizierte oder identifizierbare lebende Person beziehen.
           Verschiedene Teilinformationen, die gemeinsam zur Identifizierung
           einer bestimmten Person führen können, stellen ebenfalls
-          personenbezogene Daten dar.“
+          personenbezogene Daten dar.&quot;
         </span>
       </div>
       <div className="max-w-[300px] pb-4">
