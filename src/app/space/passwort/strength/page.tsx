@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { PasswordData, passwordData } from "@/util/password-quiz-data";
 import { IntroductionText } from "@/components/introduction-text";
-import { redirect, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import Button from "@/components/button";
 
 export default function PasswordStrength() {
@@ -31,12 +31,16 @@ const PasswordStrengthDisplay = ({
 
   const [totalPoints, setTotalPoints] = useState(0);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+  const [buttonStyle, setButtonStyle] = useState(-1);
   const currentQuestion = passwords[currentQuestionIndex];
 
   function handleButtonClick(strength: number) {
     if (currentQuestion.strength === strength) {
       setTotalPoints((s) => s + currentQuestion.points);
       goToNextQuestion();
+      setButtonStyle(-1);
+    } else {
+      setButtonStyle(strength);
     }
   }
 
@@ -68,24 +72,24 @@ const PasswordStrengthDisplay = ({
           </div>
 
           <div className="flex flex-col lg:space-y-8 space-y-4">
-            <button
+            <Button
               onClick={() => handleButtonClick(2)}
-              className="flex justify-center items-center rounded-xl bg-orange-600 p-4 hover:bg-orange-500 text-white font-light"
+              style={buttonStyle == 2 ? "red" : "default"}
             >
               stark
-            </button>
-            <button
+            </Button>
+            <Button
               onClick={() => handleButtonClick(1)}
-              className="flex justify-center items-center rounded-xl bg-orange-600 hover:bg-orange-500 p-4 text-white font-light"
+              style={buttonStyle == 1 ? "red" : "default"}
             >
               mittel
-            </button>
-            <button
+            </Button>
+            <Button
               onClick={() => handleButtonClick(0)}
-              className="flex justify-center items-center rounded-xl bg-orange-600 hover:bg-orange-500 p-4 text-white font-light"
+              style={buttonStyle == 0 ? "red" : "default"}
             >
               schwach
-            </button>
+            </Button>
           </div>
         </>
       )}

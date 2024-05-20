@@ -89,7 +89,7 @@ export const passwordData = [
   {
     password: "En#v54$pa!s",
     points: 9,
-    strength: 2,
+    strength: 0,
   },
 ];
 
