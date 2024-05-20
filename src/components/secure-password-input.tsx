@@ -8,7 +8,8 @@ export function SecurePasswordInput() {
   const [input, setInput] = useState("");
   const [isSecure, setIsSecure] = useState(false);
   return (
-    <div className="flex flex-col justify-start max-w-full space-y-2 pt-4 pb-1">
+    <div className="flex flex-col justify-start max-w-full space-y-2 pt-4 pb-1"
+      style={{paddingBottom: isSecure ? "0rem" : "2rem"}}>
       <h1 className="text-2xl lg:text-2xl text-blue-background decoration-3">
         Erstelle ein sicheres Passwort!
       </h1>
