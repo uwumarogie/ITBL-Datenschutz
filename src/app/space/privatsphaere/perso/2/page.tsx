@@ -38,7 +38,7 @@ export default function Perso() {
       hoverText: "Ausstellende Behörde",
       isChecked: false,
       isPersonenbezogen: true,
-    }
+    },
   ]);
 
   return (
@@ -46,11 +46,11 @@ export default function Perso() {
       checkboxes={checkboxes}
       imgSrc="/id-back.png"
       setCheckboxes={setCheckboxes}
-      hint="&quot;Personenbezogene Daten sind alle Informationen, die sich auf
+      hint='"Personenbezogene Daten sind alle Informationen, die sich auf
       eine identifizierte oder identifizierbare lebende Person beziehen.
       Verschiedene Teilinformationen, die gemeinsam zur Identifizierung
       einer bestimmten Person führen können, stellen ebenfalls
-      personenbezogene Daten dar.&quot;"
+      personenbezogene Daten dar."'
       title="Finde alle personenbezogenen Daten, die sich auf der Vorderseite
       eines Ausweis befinden"
       description="Klicke alle Felder auf dem Ausweis an, die personenbezogen sind"
