@@ -8,13 +8,13 @@ export function SecurePasswordInput() {
   const [input, setInput] = useState("");
   const [isSecure, setIsSecure] = useState(false);
   return (
-    <div className="flex flex-col justify-start max-w-full space-y-2 py-4">
+    <div className="flex flex-col justify-start max-w-full space-y-2 pt-4 pb-1">
       <h1 className="text-2xl lg:text-2xl text-blue-background decoration-3">
         Erstelle ein sicheres Passwort!
       </h1>
       <div className="flex flex-row gap-x-8">
         <input
-          className="flex border-2 border-black rounded-xl text-xl md:text-2xl p-3 md:p-4 lg:w-7/12 sm:w-full h-14"
+          className="flex border-2 border-black rounded-xl text-xl md:text-2xl p-3 md:p-4 lg:w-7/12 sm:w-full h-14 max-w-[290px]"
           onChange={(e) => setInput(e.target.value)}
           name="passwort-input"
         />

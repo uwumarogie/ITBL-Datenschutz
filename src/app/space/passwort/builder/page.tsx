@@ -12,7 +12,7 @@ export default function Builder() {
       <div className="flex flex-col max-w-[1100px] px-2 justify-start mt-[-1rem] mb-4">
         <div className="flex flex-col xl:mr-8">
           <SecurePasswordInput />
-          <div className="flex flex-row lg:pt-12">
+          <div className="flex flex-row 2xl:pt-12">
             <div className="flex flex-row flex-wrap justify-center">
               <div className="max-w-[250px]">
                 <ActionCard
@@ -42,7 +42,7 @@ export default function Builder() {
           </div>
         </div>
       </div>
-      <div className="max-w-[450px] max-h-[400px] sm:max-h-[700px] mx-2 lg:mx-6 w-full h-full">
+      <div className="max-w-[400px] max-h-[450px] sm:max-h-[700px] mx-2 lg:mx-6 w-full h-full">
         <HintCard
           text="Was denkst du wie lange es dauern würde dein Passwort zu knacken?"
           buttonText="Lösung anzeigen"
