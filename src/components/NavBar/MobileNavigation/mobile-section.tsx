@@ -1,7 +1,7 @@
 "use client";
 
 import { Props } from "../Section";
-import { MobileSectionItem } from "./MobileSectionItem";
+import { MobileSectionItem } from "./mobile-section-item";
 
 export function MobileSection({
   setSection,

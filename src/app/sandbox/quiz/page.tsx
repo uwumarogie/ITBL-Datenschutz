@@ -1,9 +1,10 @@
 "use client";
 
-import QuizList from "@/components/QuizList";
-import Quiz, { QuizParams } from "@/components/Quiz";
+import QuizList from "@/components/quiz-list";
+import Quiz from "@/components/quiz";
 import { useState } from "react";
-import Button from "@/components/Button";
+import Button from "@/components/button";
+import { QuizParams } from "@/util/password-quiz-data";
 
 export default function QuizSandboxPage() {
   const answers = [

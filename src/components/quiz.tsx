@@ -1,13 +1,13 @@
 "use client";
 
-import { useState } from "react";
+import React, { useState } from "react";
 import clsx from "clsx";
-import Button, { ButtonStyle } from "@/components/Button";
+import Button, { ButtonStyle } from "@/components/button";
 
 export type QuizParams = {
   className?: string;
   question: string;
-  hint?: string;
+  hint?: string | React.ReactNode;
   answers: string[];
   correctAnswer: number;
   hintAnswers?: string[];
@@ -52,7 +52,7 @@ export default function Quiz(quiz: QuizParams) {
   return (
     <div className={quiz.className}>
       <h3 className="text-xl font-semibold mb-2">{quiz.question}</h3>
-      <p className="mb-10">{quiz.hint}</p>
+      <p className="mb-5">{quiz.hint}</p>
       <div className="answers grid grid-cols-1 lg:grid-cols-2 gap-4">
         {quiz.answers.map((answer, index) => (
           <Button
@@ -69,24 +69,24 @@ export default function Quiz(quiz: QuizParams) {
       </div>
 
       {selection != undefined && (
-        <div className="px-6 py-4 border border-orange-400 bg-orange-100 text-orange-800 rounded-xl my-4">
+        <div className="px-6 py-2 border border-orange-400 bg-orange-100 text-orange-800 rounded-xl my-4">
           {selection == quiz.correctAnswer ? (
-            <div>
+            <>
               <h4 className="font-semibold">Richtige Antwort!</h4>
-            </div>
+            </>
           ) : (
             <div>
               <h4 className="font-semibold">Das stimmt leider nicht!</h4>
               {quiz.showCorrectAnswer ? (
-                <p>
+                <>
                   Die richtige Antwort wäre{" "}
                   <span className="italic">
                     {quiz.answers[quiz.correctAnswer]}
                   </span>{" "}
                   gewesen.
-                </p>
+                </>
               ) : (
-                <p>Versuche es noch einmal.</p>
+                <>Versuche es noch einmal.</>
               )}
             </div>
           )}

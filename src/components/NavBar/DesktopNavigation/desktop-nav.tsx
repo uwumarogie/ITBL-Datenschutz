@@ -27,15 +27,18 @@ export function DesktopNav() {
         </div>
         <Section />
       </div>
-      <ActionCard
-        title="Master Quiz"
-        description="Teste all dein Wissen"
-        iconSrc="/star.svg"
-        buttonText="Start"
-        primaryColor="#014F86"
-        secondaryColor="#2A6F97"
-        onClick={() => router.push("/sandbox/quiz")}
-      />
+      <div className="mx-auto">
+        <ActionCard
+          title="Master Quiz"
+          description="Teste all dein Wissen"
+          iconSrc="/star.svg"
+          buttonText="Start"
+          primaryColor="#014F86"
+          secondaryColor="#2A6F97"
+          titleColor="white"
+          redirectPath="/sandbox/quiz"
+        />
+      </div>
     </div>
   );
 }

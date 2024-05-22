@@ -1,12 +1,13 @@
-import Quiz, { QuizParams } from "@/components/Quiz";
+"use client";
+import Quiz from "@/components/quiz";
 import { useState } from "react";
 import clsx from "clsx";
-import Button from "@/components/Button";
+import Button from "@/components/button";
+import { QuizParams } from "@/util/password-quiz-data";
 
 export type QuizListProps = {
   className?: string;
   quizzes: QuizParams[];
-  // Is called once all quizzes have been finished and the user sees the results
   onFinish?: () => void;
 };
 
@@ -17,7 +18,6 @@ export default function QuizList({
 }: QuizListProps) {
   const [currentQuizIndex, setCurrentQuizIndex] = useState(0);
   const [showSummary, setShowSummary] = useState(false);
-  const quiz = quizzes[currentQuizIndex];
 
   const [quizzesState, setQuizzesState] = useState<
     {
@@ -27,7 +27,7 @@ export default function QuizList({
       isDone: boolean;
     }[]
   >(
-    quizzes.map((quiz, index) => ({
+    quizzes.map((quiz) => ({
       quiz,
       selection: -1,
       isSolved: false,
@@ -83,10 +83,10 @@ export default function QuizList({
     setCurrentQuizIndex(currentQuizIndex + 1);
   }
 
-  function previousQuiz() {
-    if (currentQuizIndex == 0) return;
-    setCurrentQuizIndex(currentQuizIndex - 1);
-  }
+  //function previousQuiz() {
+  // if (currentQuizIndex == 0) return;
+  //setCurrentQuizIndex(currentQuizIndex - 1);
+  //}
 
   function finishQuiz() {
     if (showSummary) {
@@ -99,7 +99,7 @@ export default function QuizList({
 
   return (
     <div className={className}>
-      <div className="py-6 flex gap-6">
+      <div className="py-4 flex gap-6 justify-center items-center">
         {quizzesState.map((state, index) => (
           <div key={index} className={quizStateClasses(index)}>
             {index + 1}
@@ -108,7 +108,7 @@ export default function QuizList({
       </div>
 
       {!showSummary && (
-        <div className="quiz mb-10">
+        <div className="mb-10">
           {quizzesState.map(({ quiz, isDone, isSolved, selection }, index) => (
             <div
               className={clsx("", currentQuizIndex != index && "hidden")}
@@ -134,22 +134,27 @@ export default function QuizList({
       {showSummary && (
         <div className="summary mb-6">
           <h3 className="text-xl font-semibold mb-2">Du hast es geschafft!</h3>
-          <p>
+          <p className="pb-6">
             Du hast{" "}
             {quizzesState
               .map((state) => state.isSolved)
               .reduce((acc, v) => acc + (v ? 1 : 0), 0)}{" "}
             von {quizzesState.length} Fragen richtig beantwortet.
           </p>
+          <Button onClick={() => onFinish}>Weiter</Button>
         </div>
       )}
 
       <div className="ml-100 flex justify-end">
         {quizzesState[currentQuizIndex]?.isDone &&
-          (currentQuizIndex == quizzes.length - 1 ? (
-            <Button onClick={finishQuiz}>Abschließen</Button>
+          (currentQuizIndex === quizzes.length - 1 ? (
+            <Button onClick={finishQuiz} className="mb-10">
+              Abschließen
+            </Button>
           ) : (
-            <Button onClick={nextQuiz}>Weiter</Button>
+            <Button onClick={nextQuiz} className="mb-10">
+              Weiter
+            </Button>
           ))}
       </div>
     </div>
