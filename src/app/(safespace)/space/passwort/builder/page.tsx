@@ -6,7 +6,6 @@ import { useRouter } from "next/navigation";
 import { HintCard } from "@/components/hint-card";
 
 export default function Builder() {
-  const router = useRouter();
   return (
     <div className="flex flex-row flex-wrap h-full">
       <div className="flex flex-col max-w-[1100px] px-2 justify-start mt-[-1rem] mb-4">

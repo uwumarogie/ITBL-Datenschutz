@@ -6,7 +6,6 @@ import { useRouter } from "next/navigation";
 import Image from "next/image";
 
 export default function Passwort() {
-  const router = useRouter();
   return (
     <div className="flex flex-wrap items-start max-w-[1800px]">
       <div className="flex flex-col justify-start max-w-full xl:max-w-[calc(100%-400px)]">
