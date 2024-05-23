@@ -21,7 +21,7 @@ const UserDataContext = createContext<UserData>({
 });
 
 export function UserDataProvider({ children }: any) {
-  const router = useRouter()
+  const router = useRouter();
   const [userData, setUserData] = useState<UserData>({
     achievements: {},
     quizzes: {},
@@ -37,7 +37,7 @@ export function UserDataProvider({ children }: any) {
   useEffect(() => {
     userService.loadUser().then(async (userData) => {
       if (userData === null) {
-        router.push("/")
+        router.push("/");
       } else {
         setUserData(userData);
       }
