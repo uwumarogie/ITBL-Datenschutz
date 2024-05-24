@@ -3,10 +3,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { ActionCard } from "@/components/action-card";
 import { Section } from "../Section";
-import { useRouter } from "next/navigation";
 
 export function DesktopNav() {
-  const router = useRouter();
   return (
     <div className="flex flex-col w-[340px] h-full justify-between align-center">
       <div>

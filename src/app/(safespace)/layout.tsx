@@ -1,3 +1,4 @@
+import React from "react";
 import { DesktopNav } from "@/components/NavBar/DesktopNavigation/desktop-nav";
 import { MobileNav } from "@/components/NavBar/MobileNavigation/mobile-nav";
 
