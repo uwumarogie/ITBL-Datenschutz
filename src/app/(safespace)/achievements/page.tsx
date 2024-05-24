@@ -1,6 +1,6 @@
 "use client";
 
-import AchievementCard from "@/components/Achievements/AchievementCard";
+import AchievementCard from "@/components/Achievements/achievement-card";
 import { useState } from "react";
 import { ProgressBar } from "@/components/ProgressBar";
 import { Achievement, AchievementData } from "@/util/achievement-data";
