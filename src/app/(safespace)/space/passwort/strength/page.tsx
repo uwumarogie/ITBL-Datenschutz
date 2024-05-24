@@ -1,8 +1,8 @@
 "use client";
 
-import {  passwordData } from "@/util/password-quiz-data";
+import { passwordData } from "@/util/password-quiz-data";
 import { IntroductionText } from "@/components/introduction-text";
-import {PasswordStrengthDisplay} from "@/components/password-strength-display";
+import { PasswordStrengthDisplay } from "@/components/password-strength-display";
 
 export default function PasswordStrength() {
   return (
