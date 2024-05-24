@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import React, { useState } from "react";
-import { Overlay } from "./MobileOverlay";
+import { Overlay } from "./mobile-overlay";
 import { Section } from "../Section";
 
 export function MobileNav() {
