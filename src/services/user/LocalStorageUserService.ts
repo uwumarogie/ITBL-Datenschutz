@@ -1,6 +1,6 @@
 import { UserService } from "@/services/user/UserService";
 import { UserData } from "@/model/UserData";
-import {AchievementId} from "@/util/achievement-data";
+import { AchievementId } from "@/util/achievement-data";
 
 export class LocalStorageUserService implements UserService {
   private USER_STORE_KEY = "user";

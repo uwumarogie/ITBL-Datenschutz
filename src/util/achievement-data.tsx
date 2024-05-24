@@ -10,7 +10,6 @@ export enum AchievementId {
   DATENSCHUTZ_HELD,
   WERBE_GURU,
   PHISHING_FAENGER,
-
 }
 
 export namespace AchievementData {
