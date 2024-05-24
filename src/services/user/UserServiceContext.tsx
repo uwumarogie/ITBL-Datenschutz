@@ -12,12 +12,14 @@ import {
 } from "@/services/user/UserService";
 import { UserData } from "@/model/UserData";
 import { useRouter } from "next/navigation";
+import { Highscore } from "@/model/HighscoresEnum";
 
 const UserServiceContext = createContext<UserService | null>(null);
 const UserDataContext = createContext<UserData>({
   achievements: {},
   quizzes: {},
   username: "",
+  highscores: { 0: 0 },
 });
 
 export function UserDataProvider({ children }: { children: React.ReactNode }) {
@@ -26,6 +28,7 @@ export function UserDataProvider({ children }: { children: React.ReactNode }) {
     achievements: {},
     quizzes: {},
     username: "",
+    highscores: { 0: 0 },
   });
   const userService = useMemo(() => createDefaultUserService(), []);
 

@@ -65,36 +65,30 @@ export const quizzes: QuizParams[] = [
   },
 ];
 
-export const passwordData = [
-  {
-    password: "An#f14$sv!q",
-    points: 5,
-    strength: 2,
-  },
-  {
-    password: "Gummibärchen",
-    points: 6,
-    strength: 2,
-  },
-  {
-    password: "Cn#d34$yu!t",
-    points: 7,
-    strength: 2,
-  },
-  {
-    password: "Dn#c44$io!p",
-    points: 8,
-    strength: 2,
-  },
-  {
-    password: "En#v54$pa!s",
-    points: 9,
-    strength: 0,
-  },
-];
-
 export type PasswordData = {
   password: string;
-  points: number;
   strength: number;
 };
+
+export const passwordData: PasswordData[] = [
+  { password: "Abcdef!1", strength: 2 },
+  { password: "Qwerty!1", strength: 2 },
+  { password: "1Password!", strength: 2 },
+  { password: "StrongP@ssword", strength: 2 },
+  { password: "weakpass", strength: 0 },
+  { password: "NoSpecial123", strength: 1 },
+  { password: "Short1!", strength: 0 },
+  { password: "Medium@Pass123", strength: 2 },
+  { password: "Anoth3rGood1!", strength: 2 },
+  { password: "JustUpperCaseA!", strength: 1 },
+  { password: "Lowercase1!", strength: 1 },
+  { password: "NoNumbers!", strength: 1 },
+  { password: "Special$Char1", strength: 2 },
+  { password: "YetAnother1@!", strength: 2 },
+  { password: "Simple123", strength: 0 },
+  { password: "GoodOne123$", strength: 2 },
+  { password: "StrongEnough@", strength: 2 },
+  { password: "Minimum8Char$", strength: 2 },
+  { password: "WeakPassword", strength: 0 },
+  { password: "Mix3dContent!", strength: 2 },
+];
