@@ -7,6 +7,6 @@ export interface UserData {
     [achievementId: number]: boolean;
   };
   highscores: {
-    [gameId: number]: number
-  }
+    [gameId: number]: number;
+  };
 }

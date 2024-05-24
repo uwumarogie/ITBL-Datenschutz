@@ -23,7 +23,7 @@ export class LocalStorageUserService implements UserService {
     }
   }
 
-  onUpdate(userData: UserData) { }
+  onUpdate(userData: UserData) {}
 
   async loadUser(): Promise<UserData | null> {
     return this.user;
@@ -66,16 +66,16 @@ export class LocalStorageUserService implements UserService {
 
   async initUser(username: string) {
     if (!this.user) {
-      let highscores = new Map<number, number>()
-      highscores.set(Highscore.PASSWORD_STRENGTH, 10)
+      let highscores = new Map<number, number>();
+      highscores.set(Highscore.PASSWORD_STRENGTH, 10);
 
       this.user = {
         username: username,
         quizzes: {},
         achievements: {},
         highscores: {
-          0: 0
-        }
+          0: 0,
+        },
       };
       await this.saveUser();
     }

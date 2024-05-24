@@ -72,11 +72,15 @@ export default function Quiz(quiz: QuizParams) {
         <div className="px-6 py-2 border border-orange-400 bg-orange-100 text-orange-800 rounded-xl my-4">
           {selection == quiz.correctAnswer ? (
             <>
-              <h4 className="font-semibold md:text-md text-sm">Richtige Antwort!</h4>
+              <h4 className="font-semibold md:text-md text-sm">
+                Richtige Antwort!
+              </h4>
             </>
           ) : (
             <div>
-              <h4 className="font-semibold md:text-md text-sm">Das stimmt leider nicht!</h4>
+              <h4 className="font-semibold md:text-md text-sm">
+                Das stimmt leider nicht!
+              </h4>
               {quiz.showCorrectAnswer ? (
                 <span className="text-xs md:text-md">
                   Die richtige Antwort wäre{" "}
@@ -84,9 +88,11 @@ export default function Quiz(quiz: QuizParams) {
                     {quiz.answers[quiz.correctAnswer]}
                   </span>{" "}
                   gewesen.
-                </ span>
+                </span>
               ) : (
-                <span className="text-xs md:text-md">Versuche es noch einmal.</span>
+                <span className="text-xs md:text-md">
+                  Versuche es noch einmal.
+                </span>
               )}
             </div>
           )}

@@ -19,7 +19,7 @@ const UserDataContext = createContext<UserData>({
   achievements: {},
   quizzes: {},
   username: "",
-  highscores: {0:0}
+  highscores: { 0: 0 },
 });
 
 export function UserDataProvider({ children }: any) {
@@ -28,7 +28,7 @@ export function UserDataProvider({ children }: any) {
     achievements: {},
     quizzes: {},
     username: "",
-    highscores: {0:0}
+    highscores: { 0: 0 },
   });
   const userService = useMemo(() => createDefaultUserService(), []);
 

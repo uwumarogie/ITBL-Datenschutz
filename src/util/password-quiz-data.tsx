@@ -90,5 +90,5 @@ export const passwordData: PasswordData[] = [
   { password: "StrongEnough@", strength: 2 },
   { password: "Minimum8Char$", strength: 2 },
   { password: "WeakPassword", strength: 0 },
-  { password: "Mix3dContent!", strength: 2 }
+  { password: "Mix3dContent!", strength: 2 },
 ];

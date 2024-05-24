@@ -1,3 +1,3 @@
 export enum Highscore {
-    PASSWORD_STRENGTH
+  PASSWORD_STRENGTH,
 }

@@ -47,16 +47,18 @@ export function HintCard({ text, buttonText, iconSrc, hint }: ActionCardProps) {
               </span>
               <Button onClick={() => setShowHint(true)}>{buttonText}</Button>
             </div>
-            {iconSrc && <div className="flex justify-center w-full">
-              <Image
-                src={iconSrc}
-                alt={text}
-                layout="responsive"
-                width={400}
-                height={400}
-                className="max-w-[200px] sm:max-w-[300px]"
-              />
-            </div>}
+            {iconSrc && (
+              <div className="flex justify-center w-full">
+                <Image
+                  src={iconSrc}
+                  alt={text}
+                  layout="responsive"
+                  width={400}
+                  height={400}
+                  className="max-w-[200px] sm:max-w-[300px]"
+                />
+              </div>
+            )}
           </div>
         )}
       </div>

@@ -21,11 +21,13 @@ export default function PasswordStrength() {
 
   const saveHighscore = async () => {
     const user = await userStore.loadUser();
-    const highscoreEntry = user ? user.highscores[Highscore.PASSWORD_STRENGTH] : 0;
+    const highscoreEntry = user
+      ? user.highscores[Highscore.PASSWORD_STRENGTH]
+      : 0;
     if (currentScore > highscoreEntry) {
       userStore.setHighscore(Highscore.PASSWORD_STRENGTH, currentScore);
     }
-    setHighscore(currentScore + 1)
+    setHighscore(currentScore + 1);
   };
 
   useEffect(() => {
@@ -74,7 +76,7 @@ const PasswordStrengthDisplay = ({
   currentScore,
   highscore,
   setCurrentScore,
-  saveHighscore
+  saveHighscore,
 }: {
   passwords: Array<PasswordData>;
   currentScore: number;
@@ -91,8 +93,8 @@ const PasswordStrengthDisplay = ({
   const handleButtonClick = (strength: number) => {
     if (currentQuestion.strength === strength) {
       setCurrentScore(currentScore + 1);
-      if(currentScore >= highscore) {
-        saveHighscore()
+      if (currentScore >= highscore) {
+        saveHighscore();
       }
       goToNextQuestion();
       setButtonStyle(-1);
@@ -114,7 +116,6 @@ const PasswordStrengthDisplay = ({
 
   const [finished, setFinished] = useState(false);
 
-
   return (
     <div className="grid grid-rows-1 lg:grid-cols-2 space-y-6 mt-8">
       {finished ? (
@@ -122,10 +123,12 @@ const PasswordStrengthDisplay = ({
           <span className="text-xl text-blue-background">
             Punkte: {currentScore}
           </span>
-          <Button onClick={() => {
-            saveHighscore();
-            router.push("/space/passwort/builder");
-          }}>
+          <Button
+            onClick={() => {
+              saveHighscore();
+              router.push("/space/passwort/builder");
+            }}
+          >
             Weiter
           </Button>
         </div>
