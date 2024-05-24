@@ -14,7 +14,7 @@ const questions = [
   {
     questionText: "Ist folgendes Datum personenbezogen?",
     correctExplanation:
-        "Ja. Informationen über den Familienstand einer Person (verheiratet, geschieden, verwitwet, ledig) sind personenbezogen, da sie sensible Details über den privaten und sozialen Status offenlegen und rechtliche, finanzielle sowie persönliche Auswirkungen haben können.",
+      "Ja. Informationen über den Familienstand einer Person (verheiratet, geschieden, verwitwet, ledig) sind personenbezogen, da sie sensible Details über den privaten und sozialen Status offenlegen und rechtliche, finanzielle sowie persönliche Auswirkungen haben können.",
     incorrectExplanation: "NO, false",
     imageUrl: "/path/to/your/image.png",
     altText: "Familienstand",
@@ -78,7 +78,9 @@ function QuizQuestion() {
           </div>
 
           <span className="flex min-w-80 max-w-96 my-5 text-pretty">
-            {result === "Richtig" ? currentQuestion.correctExplanation : currentQuestion.incorrectExplanation}
+            {result === "Richtig"
+              ? currentQuestion.correctExplanation
+              : currentQuestion.incorrectExplanation}
           </span>
 
           <button
@@ -89,33 +91,31 @@ function QuizQuestion() {
           </button>
         </div>
       ) : (
-          <div className="flex flex-col bg-gray-100 rounded-xl w-11/12">
-            <div className="my-12">
-              <h2 className="text-center text-3xl font-semibold">
-                {currentQuestion.questionText}
-              </h2>
-            </div>
-            <div className="mb-12 flex flex-col justify-center items-center space-y-8">
-              <BellRingIcon className="h-32 w-32 text-[#3e3e3e]" />
-              <p className="mt-2 text-xl font-bold">
-                {currentQuestion.altText}
-              </p>
-            </div>
-            <div className="flex justify-center space-x-12 my-5">
-              <button
-                className="bg-lime-600 text-white max-w-28 lg:min-w-36 h-12 p-5 flex rounded-xl justify-center items-center"
-                onClick={() => handleAnswer(true)}
-              >
-                Ja
-              </button>
-              <button
-                className="bg-red-600 text-white max-w-28 lg:min-w-36 h-12 p-5 flex rounded-xl justify-center items-center"
-                onClick={() => handleAnswer(false)}
-              >
-                Nein
-              </button>
-            </div>
+        <div className="flex flex-col bg-gray-100 rounded-xl w-11/12">
+          <div className="my-12">
+            <h2 className="text-center lg:text-3xl font-semibold text-xl">
+              {currentQuestion.questionText}
+            </h2>
           </div>
+          <div className="mb-12 flex flex-col justify-center items-center space-y-8">
+            <BellRingIcon className="h-32 w-32 text-[#3e3e3e]" />
+            <p className="mt-2 text-xl font-bold">{currentQuestion.altText}</p>
+          </div>
+          <div className="flex justify-center space-x-12 my-5">
+            <button
+              className="bg-lime-600 text-white min-w-28 lg:min-w-36 h-12 p-5 flex rounded-xl justify-center items-center"
+              onClick={() => handleAnswer(true)}
+            >
+              Ja
+            </button>
+            <button
+              className="bg-red-600 text-white min-w-28 lg:min-w-36 h-12 p-5 flex rounded-xl justify-center items-center"
+              onClick={() => handleAnswer(false)}
+            >
+              Nein
+            </button>
+          </div>
+        </div>
       )}
 
       <div className="min-w-60 max-w-72">
