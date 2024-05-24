@@ -41,7 +41,7 @@ export default function DataProcessing1() {
   const router = useRouter();
 
   function onClick() {
-    router.push("/space/daten-verarbeitung/kaptiel2/2", {
+    router.push("/space/daten-verarbeitung/kapitel2/2", {
       scroll: true,
     });
   }

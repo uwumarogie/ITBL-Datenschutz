@@ -77,7 +77,8 @@ export default function DataProcessing2() {
   }, []);
 
   function onAdvertisementClick(advertisement: any) {
-    alert("Advert " + JSON.stringify(advertisement));
+    // alert("Advert " + JSON.stringify(advertisement));
+    router.push("/space/daten-verarbeitung/kapitel2/3");
   }
 
   return (

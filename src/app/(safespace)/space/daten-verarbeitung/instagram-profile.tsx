@@ -29,9 +29,9 @@ export type InstagramProfileData = {
 };
 
 export default function InstagramProfile({
-                                           className,
-                                           profile,
-                                         }: {
+  className,
+  profile,
+}: {
   profile: InstagramProfileData;
   className?: string | undefined;
 }) {
@@ -110,10 +110,10 @@ export default function InstagramProfile({
 }
 
 function VerticalNumberText({
-                              number,
-                              text,
-                              onClick,
-                            }: {
+  number,
+  text,
+  onClick,
+}: {
   number: number;
   text: string;
   onClick?: () => void;
@@ -130,9 +130,9 @@ function VerticalNumberText({
 }
 
 function Following({
-                     following,
-                     onClick,
-                   }: {
+  following,
+  onClick,
+}: {
   following: string[];
   onClick: () => void;
 }) {
@@ -175,10 +175,10 @@ function Following({
 }
 
 function CurrentPost({
-                       post,
-                       profile,
-                       onClick,
-                     }: {
+  post,
+  profile,
+  onClick,
+}: {
   post: InstagramPost;
   profile: InstagramProfileData;
   onClick: () => void;
