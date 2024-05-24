@@ -6,7 +6,7 @@ export default function Phishing() {
       <div className="hidden sm:block">
         <InlineNavigation />
       </div>
-      <p>Phishing</p>
+      <>Phishing</>
     </div>
   );
 }

@@ -83,11 +83,6 @@ export default function QuizList({
     setCurrentQuizIndex(currentQuizIndex + 1);
   }
 
-  //function previousQuiz() {
-  // if (currentQuizIndex == 0) return;
-  //setCurrentQuizIndex(currentQuizIndex - 1);
-  //}
-
   function finishQuiz() {
     if (showSummary) {
       onFinish?.();

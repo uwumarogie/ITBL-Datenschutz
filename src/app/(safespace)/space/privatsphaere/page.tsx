@@ -6,7 +6,7 @@ export default function Privacy() {
       <div className="hidden sm:block">
         <InlineNavigation />
       </div>
-      <p>Privatsphäre</p>
+      <>Privatsphäre</>
     </div>
   );
 }

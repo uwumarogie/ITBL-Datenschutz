@@ -6,7 +6,7 @@ export default function Rights() {
       <div className="hidden sm:block">
         <InlineNavigation />
       </div>
-      <p>Meine Rechte</p>
+      <>Meine Rechte</>
     </div>
   );
 }

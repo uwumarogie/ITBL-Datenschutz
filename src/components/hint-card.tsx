@@ -42,7 +42,7 @@ export function HintCard({ text, buttonText, iconSrc, hint }: ActionCardProps) {
         ) : (
           <div className="flex justify-between flex-col h-full">
             <div className="flex flex-col relative justify-start items-start p-6">
-              <span className="font-light text-sm pb-4 font-semibold text-blue-background">
+              <span className="text-sm pb-4 font-semibold text-blue-background">
                 {text}
               </span>
               <Button onClick={() => setShowHint(true)}>{buttonText}</Button>

@@ -20,7 +20,7 @@ const UserDataContext = createContext<UserData>({
   username: "",
 });
 
-export function UserDataProvider({ children }: any) {
+export function UserDataProvider({ children }: { children: React.ReactNode }) {
   const router = useRouter();
   const [userData, setUserData] = useState<UserData>({
     achievements: {},

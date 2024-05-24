@@ -18,7 +18,7 @@ export function ProgressBar({
 
   const steps = [{ progress: 0 }, { progress: 1 }, ...initSteps];
 
-  // Set the actual progress later, so that the css animation will be triggered
+  //TODO: Set the actual progress later, so that the css animation will be triggered
   useEffect(() => {
     setProgress(initialProgress);
   }, [initialProgress]);

@@ -7,8 +7,8 @@ import {
   getColor,
   SUCCESS_COLOR,
 } from "@/util/passwort-validation";
-import { CheckMarkGreen } from "@/components/check-mark-green";
-import { RedCrossMark } from "@/components/red-cross-mark";
+import {CheckMarkGreen} from "@/components/Icons/check-mark-green";
+import {RedCrossMark} from "@/components/Icons/red-cross-mark";
 
 export function InputValidation({ input = "" }: { input: string }) {
   const validations = [

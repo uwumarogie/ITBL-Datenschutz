@@ -2,7 +2,6 @@
 
 import { SecurePasswordInput } from "@/components/secure-password-input";
 import { ActionCard } from "@/components/action-card";
-import { useRouter } from "next/navigation";
 import { HintCard } from "@/components/hint-card";
 
 export default function Builder() {

@@ -6,7 +6,7 @@ export default function Intro() {
       <div className="hidden sm:block">
         <InlineNavigation />
       </div>
-      <p>Intro</p>
+      <>Intro</>
     </div>
   );
 }
