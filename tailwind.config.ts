@@ -12,10 +12,11 @@ const config: Config = {
         "blue-background": "#013A63",
         "blue-contrast": "#014F86",
         "blue-master": "#5543A5",
+        "module-blue": "#A9D6E5",
       },
       height: {
         "reduced-40": "calc(100% - 43px)",
-        "reduced-safari": "calc(100vh - 90px)",
+        "reduced-safari": "calc(100vh - 50px)",
       },
     },
   },
