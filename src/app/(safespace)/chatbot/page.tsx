@@ -15,7 +15,9 @@ const questions = [
     questionText: "Ist folgendes Datum personenbezogen?",
     correctExplanation:
       "Ja. Informationen über den Familienstand einer Person (verheiratet, geschieden, verwitwet, ledig) sind personenbezogen, da sie sensible Details über den privaten und sozialen Status offenlegen und rechtliche, finanzielle sowie persönliche Auswirkungen haben können.",
-    incorrectExplanation: "NO, false",
+    incorrectExplanation:
+      "Ja. Informationen über den Familienstand einer Person (verheiratet, geschieden, verwitwet, ledig) sind personenbezogen, da sie sensible Details über den privaten und sozialen Status offenlegen und rechtliche, finanzielle sowie persönliche Auswirkungen haben können.",
+
     imageUrl: "/path/to/your/image.png",
     altText: "Familienstand",
     correctAnswer: true,
@@ -54,18 +56,18 @@ function QuizQuestion() {
   };
 
   return (
-    <div className="relative flex flex-row justify-center p-8 ">
-      <div className="min-w-60 max-w-72">
+    <div className="relative flex flex-row justify-center p-4 w-full max-w-5xl">
+      <div className="w-6/12 hidden lg:flex justify-center">
         <h2 className="text-center text-xl text-blue-background font-bold ">
           Quiz
         </h2>
       </div>
 
       {answer !== null ? (
-        <div className="flex flex-col min-w-[476px] min-h-[500px] items-center justify-center rounded-xl bg-gray-100">
+        <div className="flex flex-col w-full max-w-2xl min-h-[500px] items-center justify-center rounded-xl bg-gray-100">
           <span
             className={clsx(
-              "flex min-w-72 p-4 mb-7 mt-4 rounded-xl items-center justify-center font-bold text-white text-xl max-w-80 max-h-14",
+              "flex w-11/12 max-w-md p-4 mb-7 mt-4 rounded-xl items-center justify-center font-bold text-white text-xl max-h-14",
               result === "Richtig" ? "bg-green-500" : "bg-red-600",
             )}
           >
@@ -77,7 +79,7 @@ function QuizQuestion() {
             <p className="mt-2 text-xl font-bold">{currentQuestion.altText}</p>
           </div>
 
-          <span className="flex min-w-80 max-w-96 my-5 text-pretty">
+          <span className="flex w-full max-w-md lg:my-5 scale-95 lg:scale-100 p-2">
             {result === "Richtig"
               ? currentQuestion.correctExplanation
               : currentQuestion.incorrectExplanation}
@@ -91,7 +93,7 @@ function QuizQuestion() {
           </button>
         </div>
       ) : (
-        <div className="flex flex-col bg-gray-100 rounded-xl w-11/12">
+        <div className="flex flex-col bg-gray-100 rounded-xl w-full max-w-5xl">
           <div className="my-12">
             <h2 className="text-center lg:text-3xl font-semibold text-xl">
               {currentQuestion.questionText}
@@ -118,7 +120,7 @@ function QuizQuestion() {
         </div>
       )}
 
-      <div className="min-w-60 max-w-72">
+      <div className="w-6/12 hidden lg:flex justify-center">
         <h2 className="text-center text-xl text-blue-background font-bold">
           {currentQuestionIndex + 1}/{questions.length}{" "}
         </h2>
