@@ -44,7 +44,7 @@ const Notification = ({
         <span className="px-6 py-2 text-white max-w-[250px]">{message}</span>
         <div className="m-1">
           <Image
-            src="/cancel.svg"
+            src="/cancel-white.svg"
             alt="delete"
             width={20}
             height={20}
