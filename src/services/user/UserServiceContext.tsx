@@ -11,24 +11,24 @@ import {
   UserService,
 } from "@/services/user/UserService";
 import { UserData } from "@/model/UserData";
-import {
-  adjectives,
-  animals,
-  uniqueNamesGenerator,
-} from "unique-names-generator";
+import { useRouter } from "next/navigation";
+import { Highscore } from "@/model/HighscoresEnum";
 
 const UserServiceContext = createContext<UserService | null>(null);
 const UserDataContext = createContext<UserData>({
   achievements: {},
   quizzes: {},
   username: "",
+  highscores: { 0: 0 },
 });
 
 export function UserDataProvider({ children }: any) {
+  const router = useRouter();
   const [userData, setUserData] = useState<UserData>({
     achievements: {},
     quizzes: {},
     username: "",
+    highscores: { 0: 0 },
   });
   const userService = useMemo(() => createDefaultUserService(), []);
 
@@ -40,14 +40,7 @@ export function UserDataProvider({ children }: any) {
   useEffect(() => {
     userService.loadUser().then(async (userData) => {
       if (userData === null) {
-        await userService.initUser(
-          uniqueNamesGenerator({
-            dictionaries: [adjectives, animals],
-            separator: " ",
-            style: "capital",
-          }),
-        );
-        setUserData(await userService.getUser());
+        router.push("/");
       } else {
         setUserData(userData);
       }

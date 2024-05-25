@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { displayText } from "@/util/startingSiteFunctions";
+import { displayText } from "@/util/landing-page";
 
 type ExerciseLink = {
   slug: string;

@@ -1,5 +1,7 @@
 import { UserService } from "@/services/user/UserService";
 import { UserData } from "@/model/UserData";
+import { AchievementId } from "@/util/achievement-data";
+import { Highscore } from "@/model/HighscoresEnum";
 
 export class LocalStorageUserService implements UserService {
   private USER_STORE_KEY = "user";
@@ -56,7 +58,7 @@ export class LocalStorageUserService implements UserService {
     await this.saveUser();
   }
 
-  async setAchievement(achievementId: string, unlocked: boolean) {
+  async setAchievement(achievementId: AchievementId, unlocked: boolean) {
     const user = await this.getUser();
     user.achievements[achievementId] = unlocked;
     await this.saveUser();
@@ -64,12 +66,24 @@ export class LocalStorageUserService implements UserService {
 
   async initUser(username: string) {
     if (!this.user) {
+      let highscores = new Map<number, number>();
+      highscores.set(Highscore.PASSWORD_STRENGTH, 10);
+
       this.user = {
         username: username,
         quizzes: {},
         achievements: {},
+        highscores: {
+          0: 0,
+        },
       };
       await this.saveUser();
     }
+  }
+
+  async setHighscore(gameId: number, highscore: number) {
+    const user = await this.getUser();
+    user.highscores[gameId] = highscore;
+    await this.saveUser();
   }
 }

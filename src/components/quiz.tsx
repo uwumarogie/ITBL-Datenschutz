@@ -1,13 +1,13 @@
 "use client";
 
-import { useState } from "react";
+import React, { useState } from "react";
 import clsx from "clsx";
-import Button, { ButtonStyle } from "@/components/Button";
+import Button, { ButtonStyle } from "@/components/button";
 
 export type QuizParams = {
   className?: string;
   question: string;
-  hint?: string;
+  hint?: string | React.ReactNode;
   answers: string[];
   correctAnswer: number;
   hintAnswers?: string[];
@@ -51,13 +51,13 @@ export default function Quiz(quiz: QuizParams) {
 
   return (
     <div className={quiz.className}>
-      <h3 className="text-xl font-semibold mb-2">{quiz.question}</h3>
-      <p className="mb-10">{quiz.hint}</p>
-      <div className="answers grid grid-cols-1 lg:grid-cols-2 gap-4">
+      <h3 className="text-md md:text-xl font-semibold mb-2">{quiz.question}</h3>
+      <p className="mb-5 text-xs md:text-md">{quiz.hint}</p>
+      <div className="answers grid grid-cols-1 lg:grid-cols-2 md:gap-4 gap-1">
         {quiz.answers.map((answer, index) => (
           <Button
             key={index}
-            className={clsx(showCursorClass())}
+            className={clsx(showCursorClass()) + "md:text-md text-sm"}
             style={buttonStyle(index)}
             onClick={() => {
               onClick(index);
@@ -69,24 +69,30 @@ export default function Quiz(quiz: QuizParams) {
       </div>
 
       {selection != undefined && (
-        <div className="px-6 py-4 border border-orange-400 bg-orange-100 text-orange-800 rounded-xl my-4">
+        <div className="px-6 py-2 border border-orange-400 bg-orange-100 text-orange-800 rounded-xl my-4">
           {selection == quiz.correctAnswer ? (
-            <div>
-              <h4 className="font-semibold">Richtige Antwort!</h4>
-            </div>
+            <>
+              <h4 className="font-semibold md:text-md text-sm">
+                Richtige Antwort!
+              </h4>
+            </>
           ) : (
             <div>
-              <h4 className="font-semibold">Das stimmt leider nicht!</h4>
+              <h4 className="font-semibold md:text-md text-sm">
+                Das stimmt leider nicht!
+              </h4>
               {quiz.showCorrectAnswer ? (
-                <p>
+                <span className="text-xs md:text-md">
                   Die richtige Antwort wäre{" "}
                   <span className="italic">
                     {quiz.answers[quiz.correctAnswer]}
                   </span>{" "}
                   gewesen.
-                </p>
+                </span>
               ) : (
-                <p>Versuche es noch einmal.</p>
+                <span className="text-xs md:text-md">
+                  Versuche es noch einmal.
+                </span>
               )}
             </div>
           )}
