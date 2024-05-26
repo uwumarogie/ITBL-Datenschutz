@@ -121,4 +121,3 @@ export const passwordData: PasswordData[] = [
   { password: "1LoveC0ding", strength: 1 },
   { password: "Devel0per!", strength: 2 },
 ];
-
