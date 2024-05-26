@@ -1,6 +1,6 @@
 "use client";
 
-import Button from "@/components/Button";
+import Button from "@/components/button";
 import { InlineNavigation } from "@/components/inline-navigation";
 import { useMessages } from "@/services/notfication/message-provider";
 
