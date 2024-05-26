@@ -92,4 +92,3 @@ export const passwordData: PasswordData[] = [
   { password: "WeakPass", strength: 0 },
   { password: "Anna2020!", strength: 2 },
 ];
-
