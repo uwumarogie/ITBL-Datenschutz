@@ -1,5 +1,6 @@
 import { UserService } from "@/services/user/UserService";
 import { UserData } from "@/model/UserData";
+import { AchievementId } from "@/util/achievement-data";
 
 export class LocalStorageUserService implements UserService {
   private USER_STORE_KEY = "user";
@@ -56,7 +57,7 @@ export class LocalStorageUserService implements UserService {
     await this.saveUser();
   }
 
-  async setAchievement(achievementId: string, unlocked: boolean) {
+  async setAchievement(achievementId: AchievementId, unlocked: boolean) {
     const user = await this.getUser();
     user.achievements[achievementId] = unlocked;
     await this.saveUser();

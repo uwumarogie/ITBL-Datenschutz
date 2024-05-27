@@ -1,5 +1,6 @@
 import { UserData } from "@/model/UserData";
 import { LocalStorageUserService } from "@/services/user/LocalStorageUserService";
+import { AchievementId } from "@/util/achievement-data";
 
 export function createDefaultUserService() {
   return new LocalStorageUserService();
@@ -37,6 +38,9 @@ export interface UserService {
   saveUser: () => Promise<boolean>;
 
   setQuizSolved: (quizId: string, solved: boolean) => Promise<void>;
-  setAchievement: (achievementId: string, unlocked: boolean) => Promise<void>;
+  setAchievement: (
+    achievementId: AchievementId,
+    unlocked: boolean,
+  ) => Promise<void>;
   initUser: (username: string) => Promise<void>;
 }

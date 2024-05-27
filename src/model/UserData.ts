@@ -4,6 +4,6 @@ export interface UserData {
     [quizId: string]: boolean;
   };
   achievements: {
-    [achievementId: string]: boolean;
+    [achievementId: number]: boolean;
   };
 }
