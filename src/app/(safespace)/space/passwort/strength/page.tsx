@@ -25,7 +25,7 @@ export default function PasswordStrength() {
       ? user.highscores[Highscore.PASSWORD_STRENGTH]
       : 0;
     if (currentScore > highscoreEntry) {
-      userStore.setHighscore(Highscore.PASSWORD_STRENGTH, currentScore);
+      userStore.setHighscore(Highscore.PASSWORD_STRENGTH, currentScore + 1);
     }
     setHighscore(currentScore + 1);
   };
