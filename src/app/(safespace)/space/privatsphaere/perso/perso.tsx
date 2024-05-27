@@ -54,7 +54,10 @@ export default function PersoComponent({
     if (correct) {
       router.push(nextPageHref);
     } else {
-      addMessage("Leider hast du noch nicht alle personenbezogenen Daten gefunden. Versuchs nochmal!", "error")
+      addMessage(
+        "Leider hast du noch nicht alle personenbezogenen Daten gefunden. Versuchs nochmal!",
+        "error",
+      );
     }
   };
 

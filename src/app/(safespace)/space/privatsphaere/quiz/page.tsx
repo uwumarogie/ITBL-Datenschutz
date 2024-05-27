@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { PrivacyQuiz } from "@/components/privacy-quiz";
 
 export default function PersoQuiz() {

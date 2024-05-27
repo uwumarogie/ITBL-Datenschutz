@@ -6,7 +6,7 @@ import Button from "./button";
 import { useRouter } from "next/navigation";
 
 export function PrivacyQuiz() {
-  const router = useRouter()
+  const router = useRouter();
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [answer, setAnswer] = useState<boolean | null>(null);
   const [result, setResult] = useState<"Richtig" | "Falsch" | null>(null);
@@ -21,8 +21,7 @@ export function PrivacyQuiz() {
   const handleNextQuestion = () => {
     setAnswer(null);
     setResult(null);
-    setCurrentQuestionIndex((prevIndex) => prevIndex + 1,
-    );
+    setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
   };
 
   return (
@@ -57,7 +56,10 @@ export function PrivacyQuiz() {
       )}
       <div className="w-5/12 hidden lg:flex justify-center">
         <h2 className="text-center text-xl text-blue-background font-bold">
-          {questions.length !== currentQuestionIndex ? currentQuestionIndex + 1 : currentQuestionIndex}/{questions.length}
+          {questions.length !== currentQuestionIndex
+            ? currentQuestionIndex + 1
+            : currentQuestionIndex}
+          /{questions.length}
         </h2>
       </div>
     </div>
@@ -92,9 +94,7 @@ function QuizResult({
           ? currentQuestion.correctExplanation
           : currentQuestion.incorrectExplanation}
       </span>
-      <Button onClick={handleNextQuestion}>
-        Weiter
-      </Button>
+      <Button onClick={handleNextQuestion}>Weiter</Button>
     </div>
   );
 }
