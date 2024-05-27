@@ -14,7 +14,7 @@ export const questions = [
       "Ja. Informationen über den Familienstand einer Person (verheiratet, geschieden, verwitwet, ledig) sind personenbezogen, da sie sensible Details über den privaten und sozialen Status offenlegen und rechtliche, finanzielle sowie persönliche Auswirkungen haben können.",
     incorrectExplanation:
       "Nein. Informationen über den Familienstand einer Person (verheiratet, geschieden, verwitwet, ledig) sind personenbezogen, da sie sensible Details über den privaten und sozialen Status offenlegen und rechtliche, finanzielle sowie persönliche Auswirkungen haben können.",
-    imageUrl: "/test.svg",
+    imageUrl: "/heart.svg",
     altText: "Familienstand",
     correctAnswer: true,
   },
@@ -23,7 +23,7 @@ export const questions = [
     correctExplanation:
       "Ja.Das Geburtsdatum ist personenbezogen, da es Rückschlüsse auf das Alter einer Person zulässt.",
     incorrectExplanation: "No, false",
-    imageUrl: "/path/to/another/image.png",
+    imageUrl: "/calendar.svg",
     altText: "Geburtsdatum",
     correctAnswer: true,
   },

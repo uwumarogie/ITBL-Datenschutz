@@ -2,8 +2,11 @@ import { useState } from "react";
 import clsx from "clsx";
 import Image from "next/image";
 import { PrivacyQuizQuestion, questions } from "@/util/privacy-quiz-data";
+import Button from "./button";
+import { useRouter } from "next/navigation";
 
 export function PrivacyQuiz() {
+  const router = useRouter()
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [answer, setAnswer] = useState<boolean | null>(null);
   const [result, setResult] = useState<"Richtig" | "Falsch" | null>(null);
@@ -18,33 +21,43 @@ export function PrivacyQuiz() {
   const handleNextQuestion = () => {
     setAnswer(null);
     setResult(null);
-    setCurrentQuestionIndex((prevIndex) =>
-      prevIndex < questions.length - 1 ? prevIndex + 1 : 0,
+    setCurrentQuestionIndex((prevIndex) => prevIndex + 1,
     );
   };
 
   return (
     <div className="relative flex flex-row justify-center p-4 w-full max-w-5xl">
-      <div className="w-6/12 hidden lg:flex justify-center">
+      <div className="w-5/12 hidden lg:flex justify-center">
         <h2 className="text-center text-xl text-blue-background font-bold">
           Quiz
         </h2>
       </div>
-      {answer !== null ? (
-        <QuizResult
-          result={result}
-          currentQuestion={currentQuestion}
-          handleNextQuestion={handleNextQuestion}
-        />
+      {questions.length !== currentQuestionIndex ? (
+        answer !== null ? (
+          <QuizResult
+            result={result}
+            currentQuestion={currentQuestion}
+            handleNextQuestion={handleNextQuestion}
+          />
+        ) : (
+          <QuizQuestion
+            currentQuestion={currentQuestion}
+            handleAnswer={handleAnswer}
+          />
+        )
       ) : (
-        <QuizQuestion
-          currentQuestion={currentQuestion}
-          handleAnswer={handleAnswer}
-        />
+        <div className="flex flex-col w-full gap-8 max-w-2xl min-h-[300px] items-center justify-center rounded-xl bg-gray-100 pb-4">
+          <h2 className="text-center text-xl text-blue-background font-bold">
+            Du hast alle Fragen beantwortet
+          </h2>
+          <Button onClick={() => router.push("/space/privatsphaere")}>
+            Zurück zur Übersicht
+          </Button>
+        </div>
       )}
-      <div className="w-6/12 hidden lg:flex justify-center">
+      <div className="w-5/12 hidden lg:flex justify-center">
         <h2 className="text-center text-xl text-blue-background font-bold">
-          {currentQuestionIndex + 1}/{questions.length}
+          {questions.length !== currentQuestionIndex ? currentQuestionIndex + 1 : currentQuestionIndex}/{questions.length}
         </h2>
       </div>
     </div>
@@ -61,7 +74,7 @@ function QuizResult({
   handleNextQuestion: () => void;
 }) {
   return (
-    <div className="flex flex-col w-full max-w-2xl min-h-[500px] items-center justify-center rounded-xl bg-gray-100">
+    <div className="flex flex-col w-full max-w-2xl min-h-[500px] items-center justify-center rounded-xl bg-gray-100 pb-4">
       <span
         className={clsx(
           "flex w-11/12 max-w-md p-4 mb-7 mt-4 rounded-xl items-center justify-center font-bold text-white text-xl max-h-14",
@@ -79,12 +92,9 @@ function QuizResult({
           ? currentQuestion.correctExplanation
           : currentQuestion.incorrectExplanation}
       </span>
-      <button
-        className="flex font-bold items-end justify-end justify-self-end bg-blue-background text-white p-4 rounded-xl"
-        onClick={handleNextQuestion}
-      >
+      <Button onClick={handleNextQuestion}>
         Weiter
-      </button>
+      </Button>
     </div>
   );
 }

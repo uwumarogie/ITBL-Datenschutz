@@ -1,9 +1,10 @@
-import { InlineNavigation } from "@/components/inline-navigation";
+"use client"
+import { PrivacyQuiz } from "@/components/privacy-quiz";
 
 export default function PersoQuiz() {
   return (
-    <div className="px-6">
-      <p>Quiz</p>
+    <div className="p-6 flex justify-center">
+      <PrivacyQuiz />
     </div>
   );
 }

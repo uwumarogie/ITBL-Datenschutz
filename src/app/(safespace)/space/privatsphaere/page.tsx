@@ -18,16 +18,31 @@ export default function Privacy() {
           personenbezogene Daten dar.&quot;
         </span>
       </div>
-      <div className="max-w-[300px] pb-4">
-        <ActionCard
-          title="Don't share"
-          description="FIndest du alle personenbezogenen Daten auf einem Ausweis?"
-          buttonText="Starten"
-          iconSrc="/id-card-icon.svg"
-          primaryColor="#A9D6E5"
-          secondaryColor="#2A6F97"
-          onClick={() => router.push("/space/privatsphaere/perso/1")}
-        />
+      <div className="flex flex-wrap pb-4">
+        <div className="max-w-[300px]">
+          <ActionCard
+            title="Don't share"
+            description="Findest du alle personenbezogenen Daten auf einem Ausweis?"
+            buttonText="Starten"
+            iconSrc="/id-card-icon.svg"
+            primaryColor="#A9D6E5"
+            secondaryColor="#2A6F97"
+            redirectPath="/space/privatsphaere/perso/1"
+            titleColor="#014F86"
+          />
+        </div>
+        <div className="max-w-[300px]">
+          <ActionCard
+            title="Quiz"
+            description="ALles wichtige über Privatsphäre wissen musst"
+            buttonText="Starten"
+            iconSrc="/eyes.svg"
+            primaryColor="#A9D6E5"
+            secondaryColor="#2A6F97"
+            redirectPath="/space/privatsphaere/quiz"
+            titleColor="#014F86"
+          />
+        </div>
       </div>
     </div>
   );
