@@ -65,36 +65,59 @@ export const quizzes: QuizParams[] = [
   },
 ];
 
-export const passwordData = [
-  {
-    password: "An#f14$sv!q",
-    points: 5,
-    strength: 2,
-  },
-  {
-    password: "Gummibärchen",
-    points: 6,
-    strength: 2,
-  },
-  {
-    password: "Cn#d34$yu!t",
-    points: 7,
-    strength: 2,
-  },
-  {
-    password: "Dn#c44$io!p",
-    points: 8,
-    strength: 2,
-  },
-  {
-    password: "En#v54$pa!s",
-    points: 9,
-    strength: 0,
-  },
-];
-
 export type PasswordData = {
   password: string;
-  points: number;
   strength: number;
 };
+
+export const passwordData: PasswordData[] = [
+  { password: "JohnDoe!123", strength: 2 },
+  { password: "Emily2020!", strength: 2 },
+  { password: "Pass123word", strength: 1 },
+  { password: "Chris$789", strength: 2 },
+  { password: "helloworld", strength: 0 },
+  { password: "Summer@2021", strength: 2 },
+  { password: "Welcome123", strength: 1 },
+  { password: "MyPass@word", strength: 2 },
+  { password: "Sarah!78", strength: 2 },
+  { password: "David@2022", strength: 2 },
+  { password: "qwertyuiop", strength: 0 },
+  { password: "letmein2020", strength: 1 },
+  { password: "Sunshine$", strength: 2 },
+  { password: "Robert123", strength: 1 },
+  { password: "simplepass", strength: 0 },
+  { password: "Good$Pass1", strength: 2 },
+  { password: "Str@ngth8", strength: 2 },
+  { password: "Michael123$", strength: 2 },
+  { password: "WeakPass", strength: 0 },
+  { password: "Anna2022@", strength: 2 },
+  { password: "Football2020", strength: 1 },
+  { password: "Basketball!", strength: 1 },
+  { password: "CharlieBrown1", strength: 1 },
+  { password: "Lucy@1234", strength: 2 },
+  { password: "Keyboard!", strength: 1 },
+  { password: "Type1234", strength: 1 },
+  { password: "Secure!Pass", strength: 2 },
+  { password: "Insecure", strength: 0 },
+  { password: "Admin@2020", strength: 2 },
+  { password: "P@ssw0rd!", strength: 2 },
+  { password: "NotSoSecure", strength: 0 },
+  { password: "Jasmine@1", strength: 2 },
+  { password: "Aladdin123", strength: 1 },
+  { password: "GenieLamp!", strength: 1 },
+  { password: "Mermaid2021", strength: 1 },
+  { password: "Password!2", strength: 2 },
+  { password: "TechGeek!123", strength: 2 },
+  { password: "Gamer$2020", strength: 2 },
+  { password: "P@ssword123", strength: 2 },
+  { password: "User@2020", strength: 2 },
+  { password: "Default1", strength: 1 },
+  { password: "Chang3Me!", strength: 2 },
+  { password: "N3wP@ssw0rd", strength: 2 },
+  { password: "IloveJava1", strength: 1 },
+  { password: "Python@2021", strength: 2 },
+  { password: "C0d3Rocks!", strength: 2 },
+  { password: "L3arn@C0de", strength: 2 },
+  { password: "1LoveC0ding", strength: 1 },
+  { password: "Devel0per!", strength: 2 },
+];

@@ -108,7 +108,7 @@ export default function QuizList({
       </div>
 
       {!showSummary && (
-        <div className="mb-10">
+        <div className="md:mb-10 mb-6">
           {quizzesState.map(({ quiz, isDone, isSolved, selection }, index) => (
             <div
               className={clsx("", currentQuizIndex != index && "hidden")}
@@ -141,18 +141,18 @@ export default function QuizList({
               .reduce((acc, v) => acc + (v ? 1 : 0), 0)}{" "}
             von {quizzesState.length} Fragen richtig beantwortet.
           </p>
-          <Button onClick={() => onFinish}>Weiter</Button>
+          <Button onClick={() => onFinish?.()}>Weiter</Button>
         </div>
       )}
 
       <div className="ml-100 flex justify-end">
         {quizzesState[currentQuizIndex]?.isDone &&
           (currentQuizIndex === quizzes.length - 1 ? (
-            <Button onClick={finishQuiz} className="mb-10">
+            <Button onClick={finishQuiz} className="md:mb-10 mb-6">
               Abschließen
             </Button>
           ) : (
-            <Button onClick={nextQuiz} className="mb-10">
+            <Button onClick={nextQuiz} className="md:mb-10 mb-6">
               Weiter
             </Button>
           ))}
