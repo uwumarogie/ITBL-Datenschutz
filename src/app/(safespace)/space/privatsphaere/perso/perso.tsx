@@ -1,6 +1,7 @@
 "use client";
 import Button from "@/components/button";
 import Checkbox from "@/components/checkbox";
+import { useMessages } from "@/services/notfication/message-provider";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { SetStateAction, useState } from "react";
@@ -34,7 +35,7 @@ export default function PersoComponent({
 }: Props) {
   const router = useRouter();
   const [showHint, setShowHint] = useState(false);
-  const [isCorrect, setIsCorrect] = useState<undefined | boolean>();
+  const { addMessage } = useMessages();
 
   const handleCheckboxChange = (index: number) => {
     setCheckboxes((prevCheckboxes) =>
@@ -50,11 +51,11 @@ export default function PersoComponent({
     const correct = checkboxes.every(
       (checkbox) => checkbox.isChecked === checkbox.isPersonenbezogen,
     );
-    setIsCorrect(correct);
     if (correct) {
       router.push(nextPageHref);
+    } else {
+      addMessage("Leider hast du noch nicht alle personenbezogenen Daten gefunden. Versuchs nochmal!", "error")
     }
-    //TODO push notification on false
   };
 
   return (
@@ -100,16 +101,6 @@ export default function PersoComponent({
         >
           Hilfe
         </Button>
-        {/* Replace with push notification */}
-        <div
-          className="m-4 items-center text-sm text-red-700"
-          style={{
-            display:
-              isCorrect == undefined || isCorrect == true ? "none" : "flex",
-          }}
-        >
-          Versuchs nochmal!
-        </div>
       </div>
       <span
         className="relative left-[0px] bottom-[350px] lg:left-[20px] lg:bottom-[260px] p-4 bg-gray-500 text-white text-md rounded-xl transition-opacity duration-300 z-50 max-w-[450px]"
