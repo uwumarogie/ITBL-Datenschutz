@@ -4,11 +4,13 @@ import { ArrowLeft } from "@phosphor-icons/react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import React from "react";
+import clsx from "clsx";
 
 export type ModuleChapter = {
   icon: string;
   title: string;
   minutes?: string;
+  onClick?: () => void;
 };
 
 export type ModuleIntroProps = {
@@ -72,8 +74,20 @@ function Chapter({ chapter }: { chapter: ModuleChapter[] }) {
     <div className="flex flex-col gap-4 mb-10">
       {chapter.map((c, index) => (
         <React.Fragment key={c.title}>
-          <div className="flex items-center">
-            <div className="bg-orange-500 w-14 h-14 p-4 mr-6 rounded-2xl inline-flex items-center justify-center shrink-0">
+          <div
+            className={clsx(
+              "flex items-center group",
+              c.onClick && "cursor-pointer",
+            )}
+            onClick={c.onClick}
+          >
+            <div
+              className={clsx(
+                "bg-orange-500 w-14 h-14 p-4 mr-6 rounded-2xl inline-flex items-center justify-center shrink-0",
+                c.onClick &&
+                  "transition-all group-hover:bg-orange-600 group-hover:shadow-xl",
+              )}
+            >
               <Image src={c.icon} alt={c.title} width="100" height="100" />
             </div>
             <div className="flex flex-col w-full">

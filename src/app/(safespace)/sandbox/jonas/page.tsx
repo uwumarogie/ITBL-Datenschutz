@@ -19,6 +19,9 @@ export default function Sandbox() {
       title: "Werde zum Recommender Algorithmus",
       icon: "/white-tick-button.svg",
       minutes: "5",
+      onClick() {
+        alert("You clicked the second entry!");
+      },
     },
     {
       title: "Rückblick und weitere Materialien",
