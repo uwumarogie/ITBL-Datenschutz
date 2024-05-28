@@ -3,6 +3,7 @@ import { Fragment } from "react";
 import Button from "@/components/button";
 import { ArrowLeft } from "@phosphor-icons/react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 export type ModuleChapter = {
   icon: string;
@@ -28,18 +29,17 @@ export default function ModuleIntro({
   const router = useRouter();
   return (
     <div className="h-full w-full flex flex-col items-start relative">
-      <div
-        className="flex items-center gap-4 mb-4 cursor-pointer transition-colors hover:text-sky-800"
-        onClick={() => router.push("/space")}
-      >
-        <ArrowLeft />
-        <span>Zurück zur Übersicht</span>
-      </div>
-      <h1 className="font-semibold text-4xl text-sky-900 mb-2">{title}</h1>
-      <h4 className="font-semibold text-xl mb-4">Modulübersicht</h4>
-      <p className="whitespace-pre-wrap mb-10 w-full 3xl:max-w-[50%]">
-        {description}
-      </p>
+        <Link href="/space">
+            <div className="flex items-center gap-4 mb-4 cursor-pointer transition-colors hover:text-sky-800">
+                <ArrowLeft/>
+                <span>Zurück zur Übersicht</span>
+            </div>
+        </Link>
+        <h1 className="font-semibold text-4xl text-sky-900 mb-2">{title}</h1>
+        <h4 className="font-semibold text-xl mb-4">Modulübersicht</h4>
+        <p className="whitespace-pre-wrap mb-10 w-full 2xl:max-w-[50%]">
+            {description}
+        </p>
       <div className="w-full flex flex-col-reverse lg:grid lg:grid-cols-[minmax(auto,_600px)_auto] lg:gap-8">
         <div className="w-full ">
           <h3 className="text-3xl font-semibold mb-6">Kapitel</h3>
