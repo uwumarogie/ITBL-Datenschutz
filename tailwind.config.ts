@@ -34,6 +34,6 @@ const config: Config = {
       slideOut: "slideOut 0.5s ease-out forwards",
     },
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/container-queries")],
 };
 export default config;
