@@ -9,7 +9,6 @@ import { useUserData } from "@/services/user/UserServiceContext";
 import Image from "next/image";
 import { Highscore } from "@/model/HighscoresEnum";
 import { useMessages } from "@/services/notfication/message-provider";
-import { addPointAnimation, addShakeAnimation } from "@/util/animations";
 
 export default function PasswordStrength() {
   const { userStore } = useUserData();
@@ -89,8 +88,29 @@ const PasswordStrengthDisplay = ({
   const router = useRouter();
   const { addMessage } = useMessages();
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-  const [buttonStyle, setButtonStyle] = useState(-1);
+  const [buttonStyleWrong, setButtonStyleWrong] = useState(-1);
+  const [buttonStyleCorrect, setButtonStyleCorrect] = useState(-1)
   const currentQuestion = passwords[currentQuestionIndex];
+
+  const addPulseAnimation = (elementId: string) => {
+    const elementToPulse = document.getElementById(elementId);
+    if (elementToPulse) {
+      elementToPulse.classList.add("animate-pointIncrease");
+      setTimeout(() => {
+        elementToPulse.classList.remove("animate-pointIncrease");
+      }, 300);
+    }
+  };
+  
+  const addShakeAnimation = (elementId: string) => {
+    const elementToShake = document.getElementById(elementId);
+    if (elementToShake) {
+      elementToShake.classList.add("animate-shake");
+      setTimeout(() => {
+        elementToShake.classList.remove("animate-shake");
+      }, 500);
+    }
+  };
 
   const handleButtonClick = (strength: number) => {
     if (currentQuestion.strength === strength) {
@@ -98,9 +118,10 @@ const PasswordStrengthDisplay = ({
       if (currentScore >= highscore) {
         saveHighscore();
       }
-      addPointAnimation("punkte");
-      goToNextQuestion();
-      setButtonStyle(-1);
+      addPulseAnimation("punkte");
+      setButtonStyleCorrect(strength)
+      setButtonStyleWrong(-1);
+      setTimeout(goToNextQuestion, 700)
     } else {
       addMessage(
         "Das war leider falsch. " + currentQuestion.explanation,
@@ -108,11 +129,13 @@ const PasswordStrengthDisplay = ({
       );
       setCurrentScore(0);
       addShakeAnimation("passwort");
-      setButtonStyle(strength);
+      setButtonStyleWrong(strength);
+      setButtonStyleCorrect(-1)
     }
   };
 
   const goToNextQuestion = () => {
+    setButtonStyleCorrect(-1)
     if (currentQuestionIndex < passwords.length - 1) {
       setCurrentQuestionIndex((curr) => curr + 1);
     } else {
@@ -170,19 +193,19 @@ const PasswordStrengthDisplay = ({
           <div className="flex flex-col lg:space-y-8 space-y-4">
             <Button
               onClick={() => handleButtonClick(2)}
-              style={buttonStyle === 2 ? "red" : "default"}
+              style={buttonStyleWrong === 2 ? "red" : buttonStyleCorrect === 2 ? "green" : "default"}
             >
               stark
             </Button>
             <Button
               onClick={() => handleButtonClick(1)}
-              style={buttonStyle === 1 ? "red" : "default"}
+              style={buttonStyleWrong === 1 ? "red" : buttonStyleCorrect === 1 ? "green" : "default"}
             >
               mittel
             </Button>
             <Button
               onClick={() => handleButtonClick(0)}
-              style={buttonStyle === 0 ? "red" : "default"}
+              style={buttonStyleWrong === 0 ? "red" : buttonStyleCorrect === 0 ? "green" : "default"}
             >
               schwach
             </Button>
