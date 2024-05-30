@@ -28,10 +28,23 @@ const config: Config = {
         "0%": { transform: "translateX(0)" },
         "100%": { transform: "translateX(100%)" },
       },
+      shake: {
+        "0%, 100%": { transform: "translateX(0)" },
+        "25%": { transform: "translateX(-5px)" },
+        "50%": { transform: "translateX(5px)" },
+        "75%": { transform: "translateX(-5px)" },
+      },
+      pointIncrease: {
+        "0%": { transform: "scale(1)" },
+        "50%": { transform: "scale(1.2)" },
+        "100%": { transform: "scale(1)" },
+      },
     },
     animation: {
       slideIn: "slideIn 0.5s ease-out forwards",
       slideOut: "slideOut 0.5s ease-out forwards",
+      shake: "shake 0.5s ease-in-out",
+      pointIncrease: "pointIncrease 0.3s ease-in-out",
     },
   },
   plugins: [],

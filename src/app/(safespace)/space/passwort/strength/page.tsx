@@ -1,13 +1,15 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { PasswordData, passwordData } from "@/util/password-quiz-data"; // Ensure the correct import path
+import { PasswordData, passwordData } from "@/util/password-quiz-data";
 import { IntroductionText } from "@/components/introduction-text";
 import { useRouter } from "next/navigation";
 import Button from "@/components/button";
 import { useUserData } from "@/services/user/UserServiceContext";
 import Image from "next/image";
 import { Highscore } from "@/model/HighscoresEnum";
+import { useMessages } from "@/services/notfication/message-provider";
+import { addPointAnimation, addShakeAnimation } from "@/util/animations";
 
 export default function PasswordStrength() {
   const { userStore } = useUserData();
@@ -40,13 +42,13 @@ export default function PasswordStrength() {
   }, []);
 
   return (
-    <div className="flex flex-col max-w-[1100px] px-2 lg:px-6 justify-start">
+    <div className="flex flex-col max-w-[1100px] lg:px-6 justify-start">
       <div className="flex justify-between mt-4 gap-8">
         <IntroductionText
           headline="Bewerte die Stärke des Passworts"
-          text="Ein Passwort gilt nur als stark, wenn alle Kriterien erfüllt sind. Ist nur eine Bedingung falsch gilt das Passwort als mittel und ansonten als schwach."
+          text="Ein Passwort gilt nur als stark, wenn alle Kriterien erfüllt sind. Ist nur eine Bedingung falsch gilt das Passwort als mittel und ansonten als schwach. Du bekommst für jedes richtig eingeordnete Passwort einen Punkt. Falls du das Passwort falsch einordnest wird deine Punktzahl auf 0 zurückgesetzt."
         />
-        <div className="flex flex-col min-w-[104px]">
+        <div className="md:flex flex-col min-w-[104px] hidden">
           <Image
             src="/trophy.svg"
             alt="Highscore"
@@ -85,7 +87,7 @@ const PasswordStrengthDisplay = ({
   saveHighscore: () => void;
 }) => {
   const router = useRouter();
-
+  const { addMessage } = useMessages();
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [buttonStyle, setButtonStyle] = useState(-1);
   const currentQuestion = passwords[currentQuestionIndex];
@@ -96,12 +98,16 @@ const PasswordStrengthDisplay = ({
       if (currentScore >= highscore) {
         saveHighscore();
       }
+      addPointAnimation("punkte");
       goToNextQuestion();
       setButtonStyle(-1);
     } else {
-      if (currentScore > 0) {
-        setCurrentScore(currentScore - 1);
-      }
+      addMessage(
+        "Das war leider falsch. " + currentQuestion.explanation,
+        "error",
+      );
+      setCurrentScore(0);
+      addShakeAnimation("passwort");
       setButtonStyle(strength);
     }
   };
@@ -117,7 +123,7 @@ const PasswordStrengthDisplay = ({
   const [finished, setFinished] = useState(false);
 
   return (
-    <div className="grid grid-rows-1 lg:grid-cols-2 space-y-6 mt-8">
+    <div className="grid grid-rows-1 lg:grid-cols-2 space-y-6 md:mt-8">
       {finished ? (
         <div className="flex flex-col gap-4">
           <span className="text-xl text-blue-background">
@@ -134,13 +140,31 @@ const PasswordStrengthDisplay = ({
         </div>
       ) : (
         <>
-          <div className="flex flex-col justify-center items-center lg:space-y-8 sm:space-y-16 lg:gap-y-1 gap-y-4">
-            <span className="flex bg-blue-contrast p-4 min-w-52 rounded-xl text-white justify-center items-center">
-              Password: {currentQuestion.password}
-            </span>
-            <span className="text-xl text-blue-background">
-              Punkte: {currentScore}
-            </span>
+          <div className="flex justify-between md:justify-center">
+            <div className="flex flex-col justify-center items-center lg:space-y-8 sm:space-y-4 gap-y-2">
+              <span
+                id="passwort"
+                className="flex bg-blue-contrast p-4 min-w-52 rounded-xl text-white justify-center items-center"
+              >
+                Passwort: {currentQuestion.password}
+              </span>
+              <span id="punkte" className="text-2xl text-blue-background">
+                Punkte: {currentScore}
+              </span>
+            </div>
+            <div className="flex flex-col min-w-[104px] justify-center md:hidden scale-90">
+              <Image
+                src="/trophy.svg"
+                alt="Highscore"
+                width={90}
+                height={90}
+                className="mx-auto"
+              />
+              <span className="text-xl text-blue-background">High Score</span>
+              <span className="flex justify-center w-[50px] h-[36px] text-2xl relative bottom-[94px] left-[27px]">
+                {highscore}
+              </span>
+            </div>
           </div>
 
           <div className="flex flex-col lg:space-y-8 space-y-4">

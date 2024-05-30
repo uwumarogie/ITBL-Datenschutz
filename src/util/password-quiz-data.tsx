@@ -12,6 +12,19 @@ export type QuizParams = {
   showCorrectAnswer?: boolean;
 };
 
+export const topTenPasswords = [
+  "123456789",
+  "12345678",
+  "hallo",
+  "1234567890",
+  "1234567",
+  "password",
+  "password1",
+  "target123",
+  "iloveyou",
+  "gwerty123",
+];
+
 export const quizzes: QuizParams[] = [
   {
     question:
@@ -68,56 +81,258 @@ export const quizzes: QuizParams[] = [
 export type PasswordData = {
   password: string;
   strength: number;
+  explanation: string;
 };
 
 export const passwordData: PasswordData[] = [
-  { password: "JohnDoe!123", strength: 2 },
-  { password: "Emily2020!", strength: 2 },
-  { password: "Pass123word", strength: 1 },
-  { password: "Chris$789", strength: 2 },
-  { password: "helloworld", strength: 0 },
-  { password: "Summer@2021", strength: 2 },
-  { password: "Welcome123", strength: 1 },
-  { password: "MyPass@word", strength: 2 },
-  { password: "Sarah!78", strength: 2 },
-  { password: "David@2022", strength: 2 },
-  { password: "qwertyuiop", strength: 0 },
-  { password: "letmein2020", strength: 1 },
-  { password: "Sunshine$", strength: 2 },
-  { password: "Robert123", strength: 1 },
-  { password: "simplepass", strength: 0 },
-  { password: "Good$Pass1", strength: 2 },
-  { password: "Str@ngth8", strength: 2 },
-  { password: "Michael123$", strength: 2 },
-  { password: "WeakPass", strength: 0 },
-  { password: "Anna2022@", strength: 2 },
-  { password: "Football2020", strength: 1 },
-  { password: "Basketball!", strength: 1 },
-  { password: "CharlieBrown1", strength: 1 },
-  { password: "Lucy@1234", strength: 2 },
-  { password: "Keyboard!", strength: 1 },
-  { password: "Type1234", strength: 1 },
-  { password: "Secure!Pass", strength: 2 },
-  { password: "Insecure", strength: 0 },
-  { password: "Admin@2020", strength: 2 },
-  { password: "P@ssw0rd!", strength: 2 },
-  { password: "NotSoSecure", strength: 0 },
-  { password: "Jasmine@1", strength: 2 },
-  { password: "Aladdin123", strength: 1 },
-  { password: "GenieLamp!", strength: 1 },
-  { password: "Mermaid2021", strength: 1 },
-  { password: "Password!2", strength: 2 },
-  { password: "TechGeek!123", strength: 2 },
-  { password: "Gamer$2020", strength: 2 },
-  { password: "P@ssword123", strength: 2 },
-  { password: "User@2020", strength: 2 },
-  { password: "Default1", strength: 1 },
-  { password: "Chang3Me!", strength: 2 },
-  { password: "N3wP@ssw0rd", strength: 2 },
-  { password: "IloveJava1", strength: 1 },
-  { password: "Python@2021", strength: 2 },
-  { password: "C0d3Rocks!", strength: 2 },
-  { password: "L3arn@C0de", strength: 2 },
-  { password: "1LoveC0ding", strength: 1 },
-  { password: "Devel0per!", strength: 2 },
+  {
+    password: "JohnDoe!123",
+    strength: 2,
+    explanation: "Das Passwort erfüllt alle Bedingungen.",
+  },
+  {
+    password: "Emily2020!",
+    strength: 2,
+    explanation: "Das Passwort erfüllt alle Bedingungen.",
+  },
+  {
+    password: "Pass123word",
+    strength: 1,
+    explanation: "Das Passwort enthält kein Sonderzeichen.",
+  },
+  {
+    password: "Chris$789",
+    strength: 2,
+    explanation: "Das Passwort erfüllt alle Bedingungen.",
+  },
+  {
+    password: "helloworld",
+    strength: 0,
+    explanation:
+      "Das Passwort enthält keinen Großbuchstaben und kein Sonderzeichen.",
+  },
+  {
+    password: "Summer@2021",
+    strength: 2,
+    explanation: "Das Passwort erfüllt alle Bedingungen.",
+  },
+  {
+    password: "Welcome123",
+    strength: 1,
+    explanation: "Das Passwort enthält kein Sonderzeichen.",
+  },
+  {
+    password: "MyPass@word",
+    strength: 2,
+    explanation: "Das Passwort erfüllt alle Bedingungen.",
+  },
+  {
+    password: "Sarah!78",
+    strength: 2,
+    explanation: "Das Passwort erfüllt alle Bedingungen.",
+  },
+  {
+    password: "David@2022",
+    strength: 2,
+    explanation: "Das Passwort erfüllt alle Bedingungen.",
+  },
+  {
+    password: "qwertyuiop",
+    strength: 0,
+    explanation:
+      "Das Passwort enthält keinen Großbuchstaben und kein Sonderzeichen.",
+  },
+  {
+    password: "letmein2020",
+    strength: 1,
+    explanation:
+      "Das Passwort enthält keinen Großbuchstaben und kein Sonderzeichen.",
+  },
+  {
+    password: "Sunshine$",
+    strength: 2,
+    explanation: "Das Passwort erfüllt alle Bedingungen.",
+  },
+  {
+    password: "Robert123",
+    strength: 1,
+    explanation: "Das Passwort enthält kein Sonderzeichen.",
+  },
+  {
+    password: "simplepass",
+    strength: 0,
+    explanation:
+      "Das Passwort enthält keinen Großbuchstaben und kein Sonderzeichen.",
+  },
+  {
+    password: "Good$Pass1",
+    strength: 2,
+    explanation: "Das Passwort erfüllt alle Bedingungen.",
+  },
+  {
+    password: "Str@ngth8",
+    strength: 2,
+    explanation: "Das Passwort erfüllt alle Bedingungen.",
+  },
+  {
+    password: "Michael123$",
+    strength: 2,
+    explanation: "Das Passwort erfüllt alle Bedingungen.",
+  },
+  {
+    password: "WeakPass",
+    strength: 0,
+    explanation: "Das Passwort enthält kein Sonderzeichen.",
+  },
+  {
+    password: "Anna2022@",
+    strength: 2,
+    explanation: "Das Passwort erfüllt alle Bedingungen.",
+  },
+  {
+    password: "Football2020",
+    strength: 1,
+    explanation: "Das Passwort enthält kein Sonderzeichen.",
+  },
+  {
+    password: "Basketball!",
+    strength: 1,
+    explanation: "Das Passwort enthält keinen Kleinbuchstaben.",
+  },
+  {
+    password: "CharlieBrown1",
+    strength: 1,
+    explanation: "Das Passwort enthält kein Sonderzeichen.",
+  },
+  {
+    password: "Lucy@1234",
+    strength: 2,
+    explanation: "Das Passwort erfüllt alle Bedingungen.",
+  },
+  {
+    password: "Keyboard!",
+    strength: 1,
+    explanation: "Das Passwort enthält keinen Kleinbuchstaben.",
+  },
+  {
+    password: "Type1234",
+    strength: 1,
+    explanation: "Das Passwort enthält kein Sonderzeichen.",
+  },
+  {
+    password: "Secure!Pass",
+    strength: 2,
+    explanation: "Das Passwort erfüllt alle Bedingungen.",
+  },
+  {
+    password: "Insecure",
+    strength: 0,
+    explanation:
+      "Das Passwort enthält keinen Großbuchstaben und kein Sonderzeichen.",
+  },
+  {
+    password: "Admin@2020",
+    strength: 2,
+    explanation: "Das Passwort erfüllt alle Bedingungen.",
+  },
+  {
+    password: "P@ssw0rd!",
+    strength: 2,
+    explanation: "Das Passwort erfüllt alle Bedingungen.",
+  },
+  {
+    password: "NotSoSecure",
+    strength: 0,
+    explanation: "Das Passwort enthält kein Sonderzeichen.",
+  },
+  {
+    password: "Jasmine@1",
+    strength: 2,
+    explanation: "Das Passwort erfüllt alle Bedingungen.",
+  },
+  {
+    password: "Aladdin123",
+    strength: 1,
+    explanation: "Das Passwort enthält kein Sonderzeichen.",
+  },
+  {
+    password: "GenieLamp!",
+    strength: 1,
+    explanation: "Das Passwort enthält keinen Kleinbuchstaben.",
+  },
+  {
+    password: "Mermaid2021",
+    strength: 1,
+    explanation: "Das Passwort enthält kein Sonderzeichen.",
+  },
+  {
+    password: "Password!2",
+    strength: 2,
+    explanation: "Das Passwort erfüllt alle Bedingungen.",
+  },
+  {
+    password: "TechGeek!123",
+    strength: 2,
+    explanation: "Das Passwort erfüllt alle Bedingungen.",
+  },
+  {
+    password: "Gamer$2020",
+    strength: 2,
+    explanation: "Das Passwort erfüllt alle Bedingungen.",
+  },
+  {
+    password: "P@ssword123",
+    strength: 2,
+    explanation: "Das Passwort erfüllt alle Bedingungen.",
+  },
+  {
+    password: "User@2020",
+    strength: 2,
+    explanation: "Das Passwort erfüllt alle Bedingungen.",
+  },
+  {
+    password: "Default1",
+    strength: 1,
+    explanation: "Das Passwort enthält kein Sonderzeichen.",
+  },
+  {
+    password: "Chang3Me!",
+    strength: 2,
+    explanation: "Das Passwort erfüllt alle Bedingungen.",
+  },
+  {
+    password: "N3wP@ssw0rd",
+    strength: 2,
+    explanation: "Das Passwort erfüllt alle Bedingungen.",
+  },
+  {
+    password: "IloveJava1",
+    strength: 1,
+    explanation: "Das Passwort enthält kein Sonderzeichen.",
+  },
+  {
+    password: "Python@2021",
+    strength: 2,
+    explanation: "Das Passwort erfüllt alle Bedingungen.",
+  },
+  {
+    password: "C0d3Rocks!",
+    strength: 2,
+    explanation: "Das Passwort erfüllt alle Bedingungen.",
+  },
+  {
+    password: "L3arn@C0de",
+    strength: 2,
+    explanation: "Das Passwort erfüllt alle Bedingungen.",
+  },
+  {
+    password: "1LoveC0ding",
+    strength: 1,
+    explanation: "Das Passwort enthält kein Sonderzeichen.",
+  },
+  {
+    password: "Devel0per!",
+    strength: 2,
+    explanation: "Das Passwort erfüllt alle Bedingungen.",
+  },
 ];
