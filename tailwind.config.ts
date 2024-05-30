@@ -15,7 +15,7 @@ const config: Config = {
         "module-blue": "#A9D6E5",
       },
       height: {
-        "reduced-40": "calc(100% - 43px)",
+        "reduced-40": "calc(100% - 38px)",
         "reduced-safari": "calc(100vh - 50px)",
       },
     },
@@ -28,10 +28,20 @@ const config: Config = {
         "0%": { transform: "translateX(0)" },
         "100%": { transform: "translateX(100%)" },
       },
+      slideUp: {
+        "0%": { transform: "translateY(100%)" },
+        "100%": { transform: "translateY(0)" },
+      },
+      slideDown: {
+        "0%": { transform: "translateY(-100%)" },
+        "100%": { transform: "translateY(0)" },
+      },
     },
     animation: {
       slideIn: "slideIn 0.5s ease-out forwards",
       slideOut: "slideOut 0.5s ease-out forwards",
+      slideUp: "slideUp 0.5s ease-out forwards",
+      slideDown: "slideDown 0.5s ease-out forwards",
     },
   },
   plugins: [],
