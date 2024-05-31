@@ -57,7 +57,7 @@ export default function PasswordStrength() {
       setCurrentQuestionIndex(0);
     }
     passwordAnimation(passwordData[currentQuestionIndex + 1]?.password || passwordData[0]?.password);
-    setTimeout(() => setButtonStyleCorrect(-1), 1000);
+    setTimeout(() => setButtonStyleCorrect(-1), 1200);
   };
 
   const passwordAnimation = (password: string) => {
