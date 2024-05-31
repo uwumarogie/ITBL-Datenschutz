@@ -22,11 +22,13 @@ const quizzes: QuizParams[] = [
 export default function DataProtectionChapter1Quiz() {
   const router = useRouter();
   return (
-    <div>
-      <QuizList
-        quizzes={quizzes}
-        onFinish={() => router.push("/space/daten-verarbeitung/kapitel2/0")}
-      />
+    <div className="flex h-full w-full items-center justify-center @container">
+      <div className="w-full @4xl:w-1/2 mb-20">
+        <QuizList
+          quizzes={quizzes}
+          onFinish={() => router.push("/space/daten-verarbeitung/kapitel2/0")}
+        />
+      </div>
     </div>
   );
 }

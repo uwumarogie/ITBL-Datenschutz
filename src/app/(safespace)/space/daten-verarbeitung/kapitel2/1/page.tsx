@@ -55,7 +55,7 @@ export default function DataProcessing1() {
         </div>
       </div>
       <div className="flex justify-center items-center flex-col gap-4 absolute bottom-0 right-0 z-40 @2xl:relative @2xl:w-full @2xl:h-full">
-        <Task>Untersuche Maries Profil und notiere dir Informationen, die uns bei der Auswahl der passenden Werbung helfen können.</Task>
+        {!showMessage && <Task className="w-full">Untersuche Maries Profil und notiere dir Informationen, die uns bei der Auswahl der passenden Werbung helfen können.</Task>}
         <textarea
           className="w-full border-[1px] border-gray-200 rounded-xl resize-none h-1/3 outline-none py-4 px-6 hidden @2xl:block"
           placeholder="Platz für Notizen"

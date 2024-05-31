@@ -185,10 +185,10 @@ export default function DataProcessing2() {
 
   return (
     <div className="relative h-full w-full flex flex-col items-center justify-center">
-      <input className="absolute w-10 top-0 right-0 border-[1px] border-gray-200 outline-none z-40" type="number"
-             value={state} onChange={(ev) => setState(ev.target.valueAsNumber ?? 0)}/>
+      {/*<input className="absolute w-10 top-0 right-0 border-[1px] border-gray-200 outline-none z-40" type="number"*/}
+      {/*       value={state} onChange={(ev) => setState(ev.target.valueAsNumber ?? 0)}/>*/}
 
-      <div className="absolute top-0 left-0 w-full">
+      <div className="absolute top-0 left-0 w-full z-10">
 
         <div
           className="m-2 w-10 h-10 p-2 rounded-full bg-orange-500 inline-flex justify-center items-center shadow-sm hover:scale-105 hover:shadow-xl transition-all cursor-pointer"
