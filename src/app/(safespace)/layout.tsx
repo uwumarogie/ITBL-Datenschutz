@@ -33,6 +33,8 @@ export default function Layout({
   );
 }
 
+// See: https://stackoverflow.com/questions/77603249/how-to-make-a-page-transition-with-framer-motion-and-next-js-14
+
 function FrozenRouter(props: { children: React.ReactNode }) {
   const context = useContext(LayoutRouterContext ?? {});
   const frozen = useRef(context).current;
