@@ -9,6 +9,7 @@ import { useUserData } from "@/services/user/UserServiceContext";
 import Image from "next/image";
 import { Highscore } from "@/model/HighscoresEnum";
 import { useMessages } from "@/services/notfication/message-provider";
+import clsx from "clsx";
 
 export default function PasswordStrength() {
   const { userStore } = useUserData();
@@ -22,26 +23,8 @@ export default function PasswordStrength() {
   const [buttonStyleCorrect, setButtonStyleCorrect] = useState(-1);
   const [displayPassword, setDisplayPassword] = useState("");
   const currentQuestion = passwordData[currentQuestionIndex];
-
-  const addPulseAnimation = (elementId: string) => {
-    const elementToPulse = document.getElementById(elementId);
-    if (elementToPulse) {
-      elementToPulse.classList.add("animate-pointIncrease");
-      setTimeout(() => {
-        elementToPulse.classList.remove("animate-pointIncrease");
-      }, 300);
-    }
-  };
-
-  const addShakeAnimation = (elementId: string) => {
-    const elementToShake = document.getElementById(elementId);
-    if (elementToShake) {
-      elementToShake.classList.add("animate-shake");
-      setTimeout(() => {
-        elementToShake.classList.remove("animate-shake");
-      }, 500);
-    }
-  };
+  const [animateShake, setAnimateShake] = useState(false);
+  const [animatePulse, setAnimatePulse] = useState(false);
 
   const handleButtonClick = (strength: number) => {
     if (currentQuestion.strength === strength) {
@@ -49,7 +32,8 @@ export default function PasswordStrength() {
       if (currentScore >= highscore) {
         saveHighscore();
       }
-      addPulseAnimation("punkte");
+      setAnimatePulse(true)
+      setTimeout(() => setAnimatePulse(false), 300)
       setButtonStyleCorrect(strength);
       setButtonStyleWrong(-1);
       goToNextQuestion()
@@ -59,7 +43,8 @@ export default function PasswordStrength() {
         "error"
       );
       setCurrentScore(0);
-      addShakeAnimation("passwort");
+      setAnimateShake(true);
+      setTimeout(() => setAnimateShake(false), 500)
       setButtonStyleWrong(strength);
       setButtonStyleCorrect(-1);
     }
@@ -146,8 +131,8 @@ export default function PasswordStrength() {
   }, [gameStarted, currentQuestionIndex]);
 
   return (
-    <div className="flex flex-col max-w-[1100px] lg:px-6 justify-start">
-      <div className="flex justify-between mt-4 gap-8">
+    <div className="flex flex-col max-w-[1100px] lg:px-6 justify-start h-full">
+      <div className="flex justify-between mt-4 gap-8 h-full">
         {!gameStarted ? (
           <div className="flex flex-col gap-y-12">
             <IntroductionText
@@ -165,47 +150,51 @@ export default function PasswordStrength() {
             </Button>
           </div>
         ) : (
-          <div className="flex flex-col justify-center align-center w-full mt-24 md:mt-14">
-            <div className="flex flex-col gap-y-12 mb-12 md:mb-28">
-              <span id="punkte" className="text-2xl md:text-3xl text-blue-background text-center">
-                Punkte: {currentScore}
-              </span>
+          <div className="flex flex-col justify-between align-center w-full mt-24 md:mt-14">
+            <div>
+              <div className="flex flex-col gap-y-12 mb-12 md:mb-28">
+                <span className={clsx("text-2xl md:text-3xl text-blue-background text-center", animatePulse && "animate-pointIncrease")}>
+                  Punkte: {currentScore}
+                </span>
 
-              <div className="flex justify-center w-full">
-                <div className="w-full flex justify-center">
-                  <span
-                    id="passwort"
-                    className="bg-blue-contrast p-4 min-w-52 rounded-xl text-2xl md:text-3xl text-white text-start max-w-[400px] w-full"
-                  >
-                    {displayPassword}
-                  </span>
+                <div className="flex justify-center w-full">
+                  <div className="w-full flex justify-center">
+                    <span
+                      className={clsx("bg-blue-contrast p-4 min-w-52 rounded-xl text-2xl md:text-3xl text-white text-start max-w-[400px] w-full", animateShake && "animate-shake")}
+                    >
+                      {displayPassword}
+                    </span>
+                  </div>
                 </div>
               </div>
-            </div>
 
-            <div className="flex w-full flex-col md:flex-row items-center md:justify-center space-y-8 md:space-y-0 md:space-x-8">
-              <Button
-                onClick={() => handleButtonClick(2)}
-                style={buttonStyleWrong === 2 ? "red" : buttonStyleCorrect === 2 ? "green" : "default"}
-                className="max-w-[200px] w-full"
-              >
-                stark
-              </Button>
-              <Button
-                onClick={() => handleButtonClick(1)}
-                style={buttonStyleWrong === 1 ? "red" : buttonStyleCorrect === 1 ? "green" : "default"}
-                className="max-w-[200px] w-full"
-              >
-                mittel
-              </Button>
-              <Button
-                onClick={() => handleButtonClick(0)}
-                style={buttonStyleWrong === 0 ? "red" : buttonStyleCorrect === 0 ? "green" : "default"}
-                className="max-w-[200px] w-full"
-              >
-                schwach
-              </Button>
+              <div className="flex w-full flex-col md:flex-row items-center md:justify-center space-y-8 md:space-y-0 md:space-x-8">
+                <Button
+                  onClick={() => handleButtonClick(2)}
+                  style={buttonStyleWrong === 2 ? "red" : buttonStyleCorrect === 2 ? "green" : "default"}
+                  className="max-w-[200px] w-full"
+                >
+                  stark
+                </Button>
+                <Button
+                  onClick={() => handleButtonClick(1)}
+                  style={buttonStyleWrong === 1 ? "red" : buttonStyleCorrect === 1 ? "green" : "default"}
+                  className="max-w-[200px] w-full"
+                >
+                  mittel
+                </Button>
+                <Button
+                  onClick={() => handleButtonClick(0)}
+                  style={buttonStyleWrong === 0 ? "red" : buttonStyleCorrect === 0 ? "green" : "default"}
+                  className="max-w-[200px] w-full"
+                >
+                  schwach
+                </Button>
+              </div>
             </div>
+            <Button className="md:mb-2 max-w-[100px] bg-gray-600 hover:bg-gray-700 text-sm" onClick={() => router.push("/space/passwort")}>
+              Zurück
+            </Button>
           </div>
         )}
         <div className="absolute top-[70px] sm:top-[130px] right-6 sm:right-16 flex flex-col min-w-[104px]">
