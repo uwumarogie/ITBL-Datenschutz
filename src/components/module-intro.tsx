@@ -31,12 +31,6 @@ export default function ModuleIntro({
   const router = useRouter();
   return (
     <div className="h-full w-full flex flex-col items-start relative">
-      <Link href="/space">
-        <div className="flex items-center gap-4 mb-4 cursor-pointer transition-colors hover:text-sky-800">
-          <ArrowLeft />
-          <span>Zurück zur Übersicht</span>
-        </div>
-      </Link>
       <h1 className="font-semibold text-4xl text-sky-900 mb-2">{title}</h1>
       <h4 className="font-semibold text-xl mb-4">Modulübersicht</h4>
       <p className="whitespace-pre-wrap mb-10 w-full 2xl:max-w-[50%]">
