@@ -63,7 +63,7 @@ export const quizzes: QuizParams[] = [
   {
     question:
       "Der Hacker probiert es zudem mit einem Brute-Force-Angriff. Je länger das Passwort, desto besser. Achte immer darauf, dass dein Passwort aus mindestens 8 Zeichen besteht. Welches der Passwörter ist am sichersten?",
-    answers: ["Saf45", "fT3nPajl98bn3", "se5PmsW", "Sj5Kf23eg", ],
+    answers: ["Saf45", "fT3nPajl98bn3", "se5PmsW", "Sj5Kf23eg"],
     hint: "Brute-Force-Angriff: Es werden systematisch alle möglichen Kombinationen ausprobiert. Je mehr Stellen das Passwort hat, desto mehr Möglichkeiten muss der Angreifer berücksichtigen.",
     showCorrectAnswer: true,
     correctAnswer: 1,
