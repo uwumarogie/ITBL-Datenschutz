@@ -36,7 +36,7 @@ const config: Config = {
       },
       pointIncrease: {
         "0%": { transform: "scale(1)" },
-        "50%": { transform: "scale(1.2)" },
+        "50%": { transform: "scale(1.4)" },
         "100%": { transform: "scale(1)" },
       },
     },
