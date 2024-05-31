@@ -3,11 +3,11 @@ import Button from "@/components/button";
 import { ArrowLeft } from "@phosphor-icons/react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import React from "react";
+import React, {cloneElement} from "react";
 import clsx from "clsx";
 
 export type ModuleChapter = {
-  icon: string;
+  icon: string | React.ReactNode;
   title: string;
   minutes?: string;
   onClick?: () => void;
@@ -66,42 +66,54 @@ export default function ModuleIntro({
 function Chapter({ chapter }: { chapter: ModuleChapter[] }) {
   return (
     <div className="flex flex-col gap-4 mb-10">
-      {chapter.map((c, index) => (
-        <React.Fragment key={c.title}>
-          <div
-            className={clsx(
-              "flex items-center group",
-              c.onClick && "cursor-pointer",
-            )}
-            onClick={c.onClick}
-          >
+      {chapter.map((c, index) => {
+        const icon =
+          React.isValidElement(c.icon)
+            ? cloneElement(c.icon, {
+              size: "100px",
+              color: "white",
+              weight: "fill"
+            } as any)
+            : <Image src={c.icon as string} alt={c.title} width="100" height="100"/>
+        return (
+          <React.Fragment key={c.title}>
             <div
               className={clsx(
-                "bg-orange-500 w-14 h-14 p-4 mr-6 rounded-2xl inline-flex items-center justify-center shrink-0",
-                c.onClick &&
-                  "transition-all group-hover:bg-orange-600 group-hover:shadow-xl",
+                "flex items-center group",
+                c.onClick && "cursor-pointer",
               )}
+              onClick={c.onClick}
             >
-              <Image src={c.icon} alt={c.title} width="100" height="100" />
-            </div>
-            <div className="flex flex-col w-full">
-              <span className="font-medium text-lg">{c.title}</span>
-              <span className="flex gap-2 opacity-40 text-sm font-medium">
-                <span>Kapitel {index + 1}</span>
-                {c.minutes && (
-                  <React.Fragment>
-                    <span>•</span>
-                    <span>{c.minutes} min</span>
-                  </React.Fragment>
+              <div
+                className={clsx(
+                  "bg-orange-500 w-14 h-14 p-4 mr-6 rounded-2xl inline-flex items-center justify-center shrink-0",
+                  c.onClick &&
+                  "transition-all group-hover:bg-orange-600 group-hover:shadow-xl",
                 )}
-              </span>
+              >
+
+                {icon}
+
+              </div>
+              <div className="flex flex-col w-full">
+                <span className="font-medium text-lg">{c.title}</span>
+                <span className="flex gap-2 opacity-40 text-sm font-medium">
+                  <span>Kapitel {index + 1}</span>
+                  {c.minutes && (
+                    <React.Fragment>
+                      <span>•</span>
+                      <span>{c.minutes} min</span>
+                    </React.Fragment>
+                  )}
+                </span>
+              </div>
             </div>
-          </div>
-          <div className="w-full h-[1px] pl-[4.8rem]">
-            <div className="w-full h-full bg-gray-200 box-content"></div>
-          </div>
-        </React.Fragment>
-      ))}
+            <div className="w-full h-[1px] pl-[4.8rem]">
+              <div className="w-full h-full bg-gray-200 box-content"></div>
+            </div>
+          </React.Fragment>
+        );
+      })}
     </div>
   );
 }

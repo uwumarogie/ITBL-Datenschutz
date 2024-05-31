@@ -8,6 +8,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Button from "@/components/button";
 import clsx from "clsx";
+import Task from "@/components/task";
 
 const profile: InstagramProfileData = {
   username: "marie_magic1995",
@@ -36,12 +37,12 @@ const states = [{}];
 
 export default function DataProcessing1() {
   const [state, setState] = useState(0);
-  const [notes, setNotes] = useState();
+  const [notes, setNotes] = useState("");
   const [showMessage, setShowMessage] = useState(true);
   const router = useRouter();
 
   function onClick() {
-    router.push("/space/daten-verarbeitung/kapitel2/2", {
+    router.push("/space/daten-verarbeitung/kapitel2/2?notes=" + encodeURIComponent(notes), {
       scroll: true,
     });
   }
@@ -53,10 +54,12 @@ export default function DataProcessing1() {
           <InstagramProfile profile={profile} className="w-full" />
         </div>
       </div>
-      <div className="flex justify-center items-center flex-col gap-10 absolute bottom-0 right-0 z-40 @2xl:relative @2xl:w-full @2xl:h-full">
+      <div className="flex justify-center items-center flex-col gap-4 absolute bottom-0 right-0 z-40 @2xl:relative @2xl:w-full @2xl:h-full">
+        <Task>Untersuche Maries Profil und notiere dir Informationen, die uns bei der Auswahl der passenden Werbung helfen können.</Task>
         <textarea
           className="w-full border-[1px] border-gray-200 rounded-xl resize-none h-1/3 outline-none py-4 px-6 hidden @2xl:block"
           placeholder="Platz für Notizen"
+          onChange={(ev) => setNotes(ev.target.value ?? "")}
         />
         <div className="flex flex-col justify-center items-center gap-10 h-full">
           {showMessage && (

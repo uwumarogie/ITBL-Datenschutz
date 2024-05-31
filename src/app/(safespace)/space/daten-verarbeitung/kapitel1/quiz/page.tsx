@@ -1,14 +1,21 @@
 "use client";
 
-import QuizList, { QuizListProps } from "@/components/quiz-list";
-import { QuizParams } from "@/components/quiz";
 import { useRouter } from "next/navigation";
+import QuizList from "@/components/quiz-list";
+import {QuizParams} from "@/components/quiz";
 
 const quizzes: QuizParams[] = [
   {
     question: "Was ist 1+1?",
     answers: ["1", "2", "123"],
-    correctAnswer: 0,
+    correctAnswer: 1,
+    showCorrectAnswer: true,
+  },
+  {
+    question: "Was ist 2*2?",
+    answers: ["1", "2", "3", "4", "5"],
+    correctAnswer: 3,
+    showCorrectAnswer: true,
   },
 ];
 

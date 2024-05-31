@@ -28,10 +28,25 @@ const config: Config = {
         "0%": { transform: "translateX(0)" },
         "100%": { transform: "translateX(100%)" },
       },
+      bounce: {
+        "0%": {
+          transform: "translateY(-30%)",
+          animationTimingFunction: "cubic-bezier(0.8, 0, 1, 1)",
+        },
+        "50%": {
+          transform: "translateY(0)",
+          animationTimingFunction: "cubic-bezier(0, 0, 0.2, 1)"
+        },
+        "100%": {
+          transform: "translateY(-30%)",
+          animationTimingFunction: "cubic-bezier(0.8, 0, 1, 1)",
+        },
+      }
     },
     animation: {
       slideIn: "slideIn 0.5s ease-out forwards",
       slideOut: "slideOut 0.5s ease-out forwards",
+      bounce: "bounce 1s infinite",
     },
   },
   plugins: [require("@tailwindcss/container-queries")],
