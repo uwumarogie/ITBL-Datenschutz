@@ -43,4 +43,6 @@ export interface UserService {
     unlocked: boolean,
   ) => Promise<void>;
   initUser: (username: string) => Promise<void>;
+
+  setHighscore: (gameId: number, highscore: number) => Promise<void>;
 }

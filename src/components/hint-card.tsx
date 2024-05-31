@@ -5,7 +5,7 @@ import { useState, ReactNode } from "react";
 type ActionCardProps = {
   text: string;
   buttonText: string;
-  iconSrc: string;
+  iconSrc?: string;
   hint: ReactNode;
 };
 
@@ -16,7 +16,7 @@ export function HintCard({ text, buttonText, iconSrc, hint }: ActionCardProps) {
       className="relative rounded-xl p-4 scale-95 w-full h-full"
       style={{ background: "rgba(251, 109, 58, 0.15)" }}
     >
-      <div className="absolute top-[-26] left-[-26] w-16 h-16 rounded-full flex items-center justify-center">
+      <div className="absolute top-[-26px] left-[-26px] w-16 h-16 rounded-full flex items-center justify-center">
         <Image
           src="/question-mark.svg"
           alt="Question Mark"
@@ -47,16 +47,18 @@ export function HintCard({ text, buttonText, iconSrc, hint }: ActionCardProps) {
               </span>
               <Button onClick={() => setShowHint(true)}>{buttonText}</Button>
             </div>
-            <div className="flex justify-center w-full">
-              <Image
-                src={iconSrc}
-                alt={text}
-                layout="responsive"
-                width={400}
-                height={400}
-                className="max-w-[200px] sm:max-w-[300px]"
-              />
-            </div>
+            {iconSrc && (
+              <div className="flex justify-center w-full">
+                <Image
+                  src={iconSrc}
+                  alt={text}
+                  layout="responsive"
+                  width={400}
+                  height={400}
+                  className="max-w-[200px] sm:max-w-[300px]"
+                />
+              </div>
+            )}
           </div>
         )}
       </div>
