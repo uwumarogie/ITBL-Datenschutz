@@ -10,7 +10,7 @@ export default function Layout({
       <div className="hidden sm:block">
         <InlineNavigation />
       </div>
-      <div style={{ height: "calc(100vh - 170px)", overflowY: "auto" }}>
+      <div className="h-[calc(100vh-165px)] sm:h-[calc(100vh-190px)]" style={{ overflowY: "auto" }}>
         {children}
       </div>
     </div>

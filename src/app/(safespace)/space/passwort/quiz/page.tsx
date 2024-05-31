@@ -14,6 +14,12 @@ const hintCards = [
     hint: topTenPasswords.join(", "),
   },
   {
+    questionIndex: 1,
+    text: "Welche Buchstaben werden oft ersetzt?",
+    buttonText: "Anzeigen",
+    hint: "0 für O, 1 oder ! für I, 3 für E, @ oder 4 für A, $ oder 5 für S, 6 oder 9 für G, 7 für T, 8 für B"
+  },
+  {
     questionIndex: 3,
     text: "Brute-Force-Angriff",
     buttonText: "Mehr erfahren",

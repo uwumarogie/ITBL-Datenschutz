@@ -46,27 +46,27 @@ export const quizzes: QuizParams[] = [
   },
   {
     question:
-      "Auch gängige Muster wie Wiederholungen und Tastaturfolgen sowie das Hinzufügen von Zahlen oder Sonderzeichen am Anfang oder Ende einfacher Passwörter werden geprüft. Welches Passwort ist am sichersten?",
-    answers: ["asdfgh", "abcd1234", "hallo!", "{username}"],
+      "Neben den häufigsten Passwörtern werden auch gängige Wiederholungs- oder Tastaturmuster, wie Zahlenfolgen überprüft. Dazu gehört ebenfalls das Hinzufügen einer Zahl oder eines Sonderzeichens am Anfang oder Ende eines sonst simplen Passwortes, oder das Austauschen eines Buchstabens mit einer Zahl oder einem ähnlichen Sonderzeichen. Welches der Passwörter ist am sichersten?",
+    answers: ["Marie!", "asdfgh", "abcd1234", "h@llo"],
     hint: "Vermeide Wiederholungen und einfache Muster. Das Hinzufügen von Sonderzeichen verbessert die Sicherheit.",
+    showCorrectAnswer: true,
+    correctAnswer: 0,
+  },
+  {
+    question:
+      "Ein Freund von dir wurde bereits gehackt. Der Hacker kennt schon deinen Namen und dein Geburtsdatum. Welches der Passwörter ist am sichersten?",
+    answers: ["{username}1234", "2008{username}", "SakPze69", "password1"],
+    hint: "Verwende keine persönlichen Informationen wie deinen Namen oder Geburtsdatum in deinem Passwort.",
     showCorrectAnswer: true,
     correctAnswer: 2,
   },
   {
     question:
-      "Ein Freund von dir wurde bereits gehackt. Der Hacker kennt schon deinen Namen und dein Geburtsdatum. Welches der Passwörter ist am sichersten?",
-    answers: ["{username}1234", "2008{username}", "password1", "SakPze69"],
-    hint: "Verwende keine persönlichen Informationen wie deinen Namen oder Geburtsdatum in deinem Passwort.",
-    showCorrectAnswer: true,
-    correctAnswer: 3,
-  },
-  {
-    question:
       "Der Hacker probiert es zudem mit einem Brute-Force-Angriff. Je länger das Passwort, desto besser. Achte immer darauf, dass dein Passwort aus mindestens 8 Zeichen besteht. Welches der Passwörter ist am sichersten?",
-    answers: ["Saf45", "se5PmsW", "Sj5Kf23eg", "fT3nPajl98bn3"],
+    answers: ["Saf45", "fT3nPajl98bn3", "se5PmsW", "Sj5Kf23eg", ],
     hint: "Brute-Force-Angriff: Es werden systematisch alle möglichen Kombinationen ausprobiert. Je mehr Stellen das Passwort hat, desto mehr Möglichkeiten muss der Angreifer berücksichtigen.",
     showCorrectAnswer: true,
-    correctAnswer: 3,
+    correctAnswer: 1,
   },
   {
     question:
