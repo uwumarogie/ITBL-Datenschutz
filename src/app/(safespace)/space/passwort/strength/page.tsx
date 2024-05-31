@@ -62,7 +62,7 @@ export default function PasswordStrength() {
 
   const passwordAnimation = (password: string) => {
     const theLetters = "abcdefghijklmnopqrstuvwxyz#%&^+=-";
-    const speed = 30;
+    const speed = 20;
     const increment = 8;
 
     let clen = password.length;
