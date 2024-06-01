@@ -3,7 +3,7 @@ import {
   containDigits,
   containLowerCaseLetters,
   containSpecialCharacters,
-  difficultToGuess,
+  notFrequentlyUsed,
   getColor,
   SUCCESS_COLOR,
 } from "@/util/passwort-validation";
@@ -19,7 +19,7 @@ export function InputValidation({ input = "" }: { input: string }) {
       check: containSpecialCharacters,
       label: "Sonderzeichen (z.B. !§$%&äöüÄÖÜ)",
     },
-    { check: difficultToGuess, label: "Passwort schwer zu erraten" },
+    { check: notFrequentlyUsed, label: "Kein häufig verwendetes Passwort" },
   ];
 
   return (
