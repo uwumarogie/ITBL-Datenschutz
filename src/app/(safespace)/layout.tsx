@@ -57,7 +57,7 @@ function Transition({ children }: { children: React.ReactNode }) {
           animate={{ opacity: 1, transition: { delay: 0.6 } }}
           exit={{ opacity: 0 }}
           transition={{ ease: "easeInOut", delay: 0.3 }}
-          className="overflow-hidden"
+          className="overflow-hidden h-full"
         >
           <FrozenRouter>{children}</FrozenRouter>
         </motion.div>
