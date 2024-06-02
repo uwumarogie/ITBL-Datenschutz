@@ -10,11 +10,12 @@ import {
 } from "unique-names-generator";
 
 export default function Home() {
-  const [erstesDivOffen, setErstesDivOffen] = useState(false);
-  const [zweitesDivOffen, setZweitesDivOffen] = useState(false);
+
+  const [firstdivopen, setfirstdivopen] = useState(false);
+  const [seconddivopen, setseconddivopen] = useState(false);
   const router = useRouter();
   const { userStore } = useUserData();
-  const [username, setUsername] = useState<string>("");
+  const [username, setUsername] = useState("");
   const generateUsername = () =>
     setUsername(
       uniqueNamesGenerator({
@@ -31,19 +32,19 @@ export default function Home() {
       <div className="flex flex-col space-y-4 justify-center items-center w-200 p-20 shadow-lg bg-blue-200 rounded-3xl">
         <div className="flex space-y-2 flex-col justify-center w-100 p-10 shadow-lg bg-white rounded-3xl">
           <div className="flex space-x-5 justify-center">
-            {!zweitesDivOffen && (
-              <Button onClick={() => setErstesDivOffen(!erstesDivOffen)}>
+            {!seconddivopen && (
+              <Button onClick={() => setfirstdivopen(!firstdivopen)}>
                 Klasse erstellen
               </Button>
             )}
-            {!erstesDivOffen && (
-              <Button onClick={() => setZweitesDivOffen(!zweitesDivOffen)}>
+            {!firstdivopen && (
+              <Button onClick={() => setseconddivopen(!seconddivopen)}>
                 Klasse beitreten
               </Button>
             )}
           </div>
           <div className="flex space-x-4">
-            {erstesDivOffen && (
+            {firstdivopen && (
               <div className="space-y-4 border border-gray-400 rounded-3xl p-2">
                 <h1 className="block text-xl mb-2 mr-4 font-mono ">
                   Erstelle eine Klasse
@@ -82,7 +83,7 @@ export default function Home() {
                 </h1>
               </div>
             )}
-            {zweitesDivOffen && (
+            {seconddivopen && (
               <div className="space-y-4 border border-gray-400 rounded-3xl p-2">
                 <h1 className="text-xl font-mono">Klasse beitreten</h1>
                 <div className="flex space-x-5 justify-center">
@@ -105,7 +106,7 @@ export default function Home() {
                       id="username"
                       className="shadow-lg border border-gray-400 rounded p-2"
                       placeholder="Gib einen Klassen-Code ein"
-                    ></input>
+                   />
                   </div>
                 </div>
               </div>
@@ -113,7 +114,7 @@ export default function Home() {
           </div>
         </div>
         <div>
-          {(erstesDivOffen || zweitesDivOffen) && (
+          {(firstdivopen || seconddivopen) && (
             <Button
               onClick={async () => {
                 await userStore.initUser(username).then(() => {
