@@ -2,6 +2,7 @@
 
 import Button from "@/components/button";
 import { InlineNavigation } from "@/components/inline-navigation";
+import { VideoPlayer } from "@/components/video-player";
 import { useMessages } from "@/services/notfication/message-provider";
 
 export default function Intro() {
@@ -17,6 +18,14 @@ export default function Intro() {
       <Button onClick={() => addMessage(message, "error")}>Error</Button>
       <Button onClick={() => addMessage(message, "success")}>Success</Button>
       <Button onClick={() => addMessage(message, "info")}>Info</Button>
+
+      <div className="rounded-xl">
+        <VideoPlayer
+          src="/videos/recording.mp4"
+          timestamps={[{ label: "Kapitel 1", time: 10 }]}
+          height=
+        />
+      </div>
     </div>
   );
 }
