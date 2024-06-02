@@ -6,16 +6,11 @@ export default function Layout({
   children: React.ReactNode;
 }>) {
   return (
-    <div className="px-6 h-full">
-      <div className="hidden sm:block">
+    <div className="px-6 h-full flex flex-col">
+      <div className="hidden sm:block mb-2 shrink-0">
         <InlineNavigation />
       </div>
-      <div
-        className="h-[calc(100vh-165px)] sm:h-[calc(100vh-190px)]"
-        style={{ overflowY: "auto" }}
-      >
-        {children}
-      </div>
+      <div className="h-full overflow-y-auto">{children}</div>
     </div>
   );
 }
