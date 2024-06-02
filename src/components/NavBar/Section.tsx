@@ -76,7 +76,7 @@ export function Section() {
   useEffect(() => {
     const activeSection = getActiveSection();
     setSection(activeSection);
-  }, [path]);
+  }, [getActiveSection, path]);
 
   return (
     <div className="flex items-center sm:block">
