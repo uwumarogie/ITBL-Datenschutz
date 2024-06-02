@@ -1,28 +1,10 @@
-import { useEffect, useState } from "react";
-import {
-  adjectives,
-  animals,
-  uniqueNamesGenerator,
-} from "unique-names-generator";
-
-export function Multiplayer() {
-  const [username, setUsername] = useState("");
-
-  const generateUsername = () =>
-    setUsername(
-      uniqueNamesGenerator({
-        dictionaries: [adjectives, animals],
-        separator: " ",
-        style: "capital",
-      }),
-    );
-
-  useEffect(() => {
-    if (!username) {
-      generateUsername();
-    }
-  }, [username]);
-
+export function Multiplayer({
+  username,
+  setGameCode,
+}: {
+  username: string;
+  setGameCode: (gameCode: string) => void;
+}) {
   return (
     <div className="space-y-4 rounded-3xl p-2">
       <div className="flex space-x-5 justify-center">
@@ -43,7 +25,8 @@ export function Multiplayer() {
               type="text"
               id="username"
               className="rounded-xl p-5 h-7 md:w-72"
-              placeholder="Gib einen Klassen-Code ein"
+              placeholder="Gib einen Code ein"
+              onChange={(e) => setGameCode(e.target.value)}
             />
           </div>
         </div>
