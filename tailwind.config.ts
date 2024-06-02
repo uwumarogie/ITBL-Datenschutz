@@ -29,7 +29,7 @@ const config: Config = {
         "100%": { transform: "translateX(100%)" },
       },
       slideUp: {
-        "0%": { transform: "translateY(100%)" },
+        "0%": { transform: "translateY(20%)" },
         "100%": { transform: "translateY(0)" },
       },
       slideDown: {

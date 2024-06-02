@@ -35,7 +35,7 @@ export default function ExerciseLink({
         </div>
         <div className="absolute inset-0 h-full flex items-end">
           <div className="overflow-hidden rounded-2xl w-full h-full max-h-[77%]">
-            <div className="flex flex-col justify-between px-8 pb-3 pt-6 w-full h-full bg-sky-200 bg-opacity-100 opacity-0 group-hover:animate-slideUp group-hover:opacity-100 transition-opacity duration-300 ease-in-out">
+            <div className="flex flex-col justify-between px-8 pb-3 pt-6 w-full h-full bg-sky-200 bg-opacity-100 opacity-0 group-hover:animate-slideUp group-hover:opacity-100 transition-opacity duration-200 ease-in-out">
               <p className="text-blue-background text-center">{description}</p>
               <Button onClick={() => router.push(slug)}>Modul starten</Button>
             </div>
