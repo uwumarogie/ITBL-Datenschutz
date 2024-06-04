@@ -12,6 +12,8 @@ import forceLayout from "graphology-layout-force";
 import ForceSupervisor from "graphology-layout-force/worker";
 import Button from "@/components/button";
 import { useRouter } from "next/navigation";
+import { motion } from "framer-motion";
+import AnimatedText from "@/components/animated/AnimatedText";
 
 const states = [
   {
@@ -63,7 +65,7 @@ export default function DataProcessing3() {
         image: NodeImageProgram,
       },
     });
-    sigma.getCamera().disable();
+    // sigma.getCamera().disable();
 
     circular.assign(graph);
 
@@ -106,7 +108,7 @@ export default function DataProcessing3() {
   return (
     <div className="h-full flex flex-col justify-center items-center">
       <h3 className="mt-10 mb-16 font-medium text-2xl text-center w-full md:w-3/4">
-        {states[state].text}
+        <AnimatedText>{states[state].text}</AnimatedText>
       </h3>
 
       <div className="h-full w-full" ref={sigmaContainer}></div>

@@ -35,7 +35,7 @@ const config: Config = {
         },
         "50%": {
           transform: "translateY(0)",
-          animationTimingFunction: "cubic-bezier(0, 0, 0.2, 1)"
+          animationTimingFunction: "cubic-bezier(0, 0, 0.2, 1)",
         },
         "100%": {
           transform: "translateY(-30%)",

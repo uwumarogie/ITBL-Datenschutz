@@ -31,8 +31,8 @@ export default function Button({
     buttonStyle = "text-white bg-red-500";
     buttonHoverStyle = "hover:bg-red-600";
   } else if (style == "secondary") {
-    buttonStyle = "text-white bg-[#004F86]"
-    buttonHoverStyle = "hover:bg-[#004170]"
+    buttonStyle = "text-white bg-[#004F86]";
+    buttonHoverStyle = "hover:bg-[#004170]";
   }
 
   const mergedStyle = clsx(

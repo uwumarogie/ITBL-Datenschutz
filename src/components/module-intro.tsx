@@ -3,7 +3,7 @@ import Button from "@/components/button";
 import { ArrowLeft } from "@phosphor-icons/react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import React, {cloneElement} from "react";
+import React, { cloneElement } from "react";
 import clsx from "clsx";
 
 export type ModuleChapter = {
@@ -67,14 +67,20 @@ function Chapter({ chapter }: { chapter: ModuleChapter[] }) {
   return (
     <div className="flex flex-col gap-4 mb-10">
       {chapter.map((c, index) => {
-        const icon =
-          React.isValidElement(c.icon)
-            ? cloneElement(c.icon, {
-              size: "100px",
-              color: "white",
-              weight: "fill"
-            } as any)
-            : <Image src={c.icon as string} alt={c.title} width="100" height="100"/>
+        const icon = React.isValidElement(c.icon) ? (
+          cloneElement(c.icon, {
+            size: "100px",
+            color: "white",
+            weight: "fill",
+          } as any)
+        ) : (
+          <Image
+            src={c.icon as string}
+            alt={c.title}
+            width="100"
+            height="100"
+          />
+        );
         return (
           <React.Fragment key={c.title}>
             <div
@@ -88,12 +94,10 @@ function Chapter({ chapter }: { chapter: ModuleChapter[] }) {
                 className={clsx(
                   "bg-orange-500 w-14 h-14 p-4 mr-6 rounded-2xl inline-flex items-center justify-center shrink-0",
                   c.onClick &&
-                  "transition-all group-hover:bg-orange-600 group-hover:shadow-xl",
+                    "transition-all group-hover:bg-orange-600 group-hover:shadow-xl",
                 )}
               >
-
                 {icon}
-
               </div>
               <div className="flex flex-col w-full">
                 <span className="font-medium text-lg">{c.title}</span>

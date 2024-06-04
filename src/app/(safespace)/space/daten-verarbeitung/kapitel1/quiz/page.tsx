@@ -2,7 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import QuizList from "@/components/quiz-list";
-import {QuizParams} from "@/components/quiz";
+import { QuizParams } from "@/components/quiz";
 
 const quizzes: QuizParams[] = [
   {

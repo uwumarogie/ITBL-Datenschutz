@@ -1,13 +1,14 @@
 "use client";
 
-import {CSSProperties, useEffect, useState} from "react";
-import Robot, {RobotExpression} from "@/components/robot/robot";
+import { CSSProperties, useEffect, useState } from "react";
+import Robot, { RobotExpression } from "@/components/robot/robot";
 import clsx from "clsx";
-import {useRouter, useSearchParams} from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import Image from "next/image";
-import {Info, Note, Notepad} from "@phosphor-icons/react";
+import { Info, Note, Notepad } from "@phosphor-icons/react";
 import Button from "@/components/button";
 import Link from "next/link";
+import AnimatedText from "@/components/animated/AnimatedText";
 
 type State = {
   expression: RobotExpression;
@@ -19,7 +20,7 @@ type State = {
   end?: boolean;
   delay?: number;
   style?: CSSProperties | undefined;
-}
+};
 
 const states: State[] = [
   {
@@ -41,7 +42,7 @@ const states: State[] = [
   {
     expression: "resting",
     rotation: 0,
-    text: ""
+    text: "",
   },
   {
     expression: "smiling",
@@ -57,7 +58,7 @@ const states: State[] = [
     style: {
       rotate: "30deg",
       marginLeft: "calc(100% + 400px)",
-    }
+    },
   },
   {
     expression: "resting",
@@ -67,7 +68,7 @@ const states: State[] = [
     style: {
       rotate: "-30deg",
       marginLeft: "calc(100% + 400px)",
-    }
+    },
   },
   {
     expression: "resting",
@@ -81,14 +82,14 @@ const stateSuccess: State = {
   rotation: 0,
   text: "Super! Marie hat sofort auf die Anzeige gedrückt, als sie bei ihr aufgeploppt ist!",
   end: true,
-}
+};
 
 const stateFailure: State = {
   expression: "sad",
   rotation: 0,
   text: "Schlechte Nachrichten, Marie hat einfach weitergedrückt. Die Anzeige ist nicht gut angekommen.",
   end: true,
-}
+};
 
 export type AdvertisementData = {
   id: string;
@@ -96,7 +97,7 @@ export type AdvertisementData = {
   name: string;
   description: string;
   isSuccessful?: boolean;
-}
+};
 
 const advertisements: AdvertisementData[] = [
   {
@@ -110,7 +111,7 @@ const advertisements: AdvertisementData[] = [
     imageSrc: "/data-processing.png",
     name: "Richtige Anzeige",
     description: "Beschreibung für eine Antivirensoftware",
-    isSuccessful: true
+    isSuccessful: true,
   },
   {
     id: "2",
@@ -133,20 +134,21 @@ const advertisements: AdvertisementData[] = [
 ];
 
 async function delay(delay: number) {
-  return new Promise<void>(resolve => {
+  return new Promise<void>((resolve) => {
     setTimeout(() => {
-      resolve()
-    }, delay)
-  })
+      resolve();
+    }, delay);
+  });
 }
 
 export default function DataProcessing2() {
   const [state, setState] = useState(0);
   const router = useRouter();
-  const query = useSearchParams()
-  const notes = decodeURIComponent(query.get("notes") ?? "")
-  const [showNotes, setNotesShowing] = useState(false)
-  const [advertisement, selectAdvertisement] = useState<AdvertisementData | null>(null)
+  const query = useSearchParams();
+  const notes = decodeURIComponent(query.get("notes") ?? "");
+  const [showNotes, setNotesShowing] = useState(false);
+  const [advertisement, selectAdvertisement] =
+    useState<AdvertisementData | null>(null);
 
   useEffect(() => {
     const id = setTimeout(() => {
@@ -156,30 +158,29 @@ export default function DataProcessing2() {
   }, []);
 
   function getState(): State {
-    if(state >= states.length) {
-      return advertisement?.isSuccessful ? stateSuccess : stateFailure
-    }else{
-      return states[state]
+    if (state >= states.length) {
+      return advertisement?.isSuccessful ? stateSuccess : stateFailure;
+    } else {
+      return states[state];
     }
   }
 
   async function onAdvertisementClick(advertisement: AdvertisementData) {
-    selectAdvertisement(advertisement)
-    setState(2)
-    await delay(1400)
-    setState(3)
+    selectAdvertisement(advertisement);
+    setState(2);
+    await delay(1400);
+    setState(3);
   }
 
-
   async function onButtonClick() {
-    if(state == 3) {
-      setState(4)
-      await delay(3000)
-      setState(5)
-      await delay(100)
-      setState(6)
-      await delay(700)
-      setState(7)
+    if (state == 3) {
+      setState(4);
+      await delay(3000);
+      setState(5);
+      await delay(100);
+      setState(6);
+      await delay(700);
+      setState(7);
     }
   }
 
@@ -189,36 +190,36 @@ export default function DataProcessing2() {
       {/*       value={state} onChange={(ev) => setState(ev.target.valueAsNumber ?? 0)}/>*/}
 
       <div className="absolute top-0 left-0 w-full z-10">
-
         <div
           className="m-2 w-10 h-10 p-2 rounded-full bg-orange-500 inline-flex justify-center items-center shadow-sm hover:scale-105 hover:shadow-xl transition-all cursor-pointer"
-          onClick={() => setNotesShowing(!showNotes)}>
-          <Notepad className="w-full h-full text-white" weight="bold"/>
+          onClick={() => setNotesShowing(!showNotes)}
+        >
+          <Notepad className="w-full h-full text-white" weight="bold" />
         </div>
 
-        {
-          showNotes &&
-            <div className="xl:max-w-[50%] w-full bg-white shadow-xl py-4 px-6 rounded-xl z-30 mt-4">
-                <h3 className="font-medium">Deine Notizen</h3>
-                <span className="whitespace-pre-wrap">{notes}</span>
-            </div>
-        }
-
+        {showNotes && (
+          <div className="xl:max-w-[50%] w-full bg-white shadow-xl py-4 px-6 rounded-xl z-30 mt-4">
+            <h3 className="font-medium">Deine Notizen</h3>
+            <span className="whitespace-pre-wrap">{notes}</span>
+          </div>
+        )}
       </div>
 
-      <div className={clsx(
-        "w-full flex flex-col justify-center items-center relative transition-all flex-shrink-0",
-      )}>
-
-        {
-          advertisement &&
-            <div className={clsx(
+      <div
+        className={clsx(
+          "w-full flex flex-col justify-center items-center relative transition-all flex-shrink-0",
+        )}
+      >
+        {advertisement && (
+          <div
+            className={clsx(
               "transition-all duration-700 overflow-hidden",
-              state >= 3 ? "h-36 opacity-100" : "h-0 opacity-0"
-            )}>
-                <Advertisement advertisement={advertisement}/>
-            </div>
-        }
+              state >= 3 ? "h-36 opacity-100" : "h-0 opacity-0",
+            )}
+          >
+            <Advertisement advertisement={advertisement} />
+          </div>
+        )}
 
         <Robot
           expression={getState().expression}
@@ -227,18 +228,36 @@ export default function DataProcessing2() {
           style={getState().style}
         />
 
-        {getState().loading && <div className="flex gap-2">
+        {getState().loading && (
+          <div className="flex gap-2">
             <div className="w-4 h-4 bg-gray-300 rounded-full animate-bounce"></div>
-            <div className="w-4 h-4 bg-gray-300 rounded-full animate-bounce" style={{animationDelay: "150ms"}}></div>
-            <div className="w-4 h-4 bg-gray-300 rounded-full animate-bounce" style={{animationDelay: "200ms"}}></div>
-        </div>}
+            <div
+              className="w-4 h-4 bg-gray-300 rounded-full animate-bounce"
+              style={{ animationDelay: "150ms" }}
+            ></div>
+            <div
+              className="w-4 h-4 bg-gray-300 rounded-full animate-bounce"
+              style={{ animationDelay: "200ms" }}
+            ></div>
+          </div>
+        )}
 
         <div className="max-w-96 mt-10 text-xl font-medium text-center">
-        {getState().text}
+          <AnimatedText>{getState().text}</AnimatedText>
         </div>
 
-        {getState().manualNext && !getState().hideButton && <Button className="mt-10" onClick={onButtonClick}>Weiter</Button>}
-        {getState().end && <Link href="/space/daten-verarbeitung/kapitel2/3"><Button className="mt-10" onClick={() => {}}>Weiter</Button> </Link>}
+        {getState().manualNext && !getState().hideButton && (
+          <Button className="mt-10" onClick={onButtonClick}>
+            Weiter
+          </Button>
+        )}
+        {getState().end && (
+          <Link href="/space/daten-verarbeitung/kapitel2/3">
+            <Button className="mt-10" onClick={() => {}}>
+              Weiter
+            </Button>{" "}
+          </Link>
+        )}
       </div>
 
       <div
@@ -248,35 +267,42 @@ export default function DataProcessing2() {
         )}
       >
         {advertisements.map((advertisement) => (
-          <Advertisement advertisement={advertisement} key={advertisement.id} onClick={onAdvertisementClick}/>
+          <Advertisement
+            advertisement={advertisement}
+            key={advertisement.id}
+            onClick={onAdvertisementClick}
+          />
         ))}
       </div>
     </div>
   );
 }
 
-function Advertisement({advertisement, onClick}: {
-  advertisement: AdvertisementData,
-  onClick?: (advertisement: AdvertisementData) => void
+function Advertisement({
+  advertisement,
+  onClick,
+}: {
+  advertisement: AdvertisementData;
+  onClick?: (advertisement: AdvertisementData) => void;
 }) {
-  return <div
-    className="bg-blue-200 rounded-xl w-full flex"
-    onClick={() => onClick?.(advertisement)}
-  >
-    <Image
-      src={advertisement.imageSrc}
-      alt={"Advertisement"}
-      width="100"
-      height="100"
-      className="h-full object-contain"
-    />
-    <div className="flex flex-col justify-center pl-6 pr-4">
-              <span className="text-lg font-semibold text-blue-950">
-                {advertisement.name}
-              </span>
-      <span className="text-slate-800">
-                {advertisement.description}
-              </span>
+  return (
+    <div
+      className="bg-blue-200 rounded-xl w-full flex"
+      onClick={() => onClick?.(advertisement)}
+    >
+      <Image
+        src={advertisement.imageSrc}
+        alt={"Advertisement"}
+        width="100"
+        height="100"
+        className="h-full object-contain"
+      />
+      <div className="flex flex-col justify-center pl-6 pr-4">
+        <span className="text-lg font-semibold text-blue-950">
+          {advertisement.name}
+        </span>
+        <span className="text-slate-800">{advertisement.description}</span>
+      </div>
     </div>
-  </div>
+  );
 }

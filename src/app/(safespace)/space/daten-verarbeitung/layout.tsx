@@ -8,15 +8,15 @@ import { usePathname, useRouter } from "next/navigation";
 const steps = [
   {
     progress: 0,
-    text: "Kapitel 1"
+    text: "Kapitel 1",
   },
   {
     progress: 0.2,
-    text: "Kapitel 2"
+    text: "Kapitel 2",
   },
   {
     progress: 0.8,
-    text: "Kapitel 3"
+    text: "Kapitel 3",
   },
 ];
 

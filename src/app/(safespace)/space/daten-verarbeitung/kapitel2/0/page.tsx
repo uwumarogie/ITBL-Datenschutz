@@ -5,6 +5,7 @@ import { CSSProperties, useEffect, useState } from "react";
 import Button from "@/components/button";
 import clsx from "clsx";
 import { useRouter } from "next/navigation";
+import AnimatedText from "@/components/animated/AnimatedText";
 
 const states: {
   expression: RobotExpression;
@@ -96,7 +97,7 @@ export default function DataProcessing0() {
     <div className="relative h-full w-full flex flex-col">
       <div className="w-full h-full flex flex-col justify-center items-center relative">
         <div className="max-w-96 text-xl font-medium text-center absolute bottom-10">
-          {states[state].text}
+          <AnimatedText>{states[state].text}</AnimatedText>
         </div>
 
         <Robot
