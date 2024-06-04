@@ -144,8 +144,9 @@ async function delay(delay: number) {
 export default function DataProcessing2() {
   const [state, setState] = useState(0);
   const router = useRouter();
-  const query = useSearchParams();
-  const notes = decodeURIComponent(query.get("notes") ?? "");
+  // const query = useSearchParams();
+  // const notes = decodeURIComponent(query.get("notes") ?? "");
+  const notes = "";
   const [showNotes, setNotesShowing] = useState(false);
   const [advertisement, selectAdvertisement] =
     useState<AdvertisementData | null>(null);
