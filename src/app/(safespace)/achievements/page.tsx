@@ -14,9 +14,7 @@ export default function Achievements() {
   useEffect(() => {
     const fetchData = async () => {
       const context = new PersistUserService();
-      console.log("Fetching achievements");
       const userData = await context.getAchievement();
-      console.log(userData);
       const fetchedAchievements = AchievementData.achievements
         .map(
           (a) =>
@@ -34,7 +32,6 @@ export default function Achievements() {
             return 0;
           }
         });
-      console.log(fetchedAchievements);
       setAchievements(fetchedAchievements);
     };
 

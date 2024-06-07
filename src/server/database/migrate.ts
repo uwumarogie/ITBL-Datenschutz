@@ -11,7 +11,7 @@ const main = async () => {
     });
     console.log("Migration complete");
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
   process.exit(0);
 };

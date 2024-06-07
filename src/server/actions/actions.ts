@@ -2,7 +2,6 @@
 
 async function createPlayer(username: string, mode: string, gameCode: string) {
   try {
-    console.log(username, mode, gameCode);
     const response = await fetch("/api/createUser", {
       method: "POST",
       headers: {

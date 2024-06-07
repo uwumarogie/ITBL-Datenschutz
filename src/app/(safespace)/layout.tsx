@@ -2,10 +2,7 @@
 
 import { DesktopNav } from "@/components/NavBar/DesktopNavigation/desktop-nav";
 import { MobileNav } from "@/components/NavBar/MobileNavigation/mobile-nav";
-import { AnimatePresence, motion } from "framer-motion";
-import { usePathname } from "next/navigation";
-import React, { useContext, useRef } from "react";
-import { LayoutRouterContext } from "next/dist/shared/lib/app-router-context.shared-runtime";
+import React from "react";
 
 export default function Layout({
   children,
@@ -24,44 +21,9 @@ export default function Layout({
         </div>
 
         <div className="flex flex-row justify-center grow min-w-[220px] overflow-hidden">
-          <div className="bg-white rounded-3xl py-6 w-full">
-            <Transition>{children}</Transition>
-          </div>
+          <div className="bg-white rounded-3xl py-6 w-full">{children}</div>
         </div>
       </div>
     </div>
-  );
-}
-
-// See: https://stackoverflow.com/questions/77603249/how-to-make-a-page-transition-with-framer-motion-and-next-js-14
-
-function FrozenRouter(props: { children: React.ReactNode }) {
-  const context = useContext(LayoutRouterContext ?? {});
-  const frozen = useRef(context).current;
-
-  return (
-    <LayoutRouterContext.Provider value={frozen}>
-      {props.children}
-    </LayoutRouterContext.Provider>
-  );
-}
-
-function Transition({ children }: { children: React.ReactNode }) {
-  const key = usePathname();
-  return (
-    <React.Fragment>
-      <AnimatePresence initial={false} mode="popLayout">
-        <motion.div
-          key={key}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1, transition: { delay: 0.6 } }}
-          exit={{ opacity: 0 }}
-          transition={{ ease: "easeInOut", delay: 0.3 }}
-          className="overflow-hidden h-full"
-        >
-          <FrozenRouter>{children}</FrozenRouter>
-        </motion.div>
-      </AnimatePresence>
-    </React.Fragment>
   );
 }
