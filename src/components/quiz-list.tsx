@@ -9,12 +9,14 @@ export type QuizListProps = {
   className?: string;
   quizzes: QuizParams[];
   onFinish?: () => void;
+  onNextQuestion?: () => void;
 };
 
 export default function QuizList({
   quizzes,
   className,
   onFinish,
+  onNextQuestion,
 }: QuizListProps) {
   const [currentQuizIndex, setCurrentQuizIndex] = useState(0);
   const [showSummary, setShowSummary] = useState(false);
@@ -81,6 +83,7 @@ export default function QuizList({
   function nextQuiz() {
     if (currentQuizIndex == quizzes.length - 1) return;
     setCurrentQuizIndex(currentQuizIndex + 1);
+    onNextQuestion?.();
   }
 
   //function previousQuiz() {
@@ -94,6 +97,7 @@ export default function QuizList({
     } else {
       setCurrentQuizIndex(quizzes.length);
       setShowSummary(true);
+      onNextQuestion?.();
     }
   }
 
