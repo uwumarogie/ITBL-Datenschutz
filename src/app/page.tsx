@@ -11,6 +11,29 @@ import {
   uniqueNamesGenerator,
 } from "unique-names-generator";
 type Mode = "singlePlayer" | "multiPlayer";
+
+async function createPlayer(username: string, mode: string, gameCode: string) {
+  try {
+    const response = await fetch("/api/createUser", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ username, mode, gameCode }),
+    });
+
+    if (!response.ok) {
+      throw new Error("Failed to create user");
+    }
+    const result = await response.json();
+    localStorage.setItem("userId", result.userData[0].id);
+    localStorage.setItem("gameCode", result.userData[0].gameCode);
+  } catch (error) {
+    console.error(error);
+    throw new Error("Failed to create user");
+  }
+}
+
 export default function HomePage() {
   const [mode, setMode] = useState<Mode | null>(null);
   const [username, setUsername] = useState("");
@@ -43,7 +66,9 @@ export default function HomePage() {
       mode !== null &&
       (localStorage.getItem("userId") === null || username !== undefined)
     ) {
-      await createPlayer(username, mode, gameCode);
+      await createPlayer(username, mode, gameCode).then((res) =>
+        console.log(res),
+      );
     }
     router.replace("/space");
   };

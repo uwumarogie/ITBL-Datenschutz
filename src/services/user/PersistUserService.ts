@@ -1,5 +1,4 @@
-import { PersistUserServiceInterface } from "@/services/user/PersistUserServiceInterface";
-import { HighScoreEnum, HighScoreType } from "@/server/database/schema";
+import { HighScoreType } from "@/server/database/schema";
 
 type Achievement = {
   achievementEnum: string;
@@ -7,7 +6,7 @@ type Achievement = {
   userId: string;
 };
 
-export class PersistUserService implements PersistUserServiceInterface {
+export class PersistUserService {
   private userId: string | null = localStorage.getItem("userId");
 
   constructor() {}
