@@ -10,14 +10,12 @@ import {
   animals,
   uniqueNamesGenerator,
 } from "unique-names-generator";
-
 type Mode = "singlePlayer" | "multiPlayer";
-
 export default function HomePage() {
   const [mode, setMode] = useState<Mode | null>(null);
   const [username, setUsername] = useState("");
   const [gameCode, setGameCode] = useState("");
-  const [isUserCreated, setIsUserCreated] = useState(false);
+
   const router = useRouter();
   const generateUsername = () =>
     setUsername(
@@ -27,34 +25,6 @@ export default function HomePage() {
         style: "capital",
       }),
     );
-
-  const createPlayer = async (
-    username: string,
-    mode: string,
-    gameCode: string,
-  ) => {
-    try {
-      const response = await fetch("/api/createUser", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ username, mode, gameCode }),
-      });
-
-      if (!response.ok) {
-        throw new Error("Failed to create user");
-      }
-      const result = await response.json();
-      localStorage.setItem("userId", result.userData[0].id);
-      localStorage.setItem("mode", mode);
-      localStorage.setItem("gameCode", result.userData[0].gameCode);
-      setIsUserCreated(true);
-    } catch (error) {
-      console.error(error);
-      throw new Error("Failed to create user");
-    }
-  };
 
   useEffect(() => {
     if (!username) {
@@ -70,9 +40,8 @@ export default function HomePage() {
 
   const handleStartGame = async () => {
     if (
-      !isUserCreated &&
       mode !== null &&
-      localStorage.getItem("userId") === null
+      (localStorage.getItem("userId") === null || username !== undefined)
     ) {
       await createPlayer(username, mode, gameCode);
     }

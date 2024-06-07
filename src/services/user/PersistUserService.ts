@@ -1,6 +1,5 @@
 import { PersistUserServiceInterface } from "@/services/user/PersistUserServiceInterface";
-
-type Mode = "singlePlayer" | "multiPlayer";
+import { HighScoreEnum, HighScoreType } from "@/server/database/schema";
 
 type Achievement = {
   achievementEnum: string;
@@ -10,50 +9,8 @@ type Achievement = {
 
 export class PersistUserService implements PersistUserServiceInterface {
   private userId: string | null = localStorage.getItem("userId");
-  private mode: "singlePlayer" | "multiPlayer" | null = localStorage.getItem(
-    "mode",
-  ) as Mode;
-  private gameCode: string | null = localStorage.getItem("gameCode");
 
-  constructor() {
-    this.init();
-  }
-
-  init() {
-    try {
-      this.saveUser();
-    } catch (e) {
-      this.userId = null;
-    }
-  }
-
-  async saveUser() {
-    try {
-      if (this.userId === null) {
-        return Promise.reject("User not found");
-      }
-
-      const response = await fetch("/api/createUser", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          userId: this.userId,
-          mode: this.mode,
-          gameCode: this.gameCode,
-        }),
-      });
-
-      if (!response.ok) {
-        throw new Error("Failed to create user");
-      }
-      return true;
-    } catch (e) {
-      this.userId = null;
-      return false;
-    }
-  }
+  constructor() {}
 
   async getUser() {
     if (this.userId === null) {
@@ -96,17 +53,17 @@ export class PersistUserService implements PersistUserServiceInterface {
     }
   }
 
-  async setHighScore(gameId: number, highscore: number) {
+  async setHighScore(highScoreEnum: HighScoreType, highScore: number) {
     try {
-      const response = await fetch("/api/setHighscore", {
+      const response = await fetch("/api/setHighScore", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
           userId: this.userId,
-          highscore: highscore,
-          gameId: gameId,
+          highScore: highScore,
+          highScoreEnum: highScoreEnum,
         }),
       });
       if (!response.ok) {
@@ -123,14 +80,17 @@ export class PersistUserService implements PersistUserServiceInterface {
     }
   }
 
-  async getHighScore(gameId: number) {
+  async getHighScore(highScoreEnum: HighScoreType) {
     try {
       const response = await fetch("/api/getHighScores", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ userId: this.userId, gameId: gameId }),
+        body: JSON.stringify({
+          userId: this.userId,
+          highScoreEnum: highScoreEnum,
+        }),
       });
       if (!response.ok) {
         throw new Error("Failed to get highscores");

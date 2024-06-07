@@ -1,27 +1,29 @@
 import { NextRequest, NextResponse } from "next/server";
 import * as z from "zod";
-import { highScores } from "@/server/database/schema";
+import { HighScoreEnum, highScores } from "@/server/database/schema";
 import { and, eq } from "drizzle-orm";
 import { db } from "@/server/database/connection";
 
 const requestSchema = z.object({
-  userId: z.string(),
-  gameId: z.number(),
+  userId: z.coerce.number(),
+  highScoreEnum: z.nativeEnum(HighScoreEnum),
 });
 
 export async function POST(req: NextRequest) {
   try {
     const requestBody = await req.json();
-    const { userId, gameId } = requestSchema.parse(requestBody);
+    const { userId, highScoreEnum } = requestSchema.parse(requestBody);
 
-    const userIDINT = parseInt(userId, 10);
     const highScore = await db
       .select({
         highScore: highScores.highScore,
       })
       .from(highScores)
       .where(
-        and(eq(highScores.userId, userIDINT), eq(highScores.gameId, gameId)),
+        and(
+          eq(highScores.userId, userId),
+          eq(highScores.highScoreEnum, highScoreEnum),
+        ),
       );
 
     if (highScore.length === 0) {

@@ -1,12 +1,11 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { PasswordData, passwordData } from "@/util/password-quiz-data";
+import { passwordData } from "@/util/password-quiz-data";
 import { IntroductionText } from "@/components/introduction-text";
 import { useRouter } from "next/navigation";
 import Button from "@/components/button";
 import Image from "next/image";
-import { Highscore } from "@/model/HighscoresEnum";
 import { useMessages } from "@/services/notfication/message-provider";
 import clsx from "clsx";
 import { PersistUserService } from "@/services/user/PersistUserService";
@@ -29,14 +28,12 @@ export default function PasswordStrength() {
   useEffect(() => {
     const fetchHighScore = async () => {
       const context = new PersistUserService();
-      const loadedHighScore = await context.getHighScore(
-        Highscore.PASSWORD_STRENGTH,
-      );
+      const loadedHighScore = await context.getHighScore("PASSWORD_STRENGTH");
       setHighscore(loadedHighScore);
     };
 
     fetchHighScore();
-  }, []);
+  }, [highscore]);
 
   useEffect(() => {
     if (gameStarted) {
@@ -58,7 +55,7 @@ export default function PasswordStrength() {
     if (currentQuestion.strength === strength) {
       setCurrentScore((prevScore) => prevScore + 1);
       if (currentScore >= highscore) {
-        saveHighscore();
+        saveHighScore();
       }
       setAnimatePulse(true);
       setTimeout(() => setAnimatePulse(false), 300);
@@ -132,13 +129,10 @@ export default function PasswordStrength() {
     rustle(clen * increment + 1);
   };
 
-  const saveHighscore = async () => {
+  const saveHighScore = async () => {
     if (user !== null) {
       const context = new PersistUserService();
-      return await context.setHighScore(
-        Highscore.PASSWORD_STRENGTH,
-        currentScore + 1,
-      );
+      return await context.setHighScore("PASSWORD_STRENGTH", currentScore);
     }
     return 0;
   };

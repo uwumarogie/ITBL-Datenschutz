@@ -5,15 +5,13 @@ import { db } from "@/server/database/connection";
 import { eq } from "drizzle-orm";
 
 const requestSchema = z.object({
-  userId: z.string(),
+  userId: z.coerce.number(),
 });
 
 export async function POST(req: NextRequest) {
   try {
     const request = await req.json();
     const { userId } = await requestSchema.parseAsync(request);
-
-    const userIDINT = parseInt(userId, 10);
 
     const userArchievements = await db
       .select({
@@ -22,7 +20,7 @@ export async function POST(req: NextRequest) {
         userId: achievements.userId,
       })
       .from(achievements)
-      .where(eq(achievements.userId, userIDINT));
+      .where(eq(achievements.userId, userId));
 
     if (!userArchievements || userArchievements.length === 0) {
       return new Response("Achievement not found", {

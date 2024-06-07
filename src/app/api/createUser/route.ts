@@ -47,13 +47,11 @@ export async function POST(req: NextRequest) {
       return new NextResponse("User not found", { status: 404 });
     }
 
-    await db
-      .insert(achievements)
-      .values({
-        userId: userData[0].id,
-        achievementEnum: "DATENSCHUTZ_HELD",
-        isAchieved: true,
-      });
+    await db.insert(achievements).values({
+      userId: userData[0].id,
+      achievementEnum: "DATENSCHUTZ_HELD",
+      isAchieved: true,
+    });
 
     return NextResponse.json(
       { userData: userData },

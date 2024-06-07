@@ -7,7 +7,6 @@ import {
   timestamp,
   varchar,
 } from "drizzle-orm/pg-core";
-import { relations } from "drizzle-orm";
 import { createSelectSchema } from "drizzle-zod";
 
 const achievementArray = [
@@ -17,6 +16,12 @@ const achievementArray = [
   "NULL",
 ] as const;
 
+const highScoreArray = ["PASSWORD_STRENGTH"] as const;
+export enum HighScoreEnum {
+  PASSWORD_STRENGTH = "PASSWORD_STRENGTH",
+}
+export type HighScoreType = keyof typeof HighScoreEnum;
+
 export const users = pgTable("users", {
   id: serial("id").primaryKey(),
   userName: text("user_name").notNull(),
@@ -24,10 +29,6 @@ export const users = pgTable("users", {
   createdAt: timestamp("createdAt").notNull().defaultNow(),
   updatedAt: timestamp("updatedAt").notNull().defaultNow(),
 });
-
-export const userRelations = relations(users, ({ one }) => ({
-  achievement: one(achievements),
-}));
 
 export const achievements = pgTable("achievements", {
   id: serial("id").primaryKey().notNull(),
@@ -48,7 +49,9 @@ export const highScores = pgTable("highscores", {
     .references(() => users.id, { onDelete: "cascade" })
     .notNull(),
   highScore: integer("highScore").notNull(),
-  gameId: integer("game_id").notNull(),
+  highScoreEnum: varchar("highscore_enum", {
+    enum: highScoreArray,
+  }).notNull(),
   createdAt: timestamp("createdAt").notNull().defaultNow(),
   updatedAt: timestamp("updatedAt").notNull().defaultNow(),
 });
