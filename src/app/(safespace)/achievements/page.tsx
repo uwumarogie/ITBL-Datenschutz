@@ -5,7 +5,12 @@ import { useEffect, useState } from "react";
 import { ProgressBar } from "@/components/ProgressBar";
 import { Achievement, AchievementData } from "@/util/achievement-data";
 import { PersistUserService } from "@/services/user/PersistUserService";
-import { ReturnAchievement } from "@/services/user/PersistUserServiceInterface";
+
+export type ReturnAchievement = {
+  achievementEnum: string;
+  isAchieved: boolean;
+  userId: string;
+};
 
 export default function Achievements() {
   const [progress, setProgress] = useState(0.6);
