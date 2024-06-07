@@ -1,5 +1,5 @@
 export type Achievement = {
-  id: number;
+  id: string;
   title: string;
   description: string;
   icon?: string | undefined;
@@ -7,9 +7,9 @@ export type Achievement = {
 };
 
 export enum AchievementId {
-  DATENSCHUTZ_HELD,
-  WERBE_GURU,
-  PHISHING_FAENGER,
+  DATENSCHUTZ_HELD = "DATENSCHUTZ_HELD",
+  WERBE_GURU = "WERBE_GURU",
+  PHISHING_FAENGER = "PHISHING_FAENGER",
 }
 
 export namespace AchievementData {

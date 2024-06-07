@@ -22,7 +22,7 @@ const UserDataContext = createContext<UserData>({
   highscores: { 0: 0 },
 });
 
-export function UserDataProvider({ children }: any) {
+export function UserDataProvider({ children }: { children: React.ReactNode }) {
   const router = useRouter();
   const [userData, setUserData] = useState<UserData>({
     achievements: {},

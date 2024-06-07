@@ -35,13 +35,7 @@ export function extractScore(achievement: { [key: string]: number | null }) {
     .reduce((total, [, value]) => total + value!, 0);
 }
 
-export function capitalizeFirstLetterIfLowercase(str: string) {
+export function capitalizeName(str: string) {
   if (str.length === 0) return str;
-
-  const firstChar = str.charAt(0);
-  if (firstChar >= "a" && firstChar <= "z") {
-    return firstChar.toUpperCase() + str.slice(1);
-  }
-
-  return str;
+  return str.charAt(0).toUpperCase() + str.slice(1);
 }

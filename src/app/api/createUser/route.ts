@@ -11,50 +11,54 @@ const requestSchema = z.object({
 });
 
 export async function POST(req: NextRequest) {
-  const requestData = await req.json();
-  const { username, mode, gameCode } = requestSchema.parse(requestData);
-
-  console.debug(username, mode, gameCode);
-
   try {
+    const requestData = await req.json();
+    const { username, mode, gameCode } = requestSchema.parse(requestData);
+
+    console.log(username, mode, gameCode);
     const existingUser = await db
       .select({
         id: users.id,
-        name: users.name,
+        name: users.userName,
       })
       .from(users)
-      .where(eq(users.name, username));
+      .where(eq(users.userName, username));
 
     if (existingUser.length > 0) {
       return new NextResponse("User already exists", { status: 409 });
     }
 
-    // Insert new user
     if (mode === "singlePlayer") {
-      await db.insert(users).values({ name: username, gameCode: null });
+      await db.insert(users).values({ userName: username, gameCode: null });
     } else if (mode === "multiPlayer") {
-      await db.insert(users).values({ name: username, gameCode: gameCode });
+      await db.insert(users).values({ userName: username, gameCode: gameCode });
     }
 
-    // Fetch the newly inserted user data
     const userData = await db
       .select({
         id: users.id,
-        name: users.name,
+        name: users.userName,
+        gameCode: users.gameCode,
       })
       .from(users)
-      .where(eq(users.name, username));
-
-    console.debug("userData", userData);
+      .where(eq(users.userName, username));
 
     if (!userData || userData.length === 0) {
       return new NextResponse("User not found", { status: 404 });
     }
 
-    // Insert achievements for the new user
-    await db.insert(achievements).values({ userId: userData[0].id });
+    await db
+      .insert(achievements)
+      .values({
+        userId: userData[0].id,
+        achievementEnum: "DATENSCHUTZ_HELD",
+        isAchieved: true,
+      });
 
-    return new NextResponse("User created successfully", { status: 201 });
+    return NextResponse.json(
+      { userData: userData },
+      { status: 201, statusText: "User created successfully" },
+    );
   } catch (error: unknown) {
     console.error("Database error:", error);
     return new NextResponse(`Error: ${error}`, { status: 400 });

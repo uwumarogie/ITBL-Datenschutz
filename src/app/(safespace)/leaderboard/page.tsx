@@ -2,10 +2,9 @@
 
 import React, { useEffect, useState } from "react";
 import {
-  capitalizeFirstLetterIfLowercase,
+  capitalizeName,
   getLeaderboardData,
   LeaderboardEntry,
-  leaderboardSchema,
 } from "@/util/leaderboard";
 import clsx from "clsx";
 
@@ -28,17 +27,13 @@ export default function Leaderboard() {
       const fetchLeaderboardData = async () => {
         try {
           const data = await getLeaderboardData(gameCode);
-          const validatedData = leaderboardSchema.parse(data);
-          const sortedUsers = validatedData.sort(
-            (userA, userB) => userB.score - userA.score,
-          );
-          setLeaderboardData(sortedUsers);
+          setLeaderboardData(data);
         } catch (error) {
           console.error("Error fetching leaderboard data:", error);
         }
       };
 
-      fetchLeaderboardData();
+      fetchLeaderboardData().then((r) => console.log(r));
     }
   }, [gameCode]);
 
@@ -60,7 +55,9 @@ export default function Leaderboard() {
           <div
             key={index}
             className="flex justify-between mb-2 bg-module-blue rounded-r-3xl p-4"
-            style={{ width: `${user.score * 15}%` }}
+            style={{
+              width: `${user.score * 15}%`,
+            }}
           >
             <span
               className={clsx(
@@ -68,7 +65,7 @@ export default function Leaderboard() {
                 index === 0 && "text-orange-600 font-bold",
               )}
             >
-              {index + 1}. {capitalizeFirstLetterIfLowercase(user.name)}
+              {index + 1}. {capitalizeName(user.name)}
             </span>
             <span
               className={clsx(

@@ -1,8 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { db } from "@/server/database/connection";
 import { achievements, users } from "@/server/database/schema";
-import { eq } from "drizzle-orm";
-import { extractScore, LeaderboardEntry } from "@/util/leaderboard";
+import { and, eq } from "drizzle-orm";
 
 export async function POST(req: NextRequest) {
   try {
@@ -16,10 +15,16 @@ export async function POST(req: NextRequest) {
     }
 
     const userData = await db
-      .select()
+      .select({
+        id: achievements.id,
+        isAchieved: achievements.isAchieved,
+        username: users.userName,
+      })
       .from(users)
       .innerJoin(achievements, eq(users.id, achievements.userId))
-      .where(eq(users.gameCode, gameCode));
+      .where(
+        and(eq(users.gameCode, gameCode), eq(achievements.isAchieved, true)),
+      );
 
     if (!userData || userData.length === 0) {
       console.error("No user data found for gameCode", gameCode);
@@ -29,20 +34,24 @@ export async function POST(req: NextRequest) {
       });
     }
 
-    const leaderboardData: LeaderboardEntry = userData.reduce(
-      (acc: LeaderboardEntry, item) => {
-        const totalScore = extractScore(item.achievements);
-        if (totalScore === null) return acc;
-        const normalizedScore = Math.round((totalScore / 140) * 10);
-        acc.push({ name: item.users.name, score: normalizedScore });
+    const userAchievementCount = userData.reduce(
+      (acc, user) => {
+        acc[user.username] = (acc[user.username] || 0) + 1;
         return acc;
       },
-      [],
+      {} as Record<string, number>,
     );
+
+    const leaderboardData = Object.entries(userAchievementCount)
+      .map(([name, score]) => ({
+        name,
+        score,
+      }))
+      .sort((a, b) => b.score - a.score);
 
     return new NextResponse(JSON.stringify(leaderboardData), {
       status: 200,
-      statusText: "leaderboard data arrived",
+      statusText: "leaderboard user data arrived",
     });
   } catch (error) {
     console.error("Error processing POST request", error);

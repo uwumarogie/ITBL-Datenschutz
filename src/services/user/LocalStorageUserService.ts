@@ -60,6 +60,7 @@ export class LocalStorageUserService implements UserService {
 
   async setAchievement(achievementId: AchievementId, unlocked: boolean) {
     const user = await this.getUser();
+    // @ts-ignore
     user.achievements[achievementId] = unlocked;
     await this.saveUser();
   }

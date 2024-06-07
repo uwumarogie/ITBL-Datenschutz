@@ -1,7 +1,7 @@
 "use client";
 
 import Button from "@/components/button";
-import { useRouter } from "next/navigation";
+import { redirect, useRouter } from "next/navigation";
 import { SinglePlayer } from "@/components/LandingPage/single-player";
 import { Multiplayer } from "@/components/LandingPage/multi-player";
 import { useEffect, useState } from "react";
@@ -11,13 +11,14 @@ import {
   uniqueNamesGenerator,
 } from "unique-names-generator";
 
+type Mode = "singlePlayer" | "multiPlayer";
+
 export default function HomePage() {
-  const [mode, setMode] = useState<"singlePlayer" | "multiPlayer" | null>(null);
+  const [mode, setMode] = useState<Mode | null>(null);
   const [username, setUsername] = useState("");
   const [gameCode, setGameCode] = useState("");
-
+  const [isUserCreated, setIsUserCreated] = useState(false);
   const router = useRouter();
-
   const generateUsername = () =>
     setUsername(
       uniqueNamesGenerator({
@@ -44,11 +45,14 @@ export default function HomePage() {
       if (!response.ok) {
         throw new Error("Failed to create user");
       }
-
       const result = await response.json();
-      console.log(result);
+      localStorage.setItem("userId", result.userData[0].id);
+      localStorage.setItem("mode", mode);
+      localStorage.setItem("gameCode", result.userData[0].gameCode);
+      setIsUserCreated(true);
     } catch (error) {
       console.error(error);
+      throw new Error("Failed to create user");
     }
   };
 
@@ -63,6 +67,24 @@ export default function HomePage() {
   ) => {
     setMode(selectedMode);
   };
+
+  const handleStartGame = async () => {
+    if (
+      !isUserCreated &&
+      mode !== null &&
+      localStorage.getItem("userId") === null
+    ) {
+      await createPlayer(username, mode, gameCode);
+    }
+    router.replace("/space");
+  };
+
+  useEffect(() => {
+    if (localStorage.getItem("userId") !== null) {
+      redirect("/space");
+      return;
+    }
+  }, []);
 
   return (
     <div className="flex flex-col justify-center items-center h-[100vh] bg-blue-background">
@@ -97,12 +119,7 @@ export default function HomePage() {
         <div>
           {mode !== null && (
             <Button
-              onClick={() => {
-                console.log("gameCode", gameCode);
-                localStorage.setItem("gameCode", gameCode);
-                createPlayer(username, mode, "1234");
-                router.push("/space");
-              }}
+              onClick={handleStartGame}
               className="flex justify-center text-xl w-full h-14 p-5 mb-2"
             >
               Start
