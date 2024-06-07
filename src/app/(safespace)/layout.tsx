@@ -14,7 +14,7 @@ export default function Layout({
 }>) {
   return (
     <div className="bg-blue-background h-screen bg-fixed">
-      <div className="flex justify-center  h-reduced-safari sm:h-full px-3 pt-1 sm:py-11 sm:pr-8 sm:pl-0 flex-col sm:flex-row">
+      <div className="flex justify-center h-reduced-safari sm:h-full px-3 pt-1 sm:py-11 sm:pr-8 sm:pl-0 flex-col sm:flex-row">
         <div className="hidden sm:block">
           <DesktopNav />
         </div>
