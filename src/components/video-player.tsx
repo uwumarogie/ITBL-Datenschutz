@@ -47,20 +47,20 @@ export function VideoPlayer({
         </video>
       </div>
       <div className="min-w-fit flex flex-col gap-y-2">
-        <div className="text-3xl pb-4">Kapitel</div>
+        <div className="text-3xl">Kapitel</div>
         {timestamps.map((timestamp, index) => (
           <span
             key={index}
             onClick={() => handleTimestampClick(timestamp.time)}
             className="flex p-1 hover:cursor-pointer hover:bg-gray-100 rounded-xl"
           >
-            <Image
-              src={timestamp.iconSrc ? timestamp.iconSrc : "/list.svg"}
-              alt={timestamp.label}
-              width={50}
-              height={50}
-              className="bg-orange-500 p-3 rounded-xl mr-4"
-            />
+              <Image
+                src={timestamp.iconSrc ? timestamp.iconSrc : "/list.svg"}
+                alt={timestamp.label}
+                width={50}
+                height={50}
+                className="bg-orange-500 p-3 rounded-xl mr-4 max-h-[50px]"
+              />
             <span className="flex flex-col justify-center">
               <span>{timestamp.label}</span>
               <span className="text-xs text-gray-400">

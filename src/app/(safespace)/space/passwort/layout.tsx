@@ -11,8 +11,7 @@ export default function Layout({
         <InlineNavigation />
       </div>
       <div
-        className="h-[calc(100vh-165px)] sm:h-[calc(100vh-190px)]"
-        style={{ overflowY: "auto" }}
+        className="h-[calc(100vh-175px)] sm:h-[calc(100vh-210px)] overflow-y-auto"
       >
         {children}
       </div>
