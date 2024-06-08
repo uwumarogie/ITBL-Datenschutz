@@ -244,9 +244,10 @@ export default function Profiling() {
               ) : (
                 <div className="p-2 flex flex-col gap-4 lg:mt-8">
                   Ordne die oben aufgeführten Anzeichen den entsprechenden
-                  Kategorien zu: &quot;Anzeichen für Fake Profile&quot; oder &quot;Anzeichen
-                  für Echte Profile&quot;. Ziehe die einzelnen Anzeichen aus dem
-                  Wörter-Pool und lege sie in die entsprechende Kategorie.
+                  Kategorien zu: &quot;Anzeichen für Fake Profile&quot; oder
+                  &quot;Anzeichen für Echte Profile&quot;. Ziehe die einzelnen
+                  Anzeichen aus dem Wörter-Pool und lege sie in die
+                  entsprechende Kategorie.
                   <Button
                     onClick={() => setInstructionsRead(true)}
                     className="max-w-[150px]"
