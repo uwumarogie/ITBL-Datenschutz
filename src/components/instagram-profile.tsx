@@ -87,23 +87,36 @@ export default function InstagramProfile({
           <p className="whitespace-pre-wrap text-sm">{profile.description}</p>
         </header>
 
-        <section className="grid grid-cols-3 grid-rows-3 gap-0.5 mt-8 p-1">
-          {profile.posts.map((post, index) => (
-            <div
-              key={index}
-              className="aspect-square hover:scale-105 hover:shadow-2xl transition-all cursor-pointer"
-              onClick={() => setCurrentPost(post)}
-            >
-              <Image
-                src={post.imageSrc}
-                alt={post.caption}
-                width="200"
-                height="200"
-                className="w-full h-full object-cover"
-              />
-            </div>
-          ))}
-        </section>
+
+        {profile.posts.length == 0 ? (
+          <div className="flex flex-col items-center mt-4">
+            <Image
+              src="/no-posts.png"
+              alt="keine beiträge"
+              width={90}
+              height={90}
+            />
+            <span className="font-semibold text-xl mt-2 max-w-[250px] text-center">Noch keine Beiträge vorhanden</span>
+          </div>
+        ) : (
+          <section className="grid grid-cols-3 grid-rows-3 gap-0.5 mt-8 p-1">
+            {profile.posts.map((post, index) => (
+              <div
+                key={index}
+                className="aspect-square hover:scale-105 hover:shadow-2xl transition-all cursor-pointer"
+                onClick={() => setCurrentPost(post)}
+              >
+                <Image
+                  src={post.imageSrc}
+                  alt={post.caption}
+                  width="200"
+                  height="200"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            ))}
+          </section>
+        )}
       </div>
     </div>
   );
@@ -149,7 +162,7 @@ function Following({
               <CloseIcon />
             </div>
           </header>
-          <div className="flex flex-col px-4 pt-4">
+          <div className="flex flex-col px-4 pt-4 overflow-y-auto max-h-[90%]">
             {following.map((follower) => (
               <div
                 key={follower}
@@ -163,10 +176,10 @@ function Following({
                 <span>{follower}</span>
               </div>
             ))}
+            <span className="italic opacity-50 p-4 inline-block">
+              Weitere Konten konnten nicht geladen werden.
+            </span>
           </div>
-          <span className="italic opacity-50 p-4 inline-block">
-            Weitere Konten konnten nicht geladen werden.
-          </span>
         </div>
       </div>
       <div className="absolute bg-black opacity-40 w-full h-full top-0"></div>

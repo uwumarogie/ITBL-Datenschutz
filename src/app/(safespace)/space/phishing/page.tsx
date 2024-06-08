@@ -22,7 +22,7 @@ export default function Phishing() {
         width={1280}
       />
       <Button
-        className="max-w-[120px]"
+        className="max-w-[120px] mt-6"
         onClick={() => router.push("/space/phishing/profiling")}
       >
         Weiter
