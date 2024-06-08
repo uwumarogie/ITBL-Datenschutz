@@ -54,13 +54,13 @@ export function VideoPlayer({
             onClick={() => handleTimestampClick(timestamp.time)}
             className="flex p-1 hover:cursor-pointer hover:bg-gray-100 rounded-xl"
           >
-              <Image
-                src={timestamp.iconSrc ? timestamp.iconSrc : "/list.svg"}
-                alt={timestamp.label}
-                width={50}
-                height={50}
-                className="bg-orange-500 p-3 rounded-xl mr-4 max-h-[50px]"
-              />
+            <Image
+              src={timestamp.iconSrc ? timestamp.iconSrc : "/list.svg"}
+              alt={timestamp.label}
+              width={50}
+              height={50}
+              className="bg-orange-500 p-3 rounded-xl mr-4 max-h-[50px]"
+            />
             <span className="flex flex-col justify-center">
               <span>{timestamp.label}</span>
               <span className="text-xs text-gray-400">

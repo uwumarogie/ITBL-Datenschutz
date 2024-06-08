@@ -10,9 +10,7 @@ export default function Layout({
       <div className="hidden sm:block">
         <InlineNavigation />
       </div>
-      <div
-        className="h-[calc(100vh-175px)] sm:h-[calc(100vh-210px)] overflow-y-auto"
-      >
+      <div className="h-[calc(100vh-175px)] sm:h-[calc(100vh-210px)] overflow-y-auto">
         {children}
       </div>
     </div>

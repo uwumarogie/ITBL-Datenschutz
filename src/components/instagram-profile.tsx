@@ -87,7 +87,6 @@ export default function InstagramProfile({
           <p className="whitespace-pre-wrap text-sm">{profile.description}</p>
         </header>
 
-
         {profile.posts.length == 0 ? (
           <div className="flex flex-col items-center mt-4">
             <Image
@@ -96,7 +95,9 @@ export default function InstagramProfile({
               width={90}
               height={90}
             />
-            <span className="font-semibold text-xl mt-2 max-w-[250px] text-center">Noch keine Beiträge vorhanden</span>
+            <span className="font-semibold text-xl mt-2 max-w-[250px] text-center">
+              Noch keine Beiträge vorhanden
+            </span>
           </div>
         ) : (
           <section className="grid grid-cols-3 grid-rows-3 gap-0.5 mt-8 p-1">
