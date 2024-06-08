@@ -78,6 +78,7 @@ export default function Assign() {
                 (profile, index) =>
                   index == activeIndex && (
                     <InstagramProfile
+                      key={index}
                       profile={profile.instagramProfile}
                       className="max-w-[400px] border-2 border-gray-300 rounded-3xl"
                     />
