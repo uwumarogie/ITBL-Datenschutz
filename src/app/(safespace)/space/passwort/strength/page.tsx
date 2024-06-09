@@ -42,11 +42,10 @@ export default function PasswordStrength() {
   }, [gameStarted, currentQuestionIndex, currentQuestion.password]);
 
   useEffect(() => {
-    let storedUser = null;
-    if (typeof window !== "undefined") {
-      storedUser = window.localStorage.getItem("userId");
+    const context = new PersistUserService();
+    if (context.userId !== null) {
+      setUser(context.userId);
     }
-    setUser(storedUser);
   }, []);
 
   const handleButtonClick = (strength: number) => {
