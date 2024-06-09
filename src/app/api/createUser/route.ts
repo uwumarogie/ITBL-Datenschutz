@@ -1,5 +1,10 @@
 import { db } from "@/server/database/connection";
-import { achievements, users } from "@/server/database/schema";
+import {
+  achievements,
+  HighScoreEnum,
+  highScores,
+  users,
+} from "@/server/database/schema";
 import { NextRequest, NextResponse } from "next/server";
 import { eq } from "drizzle-orm";
 import * as z from "zod";
@@ -9,6 +14,17 @@ const requestSchema = z.object({
   mode: z.string(),
   gameCode: z.string().nullable(),
 });
+
+async function insertDefaultHighScores(userId: number) {
+  // TODO: update the highScoreEnum if there is more highScores than the current one
+  for (let highScore in HighScoreEnum) {
+    await db.insert(highScores).values({
+      userId: userId,
+      highScore: 0,
+      highScoreEnum: HighScoreEnum[highScore as keyof typeof HighScoreEnum],
+    });
+  }
+}
 
 export async function POST(req: NextRequest) {
   try {
@@ -49,10 +65,10 @@ export async function POST(req: NextRequest) {
 
     await db.insert(achievements).values({
       userId: userData[0].id,
-      achievementEnum: "DATENSCHUTZ_HELD",
+      achievementEnum: "NULL",
       isAchieved: true,
     });
-
+    await insertDefaultHighScores(userData[0].id);
     return NextResponse.json(
       { userData: userData },
       { status: 201, statusText: "User created successfully" },

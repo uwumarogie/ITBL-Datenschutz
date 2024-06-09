@@ -47,7 +47,8 @@ export async function POST(req: NextRequest) {
         name,
         score,
       }))
-      .sort((a, b) => b.score - a.score);
+      .sort((a, b) => b.score - a.score)
+      .filter((a) => a.score > 1);
 
     return new NextResponse(JSON.stringify(leaderboardData), {
       status: 200,

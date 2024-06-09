@@ -43,8 +43,6 @@ export default function PasswordStrength() {
 
   useEffect(() => {
     let storedUser = null;
-    console.debug("user", storedUser);
-
     if (typeof window !== "undefined") {
       storedUser = window.localStorage.getItem("userId");
     }
@@ -132,7 +130,7 @@ export default function PasswordStrength() {
   const saveHighScore = async () => {
     if (user !== null) {
       const context = new PersistUserService();
-      return await context.setHighScore("PASSWORD_STRENGTH", currentScore);
+      return await context.setHighScore("PASSWORD_STRENGTH", currentScore + 1);
     }
     return 0;
   };
