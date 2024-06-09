@@ -133,7 +133,6 @@ export default function PasswordStrength() {
       return await context.setHighScore("PASSWORD_STRENGTH", currentScore + 1);
     }
     setHighscore((prevScore) => prevScore + 1);
-    return 0;
   };
 
   return (
