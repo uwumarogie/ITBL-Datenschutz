@@ -26,7 +26,9 @@ export default function DataProtectionChapter1Quiz() {
       <div className="w-full @4xl:w-1/2 mb-20">
         <QuizList
           quizzes={quizzes}
-          onFinish={() => router.push("/space/daten-verarbeitung/kapitel2/0")}
+          onFinish={() =>
+            router.push("/space/daten-verarbeitung/kapitel2/level/0/part/0")
+          }
         />
       </div>
     </div>

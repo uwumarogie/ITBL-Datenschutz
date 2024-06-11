@@ -1,53 +1,35 @@
-"use client";
-
+import { useState } from "react";
+import { useRouter } from "next/navigation";
 import InstagramProfile, {
   InstagramProfileData,
 } from "@/app/(safespace)/space/daten-verarbeitung/instagram-profile";
-import Robot from "@/components/robot/robot";
-import { useState } from "react";
-import { useRouter } from "next/navigation";
-import Button from "@/components/button";
-import clsx from "clsx";
 import Task from "@/components/task";
+import Button from "@/components/button";
+import Robot from "@/components/robot/robot";
+import clsx from "clsx";
 
-const profile: InstagramProfileData = {
-  username: "marie_magic1995",
-  profileImageSrc: "/posts/profile_marie.png",
-  followers: 215,
-  followingCount: 350,
-  following: [
-    "Letzte Generation",
-    "TastyInternational",
-    "Emily Brau",
-    "Markus Metzer",
-    "Billie Eilish",
-  ],
-  description: `I’m Marie ❤️
-🏠️ Hometown Munich/Ro
-🤰 Mother of 2 children
-🚴‍♀️ Always on my bike!`,
-  posts: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0].map((i) => ({
-    imageSrc: "/posts/post_marie_1.jpg",
-    caption: "Living my best live\n#freedome #nature",
-    likedBy: "Ammelie Hirnhauser",
-  })),
+type ProfileAnalysisProps = {
+  profile: InstagramProfileData;
+  robotText: string;
+  task: string;
+  href: string;
 };
 
-const states = [{}];
-
-export default function DataProcessing1() {
+export default function ProfileAnalysis({
+  profile,
+  robotText,
+  task,
+  href,
+}: ProfileAnalysisProps) {
   const [state, setState] = useState(0);
   const [notes, setNotes] = useState("");
   const [showMessage, setShowMessage] = useState(true);
   const router = useRouter();
 
   function onClick() {
-    router.push(
-      "/space/daten-verarbeitung/kapitel2/2?notes=" + encodeURIComponent(notes),
-      {
-        scroll: true,
-      },
-    );
+    router.push(href + encodeURIComponent(notes), {
+      scroll: true,
+    });
   }
 
   return (
@@ -58,12 +40,7 @@ export default function DataProcessing1() {
         </div>
       </div>
       <div className="flex justify-center items-center flex-col gap-4 absolute bottom-0 right-0 z-40 @2xl:relative @2xl:w-full @2xl:h-full">
-        {!showMessage && (
-          <Task className="w-full">
-            Untersuche Maries Profil und notiere dir Informationen, die uns bei
-            der Auswahl der passenden Werbung helfen können.
-          </Task>
-        )}
+        {!showMessage && <Task className="w-full">{task}</Task>}
         <textarea
           className="w-full border-[1px] border-gray-200 rounded-xl resize-none h-1/3 outline-none py-4 px-6 hidden @2xl:block"
           placeholder="Platz für Notizen"
@@ -72,9 +49,7 @@ export default function DataProcessing1() {
         <div className="flex flex-col justify-center items-center gap-10 h-full">
           {showMessage && (
             <p className="max-w-80 box-content w-full text-center px-8 py-6 bg-white shadow-lg rounded-2xl">
-              Das ist Marie. Sie ist seit ca. 4 Jahren auf Instagram und hat uns
-              einige Informationen hinterlassen. Schau dich einfach mal um und
-              Tipp mich an, wenn du denkst, genug über Marie zu wissen.
+              {robotText}
               <Button
                 className="w-full mt-4"
                 onClick={() => setShowMessage(false)}

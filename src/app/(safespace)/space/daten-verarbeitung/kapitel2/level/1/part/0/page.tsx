@@ -6,13 +6,15 @@ import Button from "@/components/button";
 import clsx from "clsx";
 import { useRouter } from "next/navigation";
 import AnimatedText from "@/components/animated/AnimatedText";
+import RobotIntroduction from "@/app/(safespace)/space/daten-verarbeitung/kapitel2/level/components/robot-introduction";
 
-const states: {
+export type State = {
   expression: RobotExpression;
   rotation: number;
   text: string;
   style?: CSSProperties | undefined;
-}[] = [
+};
+const states: State[] = [
   {
     expression: "smiling",
     rotation: 0,
@@ -72,52 +74,12 @@ const states: {
     },
   },
 ];
+
 export default function DataProcessing0() {
-  const [state, setState] = useState(0);
-  const router = useRouter();
-
-  useEffect(() => {
-    const id = setTimeout(() => {
-      setState(1);
-    }, 200);
-    return () => clearTimeout(id);
-  }, []);
-
-  function onClick() {
-    setState((state) => (state + 1) % states.length);
-    console.log(state);
-    if (state + 2 == states.length) {
-      setTimeout(() => {
-        router.push("/space/daten-verarbeitung/kapitel2/1");
-      }, 1000);
-    }
-  }
-
   return (
-    <div className="relative h-full w-full flex flex-col">
-      <div className="w-full h-full flex flex-col justify-center items-center relative">
-        <div className="max-w-96 text-xl font-medium text-center absolute bottom-10">
-          <AnimatedText>{states[state].text}</AnimatedText>
-        </div>
-
-        <Robot
-          expression={states[state].expression}
-          headRotation={states[state].rotation}
-          className="transition-all duration-700 w-52 h-52 absolute"
-          style={states[state].style}
-        />
-      </div>
-      <div className="flex justify-center">
-        <Button
-          className={clsx(
-            state == states.length - 1 && "opacity-0 pointer-events-none",
-            "transition-all",
-          )}
-          onClick={onClick}
-        >
-          Weiter
-        </Button>
-      </div>
-    </div>
+    <RobotIntroduction
+      states={states}
+      href="/space/daten-verarbeitung/kapitel2/level/1/part/1"
+    />
   );
 }
