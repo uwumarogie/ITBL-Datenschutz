@@ -8,7 +8,6 @@ import { useState } from "react";
 
 export default function HomePage() {
   const [mode, setMode] = useState<"singlePlayer" | "multiPlayer" | null>(null);
-
   const router = useRouter();
 
   const handleModeSelection = (

@@ -3,7 +3,7 @@
 import { MouseEventHandler, PropsWithChildren } from "react";
 import clsx from "clsx";
 
-export type ButtonStyle = "default" | "green" | "red" | "neutral";
+export type ButtonStyle = "default" | "green" | "red" | "secondary" | "neutral";
 
 type ButtonProps = {
   onClick?: MouseEventHandler<HTMLButtonElement> | undefined;
@@ -33,6 +33,9 @@ export default function Button({
   } else if (style == "neutral") {
     buttonStyle = "text-white bg-gray-500";
     buttonHoverStyle = "hover:bg-gray-600";
+  } else if (style == "secondary") {
+    buttonStyle = "text-white bg-[#004F86]";
+    buttonHoverStyle = "hover:bg-[#004170]";
   }
 
   const mergedStyle = clsx(

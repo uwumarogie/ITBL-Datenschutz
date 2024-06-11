@@ -1,16 +1,5 @@
 import React from "react";
-
-export type QuizParams = {
-  className?: string;
-  question: string;
-  hint?: string | React.ReactNode;
-  answers: string[];
-  correctAnswer: number;
-  hintAnswers?: string[];
-  onSelect?: (selection: number, isDone: boolean) => void;
-  // If enabled, the user only has a single try. After selection, it will show the solution to the user.
-  showCorrectAnswer?: boolean;
-};
+import { QuizParams } from "@/components/quiz";
 
 export const topTenPasswords = [
   "123456789",
