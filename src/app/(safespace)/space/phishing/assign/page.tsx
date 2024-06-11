@@ -326,11 +326,95 @@ const profiles: Profile[] = [
   {
     instagramProfile: {
       username: "coachhero",
-      profileImageSrc: "/insta-profiles/no-profilepic.png",
+      profileImageSrc: "/insta-profiles/heidiklum/1.jpg",
       followers: 12,
       followingCount: 130,
       following: dummyFollowings,
       description: "http://datingcoach.com/program",
+      posts: [
+        {
+          imageSrc: "/insta-profiles/heidiklum/2.jpeg",
+          caption: "",
+          likedBy: "Gefällt " + dummyFollowings[4] + " und weiteren Personen",
+        },
+        {
+          imageSrc: "/insta-profiles/heidiklum/3.jpeg",
+          caption: "",
+          likedBy: "Gefällt " + dummyFollowings[5] + " und weiteren Personen",
+        },
+        {
+          imageSrc: "/insta-profiles/heidiklum/4.jpeg",
+          caption: "",
+          likedBy: "Gefällt " + dummyFollowings[6] + " und weiteren Personen",
+        },
+        {
+          imageSrc: "/insta-profiles/heidiklum/5.jpeg",
+          caption: "",
+          likedBy: "Gefällt " + dummyFollowings[7] + " und weiteren Personen",
+        },
+        {
+          imageSrc: "/insta-profiles/heidiklum/6.jpeg",
+          caption: "",
+          likedBy: "Gefällt " + dummyFollowings[8] + " und weiteren Personen",
+        },
+        {
+          imageSrc: "/insta-profiles/heidiklum/7.jpeg",
+          caption: "",
+          likedBy: "Gefällt " + dummyFollowings[9] + " und weiteren Personen",
+        },
+        {
+          imageSrc: "/insta-profiles/heidiklum/8.jpeg",
+          caption: "",
+          likedBy: "Gefällt " + dummyFollowings[10] + " und weiteren Personen",
+        },
+        {
+          imageSrc: "/insta-profiles/heidiklum/9.jpeg",
+          caption: "",
+          likedBy: "Gefällt " + dummyFollowings[11] + " und weiteren Personen",
+        },
+        {
+          imageSrc: "/insta-profiles/heidiklum/10.jpeg",
+          caption: "",
+          likedBy: "Gefällt " + dummyFollowings[12] + " und weiteren Personen",
+        },
+        {
+          imageSrc: "/insta-profiles/heidiklum/11.jpeg",
+          caption: "",
+          likedBy: "Gefällt " + dummyFollowings[13] + " und weiteren Personen",
+        },
+        {
+          imageSrc: "/insta-profiles/heidiklum/12.jpeg",
+          caption: "",
+          likedBy: "Gefällt " + dummyFollowings[14] + " und weiteren Personen",
+        },
+        {
+          imageSrc: "/insta-profiles/heidiklum/13.jpeg",
+          caption: "",
+          likedBy: "Gefällt " + dummyFollowings[15] + " und weiteren Personen",
+        },
+        {
+          imageSrc: "/insta-profiles/heidiklum/14.jpeg",
+          caption: "",
+          likedBy: "Gefällt " + dummyFollowings[4] + " und weiteren Personen",
+        },
+        {
+          imageSrc: "/insta-profiles/heidiklum/15.jpeg",
+          caption: "",
+          likedBy: "Gefällt " + dummyFollowings[4] + " und weiteren Personen",
+        },
+      ],
+    },
+    isRealProfile: false,
+    hint: "Bei diesem Profil ist der Link in der Beschreibung besonders auffällig und ein guter Indikator dafür, dass es sich um ein Phishing Profil handelt",
+  },
+  {
+    instagramProfile: {
+      username: "heidiklum",
+      profileImageSrc: "/insta-profiles/no-profilepic.png",
+      followers: 12000000,
+      followingCount: 824,
+      following: dummyFollowings,
+      description: "Sunglasses at Night 😎 LISTEN NOW",
       posts: [],
     },
     isRealProfile: false,
