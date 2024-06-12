@@ -2,13 +2,20 @@
 
 import { DesktopNav } from "@/components/NavBar/DesktopNavigation/desktop-nav";
 import { MobileNav } from "@/components/NavBar/MobileNavigation/mobile-nav";
-import React from "react";
+import { redirect } from "next/navigation";
+import React, { useEffect } from "react";
 
 export default function Layout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  useEffect(() => {
+    if (!localStorage.getItem("userId")) {
+      redirect("/");
+    }
+  }, []);
+
   return (
     <div className="bg-blue-background h-screen bg-fixed">
       <div className="flex justify-center h-reduced-safari sm:h-full px-3 pt-1 sm:py-11 sm:pr-8 sm:pl-0 flex-col sm:flex-row">

@@ -63,11 +63,6 @@ export async function POST(req: NextRequest) {
       return new NextResponse("User not found", { status: 404 });
     }
 
-    await db.insert(achievements).values({
-      userId: userData[0].id,
-      achievementEnum: "NULL",
-      isAchieved: true,
-    });
     await insertDefaultHighScores(userData[0].id);
     return NextResponse.json(
       { userData: userData },

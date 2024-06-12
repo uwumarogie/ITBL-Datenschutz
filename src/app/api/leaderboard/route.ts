@@ -1,7 +1,12 @@
 import { NextRequest, NextResponse } from "next/server";
 import { db } from "@/server/database/connection";
 import { achievements, users } from "@/server/database/schema";
-import { and, eq } from "drizzle-orm";
+import { and, eq, sql } from "drizzle-orm";
+
+type UserData = {
+  username: string;
+  score: number;
+};
 
 export async function POST(req: NextRequest) {
   try {
@@ -16,39 +21,31 @@ export async function POST(req: NextRequest) {
 
     const userData = await db
       .select({
-        id: achievements.id,
-        isAchieved: achievements.isAchieved,
         username: users.userName,
+        score: sql<number>`COUNT(${achievements.id})::int`.as("score"),
       })
       .from(users)
-      .innerJoin(achievements, eq(users.id, achievements.userId))
-      .where(
-        and(eq(users.gameCode, gameCode), eq(achievements.isAchieved, true)),
-      );
+      .leftJoin(
+        achievements,
+        and(eq(users.id, achievements.userId), eq(achievements.isAchieved, true))
+      )
+      .where(eq(users.gameCode, gameCode))
+      .groupBy(users.userName)
+      .orderBy(sql`score DESC`);
 
+      
     if (!userData || userData.length === 0) {
-      console.error("No user data found for gameCode", gameCode);
-      return new NextResponse("Error", {
+      console.error('No user data found for gameCode', gameCode);
+      return new NextResponse('Error', {
         status: 404,
-        statusText: "No user data found",
+        statusText: 'No user data found',
       });
     }
 
-    const userAchievementCount = userData.reduce(
-      (acc, user) => {
-        acc[user.username] = (acc[user.username] || 0) + 1;
-        return acc;
-      },
-      {} as Record<string, number>,
-    );
-
-    const leaderboardData = Object.entries(userAchievementCount)
-      .map(([name, score]) => ({
-        name,
-        score,
-      }))
-      .sort((a, b) => b.score - a.score)
-      .filter((a) => a.score > 1);
+    const leaderboardData = userData.map((user: UserData) => ({
+      name: user.username,
+      score: user.score,
+    }));
 
     return new NextResponse(JSON.stringify(leaderboardData), {
       status: 200,

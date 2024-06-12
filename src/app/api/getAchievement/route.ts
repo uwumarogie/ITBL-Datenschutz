@@ -22,7 +22,7 @@ export async function POST(req: NextRequest) {
       .from(achievements)
       .where(eq(achievements.userId, userId));
 
-    if (!userArchievements || userArchievements.length === 0) {
+    if (!userArchievements) {
       return new Response("Achievement not found", {
         status: 404,
         statusText: "Achievement not found",

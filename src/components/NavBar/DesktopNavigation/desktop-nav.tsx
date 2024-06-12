@@ -3,8 +3,11 @@ import Link from "next/link";
 import Image from "next/image";
 import { ActionCard } from "@/components/action-card";
 import { Section } from "../Section";
+import { SignOut } from "@phosphor-icons/react";
+import { useRouter } from "next/navigation";
 
 export function DesktopNav() {
+  const router = useRouter()
   return (
     <div className="flex flex-col w-[340px] h-full justify-between align-center">
       <div>
@@ -36,6 +39,17 @@ export function DesktopNav() {
           titleColor="white"
           redirectPath="/sandbox/quiz"
         />
+        <span
+          className="flex justify-center items-center gap-2 mt-2 hover:cursor-pointer"
+          onClick={() => {
+            localStorage.removeItem("gameCode")
+            localStorage.removeItem("userId")
+            router.push("/")
+          }}
+        >
+          <SignOut size={28} color="#ffffff" />
+          <span className="text-white text-lg align-center">Ausloggen</span>
+        </span>
       </div>
     </div>
   );

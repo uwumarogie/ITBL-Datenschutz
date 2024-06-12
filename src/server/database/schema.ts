@@ -13,7 +13,6 @@ const achievementArray = [
   "DATENSCHUTZ_HELD",
   "WERBE_GURU",
   "PHISHING_FAENGER",
-  "NULL",
 ] as const;
 
 const highScoreArray = ["PASSWORD_STRENGTH"] as const;

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { passwordData } from "@/util/password-quiz-data";
 import { IntroductionText } from "@/components/introduction-text";
 import { useRouter } from "next/navigation";
@@ -15,7 +15,6 @@ export default function PasswordStrength() {
   const [currentScore, setCurrentScore] = useState(0);
   const [gameStarted, setGameStarted] = useState(false);
   const router = useRouter();
-  const [user, setUser] = useState<string | null>(null);
   const { addMessage } = useMessages();
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [buttonStyleWrong, setButtonStyleWrong] = useState(-1);
@@ -24,11 +23,13 @@ export default function PasswordStrength() {
   const currentQuestion = passwordData[currentQuestionIndex];
   const [animateShake, setAnimateShake] = useState(false);
   const [animatePulse, setAnimatePulse] = useState(false);
+  const userServiceRef = useRef<PersistUserService | null>(null);
 
+  
   useEffect(() => {
+    userServiceRef.current = new PersistUserService();
     const fetchHighScore = async () => {
-      const context = new PersistUserService();
-      const loadedHighScore = await context.getHighScore("PASSWORD_STRENGTH");
+      const loadedHighScore = await userServiceRef.current?.getHighScore("PASSWORD_STRENGTH");
       setHighscore(loadedHighScore);
     };
 
@@ -40,13 +41,6 @@ export default function PasswordStrength() {
       passwordAnimation(currentQuestion.password);
     }
   }, [gameStarted, currentQuestionIndex, currentQuestion.password]);
-
-  useEffect(() => {
-    const context = new PersistUserService();
-    if (context.userId !== null) {
-      setUser(context.userId);
-    }
-  }, []);
 
   const handleButtonClick = (strength: number) => {
     if (currentQuestion.strength === strength) {
@@ -127,11 +121,8 @@ export default function PasswordStrength() {
   };
 
   const saveHighScore = async () => {
-    if (user !== null) {
-      const context = new PersistUserService();
-      return await context.setHighScore("PASSWORD_STRENGTH", currentScore + 1);
-    }
-    setHighscore((prevScore) => prevScore + 1);
+    setHighscore((prevScore) => prevScore + 1)
+    await userServiceRef.current?.setHighScore("PASSWORD_STRENGTH", currentScore + 1).then()
   };
 
   return (
