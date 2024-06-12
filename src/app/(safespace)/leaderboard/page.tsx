@@ -15,14 +15,15 @@ import { PersistUserService } from "@/services/user/PersistUserService";
 export default function Leaderboard() {
   const [gameCode, setGameCode] = useState("");
   const [userName, setUsername] = useState("");
-  const [leaderboardData, setLeaderboardData] = useState<LeaderboardEntry | null>(null);
+  const [leaderboardData, setLeaderboardData] =
+    useState<LeaderboardEntry | null>(null);
 
   useEffect(() => {
     const code = localStorage.getItem("gameCode");
     if (code) {
-      setGameCode(code)
+      setGameCode(code);
     } else {
-      redirect("/space")
+      redirect("/space");
     }
   }, []);
 
@@ -36,8 +37,8 @@ export default function Leaderboard() {
           console.error("Error fetching leaderboard data:", error);
         }
       };
-      fetchLeaderboardData()
-      const interval = setInterval(fetchLeaderboardData, 10000)
+      fetchLeaderboardData();
+      const interval = setInterval(fetchLeaderboardData, 10000);
 
       return () => {
         clearInterval(interval);
@@ -59,7 +60,7 @@ export default function Leaderboard() {
               key={index}
               className="flex justify-between mb-2 bg-module-blue rounded-r-3xl py-3 pr-6 pl-1"
               style={{
-                width: `${(user.score * 100) / Object.keys(AchievementId).filter(key => isNaN(Number(key))).length}%`,
+                width: `${(user.score * 100) / Object.keys(AchievementId).filter((key) => isNaN(Number(key))).length}%`,
               }}
             >
               <div className="flex gap-5 justify-between w-full min-w-max items-center">

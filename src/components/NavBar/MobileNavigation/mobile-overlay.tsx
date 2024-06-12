@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import { SignOut } from "@phosphor-icons/react";
 
 export function Overlay() {
-  const router = useRouter()
+  const router = useRouter();
   return (
     <div className="absolute left-[-0.3rem] right-[-0.3rem] top-full mt-2 bg-white shadow-xl px-5 pt-6 pb-4 z-50 rounded-3xl">
       <div className="flex flex-col gap-6">
@@ -31,12 +31,12 @@ export function Overlay() {
         <span
           className="flex justify-center items-center gap-2 mt-2 hover:cursor-pointer"
           onClick={() => {
-            localStorage.removeItem("gameCode")
-            localStorage.removeItem("userId")
-            router.push("/")
+            localStorage.removeItem("gameCode");
+            localStorage.removeItem("userId");
+            router.push("/");
           }}
         >
-          <SignOut size={28}/>
+          <SignOut size={28} />
           <span className="text-lg align-center">Ausloggen</span>
         </span>
       </div>

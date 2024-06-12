@@ -7,7 +7,7 @@ import { SignOut } from "@phosphor-icons/react";
 import { useRouter } from "next/navigation";
 
 export function DesktopNav() {
-  const router = useRouter()
+  const router = useRouter();
   return (
     <div className="flex flex-col w-[340px] h-full justify-between align-center">
       <div>
@@ -42,9 +42,9 @@ export function DesktopNav() {
         <span
           className="flex justify-center items-center gap-2 mt-2 hover:cursor-pointer"
           onClick={() => {
-            localStorage.removeItem("gameCode")
-            localStorage.removeItem("userId")
-            router.push("/")
+            localStorage.removeItem("gameCode");
+            localStorage.removeItem("userId");
+            router.push("/");
           }}
         >
           <SignOut size={28} color="#ffffff" />

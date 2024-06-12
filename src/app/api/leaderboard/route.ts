@@ -27,18 +27,20 @@ export async function POST(req: NextRequest) {
       .from(users)
       .leftJoin(
         achievements,
-        and(eq(users.id, achievements.userId), eq(achievements.isAchieved, true))
+        and(
+          eq(users.id, achievements.userId),
+          eq(achievements.isAchieved, true),
+        ),
       )
       .where(eq(users.gameCode, gameCode))
       .groupBy(users.userName)
       .orderBy(sql`score DESC`);
 
-      
     if (!userData || userData.length === 0) {
-      console.error('No user data found for gameCode', gameCode);
-      return new NextResponse('Error', {
+      console.error("No user data found for gameCode", gameCode);
+      return new NextResponse("Error", {
         status: 404,
-        statusText: 'No user data found',
+        statusText: "No user data found",
       });
     }
 

@@ -25,11 +25,11 @@ export default function PasswordStrength() {
   const [animatePulse, setAnimatePulse] = useState(false);
   const userServiceRef = useRef<PersistUserService | null>(null);
 
-  
   useEffect(() => {
     userServiceRef.current = new PersistUserService();
     const fetchHighScore = async () => {
-      const loadedHighScore = await userServiceRef.current?.getHighScore("PASSWORD_STRENGTH");
+      const loadedHighScore =
+        await userServiceRef.current?.getHighScore("PASSWORD_STRENGTH");
       setHighscore(loadedHighScore);
     };
 
@@ -121,8 +121,10 @@ export default function PasswordStrength() {
   };
 
   const saveHighScore = async () => {
-    setHighscore((prevScore) => prevScore + 1)
-    await userServiceRef.current?.setHighScore("PASSWORD_STRENGTH", currentScore + 1).then()
+    setHighscore((prevScore) => prevScore + 1);
+    await userServiceRef.current
+      ?.setHighScore("PASSWORD_STRENGTH", currentScore + 1)
+      .then();
   };
 
   return (

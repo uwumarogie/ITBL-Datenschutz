@@ -78,12 +78,13 @@ export function Section() {
   useEffect(() => {
     const activeSection = getActiveSection();
     setActiveSection(activeSection);
-
   }, [getActiveSection, path]);
 
   useEffect(() => {
     if (!localStorage.getItem("gameCode")) {
-      setSections(sections.filter(s => s.sectionName !== SectionName.LEADERBOARD))
+      setSections(
+        sections.filter((s) => s.sectionName !== SectionName.LEADERBOARD),
+      );
     }
   }, []);
 
