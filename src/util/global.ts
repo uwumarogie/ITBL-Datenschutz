@@ -1,4 +1,4 @@
-const  productionUrl = "https://stupendous-bombolone-1940dd.netlify.app"
+const productionUrl = "https://stupendous-bombolone-1940dd.netlify.app";
 
 export const baseUrl =
   process.env.NODE_ENV === "production"
