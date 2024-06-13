@@ -12,7 +12,7 @@ const steps = [
   },
   {
     progress: 0.2,
-    text: "Kapitel 2",
+    text: "Kapitel 2 - TODO",
   },
   {
     progress: 0.8,
