@@ -35,9 +35,9 @@ const profile: InstagramProfileData = {
 };
 
 const robotText =
-  "Das ist Marie. Sie ist seit ca. 4 Jahren auf Instagram und hat uns einige Informationen hinterlassen. Schau dich einfach mal um und tipp mich an, wenn du denkst, genug über Marie zu wissen.";
+  "Hier siehst du Maries Instagram Feed. Wie lässt sie sich durch ihre Posts beschreiben? Schreibe dir mindestens drei Aspekte auf.";
 const task =
-  "Untersuche Maries Profil und notiere dir Informationen, die uns bei der Auswahl der passenden Werbung helfen können.";
+  "Untersuche Maries Profil und finde 3 Eigenschaften und Aspekte, die ihre Person bzw. Persönlichkeit beschreiben.";
 
 export default function DataProcessing1() {
   return (
@@ -45,6 +45,7 @@ export default function DataProcessing1() {
       profile={profile}
       robotText={robotText}
       task={task}
+      hint="Wie alt ist sie? Was macht sie in ihrem Leben? Welche Hobbies hat sie? "
       href="/space/daten-verarbeitung/kapitel2/level/0/part/2"
     />
   );
