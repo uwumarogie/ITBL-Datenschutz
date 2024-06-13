@@ -60,15 +60,18 @@ export default function InstagramProfile({
       <div className="overflow-y-auto relative h-full">
         <header className="w-full flex flex-col gap-4 p-6">
           <div className="flex gap-2 items-center">
-          <h3 className="font-semibold text-xl">{profile.username}</h3>
-          {profile.verificated && (
-              <SealCheck size={22} weight="fill" color="#1877F2"/>
+            <h3 className="font-semibold text-xl">{profile.username}</h3>
+            {profile.verificated && (
+              <SealCheck size={22} weight="fill" color="#1877F2" />
             )}
           </div>
 
           <div className="flex w-full">
             <Image
-              className={clsx("rounded-full border-[1px] border-gray-300 w-20 h-20 flex-shrink-0 bg-white hover:scale-105 transition-all cursor-pointer", profile.story && "ring-[3px] ring-rose-600 border-[3px]")}
+              className={clsx(
+                "rounded-full border-[1px] border-gray-300 w-20 h-20 flex-shrink-0 bg-white hover:scale-105 transition-all cursor-pointer",
+                profile.story && "ring-[3px] ring-rose-600 border-[3px]",
+              )}
               src={profile.profileImageSrc}
               alt={"Profile picture"}
               layout="fixed"
@@ -89,10 +92,11 @@ export default function InstagramProfile({
 
           <div>
             <h6 className="font-semibold text-md">{profile.username}</h6>
-            {!profile.isPublic && 
-            <span className="opacity-50 text-sm font-light">
-              Privates Profil
-            </span>}
+            {!profile.isPublic && (
+              <span className="opacity-50 text-sm font-light">
+                Privates Profil
+              </span>
+            )}
           </div>
 
           <p className="whitespace-pre-wrap text-sm">{profile.description}</p>
@@ -148,7 +152,11 @@ function VerticalNumberText({
       className="inline-flex flex-col items-center hover:scale-105 transition-all cursor-pointer"
       onClick={onClick}
     >
-      <span className="font-semibold text-xl">{number > 1000000 ? number.toString().substring(0, 2) + " Mio.": number}</span>
+      <span className="font-semibold text-xl">
+        {number > 1000000
+          ? number.toString().substring(0, 2) + " Mio."
+          : number}
+      </span>
       <span className="font-light">{text}</span>
     </div>
   );

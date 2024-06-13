@@ -160,10 +160,18 @@ export default function Profiling() {
                     <div
                       ref={provided.innerRef}
                       {...provided.droppableProps}
-                      className={clsx("p-2 flex flex-wrap gap-x-4 gap-y-2 mb-4", !instructionRead && 'opacity-60')}
+                      className={clsx(
+                        "p-2 flex flex-wrap gap-x-4 gap-y-2 mb-4",
+                        !instructionRead && "opacity-60",
+                      )}
                     >
                       {columns.wordsPool.items.map((item, index) => (
-                        <Draggable key={item} draggableId={item} index={index} isDragDisabled={!instructionRead}>
+                        <Draggable
+                          key={item}
+                          draggableId={item}
+                          index={index}
+                          isDragDisabled={!instructionRead}
+                        >
                           {(provided) => (
                             <div
                               ref={provided.innerRef}
@@ -181,7 +189,7 @@ export default function Profiling() {
                   )}
                 </Droppable>
               )}
-              <div className={clsx(!instructionRead && 'opacity-60')}>
+              <div className={clsx(!instructionRead && "opacity-60")}>
                 <div className="flex justify-between">
                   {Object.entries(columns)
                     .filter(([columnId]) => columnId !== "wordsPool")
@@ -215,7 +223,7 @@ export default function Profiling() {
                                       className={clsx(
                                         "p-2 bg-module-blue text-blue-background rounded-xl text-xs sm:text-sm lg:text-base",
                                         wrongAnmiation &&
-                                        "animate-shake text-white bg-red-500",
+                                          "animate-shake text-white bg-red-500",
                                       )}
                                     >
                                       {item}
@@ -230,31 +238,43 @@ export default function Profiling() {
                       </Droppable>
                     ))}
                 </div>
-                {instructionRead && <div className="flex justify-between">
-                  
+                {instructionRead && (
+                  <div className="flex justify-between">
                     <div>
                       <Button
                         className="min-w-[150px] mt-6"
                         onClick={() => handleFinish()}
-                        style={columns.wordsPool.items.length == 0 ? "default" : "neutral"}
+                        style={
+                          columns.wordsPool.items.length == 0
+                            ? "default"
+                            : "neutral"
+                        }
                         disabled={columns.wordsPool.items.length != 0}
-                        >
-                        {columns.wordsPool.items.length == 0 ? "Überprüfen" : "noch " + columns.wordsPool.items.length + "/" + (signsFakeProfile.length + signsRealProfile.length) + "zuordnen"}
+                      >
+                        {columns.wordsPool.items.length == 0
+                          ? "Überprüfen"
+                          : "noch " +
+                            columns.wordsPool.items.length +
+                            "/" +
+                            (signsFakeProfile.length +
+                              signsRealProfile.length) +
+                            "zuordnen"}
                       </Button>
                     </div>
-                  <HintCard
-                  text={"Was muss ich machen?"}
-                  buttonText={"Aufgabe anzeigen"}
-                  hint="Ordne die oben aufgeführten Anzeichen den entsprechenden
-                      Kategorien zu: &quot;Anzeichen für Fake Profile&quot; oder
-                      &quot;Anzeichen für Echte Profile&quot;. Ziehe die einzelnen
+                    <HintCard
+                      text={"Was muss ich machen?"}
+                      buttonText={"Aufgabe anzeigen"}
+                      hint='Ordne die oben aufgeführten Anzeichen den entsprechenden
+                      Kategorien zu: "Anzeichen für Fake Profile" oder
+                      "Anzeichen für Echte Profile". Ziehe die einzelnen
                       Anzeichen aus dem Wörter-Pool und lege sie in die
-                      entsprechende Kategorie."
-                  className="max-w-[250px] sm:max-w-[400px] ml-2 mt-8 flex-end p-2"
-                  />
-                </div>}
+                      entsprechende Kategorie.'
+                      className="max-w-[250px] sm:max-w-[400px] ml-2 mt-8 flex-end p-2"
+                    />
+                  </div>
+                )}
               </div>
-              {!instructionRead &&
+              {!instructionRead && (
                 <div className="p-2 flex flex-col gap-4 lg:mt-4">
                   Ordne die oben aufgeführten Anzeichen den entsprechenden
                   Kategorien zu: &quot;Anzeichen für Fake Profile&quot; oder
@@ -268,7 +288,7 @@ export default function Profiling() {
                     Starten
                   </Button>
                 </div>
-             }
+              )}
             </div>
           </DragDropContext>
         </div>

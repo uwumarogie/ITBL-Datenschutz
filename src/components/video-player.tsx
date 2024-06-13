@@ -27,15 +27,15 @@ export function VideoPlayer({
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
-    const videoElement = videoRef.current
-      return () => {
-        if (videoElement) {
-          videoElement.pause()
-          videoElement.currentTime = 0
-          videoElement.src = ''
-        }
+    const videoElement = videoRef.current;
+    return () => {
+      if (videoElement) {
+        videoElement.pause();
+        videoElement.currentTime = 0;
+        videoElement.src = "";
       }
-  })
+    };
+  });
 
   const handleTimestampClick = (timestamp: number) => {
     if (videoRef.current) {
