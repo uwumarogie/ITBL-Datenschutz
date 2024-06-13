@@ -1,9 +1,8 @@
 "use client";
-import Quiz from "@/components/quiz";
+import Quiz, { QuizParams } from "@/components/quiz";
 import { useState } from "react";
 import clsx from "clsx";
 import Button from "@/components/button";
-import { QuizParams } from "@/util/password-quiz-data";
 
 export type QuizListProps = {
   className?: string;

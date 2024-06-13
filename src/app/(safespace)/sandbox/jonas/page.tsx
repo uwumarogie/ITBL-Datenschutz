@@ -3,6 +3,9 @@
 import ModuleIntro from "@/components/module-intro";
 import { ArrowLeft } from "@phosphor-icons/react";
 import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
+import { useInterval } from "@/util/timeout";
+import AnimatedText from "@/components/animated/AnimatedText";
 
 export default function Sandbox() {
   const router = useRouter();
@@ -29,6 +32,11 @@ export default function Sandbox() {
       minutes: "5",
     },
   ];
+
+  const [state, setState] = useState(0);
+  useInterval(() => {
+    setState((state) => (state + 1) % chapter.length);
+  }, 1600);
   return (
     <div className="h-full w-full">
       <ModuleIntro
