@@ -1,9 +1,5 @@
 import { db } from "@/server/database/connection";
-import {
-  HighScoreEnum,
-  highScores,
-  users,
-} from "@/server/database/schema";
+import { HighScoreEnum, highScores, users } from "@/server/database/schema";
 import { NextRequest, NextResponse } from "next/server";
 import { eq } from "drizzle-orm";
 import * as z from "zod";

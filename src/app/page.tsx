@@ -69,7 +69,7 @@ export default function HomePage() {
       mode !== null &&
       (localStorage.getItem("userId") === null || username !== undefined)
     ) {
-      await createPlayer(username, mode, gameCode)
+      await createPlayer(username, mode, gameCode);
     }
     router.replace("/space");
   };
