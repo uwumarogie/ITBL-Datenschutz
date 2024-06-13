@@ -61,7 +61,7 @@ export default function Assign() {
                 Jetzt bist du an der Reihe dien Wissen anzuwenden: Du wirst
                 jetzt eine Reihe von Profilen gezeigt bekommen, die entweder
                 Anzeichen von realen Profilen aufweisen oder aber Hinweise drauf
-                enthalten, dass es sich eher um Phishing obzw. Fake-Profile
+                enthalten, dass es sich eher um Phishing bzw. Fake-Profile
                 handelt. Ordne die Profile in eine der beiden Kategorien
                 einordnen.
               </span>
@@ -272,7 +272,7 @@ const profiles: Profile[] = [
   {
     instagramProfile: {
       username: "christiano_ronaldo7",
-      profileImageSrc: "/insta-profiles/cr7/1.jpeg",
+      profileImageSrc: "/insta-profiles/cr7/1.png",
       followers: 972,
       followingCount: 532,
       following: dummyFollowings,
@@ -326,83 +326,12 @@ const profiles: Profile[] = [
   {
     instagramProfile: {
       username: "coachhero",
-      profileImageSrc: "/insta-profiles/heidiklum/1.jpg",
+      profileImageSrc: "/insta-profiles/no-profilepic.png",
       followers: 12,
       followingCount: 130,
       following: dummyFollowings,
       description: "http://datingcoach.com/program",
-      posts: [
-        {
-          imageSrc: "/insta-profiles/heidiklum/2.jpeg",
-          caption: "",
-          likedBy: "Gefällt " + dummyFollowings[4] + " und weiteren Personen",
-        },
-        {
-          imageSrc: "/insta-profiles/heidiklum/3.jpeg",
-          caption: "",
-          likedBy: "Gefällt " + dummyFollowings[5] + " und weiteren Personen",
-        },
-        {
-          imageSrc: "/insta-profiles/heidiklum/4.jpeg",
-          caption: "",
-          likedBy: "Gefällt " + dummyFollowings[6] + " und weiteren Personen",
-        },
-        {
-          imageSrc: "/insta-profiles/heidiklum/5.jpeg",
-          caption: "",
-          likedBy: "Gefällt " + dummyFollowings[7] + " und weiteren Personen",
-        },
-        {
-          imageSrc: "/insta-profiles/heidiklum/6.jpeg",
-          caption: "",
-          likedBy: "Gefällt " + dummyFollowings[8] + " und weiteren Personen",
-        },
-        {
-          imageSrc: "/insta-profiles/heidiklum/7.jpeg",
-          caption: "",
-          likedBy: "Gefällt " + dummyFollowings[9] + " und weiteren Personen",
-        },
-        {
-          imageSrc: "/insta-profiles/heidiklum/8.jpeg",
-          caption: "",
-          likedBy: "Gefällt " + dummyFollowings[10] + " und weiteren Personen",
-        },
-        {
-          imageSrc: "/insta-profiles/heidiklum/9.jpeg",
-          caption: "",
-          likedBy: "Gefällt " + dummyFollowings[11] + " und weiteren Personen",
-        },
-        {
-          imageSrc: "/insta-profiles/heidiklum/10.jpeg",
-          caption: "",
-          likedBy: "Gefällt " + dummyFollowings[12] + " und weiteren Personen",
-        },
-        {
-          imageSrc: "/insta-profiles/heidiklum/11.jpeg",
-          caption: "",
-          likedBy: "Gefällt " + dummyFollowings[13] + " und weiteren Personen",
-        },
-        {
-          imageSrc: "/insta-profiles/heidiklum/12.jpeg",
-          caption: "",
-          likedBy: "Gefällt " + dummyFollowings[14] + " und weiteren Personen",
-        },
-        {
-          imageSrc: "/insta-profiles/heidiklum/13.jpeg",
-          caption: "",
-          likedBy: "Gefällt " + dummyFollowings[15] + " und weiteren Personen",
-        },
-        {
-          imageSrc: "/insta-profiles/heidiklum/14.jpeg",
-          caption: "",
-          likedBy: "Gefällt " + dummyFollowings[4] + " und weiteren Personen",
-        },
-        {
-          imageSrc: "/insta-profiles/heidiklum/15.jpeg",
-          caption: "",
-          likedBy: "Gefällt " + dummyFollowings[4] + " und weiteren Personen",
-        },
-      ],
+      posts: [],
     },
     isRealProfile: false,
     hint: "Bei diesem Profil ist der Link in der Beschreibung besonders auffällig und ein guter Indikator dafür, dass es sich um ein Phishing Profil handelt",
@@ -410,14 +339,86 @@ const profiles: Profile[] = [
   {
     instagramProfile: {
       username: "heidiklum",
-      profileImageSrc: "/insta-profiles/no-profilepic.png",
+      profileImageSrc: "/insta-profiles/heidiklum/1.png",
       followers: 12000000,
       followingCount: 824,
       following: dummyFollowings,
       description: "Sunglasses at Night 😎 LISTEN NOW",
-      posts: [],
+      posts: [{
+        imageSrc: "/insta-profiles/heidiklum/2.jpg",
+        caption: "",
+        likedBy: "Gefällt " + dummyFollowings[4] + " und weiteren Personen",
+      },
+      {
+        imageSrc: "/insta-profiles/heidiklum/3.jpg",
+        caption: "",
+        likedBy: "Gefällt " + dummyFollowings[5] + " und weiteren Personen",
+      },
+      {
+        imageSrc: "/insta-profiles/heidiklum/4.jpg",
+        caption: "",
+        likedBy: "Gefällt " + dummyFollowings[6] + " und weiteren Personen",
+      },
+      {
+        imageSrc: "/insta-profiles/heidiklum/5.jpg",
+        caption: "",
+        likedBy: "Gefällt " + dummyFollowings[7] + " und weiteren Personen",
+      },
+      {
+        imageSrc: "/insta-profiles/heidiklum/6.jpg",
+        caption: "",
+        likedBy: "Gefällt " + dummyFollowings[8] + " und weiteren Personen",
+      },
+      {
+        imageSrc: "/insta-profiles/heidiklum/7.jpg",
+        caption: "",
+        likedBy: "Gefällt " + dummyFollowings[9] + " und weiteren Personen",
+      },
+      {
+        imageSrc: "/insta-profiles/heidiklum/8.jpg",
+        caption: "",
+        likedBy: "Gefällt " + dummyFollowings[10] + " und weiteren Personen",
+      },
+      {
+        imageSrc: "/insta-profiles/heidiklum/9.jpg",
+        caption: "",
+        likedBy: "Gefällt " + dummyFollowings[11] + " und weiteren Personen",
+      },
+      {
+        imageSrc: "/insta-profiles/heidiklum/10.jpg",
+        caption: "",
+        likedBy: "Gefällt " + dummyFollowings[12] + " und weiteren Personen",
+      },
+      {
+        imageSrc: "/insta-profiles/heidiklum/11.jpg",
+        caption: "",
+        likedBy: "Gefällt " + dummyFollowings[13] + " und weiteren Personen",
+      },
+      {
+        imageSrc: "/insta-profiles/heidiklum/12.jpg",
+        caption: "",
+        likedBy: "Gefällt " + dummyFollowings[14] + " und weiteren Personen",
+      },
+      {
+        imageSrc: "/insta-profiles/heidiklum/13.jpg",
+        caption: "",
+        likedBy: "Gefällt " + dummyFollowings[15] + " und weiteren Personen",
+      },
+      {
+        imageSrc: "/insta-profiles/heidiklum/14.jpg",
+        caption: "",
+        likedBy: "Gefällt " + dummyFollowings[16] + " und weiteren Personen",
+      },
+      {
+        imageSrc: "/insta-profiles/heidiklum/15.jpg",
+        caption: "",
+        likedBy: "Gefällt " + dummyFollowings[17] + " und weiteren Personen",
+      },],
+      story: true,
+      verificated: true,
+      isPublic: true
     },
-    isRealProfile: false,
+    isRealProfile: true,
     hint: "Bei diesem Profil ist der Link in der Beschreibung besonders auffällig und ein guter Indikator dafür, dass es sich um ein Phishing Profil handelt",
   },
   {
