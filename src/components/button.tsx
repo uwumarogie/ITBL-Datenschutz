@@ -21,26 +21,26 @@ export default function Button({
 }: ButtonProps) {
   const buttonBase =
     "inline-flex justify-center items-center align-center px-6 py-3 font-medium rounded-2xl transition-colors";
-  let buttonStyle = "text-white bg-orange-500";
-  const buttonDisabledStyle = "bg-gray-300 text-white";
+  let buttonStyle = "bg-orange-500 text-white";
   let buttonHoverStyle = "hover:bg-orange-600";
   if (style == "green") {
-    buttonStyle = "text-white bg-lime-500";
+    buttonStyle = "bg-lime-500 text-white";
     buttonHoverStyle = "hover:bg-lime-600";
   } else if (style == "red") {
-    buttonStyle = "text-white bg-red-500";
+    buttonStyle = "bg-red-500 text-white";
     buttonHoverStyle = "hover:bg-red-600";
   } else if (style == "neutral") {
-    buttonStyle = "text-white bg-gray-500";
+    buttonStyle = "bg-gray-500 text-white";
     buttonHoverStyle = "hover:bg-gray-600";
   }
+  const buttonDisabledStyle = "opacity-50 " + buttonStyle
 
   const mergedStyle = clsx(
     buttonBase,
     disabled ? buttonDisabledStyle : buttonStyle,
     className,
     onClick ? "cursor-pointer" : "cursor-default",
-    onClick && buttonHoverStyle,
+    onClick && !disabled && buttonHoverStyle,
   );
   return (
     <button className={mergedStyle} onClick={onClick} disabled={disabled}>
