@@ -7,7 +7,8 @@ import { useState } from "react";
 import Button from "@/components/button";
 import { HintCard } from "@/components/hint-card";
 import clsx from "clsx";
-import Image from "next/image";
+import Robot from "@/components/robot/robot";
+import Task from "@/components/task";
 
 type Profile = {
   instagramProfile: InstagramProfileData;
@@ -49,16 +50,10 @@ export default function Assign() {
       ) : (
         <>
           {!instructionsRead ? (
-            <div className="p-2 flex flex-col items-center gap-4 lg:mt-8 max-w-[700px]">
-              <Image
-                src="/assign-profiles.png"
-                alt="profiles"
-                width={250}
-                height={250}
-                className="w-[120px] h-[120px] md:w-[250px] md:h-[250px]"
-              />
-              <span className="text-center">
-                Jetzt bist du an der Reihe dien Wissen anzuwenden: Du wirst
+            <div className="p-2 flex flex-col items-center gap-4 lg:mt-8">
+              <Robot expression="resting" className="mb-6" />
+              <span className="text-center max-w-[700px]">
+                Jetzt bist du an der Reihe dein Wissen anzuwenden: Du wirst
                 jetzt eine Reihe von Profilen gezeigt bekommen, die entweder
                 Anzeichen von realen Profilen aufweisen oder aber Hinweise drauf
                 enthalten, dass es sich eher um Phishing bzw. Fake-Profile
@@ -86,7 +81,10 @@ export default function Assign() {
               )}
 
               <div className="flex flex-col justify-between items-center w-full max-w-[700px] gap-y-4">
-                <div className="flex flex-col items-center mt-4 sm:mt-16 gap-y-4 max-w-[80%] text-center">
+                <Task>
+                  Achtung! Alle Profile sind von uns zu Übungszwecken erstellt!
+                </Task>
+                <div className="flex flex-col items-center gap-y-4 max-w-[80%] text-center">
                   <span className="text-lg md:text-2xl text-blue-background">
                     Wie würdest du{" "}
                     {profiles[activeIndex].instagramProfile.username}{" "}

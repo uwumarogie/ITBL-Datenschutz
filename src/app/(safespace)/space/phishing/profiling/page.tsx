@@ -11,6 +11,7 @@ import Button from "@/components/button";
 import clsx from "clsx";
 import Image from "next/image";
 import { HintCard } from "@/components/hint-card";
+import Robot from "@/components/robot/robot";
 
 type Column = {
   id: string;
@@ -132,22 +133,17 @@ export default function Profiling() {
 
   return (
     <>
-      {moduleFinished ? (
+      {!moduleFinished ? (
         <div className="flex flex-col items-center text-center gap-6 md:mt-6">
           <span className="text-5xl text-blue-background">Gut gemacht!</span>
-          <Image
-            src="/instagram-profile.png"
-            alt="insta profile"
-            width={150}
-            height={150}
-          />
+          <Robot expression="smiling" />
           <span className="max-w-[600px]">
             {" "}
             Du hast alle Anzeichen richtig zugeordnet. Als nächstes wird deine
             Aufgabe sein dein Wissen anzuwenden und Fake-Profile zu erkennen.
           </span>
           <Button onClick={() => router.push("/space/phishing/assign")}>
-            Starten
+            Weiter
           </Button>
         </div>
       ) : (
