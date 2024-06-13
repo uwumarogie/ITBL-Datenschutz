@@ -1,6 +1,5 @@
 import { db } from "@/server/database/connection";
 import {
-  achievements,
   HighScoreEnum,
   highScores,
   users,
@@ -31,7 +30,6 @@ export async function POST(req: NextRequest) {
     const requestData = await req.json();
     const { username, mode, gameCode } = requestSchema.parse(requestData);
 
-    console.log(username, mode, gameCode);
     const existingUser = await db
       .select({
         id: users.id,

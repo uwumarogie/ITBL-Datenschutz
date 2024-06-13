@@ -27,7 +27,10 @@ async function createPlayer(username: string, mode: string, gameCode: string) {
     }
     const result = await response.json();
     localStorage.setItem("userId", result.userData[0].id);
-    localStorage.setItem("gameCode", result.userData[0].gameCode);
+
+    if (gameCode !== "") {
+      localStorage.setItem("gameCode", result.userData[0].gameCode);
+    }
   } catch (error) {
     console.error(error);
     throw new Error("Failed to create user");
@@ -66,9 +69,7 @@ export default function HomePage() {
       mode !== null &&
       (localStorage.getItem("userId") === null || username !== undefined)
     ) {
-      await createPlayer(username, mode, gameCode).then((res) =>
-        console.log(res),
-      );
+      await createPlayer(username, mode, gameCode)
     }
     router.replace("/space");
   };
@@ -76,7 +77,6 @@ export default function HomePage() {
   useEffect(() => {
     if (localStorage.getItem("userId") !== null) {
       redirect("/space");
-      return;
     }
   }, []);
 
