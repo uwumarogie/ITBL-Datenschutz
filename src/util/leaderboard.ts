@@ -12,7 +12,8 @@ export type LeaderboardEntry = z.infer<typeof leaderboardSchema>;
 
 export async function getLeaderboardData(gameCode: string) {
   console.log(baseUrl);
-  const response = await fetch(`${baseUrl}/api/leaderboard`, {
+  const bla = window.location.href.split(/\/+/);
+  const response = await fetch("/api/leaderboard", {
     method: "POST",
     body: JSON.stringify({ gameCode: gameCode }),
     headers: {
