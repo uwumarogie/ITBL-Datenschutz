@@ -11,7 +11,7 @@ export const leaderboardSchema = z.array(userSchema);
 export type LeaderboardEntry = z.infer<typeof leaderboardSchema>;
 
 export async function getLeaderboardData(gameCode: string) {
-  const response = await fetch(`${baseUrl}/api/leaderboard`, {
+  const response = await fetch(`/api/leaderboard`, {
     method: "POST",
     body: JSON.stringify({ gameCode: gameCode }),
     headers: {
