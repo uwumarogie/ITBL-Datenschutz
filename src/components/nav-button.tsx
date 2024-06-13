@@ -13,7 +13,8 @@ export type NavButtonType = {
 
 export function NavButton({ href, isFinished, number }: NavButtonType) {
   const router = usePathname();
-  const active = router === href;
+  let routeLeaf = href.split("/").pop() || href;
+  const active = router.includes(routeLeaf);
 
   return (
     <Link
