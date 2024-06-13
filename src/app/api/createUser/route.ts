@@ -1,10 +1,5 @@
 import { db } from "@/server/database/connection";
-import {
-  achievements,
-  HighScoreEnum,
-  highScores,
-  users,
-} from "@/server/database/schema";
+import { HighScoreEnum, highScores, users } from "@/server/database/schema";
 import { NextRequest, NextResponse } from "next/server";
 import { eq } from "drizzle-orm";
 import * as z from "zod";
@@ -31,7 +26,6 @@ export async function POST(req: NextRequest) {
     const requestData = await req.json();
     const { username, mode, gameCode } = requestSchema.parse(requestData);
 
-    console.log(username, mode, gameCode);
     const existingUser = await db
       .select({
         id: users.id,
