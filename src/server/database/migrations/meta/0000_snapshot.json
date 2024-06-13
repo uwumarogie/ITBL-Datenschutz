@@ -1,0 +1,130 @@
+{
+  "id": "396a0208-72c8-4b55-97d9-051f508832c3",
+  "prevId": "00000000-0000-0000-0000-000000000000",
+  "version": "7",
+  "dialect": "postgresql",
+  "tables": {
+    "public.achievements": {
+      "name": "achievements",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "user_id": {
+          "name": "user_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "intro_score": {
+          "name": "intro_score",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "password_score": {
+          "name": "password_score",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "privacy_score": {
+          "name": "privacy_score",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "processing_score": {
+          "name": "processing_score",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "phishing_score": {
+          "name": "phishing_score",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "rights_score": {
+          "name": "rights_score",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "master_score": {
+          "name": "master_score",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "achievements_user_id_users_id_fk": {
+          "name": "achievements_user_id_users_id_fk",
+          "tableFrom": "achievements",
+          "tableTo": "users",
+          "columnsFrom": ["user_id"],
+          "columnsTo": ["id"],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "public.users": {
+      "name": "users",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "name": {
+          "name": "name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "gameCode": {
+          "name": "gameCode",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "createdAt": {
+          "name": "createdAt",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "users_gameCode_unique": {
+          "name": "users_gameCode_unique",
+          "nullsNotDistinct": false,
+          "columns": ["gameCode"]
+        }
+      }
+    }
+  },
+  "enums": {},
+  "schemas": {},
+  "_meta": {
+    "columns": {},
+    "schemas": {},
+    "tables": {}
+  }
+}

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { usePathname } from "next/navigation";
+import { redirect, usePathname } from "next/navigation";
 import { DesktopSection } from "@/components/NavBar/DesktopNavigation/desktop-section";
 import { MobileSection } from "@/components/NavBar/MobileNavigation/mobile-section";
 
@@ -26,6 +26,37 @@ type SectionItem = {
   href: string;
 };
 
+const sectionItems: SectionItem[] = [
+  {
+    sectionName: SectionName.ERKUNDEN,
+    srcActive: "/section/discover-active.svg",
+    srcInactive: "/section/discover.svg",
+    alt: "Erkunden",
+    href: "/space",
+  },
+  {
+    sectionName: SectionName.FORTSCHRITT,
+    srcActive: "/section/pace-active.svg",
+    srcInactive: "/section/pace.svg",
+    alt: "Fortschritt",
+    href: "/achievements",
+  },
+  {
+    sectionName: SectionName.LEADERBOARD,
+    srcActive: "/section/leaderboard-active.svg",
+    srcInactive: "/section/leaderboard.svg",
+    alt: "Leaderboard",
+    href: "/leaderboard",
+  },
+  {
+    sectionName: SectionName.CHATBOT,
+    srcActive: "/section/chatbot-active.svg",
+    srcInactive: "/section/chatbot.svg",
+    alt: "Chatbot",
+    href: "/chatbot",
+  },
+];
+
 export function Section() {
   const path = usePathname();
   const getActiveSection = () => {
@@ -41,58 +72,37 @@ export function Section() {
     return SectionName.ERKUNDEN;
   };
 
-  const [activeSection, setSection] = useState(getActiveSection);
-  const sectionItems: SectionItem[] = [
-    {
-      sectionName: SectionName.ERKUNDEN,
-      srcActive: "/section/discover-active.svg",
-      srcInactive: "/section/discover.svg",
-      alt: "Erkunden",
-      href: "/space",
-    },
-    {
-      sectionName: SectionName.FORTSCHRITT,
-      srcActive: "/section/pace-active.svg",
-      srcInactive: "/section/pace.svg",
-      alt: "Fortschritt",
-      href: "/achievements",
-    },
-    {
-      sectionName: SectionName.LEADERBOARD,
-      srcActive: "/section/leaderboard-active.svg",
-      srcInactive: "/section/leaderboard.svg",
-      alt: "Leaderboard",
-      href: "/leaderboard",
-    },
-    {
-      sectionName: SectionName.CHATBOT,
-      srcActive: "/section/chatbot-active.svg",
-      srcInactive: "/section/chatbot.svg",
-      alt: "Chatbot",
-      href: "/chatbot",
-    },
-  ];
+  const [activeSection, setActiveSection] = useState(getActiveSection);
+  const [sections, setSections] = useState(sectionItems);
 
   useEffect(() => {
     const activeSection = getActiveSection();
-    setSection(activeSection);
-  }, [path]);
+    setActiveSection(activeSection);
+  }, [getActiveSection, path]);
+
+  useEffect(() => {
+    if (!localStorage.getItem("gameCode")) {
+      setSections(
+        sections.filter((s) => s.sectionName !== SectionName.LEADERBOARD),
+      );
+    }
+  }, []);
 
   return (
     <div className="flex items-center sm:block">
       <div className="hidden sm:block">
         <DesktopSection
-          setSection={setSection}
+          setSection={setActiveSection}
           activeSection={activeSection}
-          sectionItems={sectionItems}
+          sectionItems={sections}
         />
       </div>
 
       <div className="sm:hidden">
         <MobileSection
-          setSection={setSection}
+          setSection={setActiveSection}
           activeSection={activeSection}
-          sectionItems={sectionItems}
+          sectionItems={sections}
         />
       </div>
     </div>

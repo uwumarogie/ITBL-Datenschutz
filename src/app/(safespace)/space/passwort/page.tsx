@@ -2,7 +2,6 @@
 
 import { IntroductionText } from "@/components/introduction-text";
 import { ActionCard } from "@/components/action-card";
-import { useRouter } from "next/navigation";
 import Image from "next/image";
 
 export default function Passwort() {
