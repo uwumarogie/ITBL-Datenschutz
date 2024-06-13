@@ -1,4 +1,8 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = { reactStrictMode: false };
+const nextConfig = {
+  experimental: {
+    missingSuspenseWithCSRBailout: false,
+  },
+ reactStrictMode: false };
 
 export default nextConfig;

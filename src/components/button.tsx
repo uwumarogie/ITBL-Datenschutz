@@ -3,7 +3,7 @@
 import { MouseEventHandler, PropsWithChildren } from "react";
 import clsx from "clsx";
 
-export type ButtonStyle = "default" | "green" | "red" | "neutral";
+export type ButtonStyle = "default" | "green" | "red" | "neutral" | "secondary";
 
 type ButtonProps = {
   onClick?: MouseEventHandler<HTMLButtonElement> | undefined;
@@ -29,6 +29,9 @@ export default function Button({
   } else if (style == "red") {
     buttonStyle = "bg-red-500 text-white";
     buttonHoverStyle = "hover:bg-red-600";
+  } else if (style == "secondary") {
+    buttonStyle = "text-white bg-[#004F86]";
+    buttonHoverStyle = "hover:bg-[#004170]";
   } else if (style == "neutral") {
     buttonStyle = "bg-gray-500 text-white";
     buttonHoverStyle = "hover:bg-gray-600";
