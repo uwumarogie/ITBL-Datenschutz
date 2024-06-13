@@ -37,6 +37,11 @@ export function DesktopSection({
                 sectionItems[index - 1].sectionName === activeSection &&
                 "rounded-tr-3xl",
               index < 3 &&
+                sectionItems.length == 4 &&
+                sectionItems[index + 1].sectionName === activeSection &&
+                "rounded-br-3xl",
+              index < 2 &&
+                sectionItems.length == 3 &&
                 sectionItems[index + 1].sectionName === activeSection &&
                 "rounded-br-3xl",
             )}
