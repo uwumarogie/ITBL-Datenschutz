@@ -26,6 +26,7 @@
     "graphology-layout-forceatlas2": "^0.10.1",
     "graphology-types": "^0.24.7",
     "next": "14.2.2",
+    "openai": "^4.51.0",
     "postgres": "^3.4.4",
     "react": "18",
     "react-dom": "18",
