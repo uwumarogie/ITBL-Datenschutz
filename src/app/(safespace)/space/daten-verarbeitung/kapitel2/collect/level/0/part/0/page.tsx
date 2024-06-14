@@ -79,7 +79,7 @@ export default function DataProcessing0() {
   return (
     <RobotIntroduction
       states={states}
-      href="/space/daten-verarbeitung/kapitel2/level/0/part/1"
+      href="/space/daten-verarbeitung/kapitel2/collect/level/0/part/1"
     />
   );
 }
