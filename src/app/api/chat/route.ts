@@ -1,9 +1,5 @@
 import OpenAI from "openai";
 import { NextRequest, NextResponse } from "next/server";
-import dotenv from "dotenv";
-dotenv.config();
-
-console.debug("OpenAI API Key: ", process.env.OPENAI_KEY);
 
 const openai = new OpenAI({
   organization: "org-H8HMSGvHyJqYEafkknQNWq4Z",
