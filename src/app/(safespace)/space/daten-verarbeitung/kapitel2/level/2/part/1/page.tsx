@@ -45,6 +45,8 @@ export default function DataProcessing1() {
       profile={profile}
       robotText={robotText}
       task={task}
+      terms={[]}
+      minFoundTerms={0}
       href="/space/daten-verarbeitung/kapitel2/level/2/part/2"
     />
   );

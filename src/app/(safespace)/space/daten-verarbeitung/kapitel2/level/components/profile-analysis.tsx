@@ -10,7 +10,6 @@ import clsx from "clsx";
 import { HintCard } from "@/components/hint-card";
 import { distance } from "fastest-levenshtein";
 import { useMessages } from "@/services/notfication/message-provider";
-import { found } from "@jridgewell/trace-mapping/dist/types/binary-search";
 import Link from "next/link";
 
 type ProfileAnalysisProps = {
