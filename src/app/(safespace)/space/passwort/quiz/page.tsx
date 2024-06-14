@@ -1,7 +1,7 @@
 "use client";
 import { HintCard } from "@/components/hint-card";
 import QuizList from "@/components/quiz-list";
-import { quizzes } from "@/util/password-quiz-data";
+import { quizzes, replaceCharacter } from "@/util/password-quiz-data";
 import { useRouter } from "next/navigation";
 import { topTenPasswords } from "@/util/password-quiz-data";
 import { useState } from "react";
@@ -11,25 +11,41 @@ const hintCards = [
     questionIndex: 0,
     text: "Top Ten deutsche Passwörter 2023",
     buttonText: "Anzeigen",
-    hint: topTenPasswords.join(", "),
+    hint: (
+      <div className="grid sm:grid-cols-1 grid-cols-3 gap-3 font-bold text-sm">
+        {topTenPasswords.map((password, index) => {
+          return (
+            <span key={index}>
+              <strong>{index + 1}</strong>. {password}
+            </span>
+          );
+        })}
+      </div>
+    ),
   },
   {
     questionIndex: 1,
     text: "Welche Buchstaben werden oft ersetzt?",
     buttonText: "Anzeigen",
-    hint: "0 für O, 1 oder ! für I, 3 für E, @ oder 4 für A, $ oder 5 für S, 6 oder 9 für G, 7 für T, 8 für B",
+    hint: (
+      <div className="grid sm:grid-cols-1 grid-cols-3 gap-3 font-bold text-xs">
+        {replaceCharacter.map((character, index) => {
+          return <span key={index}> {character}</span>;
+        })}
+      </div>
+    ),
   },
   {
     questionIndex: 3,
-    text: "Brute-Force-Angriff",
+    text: "Kann ein Brute-Force-Angriff immer erfolgreich sein?",
     buttonText: "Mehr erfahren",
-    hint: "Es werden systematisch alle möglichen Kombinationen ausprobiert. Je mehr Stellen das Passwort hat, desto mehr Möglichkeiten muss der Angreifer berücksichtigen.",
+    hint: "Theoretisch ja, aber praktisch kann es Jahre dauern, ein sehr starkes Passwort zu knacken, was den Angriff ineffektiv macht.",
   },
   {
     questionIndex: 4,
-    text: "Brute-Force-Angriff",
+    text: "Wie kann man Brute-Force-Angriffe abwehren?",
     buttonText: "Mehr erfahren",
-    hint: "Es werden systematisch alle möglichen Kombinationen ausprobiert. Je mehr verschiedene Zeichenarten du verwendest, desto mehr Möglichkeiten an Kombinationen gibt es und desto länger dauert es das Passwort zu knacken",
+    hint: "Verwenden Sie lange und komplexe Passwörter, aktivieren Sie Zwei-Faktor-Authentifizierung und setzen Sie Account-Sperrungen nach mehreren Fehlversuchen ein.",
   },
 ];
 

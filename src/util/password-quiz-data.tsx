@@ -14,6 +14,17 @@ export const topTenPasswords = [
   "gwerty123",
 ];
 
+export const replaceCharacter = [
+  "0 für O",
+  "1 oder ! für I",
+  "3 für E",
+  "@ oder 4 für A",
+  " $ oder 5 für S",
+  " 6 oder 9 für G",
+  " 7 für T",
+  " 8 für B",
+];
+
 export const quizzes: QuizParams[] = [
   {
     question:
@@ -112,8 +123,8 @@ export const passwordData: PasswordData[] = [
   },
   {
     password: "MyPass@word",
-    strength: 2,
-    explanation: "Das Passwort erfüllt alle Bedingungen.",
+    strength: 1,
+    explanation: "Das Passowrd enthält keine Zahl.",
   },
   {
     password: "Sarah!78",
@@ -133,19 +144,24 @@ export const passwordData: PasswordData[] = [
   },
   {
     password: "letmein2020",
-    strength: 1,
+    strength: 0,
     explanation:
       "Das Passwort enthält keinen Großbuchstaben und kein Sonderzeichen.",
   },
   {
     password: "Sunshine$",
-    strength: 2,
-    explanation: "Das Passwort erfüllt alle Bedingungen.",
+    strength: 1,
+    explanation: "Das Passwort erhällt keine Zahl.",
   },
   {
     password: "Robert123",
     strength: 1,
     explanation: "Das Passwort enthält kein Sonderzeichen.",
+  },
+  {
+    password: "123",
+    strength: 0,
+    explanation: "Das Passwort ist zu kurz.",
   },
   {
     password: "simplepass",
@@ -162,6 +178,11 @@ export const passwordData: PasswordData[] = [
     password: "Str@ngth8",
     strength: 2,
     explanation: "Das Passwort erfüllt alle Bedingungen.",
+  },
+  {
+    password: "hello",
+    strength: 0,
+    explanation: "Das Passwort ist zu kurz.",
   },
   {
     password: "Michael123$",
@@ -189,6 +210,11 @@ export const passwordData: PasswordData[] = [
     explanation: "Das Passwort enthält keinen Kleinbuchstaben.",
   },
   {
+    password: "affe",
+    strength: 0,
+    explanation: "Das Passwort ist zu kurz.",
+  },
+  {
     password: "CharlieBrown1",
     strength: 1,
     explanation: "Das Passwort enthält kein Sonderzeichen.",
@@ -211,7 +237,7 @@ export const passwordData: PasswordData[] = [
   {
     password: "Secure!Pass",
     strength: 2,
-    explanation: "Das Passwort erfüllt alle Bedingungen.",
+    explanation: "Das Passwort enthält keine Zahl.",
   },
   {
     password: "Insecure",
@@ -223,6 +249,11 @@ export const passwordData: PasswordData[] = [
     password: "Admin@2020",
     strength: 2,
     explanation: "Das Passwort erfüllt alle Bedingungen.",
+  },
+  {
+    password: "...123",
+    strength: 0,
+    explanation: "Das Passwort ist zu kurz.",
   },
   {
     password: "P@ssw0rd!",

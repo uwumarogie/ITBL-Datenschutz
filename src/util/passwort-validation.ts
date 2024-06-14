@@ -13,7 +13,7 @@ export function containDigits(word: string) {
 }
 
 export function containSpecialCharacters(word: string) {
-  return /[!§$%&äöüÄÖÜ]/.test(word);
+  return /[!§$%&+-_.:,;]/.test(word);
 }
 
 export function notFrequentlyUsed(word: string) {

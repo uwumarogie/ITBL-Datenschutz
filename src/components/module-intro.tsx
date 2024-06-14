@@ -46,7 +46,7 @@ export default function ModuleIntro({
           <Image
             className="w-full h-full max-h-40 lg:max-h-96 object-contain object-center lg:object-right"
             src={background}
-            alt={"Background image"}
+            alt="Background image"
             width="1000"
             height="1000"
           />

@@ -17,7 +17,7 @@ export function InputValidation({ input = "" }: { input: string }) {
     { check: containDigits, label: "Zahlen" },
     {
       check: containSpecialCharacters,
-      label: "Sonderzeichen (z.B. !§$%&äöüÄÖÜ)",
+      label: "Sonderzeichen (z.B. !§$%&+-_.:,;)",
     },
     { check: notFrequentlyUsed, label: "Kein häufig verwendetes Passwort" },
   ];

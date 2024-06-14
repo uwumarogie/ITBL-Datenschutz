@@ -91,11 +91,11 @@ export default function Builder() {
           iconSrc="/smartphone-pw.png"
           hint={
             <>
-              Ein Hacker bräcuhte bei einem Brute Force Angriff ungefähr
+              Ein Hacker bräuchte bei einem Brute Force Angriff ungefähr
               <div className="text-3xl my-4 bg-blue-contrast rounded-xl text-white px-3 py-6">
                 {hint}
               </div>
-              um dieses passwort zu knacken
+              um dieses Passwort zu knacken
             </>
           }
         />
