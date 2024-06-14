@@ -7,23 +7,46 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "db:generate": "dotenv -e .env drizzle-kit generate",
+    "db:push": "dotenv -e .env drizzle-kit push",
+    "db:migrate": "dotenv -e .env npx tsx ./src/server/database/migrate.ts",
     "format": "prettier --write ."
   },
   "dependencies": {
+    "@phosphor-icons/react": "^2.1.5",
+    "@react-sigma/core": "^4.0.2",
+    "@sigma/node-image": "3.0.0-beta.9",
+    "@tailwindcss/container-queries": "^0.1.1",
+    "dotenv-cli": "^7.4.2",
+    "drizzle-orm": "^0.31.2",
+    "framer-motion": "^11.2.10",
+    "graphology": "^0.25.4",
+    "graphology-layout": "^0.6.1",
+    "graphology-layout-force": "^0.2.4",
+    "graphology-layout-forceatlas2": "^0.10.1",
+    "graphology-types": "^0.24.7",
     "next": "14.2.2",
+    "postgres": "^3.4.4",
     "react": "18",
-    "react-dom": "18"
+    "react-dom": "18",
+    "react-tabs": "^6.0.2",
+    "sigma": "3.0.0-beta.18",
+    "unique-names-generator": "^4.7.1"
   },
   "devDependencies": {
-    "@titanom/prettier-config": "^2.0.0",
+    "@titanom/prettier-config": "2.0.0",
     "@types/node": "20",
     "@types/react": "18",
     "@types/react-dom": "18",
     "clsx": "2.1.1",
+    "drizzle-kit": "^0.22.2",
+    "drizzle-zod": "^0.5.1",
     "eslint": "8",
     "eslint-config-next": "14.2.2",
     "postcss": "8",
     "tailwindcss": "3.4.1",
-    "typescript": "5"
+    "tsx": "^4.11.0",
+    "typescript": "5",
+    "zod": "^3.23.8"
   }
 }
