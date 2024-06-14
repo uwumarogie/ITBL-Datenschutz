@@ -30,7 +30,7 @@ export default function DataProcessing() {
   const router = useRouter();
 
   return (
-    <div className="relative h-full w-full flex flex-col">
+    <div className="relative h-full w-full flex flex-col overflow-y-auto">
       <ModuleIntro
         title={title}
         description={description}

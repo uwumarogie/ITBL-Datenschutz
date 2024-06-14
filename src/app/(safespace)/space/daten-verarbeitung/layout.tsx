@@ -46,9 +46,11 @@ export default function DataProgressingLayout({
       <div className="hidden sm:block w-full justify-center">
         <InlineNavigation />
       </div>
-      <div className="mt-4 mb-6">
-        <ProgressBar progress={progress} steps={steps} />
-      </div>
+      {parts.length > 3 && (
+        <div className="mt-4 mb-6">
+          <ProgressBar progress={progress} steps={steps} />
+        </div>
+      )}
       <div className="w-full h-full overflow-hidden">{children}</div>
     </div>
   );
