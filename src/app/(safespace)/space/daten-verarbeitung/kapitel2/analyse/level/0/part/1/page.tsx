@@ -186,17 +186,3 @@ function Post({
     </div>
   );
 }
-
-function Feed({
-  feedPosts,
-  onPostClick,
-}: {
-  feedPosts: FeedPost[];
-  onPostClick;
-}) {
-  return (
-    <div>
-      <div></div>
-    </div>
-  );
-}
