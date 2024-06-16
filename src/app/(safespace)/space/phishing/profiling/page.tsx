@@ -133,7 +133,7 @@ export default function Profiling() {
 
   return (
     <>
-      {!moduleFinished ? (
+      {moduleFinished ? (
         <div className="flex flex-col items-center text-center gap-6 md:mt-6">
           <span className="text-5xl text-blue-background">Gut gemacht!</span>
           <Robot expression="smiling" />
