@@ -39,12 +39,13 @@ export default function Assign() {
     <>
       {moduleFinished ? (
         <div className="flex flex-col items-center text-center gap-6 md:mt-6">
-          <span className="text-5xl text-blue-background">Geschafft!</span>
+          <span className="text-5xl text-blue-background">Gut gemacht!</span>
+          <Robot expression="smiling" />
           <span className="max-w-[600px]">
             Du hast das Modul erfolgreich abgeschlossen
           </span>
-          <Button onClick={() => router.push("/space/phishing")}>
-            Zurück zum Anfang
+          <Button onClick={() => router.push("/space")}>
+            Zurück zur Startseite
           </Button>
         </div>
       ) : (
@@ -434,13 +435,13 @@ const profiles: Profile[] = [
         {
           imageSrc: "/insta-profiles/gewinnspiel/1.png",
           caption:
-            "!!KEIN FAKE ECHTE HANDYS!! 	Registrieren und Gewinnen: http://iphonegewinnen.de Probiert euer Glück und gewinnt ein neues Iphone 15 (Link) Welche Farbe wollt ihr gewinnen? !Kein fake!",
+            "!!KEIN FAKE ECHTE HANDYS!! 	Registrieren und Gewinnen: http://iphonegewinnen.de Probiert euer Glück und gewinnt ein neues Iphone 15 Welche Farbe wollt ihr gewinnen? !Kein fake!",
           likedBy: "Gefällt 32 Mal",
         },
         {
           imageSrc: "/insta-profiles/gewinnspiel/2.jpg",
           caption:
-            "!!KEIN FAKE ECHTE HANDYS!! 	Registrieren und Gewinnen: http://iphonegewinnen.de Sei du die nächste! Gewinne ein brandneues Iphone 15 (Link)",
+            "!!KEIN FAKE ECHTE HANDYS!! 	Registrieren und Gewinnen: http://iphonegewinnen.de Sei du die nächste! Gewinne ein brandneues Iphone 15",
           likedBy: "Gefällt 31 Mal",
         },
       ],
