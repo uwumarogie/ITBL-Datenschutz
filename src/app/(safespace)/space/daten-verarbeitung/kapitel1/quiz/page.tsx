@@ -3,6 +3,8 @@
 import { useRouter } from "next/navigation";
 import QuizList from "@/components/quiz-list";
 import { QuizParams } from "@/components/quiz";
+import { PersistUserService } from "@/services/user/PersistUserService";
+import { AchievementId } from "@/util/achievement-data";
 
 const quizzes: QuizParams[] = [
   {
@@ -26,11 +28,13 @@ export default function DataProtectionChapter1Quiz() {
       <div className="w-full @4xl:w-1/2 mb-20">
         <QuizList
           quizzes={quizzes}
-          onFinish={() =>
-            router.push(
-              "/space/daten-verarbeitung/kapitel2/collect/level/0/part/0",
-            )
-          }
+          onFinish={async () => {
+            await new PersistUserService().setAchievement(
+              AchievementId.DATA_PROCESSING_CHECKPOINT_INTRODUCTION,
+              true,
+            );
+            router.push("/space/daten-verarbeitung/overview");
+          }}
         />
       </div>
     </div>

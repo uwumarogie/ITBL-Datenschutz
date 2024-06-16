@@ -8,12 +8,9 @@ import {
   varchar,
 } from "drizzle-orm/pg-core";
 import { createSelectSchema } from "drizzle-zod";
+import { AchievementId } from "@/util/achievement-data";
 
-const achievementArray = [
-  "DATENSCHUTZ_HELD",
-  "WERBE_GURU",
-  "PHISHING_FAENGER",
-] as const;
+const achievementArray = Object.values(AchievementId) as [string, ...string[]];
 
 const highScoreArray = ["PASSWORD_STRENGTH"] as const;
 export enum HighScoreEnum {

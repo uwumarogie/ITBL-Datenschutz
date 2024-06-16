@@ -7,6 +7,8 @@ import {
   BookmarkSimple,
   ChatCircle,
   Heart,
+  MapPin,
+  MusicNotes,
   PaperPlaneTilt,
   User,
 } from "@phosphor-icons/react";
@@ -200,7 +202,21 @@ function CurrentPost({
               width="50"
               height="50"
             />
-            <span className="font-medium pr-2">{profile.username}</span>
+            <div className="flex flex-col">
+              <span className="font-medium pr-2">{profile.username}</span>
+              {post.song && (
+                <span className="text-xs">
+                  <MusicNotes className="inline mr-1" />
+                  {post.song}
+                </span>
+              )}
+              {post.location && (
+                <span className="text-xs">
+                  <MapPin className="inline mr-1" />
+                  {post.location}
+                </span>
+              )}
+            </div>
           </div>
           <Image
             src={post.imageSrc}

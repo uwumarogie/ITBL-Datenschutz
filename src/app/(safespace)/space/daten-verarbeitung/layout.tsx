@@ -5,21 +5,6 @@ import React from "react";
 import { ProgressBar } from "@/components/ProgressBar";
 import { usePathname, useRouter } from "next/navigation";
 
-const steps = [
-  {
-    progress: 0,
-    text: "Kapitel 1",
-  },
-  {
-    progress: 0.2,
-    text: "Kapitel 2 - TODO",
-  },
-  {
-    progress: 0.8,
-    text: "Kapitel 3",
-  },
-];
-
 export default function DataProgressingLayout({
   children,
 }: {
@@ -46,11 +31,6 @@ export default function DataProgressingLayout({
       <div className="hidden sm:block w-full justify-center">
         <InlineNavigation />
       </div>
-      {parts.length > 3 && (
-        <div className="mt-4 mb-6">
-          <ProgressBar progress={progress} steps={steps} />
-        </div>
-      )}
       <div className="w-full h-full overflow-hidden">{children}</div>
     </div>
   );

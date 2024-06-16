@@ -7,7 +7,9 @@ type Achievement = {
 };
 
 export class PersistUserService {
-  public userId: string | null = localStorage.getItem("userId");
+  public userId: number | null = parseInt(
+    localStorage.getItem("userId") ?? "0",
+  );
 
   constructor() {}
 
@@ -38,7 +40,7 @@ export class PersistUserService {
         },
         body: JSON.stringify({
           userId: this.userId,
-          achievementEnum: achievementId,
+          achievementId: achievementId,
           unlocked: unlocked,
         }),
       });
