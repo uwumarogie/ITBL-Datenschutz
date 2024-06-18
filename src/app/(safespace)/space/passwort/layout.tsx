@@ -1,4 +1,5 @@
 import { InlineNavigation } from "@/components/inline-navigation";
+import React from "react";
 
 export default function Layout({
   children,
