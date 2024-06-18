@@ -13,7 +13,7 @@ import { redirect } from "next/navigation";
 export default function Leaderboard() {
   const [gameCode, setGameCode] = useState("");
   const [leaderboardData, setLeaderboardData] =
-    useState<LeaderboardEntry | null>([]);
+    useState<LeaderboardEntry | null>(null);
 
   useEffect(() => {
     const code = localStorage.getItem("gameCode");
