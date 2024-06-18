@@ -124,7 +124,7 @@ export const passwordData: PasswordData[] = [
   {
     password: "MyPass@word",
     strength: 1,
-    explanation: "Das Passowrd enthält keine Zahl.",
+    explanation: "Das Passwort enthält keine Zahl.",
   },
   {
     password: "Sarah!78",
@@ -140,7 +140,7 @@ export const passwordData: PasswordData[] = [
     password: "qwertyuiop",
     strength: 0,
     explanation:
-      "Das Passwort enthält keinen Großbuchstaben und kein Sonderzeichen.",
+      "Das Passwort enthält keinen Großbuchstaben, kein Sonderzeichen und keine Zahl.",
   },
   {
     password: "letmein2020",
@@ -151,7 +151,7 @@ export const passwordData: PasswordData[] = [
   {
     password: "Sunshine$",
     strength: 1,
-    explanation: "Das Passwort erhällt keine Zahl.",
+    explanation: "Das Passwort enthält keine Zahl.",
   },
   {
     password: "Robert123",
@@ -159,15 +159,10 @@ export const passwordData: PasswordData[] = [
     explanation: "Das Passwort enthält kein Sonderzeichen.",
   },
   {
-    password: "123",
-    strength: 0,
-    explanation: "Das Passwort ist zu kurz.",
-  },
-  {
     password: "simplepass",
     strength: 0,
     explanation:
-      "Das Passwort enthält keinen Großbuchstaben und kein Sonderzeichen.",
+      "Das Passwort enthält keinen Großbuchstaben, kein Sonderzeichen und keine Zahl.",
   },
   {
     password: "Good$Pass1",
@@ -180,11 +175,6 @@ export const passwordData: PasswordData[] = [
     explanation: "Das Passwort erfüllt alle Bedingungen.",
   },
   {
-    password: "hello",
-    strength: 0,
-    explanation: "Das Passwort ist zu kurz.",
-  },
-  {
     password: "Michael123$",
     strength: 2,
     explanation: "Das Passwort erfüllt alle Bedingungen.",
@@ -192,7 +182,7 @@ export const passwordData: PasswordData[] = [
   {
     password: "WeakPass",
     strength: 0,
-    explanation: "Das Passwort enthält kein Sonderzeichen.",
+    explanation: "Das Passwort enthält kein Sonderzeichen und keine Zahl.",
   },
   {
     password: "Anna2022@",
@@ -207,12 +197,7 @@ export const passwordData: PasswordData[] = [
   {
     password: "Basketball!",
     strength: 1,
-    explanation: "Das Passwort enthält keinen Kleinbuchstaben.",
-  },
-  {
-    password: "affe",
-    strength: 0,
-    explanation: "Das Passwort ist zu kurz.",
+    explanation: "Das Passwort enthält keine Zahl.",
   },
   {
     password: "CharlieBrown1",
@@ -227,7 +212,7 @@ export const passwordData: PasswordData[] = [
   {
     password: "Keyboard!",
     strength: 1,
-    explanation: "Das Passwort enthält keinen Kleinbuchstaben.",
+    explanation: "Das Passwort enthält keine Zahl.",
   },
   {
     password: "Type1234",
@@ -236,24 +221,18 @@ export const passwordData: PasswordData[] = [
   },
   {
     password: "Secure!Pass",
-    strength: 2,
+    strength: 1,
     explanation: "Das Passwort enthält keine Zahl.",
   },
   {
     password: "Insecure",
     strength: 0,
-    explanation:
-      "Das Passwort enthält keinen Großbuchstaben und kein Sonderzeichen.",
+    explanation: "Das Passwort enthält kein Sonderzeichen und keine Zahl.",
   },
   {
     password: "Admin@2020",
     strength: 2,
     explanation: "Das Passwort erfüllt alle Bedingungen.",
-  },
-  {
-    password: "...123",
-    strength: 0,
-    explanation: "Das Passwort ist zu kurz.",
   },
   {
     password: "P@ssw0rd!",
@@ -263,7 +242,7 @@ export const passwordData: PasswordData[] = [
   {
     password: "NotSoSecure",
     strength: 0,
-    explanation: "Das Passwort enthält kein Sonderzeichen.",
+    explanation: "Das Passwort enthält kein Sonderzeichen und keine Zahl.",
   },
   {
     password: "Jasmine@1",
@@ -278,7 +257,7 @@ export const passwordData: PasswordData[] = [
   {
     password: "GenieLamp!",
     strength: 1,
-    explanation: "Das Passwort enthält keinen Kleinbuchstaben.",
+    explanation: "Das Passwort enthält keine Zahl.",
   },
   {
     password: "Mermaid2021",

@@ -1,14 +1,14 @@
+import { CheckMarkGreen } from "@/components/check-mark-green";
+import { RedCrossMark } from "@/components/red-cross-mark";
 import {
   containCapitalLetters,
   containDigits,
   containLowerCaseLetters,
   containSpecialCharacters,
   getColor,
-  SUCCESS_COLOR,
   hasLengthGreaterThanEight,
-} from "@/util/passwort-validation";
-import { CheckMarkGreen } from "@/components/check-mark-green";
-import { RedCrossMark } from "@/components/red-cross-mark";
+  SUCCESS_COLOR,
+} from "@/util/passwort/passwort-validation";
 
 export function InputValidation({ input = "" }: { input: string }) {
   const validations = [

@@ -6,7 +6,7 @@ import Button from "@/components/button";
 import { InputValidation } from "@/components/input-validation";
 import { useMessages } from "@/services/notfication/message-provider";
 import { useState } from "react";
-import { calculateBruteForceTime } from "@/util/passwort-validation";
+import { calculateBruteForceTime } from "@/util/passwort/passwort-validation";
 
 export default function Builder() {
   const { addMessage } = useMessages();
