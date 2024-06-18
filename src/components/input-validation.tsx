@@ -4,7 +4,8 @@ import {
   containLowerCaseLetters,
   containSpecialCharacters,
   getColor,
-  SUCCESS_COLOR, hasLengthGreaterThanEight,
+  SUCCESS_COLOR,
+  hasLengthGreaterThanEight,
 } from "@/util/passwort-validation";
 import { CheckMarkGreen } from "@/components/check-mark-green";
 import { RedCrossMark } from "@/components/red-cross-mark";
@@ -22,7 +23,6 @@ export function InputValidation({ input = "" }: { input: string }) {
   ];
 
   console.log(validations.map(({ check, label }) => check(input)));
-
 
   return (
     <div className="flex flex-col items-start space-y-2 lg:space-y-1 w-72">

@@ -15,7 +15,7 @@ export default function Passwort() {
             icon: "/white-tick-button.svg",
           },
 
-            { title: "Bilde starke Passwörter", icon: "/white-tick-button.svg" },
+          { title: "Bilde starke Passwörter", icon: "/white-tick-button.svg" },
           { title: "Bewerte Passwortstärken", icon: "/white-tick-button.svg" },
         ]}
       />
