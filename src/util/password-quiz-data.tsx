@@ -55,7 +55,7 @@ export const quizzes: QuizParams[] = [
   {
     question:
       "Ein Freund von dir wurde bereits gehackt. Der Hacker kennt schon deinen Namen und dein Geburtsdatum. Welches der Passwörter ist am sichersten?",
-    answers: ["{username}1234", "2008{username}", "SakPze69", "password1"],
+    answers: ["Marie1234", "2008{username}", "SakPze69", "password1"],
     hint: "Verwende keine persönlichen Informationen wie deinen Namen oder Geburtsdatum in deinem Passwort.",
     showCorrectAnswer: true,
     correctAnswer: 2,
