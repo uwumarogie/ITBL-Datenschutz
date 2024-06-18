@@ -1,5 +1,4 @@
 import { NavButton, NavButtonType } from "@/components/nav-button";
-import { PersistUserService } from "@/services/user/PersistUserService";
 import {
   CloudArrowDown,
   FishSimple,
@@ -8,7 +7,6 @@ import {
   Password,
   Scales,
 } from "@phosphor-icons/react";
-import { useEffect } from "react";
 
 const navButtons: Omit<NavButtonType, "number">[] = [
   {
