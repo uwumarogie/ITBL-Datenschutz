@@ -29,8 +29,8 @@ const states: State[] = [
     expression: "smiling",
     rotation: 0,
     text:
-      "Herzlichen Glückwunsch! Du hast gelernt, wie man sichere Passwörter erstell" +
-      "und erkennt: mindestens 8 Zeichen lang und eine Mischung aus Kleinbuchstaben," +
+      "Herzlichen Glückwunsch! Du hast gelernt, wie man sichere Passwörter erstell " +
+      "und erkennt: mindestens 8 Zeichen lang und eine Mischung aus Kleinbuchstaben, " +
       "Großbuchstaben, Sonderzeichen und Zahlen.",
     style: {
       width: "150px",
@@ -41,8 +41,8 @@ const states: State[] = [
     expression: "smiling",
     rotation: 0,
     text:
-      " Um deine Sicherheit weiter zu erhöhen, nutze die Zwei-Faktor-Authentifizierung" +
-      "(2FA). Damit brauchst du zusätzlich zum Passwort einen Code, der dir über SMS" +
+      " Um deine Sicherheit weiter zu erhöhen, nutze die Zwei-Faktor-Authentifizierung " +
+      "(2FA). Damit brauchst du zusätzlich zum Passwort einen Code, der dir über SMS " +
       "oder E-Mail zugesendet wird.",
     style: {
       width: "150px",
@@ -61,6 +61,7 @@ const states: State[] = [
       height: "150px",
       marginLeft: "calc(100% + 400px)",
     },
+    end: true,
   },
 ];
 
