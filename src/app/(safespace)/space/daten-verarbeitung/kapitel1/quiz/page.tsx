@@ -13,7 +13,7 @@ const quizzes: QuizParams[] = [
       "Deine Daten werden nur lokal auf deinem Gerät gespeichert",
       "Deine Daten werden in der Wolke aufbewahrt",
       "Deine Daten werden auf Servern im Internet gespeichert ",
-      "Deine Daten werden auf einem USB-Stick gespeichert"
+      "Deine Daten werden auf einem USB-Stick gespeichert",
     ],
     correctAnswer: 2,
     showCorrectAnswer: true,
@@ -24,18 +24,19 @@ const quizzes: QuizParams[] = [
       "Um deine Daten zu löschen",
       "Um dir personalisierte Werbung anzuzeigen",
       "Um deine Passwörter zu ändern",
-      "Um dir kostenlose Produkte zu schicken"
+      "Um dir kostenlose Produkte zu schicken",
     ],
     correctAnswer: 1,
     showCorrectAnswer: true,
   },
   {
-    question: "Welches Gesetz regelt den Schutz deiner persönlichen Daten in der EU?",
+    question:
+      "Welches Gesetz regelt den Schutz deiner persönlichen Daten in der EU?",
     answers: [
       "Allgemeine Datenschutzregelung (ADR)",
       "Datenschutz-Grundverordnung (DSGVO)",
       "Europäische Datenschutzrichtlinie (EDR)",
-      "Persönliche Datenschutzverordnung (PDV)"
+      "Persönliche Datenschutzverordnung (PDV)",
     ],
     correctAnswer: 1,
     showCorrectAnswer: true,
@@ -46,7 +47,7 @@ const quizzes: QuizParams[] = [
       "Nutzung starker Passwörter",
       "Regelmäßige Software-Updates",
       "Teilen deiner Passwörter mit Freunden",
-      "Verschlüsselung sensibler Daten"
+      "Verschlüsselung sensibler Daten",
     ],
     correctAnswer: 2,
     showCorrectAnswer: true,
