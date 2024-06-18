@@ -444,6 +444,11 @@ const profiles: Profile[] = [
           caption: "",
           likedBy: "Gefällt " + dummyFollowings[23] + " und weiteren Personen",
         },
+        {
+          imageSrc: "/insta-profiles/heidiklum/23.jpg",
+          caption: "",
+          likedBy: "Gefällt " + dummyFollowings[24] + " und weiteren Personen",
+        },
       ],
       story: true,
       verificated: true,
