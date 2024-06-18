@@ -3,9 +3,9 @@ import {
   containDigits,
   containLowerCaseLetters,
   containSpecialCharacters,
-  notFrequentlyUsed,
   getColor,
   SUCCESS_COLOR,
+  hasLengthGreaterThanEight,
 } from "@/util/passwort-validation";
 import { CheckMarkGreen } from "@/components/check-mark-green";
 import { RedCrossMark } from "@/components/red-cross-mark";
@@ -19,8 +19,10 @@ export function InputValidation({ input = "" }: { input: string }) {
       check: containSpecialCharacters,
       label: "Sonderzeichen (z.B. !§$%&+-_.:,;)",
     },
-    { check: notFrequentlyUsed, label: "Kein häufig verwendetes Passwort" },
+    { check: hasLengthGreaterThanEight, label: "Passwortlänge 8 oder mehr" },
   ];
+
+  console.log(validations.map(({ check, label }) => check(input)));
 
   return (
     <div className="flex flex-col items-start space-y-2 lg:space-y-1 w-72">
