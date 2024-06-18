@@ -53,8 +53,6 @@ const correctPosts = [
   "/datenverarbeitung/analyse/level0/correct_post8.jpg",
 ];
 
-const amountCorrectPosts = 9;
-
 export default function DataProcessingPart1() {
   const [selectedPosts, setSelectedPosts] = useState<FeedPost[]>([]);
   const [done, setDone] = useState(false);
@@ -64,7 +62,7 @@ export default function DataProcessingPart1() {
     if (selectedPosts.includes(post)) {
       setSelectedPosts((currentPosts) => currentPosts.filter((p) => p != post));
     } else {
-      if (selectedPosts.length == amountCorrectPosts) return;
+      if (selectedPosts.length == correctPosts.length) return;
       setSelectedPosts((currentPosts) => [...currentPosts, post]);
     }
   }
@@ -138,7 +136,7 @@ export default function DataProcessingPart1() {
               />
             </div>
           ))}
-          {Array(amountCorrectPosts - selectedPosts.length)
+          {Array(correctPosts.length - selectedPosts.length)
             .fill(0)
             .map((_, i) => (
               <div
