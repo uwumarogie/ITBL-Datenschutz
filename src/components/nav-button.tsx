@@ -13,7 +13,12 @@ export type NavButtonType = {
   description: string;
 };
 
-export function NavButton({ href, isFinished, icon, description }: NavButtonType) {
+export function NavButton({
+  href,
+  isFinished,
+  icon,
+  description,
+}: NavButtonType) {
   const router = usePathname();
   let routeLeaf = href.split("/").pop() || href;
   const active = router.includes(routeLeaf);
