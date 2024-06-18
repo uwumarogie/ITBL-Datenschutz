@@ -10,8 +10,6 @@ import clsx from "clsx";
 import { PersistUserService } from "@/services/user/PersistUserService";
 import { PasswordData, passwordData } from "@/util/passwort/password-quiz-data";
 import { passwordAnimation } from "@/util/passwort/strength-helper";
-import Robot from "@/components/robot/robot";
-import RobotIntroduction from "@/app/(safespace)/space/daten-verarbeitung/kapitel2/level/components/robot-introduction";
 import { State } from "@/app/(safespace)/space/daten-verarbeitung/kapitel2/level/components/recommendation-quiz";
 import RobotInPasswort from "@/components/robot-in-passwort";
 
