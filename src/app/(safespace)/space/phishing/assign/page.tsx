@@ -410,9 +410,39 @@ const profiles: Profile[] = [
           likedBy: "Gefällt " + dummyFollowings[16] + " und weiteren Personen",
         },
         {
-          imageSrc: "/insta-profiles/heidiklum/15.jpg",
+          imageSrc: "/insta-profiles/heidiklum/16.jpg",
           caption: "",
           likedBy: "Gefällt " + dummyFollowings[17] + " und weiteren Personen",
+        },
+        {
+          imageSrc: "/insta-profiles/heidiklum/17.jpg",
+          caption: "",
+          likedBy: "Gefällt " + dummyFollowings[18] + " und weiteren Personen",
+        },
+        {
+          imageSrc: "/insta-profiles/heidiklum/18.jpg",
+          caption: "",
+          likedBy: "Gefällt " + dummyFollowings[19] + " und weiteren Personen",
+        },
+        {
+          imageSrc: "/insta-profiles/heidiklum/19.jpg",
+          caption: "",
+          likedBy: "Gefällt " + dummyFollowings[20] + " und weiteren Personen",
+        },
+        {
+          imageSrc: "/insta-profiles/heidiklum/20.jpg",
+          caption: "",
+          likedBy: "Gefällt " + dummyFollowings[21] + " und weiteren Personen",
+        },
+        {
+          imageSrc: "/insta-profiles/heidiklum/21.jpg",
+          caption: "",
+          likedBy: "Gefällt " + dummyFollowings[22] + " und weiteren Personen",
+        },
+        {
+          imageSrc: "/insta-profiles/heidiklum/22.jpg",
+          caption: "",
+          likedBy: "Gefällt " + dummyFollowings[23] + " und weiteren Personen",
         },
       ],
       story: true,
