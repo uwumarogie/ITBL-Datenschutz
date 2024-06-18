@@ -143,7 +143,7 @@ export default function PasswordStrength() {
               }}
               className="max-w-[300px]"
             >
-              Spiel Starten
+              Spiel starten
             </Button>
           </div>
         ) : (

@@ -1,4 +1,3 @@
-import { baseUrl } from "@/util/global";
 import * as z from "zod";
 
 const userSchema = z.object({

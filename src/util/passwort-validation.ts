@@ -13,11 +13,11 @@ export function containDigits(word: string) {
 }
 
 export function containSpecialCharacters(word: string) {
-  return /[!§$%&+-_.:,;]/.test(word);
+  return /[!§$%&+-.:,;]/.test(word);
 }
 
-export function notFrequentlyUsed(word: string) {
-  return !topTenPasswords.includes(word);
+export function hasLengthGreaterThanEight(word: string) {
+  return word.length >= 8;
 }
 
 export const SUCCESS_COLOR = "#2E8B57";
@@ -67,7 +67,9 @@ export function calculateBruteForceTime(password: string): string {
     }
   };
 
-  if (timeInSeconds >= secondsInYear * 2) {
+  if (timeInSeconds >= secondsInYear * 100) {
+    return "Unendlich 😏";
+  } else if (timeInSeconds >= secondsInYear * 2) {
     const years = timeInSeconds / secondsInYear;
     timeString = formatLargeNumbers(years);
   } else if (timeInSeconds >= secondsInMonth * 2) {
