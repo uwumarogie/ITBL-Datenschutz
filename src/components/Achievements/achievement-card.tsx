@@ -2,7 +2,6 @@
 
 import Button from "@/components/button";
 import Image from "next/image";
-import { useState } from "react";
 import clsx from "clsx";
 import { Star } from "@phosphor-icons/react";
 import { Achievement } from "@/util/achievement-data";

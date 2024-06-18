@@ -1,9 +1,13 @@
 "use client";
 import { useMessages } from "@/services/notfication/message-provider";
-import Notification from "@/components/Notification";
+import Notification from "@/components/notification";
 import { ReactNode } from "react";
 
-const NotificationsProvider = ({ children }: { children: ReactNode }) => {
+export default function NotificationsProvider({
+  children,
+}: {
+  children: ReactNode;
+}) {
   const { messages, removeMessage } = useMessages();
 
   return (
@@ -25,6 +29,4 @@ const NotificationsProvider = ({ children }: { children: ReactNode }) => {
       {children}
     </>
   );
-};
-
-export default NotificationsProvider;
+}

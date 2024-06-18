@@ -8,13 +8,10 @@ import {
 } from "@/util/leaderboard";
 import clsx from "clsx";
 import { AchievementId } from "@/util/achievement-data";
-import { GraduationCap, User } from "@phosphor-icons/react";
 import { redirect } from "next/navigation";
-import { PersistUserService } from "@/services/user/PersistUserService";
 
 export default function Leaderboard() {
   const [gameCode, setGameCode] = useState("");
-  const [userName, setUsername] = useState("");
   const [leaderboardData, setLeaderboardData] =
     useState<LeaderboardEntry | null>(null);
 

@@ -4,7 +4,7 @@ import Button from "@/components/button";
 import { useRouter } from "next/navigation";
 import { IntroductionText } from "@/components/introduction-text";
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
-import { Info, SealQuestion } from "@phosphor-icons/react";
+import { SealQuestion } from "@phosphor-icons/react";
 import Image from "next/image";
 import { useState } from "react";
 import Task from "@/components/task";

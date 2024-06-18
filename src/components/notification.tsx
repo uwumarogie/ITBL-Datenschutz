@@ -9,12 +9,12 @@ type NotificationProps = {
   removeMessage: (id: number) => void;
 };
 
-const Notification = ({
+export default function Notification({
   id,
   message,
   type,
   removeMessage,
-}: NotificationProps) => {
+}: NotificationProps) {
   const [isVisible, setIsVisible] = useState(true);
 
   useEffect(() => {
@@ -55,6 +55,4 @@ const Notification = ({
       </div>
     </div>
   );
-};
-
-export default Notification;
+}
