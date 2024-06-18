@@ -232,7 +232,7 @@ function Intro({
   );
 }
 
-export function PlayGame({
+function PlayGame({
   animatePulse,
   animateShake,
   buttonStyleCorrect,
