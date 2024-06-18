@@ -5,7 +5,8 @@ import ModuleIntro, { ModuleChapter } from "@/components/module-intro";
 import { InstagramLogo, Lightbulb, ListDashes } from "@phosphor-icons/react";
 
 const title = "Phishing";
-const description = "In diesem Modul lernst du, wie du Phishing-Angriffe auf sozialen Medien erkennst und vermeidest. Dabei wird dir beigbracht wie du Fake Profile von realen Profilen unterscheiden kannst und wie du dich verhalten solltest, wenn du eins entdeckst.";
+const description =
+  "In diesem Modul lernst du, wie du Phishing-Angriffe auf sozialen Medien erkennst und vermeidest. Dabei wird dir beigbracht wie du Fake Profile von realen Profilen unterscheiden kannst und wie du dich verhalten solltest, wenn du eins entdeckst.";
 const entryPath = "/space/phishing/video";
 const chapter: ModuleChapter[] = [
   {
@@ -21,7 +22,7 @@ const chapter: ModuleChapter[] = [
   {
     title: "Fake Profile erkennen",
     icon: <InstagramLogo />,
-    minutes: "5"
+    minutes: "5",
   },
 ];
 
