@@ -155,7 +155,7 @@ export default function PasswordStrength() {
           </>
         ) : (
           <div className="flex flex-col w-full overflow-hidden">
-            {currentScore === 10 ? (
+            {highscore === 10 ? (
               <div className="flex  flex-col justify-center items-center mt-72">
                 <RobotInPasswort
                   states={states}
