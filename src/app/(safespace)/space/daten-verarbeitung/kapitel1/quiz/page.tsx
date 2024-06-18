@@ -8,14 +8,57 @@ import { AchievementId } from "@/util/achievement-data";
 
 const quizzes: QuizParams[] = [
   {
-    question: "Was ist 1+1?",
-    answers: ["1", "2", "123"],
+    question: "Was bedeutet Cloud-Speicherung?",
+    answers: [
+      "Deine Daten werden nur lokal auf deinem Gerät gespeichert",
+      "Deine Daten werden in der Wolke aufbewahrt",
+      "Deine Daten werden auf Servern im Internet gespeichert ",
+      "Deine Daten werden auf einem USB-Stick gespeichert"
+    ],
+    correctAnswer: 2,
+    showCorrectAnswer: true,
+  },
+  {
+    question: "Warum werden deine Daten manchmal an Dritte weitergegeben?",
+    answers: [
+      "Um deine Daten zu löschen",
+      "Um dir personalisierte Werbung anzuzeigen",
+      "Um deine Passwörter zu ändern",
+      "Um dir kostenlose Produkte zu schicken"
+    ],
     correctAnswer: 1,
     showCorrectAnswer: true,
   },
   {
-    question: "Was ist 2*2?",
-    answers: ["1", "2", "3", "4", "5"],
+    question: "Welches Gesetz regelt den Schutz deiner persönlichen Daten in der EU?",
+    answers: [
+      "Allgemeine Datenschutzregelung (ADR)",
+      "Datenschutz-Grundverordnung (DSGVO)",
+      "Europäische Datenschutzrichtlinie (EDR)",
+      "Persönliche Datenschutzverordnung (PDV)"
+    ],
+    correctAnswer: 1,
+    showCorrectAnswer: true,
+  },
+  {
+    question: "Welche Maßnahme trägt nicht zur Sicherheit deiner Daten bei?",
+    answers: [
+      "Nutzung starker Passwörter",
+      "Regelmäßige Software-Updates",
+      "Teilen deiner Passwörter mit Freunden",
+      "Verschlüsselung sensibler Daten"
+    ],
+    correctAnswer: 2,
+    showCorrectAnswer: true,
+  },
+  {
+    question: "Was bedeutet ein verantwortungsvoller Umgang mit Daten?",
+    answers: [
+      "Alle Daten öffentlich teilen",
+      "Nur die Daten anderer schützen",
+      "Keine Daten online nutzen",
+      "Vorsichtig und bewusst mit den eigenen und den Daten anderer umgehen",
+    ],
     correctAnswer: 3,
     showCorrectAnswer: true,
   },

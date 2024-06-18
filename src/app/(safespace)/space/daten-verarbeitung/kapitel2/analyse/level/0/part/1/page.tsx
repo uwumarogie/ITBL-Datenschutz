@@ -89,7 +89,7 @@ export default function DataProcessingPart1() {
 
   return (
     <div className="flex w-full h-full gap-10">
-      <div className="flex flex-wrap content-start gap-4 overflow-y-auto h-full">
+      <div className="flex flex-wrap content-start gap-4 overflow-y-auto h-full max-w-[500px] m-auto">
         {!done && (
           <Task>
             Wähle aus den verfügbaren Posts diejenigen aus, die Marie am meisten
@@ -156,7 +156,7 @@ export default function DataProcessingPart1() {
           </Button>
         )}
         {done && (
-          <Link href="/space/daten-verarbeitung/kapitel2/analyse/level/2/part/0">
+          <Link href="/space/daten-verarbeitung/kapitel2/analyse/level/1/part/0">
             <Button onClick={() => {}}>Weiter</Button>
           </Link>
         )}
