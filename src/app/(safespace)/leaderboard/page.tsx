@@ -13,7 +13,7 @@ import { redirect } from "next/navigation";
 export default function Leaderboard() {
   const [gameCode, setGameCode] = useState("");
   const [leaderboardData, setLeaderboardData] =
-    useState<LeaderboardEntry | null>(null);
+    useState<LeaderboardEntry | null>([]);
 
   useEffect(() => {
     const code = localStorage.getItem("gameCode");
@@ -51,7 +51,7 @@ export default function Leaderboard() {
       {!leaderboardData ? (
         <>Loading ...</>
       ) : (
-        <div className="w-full max-w-4xl space-y-2">
+        <div className="w-full max-w-4xl space-y-2 max-h-lvh overflow-y-auto">
           {leaderboardData.map((user, index) => (
             <div
               key={index}
