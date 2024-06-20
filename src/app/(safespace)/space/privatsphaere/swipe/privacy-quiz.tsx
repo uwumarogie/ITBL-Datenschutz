@@ -3,6 +3,7 @@ import clsx from "clsx";
 import Button from "../../../../../components/button";
 import { useRouter } from "next/navigation";
 import { PrivacyQuizQuestion } from "./page";
+import Robot from "@/components/robot/robot";
 
 export function PrivacyQuiz({
   questions,
@@ -25,31 +26,42 @@ export function PrivacyQuiz({
   };
 
   return (
-    <div className="relative flex flex-row justify-center w-full max-w-5xl">
-      {questions.length !== currentQuestionIndex ? (
-        <div className="flex flex-col">
-          <h2 className="text-center px-8 lg:px-16 text-xl lg:text-2xl mb-10 text-blue-background font-bold">
-            Ist folgendes Datum personenbezogen?
-          </h2>
-          {answer !== null ? (
-            <QuizResult
-              userAnswer={answer}
-              currentQuestion={currentQuestion}
-              handleNextQuestion={handleNextQuestion}
-            />
-          ) : (
-            <QuizQuestion
-              currentQuestion={currentQuestion}
-              handleAnswer={handleAnswer}
-            />
-          )}
+    <>
+      {questions.length === currentQuestionIndex ? (
+        <div className="relative flex flex-row justify-center w-full max-w-5xl">
+          <div className="flex flex-col">
+            <h2 className="text-center px-8 lg:px-16 text-xl lg:text-2xl mb-10 text-blue-background font-bold">
+              Ist folgendes Datum personenbezogen?
+            </h2>
+            {answer !== null ? (
+              <QuizResult
+                userAnswer={answer}
+                currentQuestion={currentQuestion}
+                handleNextQuestion={handleNextQuestion}
+              />
+            ) : (
+              <QuizQuestion
+                currentQuestion={currentQuestion}
+                handleAnswer={handleAnswer}
+              />
+            )}
+          </div>
+          <div className="w-5/12 hidden lg:flex">
+            <h2 className="text-xl text-blue-background font-bold mt-24 ml-3">
+              {questions.length !== currentQuestionIndex
+                ? currentQuestionIndex + 1
+                : currentQuestionIndex}
+              /{questions.length}
+            </h2>
+          </div>
         </div>
       ) : (
-        <div className="flex flex-col w-full gap-8 max-w-2xl min-h-[300px] items-center justify-center rounded-xl bg-gray-100 pb-4">
+        <div className="flex flex-col w-full gap-8 max-w-2xl min-h-[300px] items-center justify-center py-4">
           {questions.length != 0 ? (
             <>
+              <Robot expression="smiling" />
               <h2 className="text-center text-xl text-blue-background font-bold">
-                Du hast alle Fragen beantwortet
+                Super! Du hast alle {questions.length} Fragen beantwortet.
               </h2>
               <Button onClick={() => router.push("/space")}>
                 Zurück zur Startseite
@@ -60,15 +72,7 @@ export function PrivacyQuiz({
           )}
         </div>
       )}
-      <div className="w-5/12 hidden lg:flex">
-        <h2 className="text-xl text-blue-background font-bold mt-24 ml-3">
-          {questions.length !== currentQuestionIndex
-            ? currentQuestionIndex + 1
-            : currentQuestionIndex}
-          /{questions.length}
-        </h2>
-      </div>
-    </div>
+    </>
   );
 }
 
