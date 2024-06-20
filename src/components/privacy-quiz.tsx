@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { useState } from "react";
 import clsx from "clsx";
@@ -7,7 +7,11 @@ import { useRouter } from "next/navigation";
 import { PrivacyQuizQuestion } from "@/app/(safespace)/space/privatsphaere/swipe/page";
 import Robot from "@/components/robot/robot";
 
-export function PrivacyQuiz({ questions }: { questions: PrivacyQuizQuestion[] }) {
+export function PrivacyQuiz({
+  questions,
+}: {
+  questions: PrivacyQuizQuestion[];
+}) {
   const router = useRouter();
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [answer, setAnswer] = useState<boolean | null>(null);
