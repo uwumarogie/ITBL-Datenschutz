@@ -16,14 +16,17 @@ export function HintCard({ text, buttonText, iconSrc, hint }: ActionCardProps) {
       className="relative rounded-xl p-4 scale-95 w-full h-full"
       style={{ background: "rgba(251, 109, 58, 0.15)" }}
     >
-      <div className="absolute top-[-26px] left-[-26px] w-16 h-16 rounded-full flex items-center justify-center">
+      <span
+        onClick={() => setShowHint(true)}
+        className="absolute top-[-26px] left-[-26px] w-16 h-16 rounded-full flex items-center justify-center"
+      >
         <Image
           src="/question-mark.svg"
           alt="Question Mark"
           width={50}
           height={50}
         />
-      </div>
+      </span>
       <div className="flex flex-col h-full justify-between">
         {showHint ? (
           <div className="flex flex-col w-full">
