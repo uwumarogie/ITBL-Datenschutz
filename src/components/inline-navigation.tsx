@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { NavButton, NavButtonType } from "@/components/nav-button";
 import {
   CloudArrowDown,
