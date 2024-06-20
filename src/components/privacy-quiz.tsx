@@ -1,15 +1,13 @@
+"use client"
+
 import { useState } from "react";
 import clsx from "clsx";
-import Button from "../../../../../components/button";
+import Button from "./button";
 import { useRouter } from "next/navigation";
-import { PrivacyQuizQuestion } from "./page";
+import { PrivacyQuizQuestion } from "@/app/(safespace)/space/privatsphaere/swipe/page";
 import Robot from "@/components/robot/robot";
 
-export function PrivacyQuiz({
-  questions,
-}: {
-  questions: PrivacyQuizQuestion[];
-}) {
+export function PrivacyQuiz({ questions }: { questions: PrivacyQuizQuestion[] }) {
   const router = useRouter();
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [answer, setAnswer] = useState<boolean | null>(null);
@@ -27,7 +25,7 @@ export function PrivacyQuiz({
 
   return (
     <>
-      {questions.length === currentQuestionIndex ? (
+      {currentQuestionIndex < questions.length ? (
         <div className="relative flex flex-row justify-center w-full max-w-5xl">
           <div className="flex flex-col">
             <h2 className="text-center px-8 lg:px-16 text-xl lg:text-2xl mb-10 text-blue-background font-bold">

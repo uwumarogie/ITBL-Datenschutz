@@ -16,7 +16,7 @@ import {
   Sun,
   SunHorizon,
 } from "@phosphor-icons/react";
-import { PrivacyQuiz } from "./privacy-quiz";
+import { PrivacyQuiz } from "@/components/privacy-quiz";
 import { useEffect, useState } from "react";
 
 export type PrivacyQuizQuestion = {
