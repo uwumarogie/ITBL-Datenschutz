@@ -26,7 +26,7 @@ export type PrivacyQuizQuestion = {
   isPersonenbezogen: boolean;
 };
 
-export const unsortedQuestions: PrivacyQuizQuestion[] = [
+const unsortedQuestions: PrivacyQuizQuestion[] = [
   {
     questionText: "Maria ist verheiratet",
     explanation:

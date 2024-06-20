@@ -13,7 +13,7 @@ export default function Perso() {
       left: 6,
       hoverText: "Logo der Europäischen Union",
       isChecked: false,
-      isPersonenbezogen: false,
+      isPersonalData: false,
     },
     {
       bottom: 60,
@@ -134,7 +134,7 @@ export default function Perso() {
                 onClick={() => setInstructionsRead(true)}
                 className="max-w-[150px] lg:mt-4"
               >
-                Los geht's
+                Los geht&lsquo;s
               </Button>
             </>
           )}

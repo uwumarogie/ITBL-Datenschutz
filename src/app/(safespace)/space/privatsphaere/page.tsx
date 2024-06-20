@@ -1,11 +1,9 @@
 "use client";
 
-import { useRouter } from "next/navigation";
 import ModuleIntro, { ModuleChapter } from "@/components/module-intro";
 import {
   HandSwipeRight,
   IdentificationCard,
-  Info,
   Lightbulb,
   List,
 } from "@phosphor-icons/react";
@@ -37,9 +35,7 @@ const chapter: ModuleChapter[] = [
   },
 ];
 
-export default function DataProcessing() {
-  const router = useRouter();
-
+export default function Privacy() {
   return (
     <div className="relative h-full w-full flex flex-col">
       <ModuleIntro

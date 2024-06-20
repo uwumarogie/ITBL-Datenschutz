@@ -49,14 +49,14 @@ export default function Perso() {
       left: 90,
       hoverText: "Personalausweislogo",
       isChecked: false,
-      isPersonenbezogen: false,
+      isPersonalData: false,
     },
     {
       bottom: -3,
       left: 90,
       hoverText: "Bundesdruckerei Aufschrift",
       isChecked: false,
-      isPersonenbezogen: false,
+      isPersonalData: false,
     },
   ]);
 
