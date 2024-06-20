@@ -127,6 +127,7 @@ export default function QuizList({
                 onSelect={(selection, isDone) => {
                   onSelect(currentQuizIndex, selection, isDone);
                 }}
+                onAnswerClick={quiz.onAnswerClick}
                 className={undefined}
               />
             </div>
