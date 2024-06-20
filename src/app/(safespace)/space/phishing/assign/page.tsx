@@ -42,7 +42,9 @@ export default function Assign() {
           <span className="text-5xl text-blue-background">Gut gemacht!</span>
           <Robot expression="smiling" />
           <span className="max-w-[600px]">
-          Du hast das Modul abgschlossen. Denke aber daran, dass es durch den Einsatz von KI immer schwieriger wird fake Profile zu erkennen, da realistische Bilder und glaubwürdige Texte generiert werden können.
+            Du hast das Modul abgschlossen. Denke aber daran, dass es durch den
+            Einsatz von KI immer schwieriger wird fake Profile zu erkennen, da
+            realistische Bilder und glaubwürdige Texte generiert werden können.
           </span>
           <Button onClick={() => router.push("/space")}>
             Zurück zur Startseite

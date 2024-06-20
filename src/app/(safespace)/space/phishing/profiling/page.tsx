@@ -9,7 +9,6 @@ import {
 } from "react-beautiful-dnd";
 import Button from "@/components/button";
 import clsx from "clsx";
-import Image from "next/image";
 import { HintCard } from "@/components/hint-card";
 import Robot from "@/components/robot/robot";
 

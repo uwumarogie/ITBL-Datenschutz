@@ -20,8 +20,9 @@ type Props = {
   imgSrc: string;
   hint: string;
   title: string;
-  description: string;
+  description?: string;
   nextPageHref: string;
+  onFinish?: (value: boolean) => void;
 };
 
 export default function PersoComponent({
@@ -32,6 +33,7 @@ export default function PersoComponent({
   title,
   description,
   nextPageHref,
+  onFinish: setFinished,
 }: Props) {
   const router = useRouter();
   const [showHint, setShowHint] = useState(false);
@@ -52,7 +54,11 @@ export default function PersoComponent({
       (checkbox) => checkbox.isChecked === checkbox.isPersonenbezogen,
     );
     if (correct) {
-      router.push(nextPageHref);
+      if (setFinished) {
+        setFinished(true);
+      } else {
+        router.push(nextPageHref);
+      }
     } else {
       addMessage(
         "Leider hast du noch nicht alle personenbezogenen Daten gefunden. Versuchs nochmal!",
