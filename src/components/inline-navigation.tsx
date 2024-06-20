@@ -1,3 +1,4 @@
+"use client"
 import { NavButton, NavButtonType } from "@/components/nav-button";
 import {
   CloudArrowDown,
@@ -47,7 +48,7 @@ const navButtons: Omit<NavButtonType, "number">[] = [
   },
 ];
 
-export async function InlineNavigation() {
+export function InlineNavigation() {
   return (
     <div className="max-w-[700px] sm:pb-6">
       <div className="grid grid-cols-3 gap-2 sm:flex sm:flex-row sm:justify-between sm:w-full">
