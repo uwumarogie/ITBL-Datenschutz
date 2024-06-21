@@ -17,7 +17,7 @@ type NavBtn = {
   id: AchievementId;
   icon: React.ReactNode;
   description: string;
-}
+};
 const navButtons: Omit<NavBtn, "number">[] = [
   {
     href: "/space/intro",
@@ -58,25 +58,25 @@ const navButtons: Omit<NavBtn, "number">[] = [
 ];
 
 export function InlineNavigation() {
-  const [unlockedAchievements, setUnlockedAchievements] = useState<string[]>([])
-  const userService = new PersistUserService()
+  const [unlockedAchievements, setUnlockedAchievements] = useState<string[]>(
+    [],
+  );
+  const userService = new PersistUserService();
 
   useEffect(() => {
     const fetchAchievements = async () => {
-      const achievements = await userService.getAchievement()
-      let tmpAchievements = unlockedAchievements
+      const achievements = await userService.getAchievement();
+      let tmpAchievements = unlockedAchievements;
       if (!Array.isArray(achievements)) {
-        tmpAchievements.push(achievements.achievementEnum)
+        tmpAchievements.push(achievements.achievementEnum);
       } else {
-        tmpAchievements.concat(achievements.map(a => a.achievementEnum))
+        tmpAchievements.concat(achievements.map((a) => a.achievementEnum));
       }
-      setUnlockedAchievements(tmpAchievements)
+      setUnlockedAchievements(tmpAchievements);
     };
 
     fetchAchievements();
-  }, [])
-
-
+  }, []);
 
   return (
     <div className="max-w-[700px] sm:pb-6">

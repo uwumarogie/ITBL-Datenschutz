@@ -45,7 +45,7 @@ const unsortedQuestions: PrivacyQuizQuestion[] = [
     questionText: "Markus Sozialversicherungsnummer",
     explanation:
       "Die Sozialversicherungsnummer ist eine eindeutige Identifikationsnummer, die einer Person zugeordnet ist und zur Verfolgung ihrer Sozialversicherungsansprüche verwendet wird. Daher ist sie personenbezogen.",
-    icon: <Scroll size={28} />    ,
+    icon: <Scroll size={28} />,
     isPersonenbezogen: true,
   },
   {

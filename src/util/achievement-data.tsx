@@ -73,7 +73,7 @@ export namespace AchievementData {
     {
       id: AchievementId.MEINE_RECHTE_FINISHED,
       title: "Rechte-Ratgeber",
-      description: "Schließe das \"Meine Rechte\"-Modul erfolgreich ab",
+      description: 'Schließe das "Meine Rechte"-Modul erfolgreich ab',
       progress: true,
     },
     {

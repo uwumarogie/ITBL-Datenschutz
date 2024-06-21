@@ -81,7 +81,14 @@ export default function InstagramProfile({
             />
 
             <div className="flex w-full justify-around items-center">
-              <VerticalNumberText number={profile.dummyPostsCount ? profile.dummyPostsCount : profile.posts.length} text="Posts" />
+              <VerticalNumberText
+                number={
+                  profile.dummyPostsCount
+                    ? profile.dummyPostsCount
+                    : profile.posts.length
+                }
+                text="Posts"
+              />
               <VerticalNumberText number={profile.followers} text="Followers" />
               <VerticalNumberText
                 number={profile.followingCount}

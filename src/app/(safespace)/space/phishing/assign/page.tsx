@@ -56,11 +56,11 @@ export default function Assign() {
             <div className="p-2 flex flex-col items-center gap-4 lg:mt-8">
               <Robot expression="resting" className="mb-6" />
               <span className="text-center max-w-[700px]">
-                Du wirst jetzt eine Reihe von Profilen gezeigt bekommen, die entweder
-                Anzeichen von realen Profilen aufweisen oder aber Hinweise drauf
-                enthalten, dass es sich eher um Phishing bzw. Fake-Profile
-                handelt. Ordne die Profile einer der beiden Kategorien
-                zu.
+                Du wirst jetzt eine Reihe von Profilen gezeigt bekommen, die
+                entweder Anzeichen von realen Profilen aufweisen oder aber
+                Hinweise drauf enthalten, dass es sich eher um Phishing bzw.
+                Fake-Profile handelt. Ordne die Profile einer der beiden
+                Kategorien zu.
               </span>
               <Button
                 onClick={() => setInstructionsRead(true)}
@@ -438,7 +438,7 @@ const profiles: Profile[] = [
         {
           imageSrc: "/insta-profiles/heidiklum/21.jpg",
           caption: "",
-          likedBy: "Gefällt " + dummyFollowings[22] + " und weiteren Personen", 
+          likedBy: "Gefällt " + dummyFollowings[22] + " und weiteren Personen",
         },
         {
           imageSrc: "/insta-profiles/heidiklum/22.jpg",
