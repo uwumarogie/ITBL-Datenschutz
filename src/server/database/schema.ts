@@ -8,12 +8,17 @@ import {
   varchar,
 } from "drizzle-orm/pg-core";
 import { createSelectSchema } from "drizzle-zod";
+import { AchievementId } from "@/util/achievement-data";
 
-const achievementArray = [
-  "DATENSCHUTZ_HELD",
-  "WERBE_GURU",
-  "PHISHING_FAENGER",
-] as const;
+const achievementArray = Object.values(AchievementId) as AchievementId[];
+
+const achievementEnum:
+  | readonly [string, ...string[]]
+  | [string, ...string[]]
+  | undefined =
+  achievementArray.length > 0
+    ? [achievementArray[0], ...achievementArray.slice(1)]
+    : undefined;
 
 const highScoreArray = ["PASSWORD_STRENGTH"] as const;
 export enum HighScoreEnum {
@@ -35,7 +40,7 @@ export const achievements = pgTable("achievements", {
     .references(() => users.id, { onDelete: "cascade" })
     .notNull(),
   achievementEnum: varchar("achievement_enum", {
-    enum: achievementArray,
+    enum: achievementEnum,
   }).notNull(),
   isAchieved: boolean("is_achieved").notNull(),
   createdAt: timestamp("createdAt").notNull().defaultNow(),

@@ -76,6 +76,7 @@ export default function StartGame() {
           router.push("/space/passwort/builder");
         }}
         onNextQuestion={handleQuestionChange}
+        achievement="PASSWORD_QUIZ"
       />
       <div className="max-w-[400px]">
         {currentHintCard && (
