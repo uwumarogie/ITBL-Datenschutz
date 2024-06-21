@@ -16,11 +16,13 @@ export default function Leaderboard() {
     useState<LeaderboardEntry | null>(null);
 
   useEffect(() => {
-    const code = localStorage.getItem("gameCode");
-    if (code) {
-      setGameCode(code);
-    } else {
-      redirect("/space");
+    if (typeof window !== "undefined" && window.localStorage) {
+      const code = localStorage.getItem("gameCode");
+      if (code) {
+        setGameCode(code);
+      } else {
+        redirect("/space");
+      }
     }
   }, []);
 

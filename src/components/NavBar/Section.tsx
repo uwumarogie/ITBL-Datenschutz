@@ -81,7 +81,11 @@ export function Section() {
   }, [getActiveSection, path]);
 
   useEffect(() => {
-    if (!localStorage.getItem("gameCode")) {
+    if (
+      typeof window !== "undefined" &&
+      window.localStorage &&
+      !localStorage.getItem("gameCode")
+    ) {
       setSections(
         sections.filter((s) => s.sectionName !== SectionName.LEADERBOARD),
       );

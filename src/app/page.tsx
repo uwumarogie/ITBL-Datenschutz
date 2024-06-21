@@ -26,9 +26,12 @@ async function createPlayer(username: string, mode: string, gameCode: string) {
       throw new Error("Failed to create user");
     }
     const result = await response.json();
-    localStorage.setItem("userId", result.userData[0].id);
 
-    if (gameCode !== "") {
+    if (typeof window !== 'undefined' && window.localStorage) {
+      localStorage.setItem("userId", result.userData[0].id);
+    }
+
+    if (gameCode !== "" && typeof window !== 'undefined' && window.localStorage) {
       localStorage.setItem("gameCode", result.userData[0].gameCode);
     }
   } catch (error) {
@@ -66,7 +69,7 @@ export default function HomePage() {
 
   const handleStartGame = async () => {
     if (
-      mode !== null &&
+      mode !== null && typeof window !== 'undefined' && window.localStorage &&
       (localStorage.getItem("userId") === null || username !== undefined)
     ) {
       await createPlayer(username, mode, gameCode);
@@ -75,7 +78,7 @@ export default function HomePage() {
   };
 
   useEffect(() => {
-    if (localStorage.getItem("userId") !== null) {
+    if (typeof window !== 'undefined' && window.localStorage && localStorage.getItem("userId") !== null) {
       redirect("/space");
     }
   }, []);
