@@ -19,13 +19,13 @@ export default function Achievements() {
   useEffect(() => {
     const fetchData = async () => {
       const context = new PersistUserService();
-      const userData = await context.getAchievement();
+      const achievementData = await context.getAchievement();
       const fetchedAchievements = AchievementData.achievements
         .map(
           (a) =>
             ({
               ...a,
-              progress: getProgress(userData, a.id),
+              progress: getProgress(achievementData, a.id),
             }) as Achievement,
         )
         .sort((a, b) => {

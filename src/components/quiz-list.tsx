@@ -1,10 +1,11 @@
 "use client";
 import Quiz, { QuizParams } from "@/components/quiz";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import clsx from "clsx";
 import Button from "@/components/button";
 import { AchievementId, AchievementData } from "@/util/achievement-data";
 import AchievementCard from "@/components/Achievements/achievement-card";
+import { PersistUserService } from "@/services/user/PersistUserService";
 
 export type QuizListProps = {
   className?: string;
@@ -43,6 +44,22 @@ export default function QuizList({
   const achievementData = AchievementData.achievements.find(
     (el) => el.id === achievement,
   );
+
+  const achievedScore = quizzesState
+    .map((state) => state.isSolved)
+    .reduce((acc, v) => acc + (v ? 1 : 0), 0);
+
+  useEffect(() => {
+    async function unlockAchievement(achievementId: string) {
+      const context = new PersistUserService();
+      await context.setAchievement(achievementId, true);
+    }
+
+    if (achievement !== undefined && currentQuizIndex === quizzes.length - 1) {
+      unlockAchievement(achievement).then((res) => console.log(res));
+    }
+  }, [achievement, achievedScore]);
+
   function quizStateClasses(index: number) {
     let classes =
       "rounded-full w-10 h-10 inline-flex justify-center items-center font-bold ";
@@ -105,7 +122,7 @@ export default function QuizList({
   return (
     <div className={className}>
       <div className="py-4 flex gap-6 justify-center items-center">
-        {quizzesState.map((state, index) => (
+        {quizzesState.map((_, index) => (
           <div key={index} className={quizStateClasses(index)}>
             {index + 1}
           </div>
@@ -114,7 +131,7 @@ export default function QuizList({
 
       {!showSummary && (
         <div className="md:mb-10 mb-6">
-          {quizzesState.map(({ quiz, isDone, isSolved, selection }, index) => (
+          {quizzesState.map(({ quiz }, index) => (
             <div
               className={clsx("", currentQuizIndex != index && "hidden")}
               key={index}
@@ -141,13 +158,10 @@ export default function QuizList({
         <div className="summary mb-6 flex justify-center items-center flex-col gap-4 mt-10">
           <h3 className="text-xl font-semibold mb-2">Du hast es geschafft!</h3>
           <p className="pb-6">
-            Du hast{" "}
-            {quizzesState
-              .map((state) => state.isSolved)
-              .reduce((acc, v) => acc + (v ? 1 : 0), 0)}{" "}
-            von {quizzesState.length} Fragen richtig beantwortet.
+            Du hast {achievedScore} von {quizzesState.length} Fragen richtig
+            beantwortet.
           </p>
-          {achievementData && (
+          {achievementData && achievedScore === quizzes.length && (
             <AchievementCard
               id={achievementData.id}
               title={achievementData.title}

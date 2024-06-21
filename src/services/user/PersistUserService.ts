@@ -29,7 +29,7 @@ export class PersistUserService {
     return await response.json();
   }
 
-  async setAchievement(achievementId: string, unlocked: boolean) {
+  async setAchievement(achievement: string, unlocked: boolean) {
     try {
       const response = await fetch("/api/setAchievement", {
         method: "POST",
@@ -38,7 +38,7 @@ export class PersistUserService {
         },
         body: JSON.stringify({
           userId: this.userId,
-          achievementEnum: achievementId,
+          achievementEnum: achievement,
           unlocked: unlocked,
         }),
       });
