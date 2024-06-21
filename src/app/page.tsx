@@ -82,13 +82,13 @@ export default function HomePage() {
 
   return (
     <div className="flex flex-col justify-center items-center h-[100vh] bg-blue-background">
-      <h1 className="block text-5xl text-white font-mono mb-10">
+      <h1 className="flex text-xl lg:text-5xl text-white font-mono mb-10 ">
         Willkommen zu Safe Space
       </h1>
       <div className="flex flex-col space-y-4 justify-center items-center w-200 p-10 shadow-lg bg-blue-200 rounded-3xl">
         <div className="flex space-x-5 justify-center">
           {!mode && (
-            <>
+            <div className="flex flex-col md:flex-row gap-5">
               <Button
                 onClick={() => handleModeSelection("singlePlayer")}
                 className="flex justify-center w-full md:w-72 h-14 p-5 text-2xl"
@@ -101,7 +101,7 @@ export default function HomePage() {
               >
                 Multiplayer
               </Button>
-            </>
+            </div>
           )}
         </div>
         <>
