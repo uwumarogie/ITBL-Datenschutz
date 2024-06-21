@@ -8,6 +8,7 @@ import {
   ChatCircle,
   Heart,
   PaperPlaneTilt,
+  SealCheck,
   User,
 } from "@phosphor-icons/react";
 import { CloseIcon } from "next/dist/client/components/react-dev-overlay/internal/icons/CloseIcon";
@@ -26,6 +27,9 @@ export type InstagramProfileData = {
   following: string[];
   description: string;
   posts: InstagramPost[];
+  story?: boolean;
+  verificated?: boolean;
+  isPublic?: boolean;
 };
 
 export default function InstagramProfile({
@@ -55,13 +59,22 @@ export default function InstagramProfile({
 
       <div className="overflow-y-auto relative h-full">
         <header className="w-full flex flex-col gap-4 p-6">
-          <h3 className="font-semibold text-xl">{profile.username}</h3>
+          <div className="flex gap-2 items-center">
+            <h3 className="font-semibold text-xl">{profile.username}</h3>
+            {profile.verificated && (
+              <SealCheck size={22} weight="fill" color="#1877F2" />
+            )}
+          </div>
 
           <div className="flex w-full">
             <Image
-              className="rounded-full border-[1px] border-gray-300 w-20 h-20 flex-shrink-0 bg-white hover:scale-105 transition-all cursor-pointer"
+              className={clsx(
+                "rounded-full border-[1px] border-gray-300 w-20 h-20 flex-shrink-0 bg-white hover:scale-105 transition-all cursor-pointer",
+                profile.story && "ring-[3px] ring-rose-600 border-[3px]",
+              )}
               src={profile.profileImageSrc}
               alt={"Profile picture"}
+              layout="fixed"
               width="100"
               height="100"
             />
@@ -79,31 +92,47 @@ export default function InstagramProfile({
 
           <div>
             <h6 className="font-semibold text-md">{profile.username}</h6>
-            <span className="opacity-50 text-sm font-light">
-              Privates Profil
-            </span>
+            {!profile.isPublic && (
+              <span className="opacity-50 text-sm font-light">
+                Privates Profil
+              </span>
+            )}
           </div>
 
           <p className="whitespace-pre-wrap text-sm">{profile.description}</p>
         </header>
 
-        <section className="grid grid-cols-3 grid-rows-3 gap-0.5 mt-8 p-1">
-          {profile.posts.map((post, index) => (
-            <div
-              key={index}
-              className="aspect-square hover:scale-105 hover:shadow-2xl transition-all cursor-pointer"
-              onClick={() => setCurrentPost(post)}
-            >
-              <Image
-                src={post.imageSrc}
-                alt={post.caption}
-                width="200"
-                height="200"
-                className="w-full h-full object-cover"
-              />
-            </div>
-          ))}
-        </section>
+        {profile.posts.length == 0 ? (
+          <div className="flex flex-col items-center mt-4">
+            <Image
+              src="/no-posts.png"
+              alt="keine beiträge"
+              width={90}
+              height={90}
+            />
+            <span className="font-semibold text-xl mt-2 max-w-[250px] text-center">
+              Noch keine Beiträge vorhanden
+            </span>
+          </div>
+        ) : (
+          <section className="grid grid-cols-3 grid-rows-3 gap-0.5 mt-8 p-1">
+            {profile.posts.map((post, index) => (
+              <div
+                key={index}
+                className="aspect-square hover:scale-105 hover:shadow-2xl transition-all cursor-pointer"
+                onClick={() => setCurrentPost(post)}
+              >
+                <Image
+                  src={post.imageSrc}
+                  alt={post.caption}
+                  width="200"
+                  height="200"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            ))}
+          </section>
+        )}
       </div>
     </div>
   );
@@ -123,7 +152,11 @@ function VerticalNumberText({
       className="inline-flex flex-col items-center hover:scale-105 transition-all cursor-pointer"
       onClick={onClick}
     >
-      <span className="font-semibold text-xl">{number}</span>
+      <span className="font-semibold text-xl">
+        {number > 1000000
+          ? number.toString().substring(0, 2) + " Mio."
+          : number}
+      </span>
       <span className="font-light">{text}</span>
     </div>
   );
@@ -149,7 +182,7 @@ function Following({
               <CloseIcon />
             </div>
           </header>
-          <div className="flex flex-col px-4 pt-4">
+          <div className="flex flex-col px-4 pt-4 overflow-y-auto max-h-[90%]">
             {following.map((follower) => (
               <div
                 key={follower}
@@ -163,10 +196,10 @@ function Following({
                 <span>{follower}</span>
               </div>
             ))}
+            <span className="italic opacity-50 p-4 inline-block">
+              Weitere Konten konnten nicht geladen werden.
+            </span>
           </div>
-          <span className="italic opacity-50 p-4 inline-block">
-            Weitere Konten konnten nicht geladen werden.
-          </span>
         </div>
       </div>
       <div className="absolute bg-black opacity-40 w-full h-full top-0"></div>
