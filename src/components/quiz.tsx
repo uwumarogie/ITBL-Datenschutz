@@ -13,6 +13,7 @@ export type QuizParams = {
   correctAnswer: number;
   hintAnswers?: string[];
   onSelect?: (selection: number, isDone: boolean) => void;
+  onAnswerClick?: () => void;
   // If enabled, the user only has a single try. After selection, it will show the solution to the user.
   showCorrectAnswer?: boolean;
 };
@@ -21,6 +22,9 @@ export default function Quiz(quiz: QuizParams) {
   const [selection, setSelection] = useState<number | undefined>(undefined);
 
   function onClick(index: number) {
+    if (quiz.onAnswerClick) {
+      quiz.onAnswerClick();
+    }
     if (quiz.showCorrectAnswer && selection != undefined) return;
     setSelection(index);
     const isDone = quiz.showCorrectAnswer
