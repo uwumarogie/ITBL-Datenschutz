@@ -1,5 +1,6 @@
 "use client";
 import ModuleIntro from "@/components/module-intro";
+import { Question, Textbox, ThumbsUp } from "@phosphor-icons/react";
 
 export default function Passwort() {
   return (
@@ -12,11 +13,11 @@ export default function Passwort() {
         chapter={[
           {
             title: "Teste dein Wissen zu Passwörter",
-            icon: "/white-tick-button.svg",
+            icon: <Question />,
           },
 
-          { title: "Bilde starke Passwörter", icon: "/white-tick-button.svg" },
-          { title: "Bewerte Passwortstärken", icon: "/white-tick-button.svg" },
+          { title: "Bilde starke Passwörter", icon: <Textbox /> },
+          { title: "Bewerte Passwortstärken", icon: <ThumbsUp /> },
         ]}
       />
     </div>

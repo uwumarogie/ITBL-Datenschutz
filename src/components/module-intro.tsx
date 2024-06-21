@@ -1,8 +1,6 @@
 import Image from "next/image";
 import Button from "@/components/button";
-import { ArrowLeft } from "@phosphor-icons/react";
 import { useRouter } from "next/navigation";
-import Link from "next/link";
 import React, { cloneElement } from "react";
 import clsx from "clsx";
 

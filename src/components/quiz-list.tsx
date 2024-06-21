@@ -135,7 +135,7 @@ export default function QuizList({
       )}
 
       {showSummary && (
-        <div className="summary mb-6">
+        <div className="summary mb-6 flex justify-center items-center flex-col gap-4 mt-24">
           <h3 className="text-xl font-semibold mb-2">Du hast es geschafft!</h3>
           <p className="pb-6">
             Du hast{" "}
