@@ -11,7 +11,7 @@ export type CheckboxData = {
   left: number;
   hoverText: string;
   isChecked: boolean;
-  isPersonenbezogen: boolean;
+  isPersonalData: boolean;
 };
 
 type Props = {
@@ -49,7 +49,7 @@ export default function PersoComponent({
 
   const validateInput = () => {
     const correct = checkboxes.every(
-      (checkbox) => checkbox.isChecked === checkbox.isPersonenbezogen,
+      (checkbox) => checkbox.isChecked === checkbox.isPersonalData,
     );
     if (correct) {
       router.push(nextPageHref);
@@ -100,7 +100,7 @@ export default function PersoComponent({
         </Button>
         <Button
           className="m-4 w-24 h-11 bg-gray-400 hover:bg-gray-500"
-          onClick={() => setShowHint(!showHint)}
+          onClick={() => setShowHint((prev) => !prev)}
         >
           Hilfe
         </Button>

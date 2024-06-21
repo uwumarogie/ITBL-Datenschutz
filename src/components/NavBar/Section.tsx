@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { redirect, usePathname } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { DesktopSection } from "@/components/NavBar/DesktopNavigation/desktop-section";
 import { MobileSection } from "@/components/NavBar/MobileNavigation/mobile-section";
 

@@ -1,9 +1,7 @@
 "use client";
 import { ActionCard } from "@/components/action-card";
-import { useRouter } from "next/navigation";
 
 export default function Privacy() {
-  const router = useRouter();
   return (
     <div className="flex flex-col p-3 justify-between h-full">
       <div className="flex flex-col space-y-2 pb-4 max-w-[700px]">

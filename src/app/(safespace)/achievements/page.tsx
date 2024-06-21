@@ -2,7 +2,7 @@
 
 import AchievementCard from "@/components/Achievements/achievement-card";
 import { useEffect, useState } from "react";
-import { ProgressBar } from "@/components/ProgressBar";
+import { ProgressBar } from "@/components/progress-bar";
 import { Achievement, AchievementData } from "@/util/achievement-data";
 import { PersistUserService } from "@/services/user/PersistUserService";
 
