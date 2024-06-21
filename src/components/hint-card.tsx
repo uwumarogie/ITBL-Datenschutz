@@ -1,13 +1,13 @@
 import Image from "next/image";
 import Button from "./button";
-import { useState, ReactNode } from "react";
+import React, { useState } from "react";
 import clsx from "clsx";
 
 type ActionCardProps = {
   text: string;
   buttonText: string;
   iconSrc?: string;
-  hint: ReactNode;
+  hint: React.ReactNode;
   className?: string;
 };
 
@@ -51,12 +51,12 @@ export function HintCard({
                 className="cursor-pointer"
               />
             </div>
-            <div className="px-6 pb-6">{hint}</div>
+            <div className="px-2 pb-2">{hint}</div>
           </div>
         ) : (
           <div className="flex justify-between flex-col h-full">
             <div className="flex flex-col relative justify-start items-start p-6">
-              <span className="font-light text-sm pb-4 font-semibold text-blue-background">
+              <span className="font-semibold text-sm pb-4 text-blue-background">
                 {text}
               </span>
               <Button onClick={() => setShowHint(true)}>{buttonText}</Button>

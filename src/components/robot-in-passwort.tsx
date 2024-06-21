@@ -1,3 +1,4 @@
+"use client";
 import AnimatedText from "@/components/animated/AnimatedText";
 import Robot, { RobotExpression } from "@/components/robot/robot";
 import Button from "@/components/button";
@@ -17,7 +18,7 @@ export type State = {
   style?: CSSProperties | undefined;
 };
 
-export default function RobotIntroduction({
+export default function RobotInPasswort({
   states,
   href,
 }: RobotIntroductionProps) {
@@ -43,7 +44,7 @@ export default function RobotIntroduction({
   return (
     <div className="relative h-full w-full flex flex-col">
       <div className="w-full h-full flex flex-col justify-center items-center relative">
-        <div className="max-w-96 text-xl font-medium text-center absolute bottom-10">
+        <div className="max-w-lg text-xl font-medium text-center absolute bottom-24">
           <AnimatedText>{states[state].text}</AnimatedText>
         </div>
 
@@ -54,7 +55,7 @@ export default function RobotIntroduction({
           style={states[state].style}
         />
       </div>
-      <div className="flex justify-center">
+      <div className="flex justify-center mt-24">
         <Button
           className={clsx(
             state == states.length - 1 && "opacity-0 pointer-events-none",

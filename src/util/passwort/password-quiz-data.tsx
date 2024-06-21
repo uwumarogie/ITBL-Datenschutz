@@ -14,6 +14,17 @@ export const topTenPasswords = [
   "gwerty123",
 ];
 
+export const replaceCharacter = [
+  "0 für O",
+  "1 oder ! für I",
+  "3 für E",
+  "@ oder 4 für A",
+  " $ oder 5 für S",
+  " 6 oder 9 für G",
+  " 7 für T",
+  " 8 für B",
+];
+
 export const quizzes: QuizParams[] = [
   {
     question:
@@ -44,7 +55,7 @@ export const quizzes: QuizParams[] = [
   {
     question:
       "Ein Freund von dir wurde bereits gehackt. Der Hacker kennt schon deinen Namen und dein Geburtsdatum. Welches der Passwörter ist am sichersten?",
-    answers: ["{username}1234", "2008{username}", "SakPze69", "password1"],
+    answers: ["Marie1234", "2008Marie", "SakPze69", "password1"],
     hint: "Verwende keine persönlichen Informationen wie deinen Namen oder Geburtsdatum in deinem Passwort.",
     showCorrectAnswer: true,
     correctAnswer: 2,
@@ -112,8 +123,8 @@ export const passwordData: PasswordData[] = [
   },
   {
     password: "MyPass@word",
-    strength: 2,
-    explanation: "Das Passwort erfüllt alle Bedingungen.",
+    strength: 1,
+    explanation: "Das Passwort enthält keine Zahl.",
   },
   {
     password: "Sarah!78",
@@ -129,18 +140,18 @@ export const passwordData: PasswordData[] = [
     password: "qwertyuiop",
     strength: 0,
     explanation:
-      "Das Passwort enthält keinen Großbuchstaben und kein Sonderzeichen.",
+      "Das Passwort enthält keinen Großbuchstaben, kein Sonderzeichen und keine Zahl.",
   },
   {
     password: "letmein2020",
-    strength: 1,
+    strength: 0,
     explanation:
       "Das Passwort enthält keinen Großbuchstaben und kein Sonderzeichen.",
   },
   {
     password: "Sunshine$",
-    strength: 2,
-    explanation: "Das Passwort erfüllt alle Bedingungen.",
+    strength: 1,
+    explanation: "Das Passwort enthält keine Zahl.",
   },
   {
     password: "Robert123",
@@ -151,7 +162,7 @@ export const passwordData: PasswordData[] = [
     password: "simplepass",
     strength: 0,
     explanation:
-      "Das Passwort enthält keinen Großbuchstaben und kein Sonderzeichen.",
+      "Das Passwort enthält keinen Großbuchstaben, kein Sonderzeichen und keine Zahl.",
   },
   {
     password: "Good$Pass1",
@@ -171,7 +182,7 @@ export const passwordData: PasswordData[] = [
   {
     password: "WeakPass",
     strength: 0,
-    explanation: "Das Passwort enthält kein Sonderzeichen.",
+    explanation: "Das Passwort enthält kein Sonderzeichen und keine Zahl.",
   },
   {
     password: "Anna2022@",
@@ -186,7 +197,7 @@ export const passwordData: PasswordData[] = [
   {
     password: "Basketball!",
     strength: 1,
-    explanation: "Das Passwort enthält keinen Kleinbuchstaben.",
+    explanation: "Das Passwort enthält keine Zahl.",
   },
   {
     password: "CharlieBrown1",
@@ -201,7 +212,7 @@ export const passwordData: PasswordData[] = [
   {
     password: "Keyboard!",
     strength: 1,
-    explanation: "Das Passwort enthält keinen Kleinbuchstaben.",
+    explanation: "Das Passwort enthält keine Zahl.",
   },
   {
     password: "Type1234",
@@ -210,14 +221,13 @@ export const passwordData: PasswordData[] = [
   },
   {
     password: "Secure!Pass",
-    strength: 2,
-    explanation: "Das Passwort erfüllt alle Bedingungen.",
+    strength: 1,
+    explanation: "Das Passwort enthält keine Zahl.",
   },
   {
     password: "Insecure",
     strength: 0,
-    explanation:
-      "Das Passwort enthält keinen Großbuchstaben und kein Sonderzeichen.",
+    explanation: "Das Passwort enthält kein Sonderzeichen und keine Zahl.",
   },
   {
     password: "Admin@2020",
@@ -232,7 +242,7 @@ export const passwordData: PasswordData[] = [
   {
     password: "NotSoSecure",
     strength: 0,
-    explanation: "Das Passwort enthält kein Sonderzeichen.",
+    explanation: "Das Passwort enthält kein Sonderzeichen und keine Zahl.",
   },
   {
     password: "Jasmine@1",
@@ -247,7 +257,7 @@ export const passwordData: PasswordData[] = [
   {
     password: "GenieLamp!",
     strength: 1,
-    explanation: "Das Passwort enthält keinen Kleinbuchstaben.",
+    explanation: "Das Passwort enthält keine Zahl.",
   },
   {
     password: "Mermaid2021",

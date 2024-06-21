@@ -3,12 +3,15 @@ import Quiz, { QuizParams } from "@/components/quiz";
 import { useState } from "react";
 import clsx from "clsx";
 import Button from "@/components/button";
+import { AchievementId, AchievementData } from "@/util/achievement-data";
+import AchievementCard from "@/components/Achievements/achievement-card";
 
 export type QuizListProps = {
   className?: string;
   quizzes: QuizParams[];
   onFinish?: () => void;
   onNextQuestion?: () => void;
+  achievement?: keyof typeof AchievementId | undefined;
 };
 
 export default function QuizList({
@@ -16,6 +19,7 @@ export default function QuizList({
   className,
   onFinish,
   onNextQuestion,
+  achievement,
 }: QuizListProps) {
   const [currentQuizIndex, setCurrentQuizIndex] = useState(0);
   const [showSummary, setShowSummary] = useState(false);
@@ -36,6 +40,9 @@ export default function QuizList({
     })),
   );
 
+  const achievementData = AchievementData.achievements.find(
+    (el) => el.id === achievement,
+  );
   function quizStateClasses(index: number) {
     let classes =
       "rounded-full w-10 h-10 inline-flex justify-center items-center font-bold ";
@@ -85,11 +92,6 @@ export default function QuizList({
     onNextQuestion?.();
   }
 
-  //function previousQuiz() {
-  // if (currentQuizIndex == 0) return;
-  //setCurrentQuizIndex(currentQuizIndex - 1);
-  //}
-
   function finishQuiz() {
     if (showSummary) {
       onFinish?.();
@@ -136,7 +138,7 @@ export default function QuizList({
       )}
 
       {showSummary && (
-        <div className="summary mb-6">
+        <div className="summary mb-6 flex justify-center items-center flex-col gap-4 mt-10">
           <h3 className="text-xl font-semibold mb-2">Du hast es geschafft!</h3>
           <p className="pb-6">
             Du hast{" "}
@@ -145,6 +147,14 @@ export default function QuizList({
               .reduce((acc, v) => acc + (v ? 1 : 0), 0)}{" "}
             von {quizzesState.length} Fragen richtig beantwortet.
           </p>
+          {achievementData && (
+            <AchievementCard
+              id={achievementData.id}
+              title={achievementData.title}
+              description={achievementData.description}
+              progress={achievementData.progress}
+            />
+          )}
           <Button onClick={() => onFinish?.()}>Weiter</Button>
         </div>
       )}

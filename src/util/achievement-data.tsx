@@ -10,6 +10,7 @@ export enum AchievementId {
   DATENSCHUTZ_HELD = "DATENSCHUTZ_HELD",
   WERBE_GURU = "WERBE_GURU",
   PHISHING_FAENGER = "PHISHING_FAENGER",
+  PASSWORD_QUIZ = "PASSWORD_QUIZ",
 }
 
 export namespace AchievementData {
@@ -31,6 +32,12 @@ export namespace AchievementData {
       id: AchievementId.PHISHING_FAENGER,
       title: "Phishing-Fänger",
       description: "Erkenne und melde 2 Phishing-Versuche.",
+      progress: true,
+    },
+    {
+      id: AchievementId.PASSWORD_QUIZ,
+      title: "Passwort-Quiz",
+      description: "Alle Fragen im ersten Quiz richtig beatwortet.",
       progress: true,
     },
   ];

@@ -7,7 +7,7 @@ const globalQueryClient = global as unknown as {
 
 const queryClient =
   globalQueryClient.queryClient ??
-  postgres(process.env.DATABASE_URL!, { max: 12 });
+  postgres(process.env.DATABASE_URL!, { max: 50 });
 
 if (process.env.nodeEnv === "development")
   globalQueryClient.queryClient = queryClient;

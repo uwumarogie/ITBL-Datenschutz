@@ -6,7 +6,7 @@ import Button from "@/components/button";
 import { InputValidation } from "@/components/input-validation";
 import { useMessages } from "@/services/notfication/message-provider";
 import { useState } from "react";
-import { calculateBruteForceTime } from "@/util/passwort-validation";
+import { calculateBruteForceTime } from "@/util/passwort/passwort-validation";
 
 export default function Builder() {
   const { addMessage } = useMessages();
@@ -91,11 +91,11 @@ export default function Builder() {
           iconSrc="/smartphone-pw.png"
           hint={
             <>
-              Ein Hacker bräcuhte bei einem Brute Force Angriff ungefähr
+              Ein Hacker bräuchte bei einem Brute Force Angriff ungefähr
               <div className="text-3xl my-4 bg-blue-contrast rounded-xl text-white px-3 py-6">
                 {hint}
               </div>
-              um dieses passwort zu knacken
+              um dieses Passwort zu knacken
             </>
           }
         />

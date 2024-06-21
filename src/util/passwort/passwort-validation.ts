@@ -1,5 +1,3 @@
-import { topTenPasswords } from "./password-quiz-data";
-
 export function containLowerCaseLetters(word: string) {
   return /[a-z]/.test(word);
 }
@@ -13,11 +11,11 @@ export function containDigits(word: string) {
 }
 
 export function containSpecialCharacters(word: string) {
-  return /[!§$%&äöüÄÖÜ]/.test(word);
+  return /[!§$%&+-.:,;]/.test(word);
 }
 
-export function notFrequentlyUsed(word: string) {
-  return !topTenPasswords.includes(word);
+export function hasLengthGreaterThanEight(word: string) {
+  return word.length >= 8;
 }
 
 export const SUCCESS_COLOR = "#2E8B57";
@@ -53,8 +51,6 @@ export function calculateBruteForceTime(password: string): string {
   const totalCombinations = Math.pow(characterSetSize, passwordLength);
   const timeInSeconds = totalCombinations / attemptsPerSecond;
 
-  let timeString: string;
-
   const formatLargeNumbers = (num: number): string => {
     if (num >= 1e12) {
       return (num / 1e12).toFixed(2) + " Billionen Jahre";
@@ -67,24 +63,24 @@ export function calculateBruteForceTime(password: string): string {
     }
   };
 
-  if (timeInSeconds >= secondsInYear * 2) {
+  if (timeInSeconds >= secondsInYear * 1000) {
+    return "Unendlich 😏";
+  } else if (timeInSeconds >= secondsInYear * 2) {
     const years = timeInSeconds / secondsInYear;
-    timeString = formatLargeNumbers(years);
+    return formatLargeNumbers(years);
   } else if (timeInSeconds >= secondsInMonth * 2) {
     const months = timeInSeconds / secondsInMonth;
-    timeString = `${months.toFixed(0)} Monate`;
+    return `${months.toFixed(0)} Monate`;
   } else if (timeInSeconds >= secondsInDay * 2) {
     const days = timeInSeconds / secondsInDay;
-    timeString = `${days.toFixed(0)} Tage`;
+    return `${days.toFixed(0)} Tage`;
   } else if (timeInSeconds >= secondsInHour * 2) {
     const hours = timeInSeconds / secondsInHour;
-    timeString = `${hours.toFixed(0)} Stunden`;
+    return `${hours.toFixed(0)} Stunden`;
   } else if (timeInSeconds >= secondsInMinute * 2) {
     const minutes = timeInSeconds / secondsInMinute;
-    timeString = `${minutes.toFixed(0)} Minuten`;
+    return `${minutes.toFixed(0)} Minuten`;
   } else {
-    timeString = `${timeInSeconds.toFixed(0)} Sekunden`;
+    return `${timeInSeconds.toFixed(0)} Sekunden`;
   }
-
-  return timeString;
 }
