@@ -16,7 +16,9 @@ export function ClientNotFound() {
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen text-white bg-blue-background gap-y-5">
-      <h1 className="text-3xl font-extrabold">Du hast die falsche Url eingegeben.</h1>
+      <h1 className="text-3xl font-extrabold">
+        Du hast die falsche Url eingegeben.
+      </h1>
       <Image
         src="https://cdn2.thecatapi.com/images/MTk3MDcwNA.jpg"
         alt="cat image"
