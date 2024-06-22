@@ -108,12 +108,5 @@ export namespace AchievementData {
         "Erstelle ein sicheres Passwort, dass mehr als 1 Millionen Jahre zum Knacken bräuchte",
       progress: true,
     },
-    {
-      id: AchievementId.PROFIL_DETEKTIV,
-      title: "Profil-Detektiv",
-      description:
-        "Ordne alle Anzeichen für Fake- und reale Profile beim ersten Versuch korrekt zu",
-      progress: true,
-    },
   ];
 }
