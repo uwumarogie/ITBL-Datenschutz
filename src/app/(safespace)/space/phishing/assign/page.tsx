@@ -33,11 +33,13 @@ export default function Assign() {
         const userService = new PersistUserService();
         await userService
           .setAchievement(AchievementId.PHISHING_FINISHED, true)
-          .then(() => {
-            messageService.addMessage(
-              "Achievement abgeschlossen: Phishing-Abwehrer",
-              "success",
-            );
+          .then((res) => {
+            if (res) {
+              messageService.addMessage(
+                "Achievement abgeschlossen: Phishing-Abwehrer",
+                "success",
+              );
+            }
           });
         setModuleFinished(true);
       }

@@ -5,6 +5,9 @@ import Button from "@/components/button";
 import clsx from "clsx";
 import { CSSProperties, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import { PersistUserService } from "@/services/user/PersistUserService";
+import { AchievementId } from "@/util/achievement-data";
+import { useMessages } from "@/services/notfication/message-provider";
 
 type RobotIntroductionProps = {
   states: State[];
@@ -24,6 +27,7 @@ export default function RobotInPasswort({
 }: RobotIntroductionProps) {
   const [state, setState] = useState(0);
   const router = useRouter();
+  const messageService = useMessages();
 
   useEffect(() => {
     const id = setTimeout(() => {
@@ -33,12 +37,34 @@ export default function RobotInPasswort({
   }, []);
 
   function onClick() {
-    setState((prev) => prev + 1);
+    setState((prev) => {
+      const newState = prev + 1;
+      if (newState === states.length - 1) {
+        setTimeout(() => {
+          setState((prev) => prev + 1);
+        }, 1000);
+      }
+      return newState;
+    });
+  }
+
+  async function setFinishedAchievement() {
+    const userService = new PersistUserService();
+    await userService
+      .setAchievement(AchievementId.PASSWORT_FINISHED, true)
+      .then((res) => {
+        if (res) {
+          messageService.addMessage(
+            "Achievement abgeschlossen: Passwort-Profi",
+            "success",
+          );
+        }
+      });
   }
 
   return (
     <>
-      {state + 1 != states.length ? (
+      {state != states.length ? (
         <div className="relative h-full w-full flex flex-col">
           <div className="w-full h-full flex flex-col justify-center items-center relative">
             <div className="max-w-lg text-xl font-medium text-center absolute bottom-24">
@@ -66,8 +92,20 @@ export default function RobotInPasswort({
         </div>
       ) : (
         <div className="flex flex-col gap-y-4">
-          <Button onClick={() => setContinueGame(true)}>Weiterspielen</Button>
-          <Button onClick={() => router.push("/space")}>
+          <Button
+            onClick={() => {
+              setContinueGame(true);
+              setFinishedAchievement();
+            }}
+          >
+            Weiterspielen
+          </Button>
+          <Button
+            onClick={() => {
+              setFinishedAchievement();
+              router.push("/space");
+            }}
+          >
             Zurück zur Startseite
           </Button>
         </div>
