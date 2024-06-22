@@ -6,6 +6,9 @@ import Button from "./button";
 import { useRouter } from "next/navigation";
 import { PrivacyQuizQuestion } from "@/app/(safespace)/space/privatsphaere/swipe/page";
 import Robot from "@/components/robot/robot";
+import { PersistUserService } from "@/services/user/PersistUserService";
+import { AchievementId } from "@/util/achievement-data";
+import { useMessages } from "@/services/notfication/message-provider";
 
 export function PrivacyQuiz({
   questions,
@@ -15,7 +18,7 @@ export function PrivacyQuiz({
   const router = useRouter();
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [answer, setAnswer] = useState<boolean | null>(null);
-
+  const messageService = useMessages();
   const currentQuestion = questions[currentQuestionIndex];
 
   const handleAnswer = (answer: boolean) => {
@@ -24,7 +27,22 @@ export function PrivacyQuiz({
 
   const handleNextQuestion = () => {
     setAnswer(null);
-    setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
+    setCurrentQuestionIndex((prevIndex) => {
+      if (prevIndex + 1 == questions.length) {
+        const userService = new PersistUserService();
+        userService
+          .setAchievement(AchievementId.PRIVATSPHAERE_FINISHED, true)
+          .then((res) => {
+            if (res) {
+              messageService.addMessage(
+                "Achievement abgeschlossen: Phishing-Abwehrer",
+                "success",
+              );
+            }
+          });
+      }
+      return prevIndex + 1;
+    });
   };
 
   return (

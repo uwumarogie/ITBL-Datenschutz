@@ -1,8 +1,11 @@
+"use client";
+import { Password } from "@phosphor-icons/react";
+
 export type Achievement = {
   id: string;
   title: string;
   description: string;
-  icon?: string | undefined;
+  icon?: React.ReactNode;
   progress: boolean;
 };
 
