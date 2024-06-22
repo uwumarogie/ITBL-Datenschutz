@@ -24,7 +24,6 @@ export async function POST(req: NextRequest) {
       });
     }
 
-    console.debug(userId);
     const foundAchievement = await db
       .select()
       .from(achievements)
