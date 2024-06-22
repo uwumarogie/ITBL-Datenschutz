@@ -4,7 +4,7 @@ import Image from "next/image";
 
 type NotificationProps = {
   id: number;
-  message: string;
+  message: React.ReactNode;
   type: "info" | "success" | "error";
   removeMessage: (id: number) => void;
 };

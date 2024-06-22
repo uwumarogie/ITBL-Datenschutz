@@ -1,5 +1,5 @@
 "use client";
-import {
+import React, {
   createContext,
   useContext,
   useState,
@@ -11,13 +11,13 @@ type MessageType = "info" | "success" | "error";
 
 type Message = {
   id: number;
-  message: string;
+  message: React.ReactNode;
   type: MessageType;
 };
 
 type MessageContextType = {
   messages: Message[];
-  addMessage: (message: string, type?: MessageType) => void;
+  addMessage: (message: React.ReactNode, type?: MessageType) => void;
   removeMessage: (id: number) => void;
 };
 
@@ -35,7 +35,7 @@ export const MessageProvider = ({ children }: { children: ReactNode }) => {
   const [messages, setMessages] = useState<Message[]>([]);
 
   const addMessage = useCallback(
-    (message: string, type: MessageType = "info") => {
+    (message: React.ReactNode, type: MessageType = "info") => {
       setMessages((prevMessages) => [
         ...prevMessages,
         { id: Date.now(), message, type },

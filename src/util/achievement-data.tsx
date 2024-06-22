@@ -17,6 +17,7 @@ export enum AchievementId {
   PHISHING_FINISHED = "PHISHING_FINISHED",
   MEINE_RECHTE_FINISHED = "MEINE_RECHTE_FINISHED",
   PASSWORD_QUIZ = "PASSWORD_QUIZ",
+  PROFIL_DETEKTIV = "PROFIL_DETEKTIV"
 }
 
 export namespace AchievementData {
@@ -82,5 +83,11 @@ export namespace AchievementData {
       description: "Alle Fragen im ersten Quiz richtig beatwortet.",
       progress: true,
     },
+    {
+      id: AchievementId.PROFIL_DETEKTIV,
+      title: "Profil-Detektiv",
+      description: "Ordne alle Anzeichen für Fake- und reale Profile beim ersten Versuch korrekt zu.",
+      progress: true,
+    }
   ];
 }

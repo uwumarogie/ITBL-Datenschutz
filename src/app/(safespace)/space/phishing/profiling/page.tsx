@@ -11,6 +11,9 @@ import Button from "@/components/button";
 import clsx from "clsx";
 import { HintCard } from "@/components/hint-card";
 import Robot from "@/components/robot/robot";
+import { PersistUserService } from "@/services/user/PersistUserService";
+import { AchievementId } from "@/util/achievement-data";
+import { useMessages } from "@/services/notfication/message-provider";
 
 type Column = {
   id: string;
@@ -50,8 +53,6 @@ function shuffleArray(array: string[]) {
 }
 
 function arraysEquals(arr1: string[], arr2: string[]) {
-  console.log(arr1);
-  console.log(arr2);
   if (arr1.length !== arr2.length) {
     return false;
   }
@@ -76,10 +77,12 @@ const initialColumns: { [key: string]: Column } = {
 
 export default function Profiling() {
   const router = useRouter();
+  const messageService = useMessages()
   const [columns, setColumns] = useState(initialColumns);
   const [instructionRead, setInstructionsRead] = useState(false);
   const [wrongAnmiation, setWrongAnimation] = useState(false);
   const [moduleFinished, setModuleFinished] = useState(false);
+  const [tries, setTries] = useState(0);
 
   useEffect(() => {
     const shuffledItems = shuffleArray(
@@ -91,14 +94,21 @@ export default function Profiling() {
     });
   }, []);
 
-  const handleFinish = () => {
+  const handleFinish = async () => {
     const isFinished =
       arraysEquals(columns.fakeProfile.items, signsFakeProfile) &&
       arraysEquals(columns.realProfile.items, signsRealProfile);
 
     if (isFinished) {
+      if(tries == 0) {
+        const userService = new PersistUserService()
+        await userService.setAchievement(AchievementId.PROFIL_DETEKTIV, true).then(() => {
+          messageService.addMessage("Achievement abgeschlossen: Profil-Detektiv", "success")
+        })
+      }
       setModuleFinished(true);
     } else {
+      setTries(prev => prev + 1)
       setWrongAnimation(true);
       setTimeout(() => setWrongAnimation(false), 700);
     }
