@@ -31,7 +31,7 @@ export default function Leaderboard() {
           const data = await getLeaderboardData(gameCode);
           setLeaderboardData(data);
         } catch (error) {
-          console.error("Error fetching leaderboard data:", error);
+          console.error("NotFound fetching leaderboard data:", error);
         }
       };
       fetchLeaderboardData();
