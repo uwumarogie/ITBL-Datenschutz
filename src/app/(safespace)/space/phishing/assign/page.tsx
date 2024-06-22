@@ -9,6 +9,9 @@ import { HintCard } from "@/components/hint-card";
 import clsx from "clsx";
 import Robot from "@/components/robot/robot";
 import Task from "@/components/task";
+import { PersistUserService } from "@/services/user/PersistUserService";
+import { AchievementId } from "@/util/achievement-data";
+import { useMessages } from "@/services/notfication/message-provider";
 
 type Profile = {
   instagramProfile: InstagramProfileData;
@@ -18,14 +21,24 @@ type Profile = {
 
 export default function Assign() {
   const router = useRouter();
+  const messageService = useMessages();
   const [activeIndex, setActiveIndex] = useState(0);
   const [wrongAnmiation, setWrongAnimation] = useState(false);
   const [instructionsRead, setInstructionsRead] = useState(false);
   const [moduleFinished, setModuleFinished] = useState(false);
 
-  const handleRating = (isReal: boolean) => {
+  const handleRating = async (isReal: boolean) => {
     if (profiles[activeIndex].isRealProfile == isReal) {
       if (activeIndex + 1 == profiles.length) {
+        const userService = new PersistUserService();
+        await userService
+          .setAchievement(AchievementId.PHISHING_FINISHED, true)
+          .then(() => {
+            messageService.addMessage(
+              "Achievement abgeschlossen: Phishing-Abwehrer",
+              "success",
+            );
+          });
         setModuleFinished(true);
       }
       setActiveIndex(activeIndex + 1);

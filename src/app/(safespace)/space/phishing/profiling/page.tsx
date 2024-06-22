@@ -77,12 +77,12 @@ const initialColumns: { [key: string]: Column } = {
 
 export default function Profiling() {
   const router = useRouter();
-  const messageService = useMessages()
+  const messageService = useMessages();
   const [columns, setColumns] = useState(initialColumns);
   const [instructionRead, setInstructionsRead] = useState(false);
   const [wrongAnmiation, setWrongAnimation] = useState(false);
   const [moduleFinished, setModuleFinished] = useState(false);
-  const [tries, setTries] = useState(0);
+  const [firstTry, setFirstTry] = useState(true);
 
   useEffect(() => {
     const shuffledItems = shuffleArray(
@@ -100,15 +100,20 @@ export default function Profiling() {
       arraysEquals(columns.realProfile.items, signsRealProfile);
 
     if (isFinished) {
-      if(tries == 0) {
-        const userService = new PersistUserService()
-        await userService.setAchievement(AchievementId.PROFIL_DETEKTIV, true).then(() => {
-          messageService.addMessage("Achievement abgeschlossen: Profil-Detektiv", "success")
-        })
+      if (firstTry) {
+        const userService = new PersistUserService();
+        await userService
+          .setAchievement(AchievementId.PROFIL_DETEKTIV, true)
+          .then(() => {
+            messageService.addMessage(
+              "Achievement abgeschlossen: Profil-Detektiv",
+              "success",
+            );
+          });
       }
       setModuleFinished(true);
     } else {
-      setTries(prev => prev + 1)
+      setFirstTry(false);
       setWrongAnimation(true);
       setTimeout(() => setWrongAnimation(false), 700);
     }

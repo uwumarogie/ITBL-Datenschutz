@@ -27,7 +27,12 @@ export async function POST(req: NextRequest) {
     const foundAchievement = await db
       .select()
       .from(achievements)
-      .where(and(eq(achievements.userId, userId), eq(achievements.achievementEnum, achievementEnum)))
+      .where(
+        and(
+          eq(achievements.userId, userId),
+          eq(achievements.achievementEnum, achievementEnum),
+        ),
+      );
 
     if (foundAchievement.length > 0) {
       return new NextResponse("Achievement already set", {

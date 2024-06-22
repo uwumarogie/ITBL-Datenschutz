@@ -76,6 +76,7 @@ export default function PasswordStrength() {
   const currentQuestion = passwordData[currentQuestionIndex];
   const [animateShake, setAnimateShake] = useState(false);
   const [animatePulse, setAnimatePulse] = useState(false);
+  const [continueGame, setContinueGame] = useState(false);
   const userServiceRef = useRef<PersistUserService | null>(null);
 
   useEffect(() => {
@@ -154,11 +155,11 @@ export default function PasswordStrength() {
           </>
         ) : (
           <div className="flex flex-col w-full overflow-hidden">
-            {highscore === 10 ? (
+            {highscore == 10 && !continueGame && currentScore != 0 ? (
               <div className="flex  flex-col justify-center items-center mt-72">
                 <RobotInPasswort
                   states={states}
-                  href="/space/passwort/builder"
+                  setContinueGame={setContinueGame}
                 />
               </div>
             ) : (
