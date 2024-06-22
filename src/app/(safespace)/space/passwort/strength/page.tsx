@@ -59,6 +59,7 @@ const states: State[] = [
       height: "150px",
       marginLeft: "calc(100% + 400px)",
     },
+    delay: 3000,
     end: true,
   },
 ];
@@ -79,14 +80,19 @@ export default function PasswordStrength() {
   const userServiceRef = useRef<PersistUserService | null>(null);
 
   useEffect(() => {
-    userServiceRef.current = new PersistUserService();
+    const context = new PersistUserService();
     const fetchHighScore = async () => {
-      const loadedHighScore =
-        await userServiceRef.current?.getHighScore("PASSWORD_STRENGTH");
+      const loadedHighScore = await context.getHighScore("PASSWORD_STRENGTH");
       setHighscore(loadedHighScore);
     };
 
+    const setAchievement = async () => {
+      if (highscore === 15) {
+        await userServiceRef.current?.setAchievement("PASSWORD_STRENGTH", true);
+      }
+    };
     fetchHighScore();
+    setAchievement();
   }, [highscore]);
 
   useEffect(() => {
@@ -175,7 +181,7 @@ export default function PasswordStrength() {
 
                 <Button
                   className="md:mb-2 max-w-[100px] bg-gray-600 hover:bg-gray-700 mt-10 text-sm"
-                  onClick={() => router.push("/space/passwort")}
+                  onClick={() => router.push("/space/passwort/builder")}
                 >
                   Zurück
                 </Button>

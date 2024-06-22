@@ -11,6 +11,8 @@ export enum AchievementId {
   WERBE_GURU = "WERBE_GURU",
   PHISHING_FAENGER = "PHISHING_FAENGER",
   PASSWORD_QUIZ = "PASSWORD_QUIZ",
+  PASSWORD_STRENGTH = "PASSWORD_STRENGTH",
+  PASSWORD_BUILDER = "PASSWORD_BUILDER",
 }
 
 export namespace AchievementData {
@@ -38,6 +40,19 @@ export namespace AchievementData {
       id: AchievementId.PASSWORD_QUIZ,
       title: "Passwort-Quiz",
       description: "Alle Fragen im ersten Quiz richtig beatwortet.",
+      progress: true,
+    },
+    {
+      id: AchievementId.PASSWORD_STRENGTH,
+      title: "Passwort-Strength",
+      description: "Erziele 15 Punkte in der Passwort-Strength-Quiz.",
+      progress: true,
+    },
+    {
+      id: AchievementId.PASSWORD_BUILDER,
+      title: "Passwort-Builder",
+      description:
+        "Erstelle ein sicheres Passwort, dass mehr als 1 Millionen Jahre zum Knacken bräuchte",
       progress: true,
     },
   ];

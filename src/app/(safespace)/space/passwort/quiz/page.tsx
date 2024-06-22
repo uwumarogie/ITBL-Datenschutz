@@ -1,5 +1,4 @@
 "use client";
-import QuizList from "@/components/quiz-list";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import Image from "next/image";
@@ -9,6 +8,7 @@ import {
   replaceCharacter,
   topTenPasswords,
 } from "@/util/passwort/password-quiz-data";
+import QuizList from "@/components/Quiz/quiz-list";
 
 const hintCards = [
   {
