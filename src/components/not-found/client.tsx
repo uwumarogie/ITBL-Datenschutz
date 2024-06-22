@@ -16,7 +16,7 @@ export function ClientNotFound() {
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen text-white bg-blue-background gap-y-5">
-      <h1 className="text-3xl font-extrabold">You entered a wrong URL path</h1>
+      <h1 className="text-3xl font-extrabold">Du hast die falsche Url eingegeben.</h1>
       <Image
         src="https://cdn2.thecatapi.com/images/MTk3MDcwNA.jpg"
         alt="cat image"
@@ -27,7 +27,7 @@ export function ClientNotFound() {
         href={newRoute}
         className="flex w-72 h-14 rounded-xl bg-white text-red-600 items-center justify-center font-bold text-2xl"
       >
-        Try again
+        Nochmal versuchen
       </Link>
     </div>
   );
