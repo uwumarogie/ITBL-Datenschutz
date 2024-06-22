@@ -63,9 +63,7 @@ export function calculateBruteForceTime(password: string): string {
     }
   };
 
-  if (timeInSeconds >= secondsInYear * 1000) {
-    return "Unendlich 😏";
-  } else if (timeInSeconds >= secondsInYear * 2) {
+  if (timeInSeconds >= secondsInYear * 2) {
     const years = timeInSeconds / secondsInYear;
     return formatLargeNumbers(years);
   } else if (timeInSeconds >= secondsInMonth * 2) {

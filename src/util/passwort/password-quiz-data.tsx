@@ -1,5 +1,5 @@
 import React from "react";
-import { QuizParams } from "@/components/quiz";
+import { QuizParams } from "@/components/Quiz/quiz";
 
 export const topTenPasswords = [
   "123456789",

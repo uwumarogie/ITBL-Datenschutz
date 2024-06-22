@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import * as z from "zod";
 import { achievements, users } from "@/server/database/schema";
-import { eq } from "drizzle-orm";
+import { and, eq } from "drizzle-orm";
 import { db } from "@/server/database/connection";
 
 const requestSchema = z.object({
@@ -27,7 +27,12 @@ export async function POST(req: NextRequest) {
     const foundAchievement = await db
       .select()
       .from(achievements)
-      .where(eq(achievements.userId, userId));
+      .where(
+        and(
+          eq(achievements.userId, userId),
+          eq(achievements.achievementEnum, achievementEnum),
+        ),
+      );
 
     if (foundAchievement.length > 0) {
       return new NextResponse("Achievement already set", {

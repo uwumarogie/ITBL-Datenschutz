@@ -1,20 +1,20 @@
 "use client";
-import Quiz, { QuizParams } from "@/components/quiz";
 import { useEffect, useState } from "react";
 import clsx from "clsx";
 import Button from "@/components/button";
-import { AchievementId, AchievementData } from "@/util/achievement-data";
+import { Achievement, AchievementData } from "@/util/achievement-data";
 import AchievementCard from "@/components/Achievements/achievement-card";
 import { PersistUserService } from "@/services/user/PersistUserService";
 import Explosion from "react-canvas-confetti/dist/presets/explosion";
-
-export type QuizListProps = {
-  className?: string;
-  quizzes: QuizParams[];
-  onFinish?: () => void;
-  onNextQuestion?: () => void;
-  achievement?: keyof typeof AchievementId | undefined;
-};
+import Quiz, { QuizParams } from "@/components/Quiz/quiz";
+import {
+  customDecorateOptions,
+  getAchievedScore,
+  onSelect,
+  QuizListProps,
+  quizStateClasses,
+  QuizzesStateProps,
+} from "@/components/Quiz/helper";
 
 export default function QuizList({
   quizzes,
@@ -25,15 +25,7 @@ export default function QuizList({
 }: QuizListProps) {
   const [currentQuizIndex, setCurrentQuizIndex] = useState(0);
   const [showSummary, setShowSummary] = useState(false);
-
-  const [quizzesState, setQuizzesState] = useState<
-    {
-      quiz: QuizParams;
-      selection: number;
-      isSolved: boolean;
-      isDone: boolean;
-    }[]
-  >(
+  const [quizzesState, setQuizzesState] = useState<QuizzesStateProps>(
     quizzes.map((quiz) => ({
       quiz,
       selection: -1,
@@ -46,9 +38,7 @@ export default function QuizList({
     (el) => el.id === achievement,
   );
 
-  const achievedScore = quizzesState
-    .map((state) => state.isSolved)
-    .reduce((acc, v) => acc + (v ? 1 : 0), 0);
+  const achievedScore = getAchievedScore(quizzesState);
 
   useEffect(() => {
     async function unlockAchievement(achievementId: string) {
@@ -60,49 +50,6 @@ export default function QuizList({
       unlockAchievement(achievement).then((res) => console.log(res));
     }
   }, [achievement, achievedScore]);
-
-  function quizStateClasses(index: number) {
-    let classes =
-      "rounded-full w-10 h-10 inline-flex justify-center items-center font-bold ";
-    if (index == currentQuizIndex) {
-      classes += "bg-orange-500 text-white";
-    } else if (quizzesState[index].isDone) {
-      if (quizzes[index].showCorrectAnswer) {
-        if (quizzesState[index].isSolved) {
-          classes += "bg-green-200 text-green-800";
-        } else {
-          classes += "bg-red-200 text-red-800";
-        }
-      } else {
-        classes += "bg-sky-200 text-green-800";
-      }
-    } else if (
-      quizzesState[index].selection != -1 &&
-      !quizzesState[index].isSolved
-    ) {
-      classes += "bg-red-200 text-red-800";
-    } else {
-      classes += "bg-slate-200 text-sky-800";
-    }
-    return classes;
-  }
-
-  function onSelect(quizIndex: number, selection: number, isDone: boolean) {
-    setQuizzesState(
-      quizzesState.map((state, index) => {
-        if (quizIndex == index) {
-          return {
-            quiz: state.quiz,
-            selection: selection,
-            isSolved: selection == state.quiz.correctAnswer,
-            isDone: isDone,
-          };
-        } else {
-          return state;
-        }
-      }),
-    );
-  }
 
   function nextQuiz() {
     if (currentQuizIndex == quizzes.length - 1) return;
@@ -124,7 +71,15 @@ export default function QuizList({
     <div className={className}>
       <div className="py-4 flex gap-6 justify-center items-center">
         {quizzesState.map((_, index) => (
-          <div key={index} className={quizStateClasses(index)}>
+          <div
+            key={index}
+            className={quizStateClasses(
+              index,
+              currentQuizIndex,
+              quizzesState,
+              quizzes,
+            )}
+          >
             {index + 1}
           </div>
         ))}
@@ -145,7 +100,13 @@ export default function QuizList({
                 correctAnswer={quiz.correctAnswer}
                 showCorrectAnswer={quiz.showCorrectAnswer}
                 onSelect={(selection, isDone) => {
-                  onSelect(currentQuizIndex, selection, isDone);
+                  onSelect(
+                    currentQuizIndex,
+                    selection,
+                    isDone,
+                    quizzesState,
+                    setQuizzesState,
+                  );
                 }}
                 onAnswerClick={quiz.onAnswerClick}
                 className={undefined}
@@ -156,23 +117,13 @@ export default function QuizList({
       )}
 
       {showSummary && (
-        <div className="flex mb-6 justify-center items-center flex-col gap-4 mt-10">
-          <Explosion autorun={{ speed: 10, duration: 5000 }} />
-          <h3 className="text-xl font-semibold mb-2">Du hast es geschafft!</h3>
-          <p className="pb-6">
-            Du hast {achievedScore} von {quizzesState.length} Fragen richtig
-            beantwortet.
-          </p>
-          {achievementData && achievedScore === quizzes.length && (
-            <AchievementCard
-              id={achievementData.id}
-              title={achievementData.title}
-              description={achievementData.description}
-              progress={achievementData.progress}
-            />
-          )}
-          <Button onClick={() => onFinish?.()}>Weiter</Button>
-        </div>
+        <QuizEndScreen
+          achievedScore={achievedScore}
+          quizzesState={quizzesState}
+          achievementData={achievementData}
+          quizzes={quizzes}
+          onFinish={onFinish}
+        />
       )}
 
       <div className="ml-100 flex justify-end">
@@ -187,6 +138,45 @@ export default function QuizList({
             </Button>
           ))}
       </div>
+    </div>
+  );
+}
+
+function QuizEndScreen({
+  achievedScore,
+  quizzesState,
+  achievementData,
+  quizzes,
+  onFinish,
+}: {
+  achievedScore: number;
+  quizzesState: QuizzesStateProps;
+  achievementData: Achievement | undefined;
+  quizzes: QuizParams[];
+  onFinish?: () => void;
+}) {
+  return (
+    <div className="flex mb-6 justify-center items-center flex-col gap-4 mt-10">
+      <h3 className="text-xl font-semibold mb-2">Du hast es geschafft!</h3>
+      <p className="pb-6">
+        Du hast {achievedScore} von {quizzesState.length} Fragen richtig
+        beantwortet.
+      </p>
+      {achievementData && achievedScore === quizzes.length && (
+        <>
+          <Explosion
+            autorun={{ speed: 10, duration: 2500 }}
+            decorateOptions={customDecorateOptions}
+          />
+          <AchievementCard
+            id={achievementData.id}
+            title={achievementData.title}
+            description={achievementData.description}
+            progress={achievementData.progress}
+          />
+        </>
+      )}
+      <Button onClick={() => onFinish?.()}>Weiter</Button>
     </div>
   );
 }
