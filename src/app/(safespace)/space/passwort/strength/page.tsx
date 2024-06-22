@@ -91,7 +91,7 @@ export default function PasswordStrength() {
   const [continueGame, setContinueGame] = useState(false);
   const [moduleFinished, setModuleFinished] = useState(false);
   const userServiceRef = useRef<PersistUserService | null>(null);
-  const messageService = useMessages()
+  const messageService = useMessages();
 
   useEffect(() => {
     const context = new PersistUserService();
@@ -102,14 +102,16 @@ export default function PasswordStrength() {
 
     const setAchievement = async () => {
       if (highscore === 15) {
-        await userServiceRef.current?.setAchievement("PASSWORD_STRENGTH", true).then((res => {
-          if (res) {
-            messageService.addMessage(
-              "Achievement abgeschlossen: Passwort-Strength",
-              "success",
-            );
-          }
-        }));
+        await userServiceRef.current
+          ?.setAchievement("PASSWORD_STRENGTH", true)
+          .then((res) => {
+            if (res) {
+              messageService.addMessage(
+                "Achievement abgeschlossen: Passwort-Strength",
+                "success",
+              );
+            }
+          });
       }
     };
     fetchHighScore();
