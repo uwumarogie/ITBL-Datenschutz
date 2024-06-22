@@ -6,6 +6,7 @@ import Button from "@/components/button";
 import { AchievementId, AchievementData } from "@/util/achievement-data";
 import AchievementCard from "@/components/Achievements/achievement-card";
 import { PersistUserService } from "@/services/user/PersistUserService";
+import Explosion from "react-canvas-confetti/dist/presets/explosion";
 
 export type QuizListProps = {
   className?: string;
@@ -155,7 +156,8 @@ export default function QuizList({
       )}
 
       {showSummary && (
-        <div className="summary mb-6 flex justify-center items-center flex-col gap-4 mt-10">
+        <div className="flex mb-6 justify-center items-center flex-col gap-4 mt-10">
+          <Explosion autorun={{ speed: 10, duration: 5000 }} />
           <h3 className="text-xl font-semibold mb-2">Du hast es geschafft!</h3>
           <p className="pb-6">
             Du hast {achievedScore} von {quizzesState.length} Fragen richtig
