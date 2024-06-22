@@ -4,6 +4,9 @@ const nextConfig = {
     missingSuspenseWithCSRBailout: false,
   },
   reactStrictMode: false,
+  images: {
+    domains: ["cdn2.thecatapi.com"],
+  },
 };
 
 export default nextConfig;
