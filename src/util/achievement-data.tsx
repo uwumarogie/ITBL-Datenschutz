@@ -20,6 +20,8 @@ export enum AchievementId {
   PHISHING_FINISHED = "PHISHING_FINISHED",
   MEINE_RECHTE_FINISHED = "MEINE_RECHTE_FINISHED",
   PASSWORD_QUIZ = "PASSWORD_QUIZ",
+  PASSWORD_STRENGTH = "PASSWORD_STRENGTH",
+  PASSWORD_BUILDER = "PASSWORD_BUILDER",
   PROFIL_DETEKTIV = "PROFIL_DETEKTIV",
 }
 
@@ -84,6 +86,26 @@ export namespace AchievementData {
       id: AchievementId.PASSWORD_QUIZ,
       title: "Passwort-Quiz",
       description: "Beantworte alle Fragen im ersten Quiz richtig",
+      progress: true,
+    },
+    {
+      id: AchievementId.PROFIL_DETEKTIV,
+      title: "Profil-Detektiv",
+      description:
+        "Ordne alle Anzeichen für Fake- und reale Profile beim ersten Versuch korrekt zu",
+      progress: true,
+    },
+    {
+      id: AchievementId.PASSWORD_STRENGTH,
+      title: "Passwort-Strength",
+      description: "Erziele 15 Punkte in der Passwort-Strength-Quiz.",
+      progress: true,
+    },
+    {
+      id: AchievementId.PASSWORD_BUILDER,
+      title: "Passwort-Builder",
+      description:
+        "Erstelle ein sicheres Passwort, dass mehr als 1 Millionen Jahre zum Knacken bräuchte",
       progress: true,
     },
     {

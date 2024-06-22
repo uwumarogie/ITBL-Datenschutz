@@ -1,9 +1,9 @@
 "use client";
 import { HintCard } from "@/components/hint-card";
-import QuizList from "@/components/quiz-list";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import { QuizParams } from "@/components/quiz";
+import QuizList from "@/components/Quiz/quiz-list";
+import { QuizParams } from "@/components/Quiz/quiz";
 
 export default function StartGame() {
   const [showHintCard, setShowHintCard] = useState(false);
