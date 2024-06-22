@@ -1,5 +1,6 @@
 "use client";
 import { NavButton, NavButtonType } from "@/components/nav-button";
+import { achievements } from "@/server/database/schema";
 import { PersistUserService } from "@/services/user/PersistUserService";
 import { AchievementId } from "@/util/achievement-data";
 import {
@@ -61,21 +62,19 @@ export function InlineNavigation() {
   const [unlockedAchievements, setUnlockedAchievements] = useState<string[]>(
     [],
   );
-  const userService = new PersistUserService();
 
   useEffect(() => {
     const fetchAchievements = async () => {
-      const achievements = await userService.getAchievement();
-      let tmpAchievements = unlockedAchievements;
-      if (!Array.isArray(achievements)) {
-        tmpAchievements.push(achievements.achievementEnum);
+      const userService = new PersistUserService();
+      const achievements = await userService.getAchievement()
+      if (Array.isArray(achievements)) {
+        setUnlockedAchievements(achievements.map(a => a.achievementEnum))
       } else {
-        tmpAchievements.concat(achievements.map((a) => a.achievementEnum));
+        setUnlockedAchievements(Array.of(achievements.achievementEnum));
       }
-      setUnlockedAchievements(tmpAchievements);
     };
 
-    fetchAchievements();
+    fetchAchievements()
   }, []);
 
   return (
