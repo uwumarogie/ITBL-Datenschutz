@@ -51,34 +51,35 @@ export function calculateBruteForceTime(password: string): string {
   const totalCombinations = Math.pow(characterSetSize, passwordLength);
   const timeInSeconds = totalCombinations / attemptsPerSecond;
 
-  const formatLargeNumbers = (num: number): string => {
+  const formatNumber = (num: number): string => {
+    const roundedNum = num.toPrecision(3);
     if (num >= 1e12) {
-      return (num / 1e12).toFixed(2) + " Billionen Jahre";
+      return "Unendlich 😏";
     } else if (num >= 1e9) {
-      return (num / 1e9).toFixed(2) + " Milliarden Jahre";
+      return `${roundedNum} Millarden Jahre`;
     } else if (num >= 1e6) {
-      return (num / 1e6).toFixed(2) + " Millionen Jahre";
+      return `${roundedNum} Millionen Jahre`;
     } else {
-      return num.toFixed(0) + " Jahre";
+      return `${roundedNum} Jahre`;
     }
   };
 
   if (timeInSeconds >= secondsInYear * 2) {
     const years = timeInSeconds / secondsInYear;
-    return formatLargeNumbers(years);
+    return formatNumber(years);
   } else if (timeInSeconds >= secondsInMonth * 2) {
     const months = timeInSeconds / secondsInMonth;
-    return `${months.toFixed(0)} Monate`;
+    return `${months.toPrecision(3)} Monate`;
   } else if (timeInSeconds >= secondsInDay * 2) {
     const days = timeInSeconds / secondsInDay;
-    return `${days.toFixed(0)} Tage`;
+    return `${days.toPrecision(3)} Tage`;
   } else if (timeInSeconds >= secondsInHour * 2) {
     const hours = timeInSeconds / secondsInHour;
-    return `${hours.toFixed(0)} Stunden`;
+    return `${hours.toPrecision(3)} Stunden`;
   } else if (timeInSeconds >= secondsInMinute * 2) {
     const minutes = timeInSeconds / secondsInMinute;
-    return `${minutes.toFixed(0)} Minuten`;
+    return `${minutes.toPrecision(3)} Minuten`;
   } else {
-    return `${timeInSeconds.toFixed(0)} Sekunden`;
+    return `${timeInSeconds.toPrecision(3)} Sekunden`;
   }
 }
