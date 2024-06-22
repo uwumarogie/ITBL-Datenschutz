@@ -66,15 +66,15 @@ export function InlineNavigation() {
   useEffect(() => {
     const fetchAchievements = async () => {
       const userService = new PersistUserService();
-      const achievements = await userService.getAchievement()
+      const achievements = await userService.getAchievement();
       if (Array.isArray(achievements)) {
-        setUnlockedAchievements(achievements.map(a => a.achievementEnum))
+        setUnlockedAchievements(achievements.map((a) => a.achievementEnum));
       } else {
         setUnlockedAchievements(Array.of(achievements.achievementEnum));
       }
     };
 
-    fetchAchievements()
+    fetchAchievements();
   }, []);
 
   return (
