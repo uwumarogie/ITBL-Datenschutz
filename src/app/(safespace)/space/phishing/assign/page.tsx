@@ -35,10 +35,7 @@ export default function Assign() {
           .setAchievement(AchievementId.PHISHING_FINISHED, true)
           .then((res) => {
             if (res) {
-              messageService.addMessage(
-                "Achievement abgeschlossen: Phishing-Abwehrer",
-                "success",
-              );
+              messageService.showAchievement(AchievementId.PHISHING_FINISHED)
             }
           });
         setModuleFinished(true);

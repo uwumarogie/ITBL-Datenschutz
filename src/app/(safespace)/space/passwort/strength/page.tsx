@@ -103,13 +103,10 @@ export default function PasswordStrength() {
     const setAchievement = async () => {
       if (highscore === 15) {
         await userServiceRef.current
-          ?.setAchievement("PASSWORD_STRENGTH", true)
+          ?.setAchievement(AchievementId.PASSWORD_STRENGTH, true)
           .then((res) => {
             if (res) {
-              messageService.addMessage(
-                "Achievement abgeschlossen: Passwort-Strength",
-                "success",
-              );
+              messageService.showAchievement(AchievementId.PASSWORD_STRENGTH)
             }
           });
       }

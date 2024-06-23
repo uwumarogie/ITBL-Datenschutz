@@ -54,10 +54,7 @@ export default function RobotInPasswort({
       .setAchievement(AchievementId.PASSWORT_FINISHED, true)
       .then((res) => {
         if (res) {
-          messageService.addMessage(
-            "Achievement abgeschlossen: Passwort-Profi",
-            "success",
-          );
+          messageService.showAchievement(AchievementId.PASSWORT_FINISHED)
         }
       });
   }

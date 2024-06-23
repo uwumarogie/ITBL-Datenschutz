@@ -38,10 +38,7 @@ export function PrivacyQuiz({
           .setAchievement(AchievementId.PRIVATSPHAERE_FINISHED, true)
           .then((res) => {
             if (res) {
-              messageService.addMessage(
-                "Achievement abgeschlossen: Phishing-Abwehrer",
-                "success",
-              );
+              messageService.showAchievement(AchievementId.PRIVATSPHAERE_FINISHED)
             }
           });
         if (firstTry) {
@@ -49,10 +46,7 @@ export function PrivacyQuiz({
             .setAchievement(AchievementId.PRIVATSPHAERE_SWIPE, true)
             .then((res) => {
               if (res) {
-                messageService.addMessage(
-                  "Achievement abgeschlossen: Datenschützer",
-                  "success",
-                );
+                messageService.showAchievement(AchievementId.PRIVATSPHAERE_SWIPE)
               }
             });
         }

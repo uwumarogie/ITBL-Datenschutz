@@ -105,10 +105,7 @@ export default function Profiling() {
         await userService
           .setAchievement(AchievementId.PROFIL_DETEKTIV, true)
           .then(() => {
-            messageService.addMessage(
-              "Achievement abgeschlossen: Profil-Detektiv",
-              "success",
-            );
+            messageService.showAchievement(AchievementId.PROFIL_DETEKTIV)
           });
       }
       setModuleFinished(true);
