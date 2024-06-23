@@ -38,7 +38,9 @@ export function PrivacyQuiz({
           .setAchievement(AchievementId.PRIVATSPHAERE_FINISHED, true)
           .then((res) => {
             if (res) {
-              messageService.showAchievement(AchievementId.PRIVATSPHAERE_FINISHED)
+              messageService.showAchievement(
+                AchievementId.PRIVATSPHAERE_FINISHED,
+              );
             }
           });
         if (firstTry) {
@@ -46,7 +48,9 @@ export function PrivacyQuiz({
             .setAchievement(AchievementId.PRIVATSPHAERE_SWIPE, true)
             .then((res) => {
               if (res) {
-                messageService.showAchievement(AchievementId.PRIVATSPHAERE_SWIPE)
+                messageService.showAchievement(
+                  AchievementId.PRIVATSPHAERE_SWIPE,
+                );
               }
             });
         }

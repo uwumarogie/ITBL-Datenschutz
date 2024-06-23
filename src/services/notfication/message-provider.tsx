@@ -1,6 +1,10 @@
 "use client";
 import AchievementCard from "@/components/Achievements/achievement-card";
-import { Achievement, AchievementData, AchievementId } from "@/util/achievement-data";
+import {
+  Achievement,
+  AchievementData,
+  AchievementId,
+} from "@/util/achievement-data";
 import React, {
   createContext,
   useContext,
@@ -47,34 +51,35 @@ export const MessageProvider = ({ children }: { children: ReactNode }) => {
     [],
   );
 
-  const showAchievement = useCallback(
-    (achievementId: AchievementId) => {
-      const achievement: Achievement | undefined = AchievementData.achievements.find(a => a.id === achievementId)
-      if (achievement) {
-        const message =
-          <AchievementCard
-            id={achievement.id}
-            title={achievement.title}
-            description={achievement.description}
-            progress={true}
-            icon={achievement.icon}
-          />
+  const showAchievement = useCallback((achievementId: AchievementId) => {
+    const achievement: Achievement | undefined =
+      AchievementData.achievements.find((a) => a.id === achievementId);
+    if (achievement) {
+      const message = (
+        <AchievementCard
+          id={achievement.id}
+          title={achievement.title}
+          description={achievement.description}
+          progress={true}
+          icon={achievement.icon}
+        />
+      );
 
-        setMessages((prevMessages) => [
-          ...prevMessages,
-          { id: Date.now(), message, type: "achievement" },
-        ])
-      }
-    },
-    []
-  )
+      setMessages((prevMessages) => [
+        ...prevMessages,
+        { id: Date.now(), message, type: "achievement" },
+      ]);
+    }
+  }, []);
 
   const removeMessage = useCallback((id: number) => {
     setMessages((prevMessages) => prevMessages.filter((msg) => msg.id !== id));
   }, []);
 
   return (
-    <MessageContext.Provider value={{ messages, addMessage, removeMessage, showAchievement }}>
+    <MessageContext.Provider
+      value={{ messages, addMessage, removeMessage, showAchievement }}
+    >
       {children}
     </MessageContext.Provider>
   );

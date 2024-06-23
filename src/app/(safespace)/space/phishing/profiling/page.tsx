@@ -105,7 +105,7 @@ export default function Profiling() {
         await userService
           .setAchievement(AchievementId.PROFIL_DETEKTIV, true)
           .then(() => {
-            messageService.showAchievement(AchievementId.PROFIL_DETEKTIV)
+            messageService.showAchievement(AchievementId.PROFIL_DETEKTIV);
           });
       }
       setModuleFinished(true);

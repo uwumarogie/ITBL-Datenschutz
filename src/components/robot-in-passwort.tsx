@@ -54,7 +54,7 @@ export default function RobotInPasswort({
       .setAchievement(AchievementId.PASSWORT_FINISHED, true)
       .then((res) => {
         if (res) {
-          messageService.showAchievement(AchievementId.PASSWORT_FINISHED)
+          messageService.showAchievement(AchievementId.PASSWORT_FINISHED);
         }
       });
   }

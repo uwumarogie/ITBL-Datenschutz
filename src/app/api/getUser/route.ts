@@ -5,7 +5,7 @@ import { db } from "@/server/database/connection";
 import { eq } from "drizzle-orm";
 
 const requestSchema = z.object({
-  userId: z.number(),
+  userId: z.coerce.number(),
 });
 export async function POST(req: NextRequest) {
   const requestBody = await req.json();
@@ -22,7 +22,7 @@ export async function POST(req: NextRequest) {
       .from(users)
       .where(eq(users.id, userId));
 
-    return new NextResponse(JSON.stringify(userData), {
+    return new NextResponse(JSON.stringify(userData[0]), {
       status: 200,
       statusText: "User data arrived",
     });

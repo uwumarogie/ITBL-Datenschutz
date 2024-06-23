@@ -35,7 +35,7 @@ export default function Assign() {
           .setAchievement(AchievementId.PHISHING_FINISHED, true)
           .then((res) => {
             if (res) {
-              messageService.showAchievement(AchievementId.PHISHING_FINISHED)
+              messageService.showAchievement(AchievementId.PHISHING_FINISHED);
             }
           });
         setModuleFinished(true);

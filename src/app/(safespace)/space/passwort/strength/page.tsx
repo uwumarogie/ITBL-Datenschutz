@@ -106,7 +106,7 @@ export default function PasswordStrength() {
           ?.setAchievement(AchievementId.PASSWORD_STRENGTH, true)
           .then((res) => {
             if (res) {
-              messageService.showAchievement(AchievementId.PASSWORD_STRENGTH)
+              messageService.showAchievement(AchievementId.PASSWORD_STRENGTH);
             }
           });
       }
