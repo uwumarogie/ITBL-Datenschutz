@@ -1,7 +1,6 @@
 "use client";
 
 import Button from "@/components/button";
-import Image from "next/image";
 import clsx from "clsx";
 import { Star } from "@phosphor-icons/react";
 import { Achievement } from "@/util/achievement-data";
@@ -24,9 +23,10 @@ export default function AchievementCard({
   return (
     <div className={clsx("flex flex-col items-center", className)}>
       <div className={achievementIconCardStyle}>
-        {icon}
         {icon ? (
-          <Image src={"/" + icon} alt={title} className="w-10" />
+          <span className={progress ? "text-[rgb(249,115,22)]" : "text-[gray]"}>
+            {icon}
+          </span>
         ) : (
           <Star
             color={progress ? "rgb(249 115 22)" : "gray"}

@@ -12,6 +12,8 @@ import { PasswordData, passwordData } from "@/util/passwort/password-quiz-data";
 import { passwordAnimation } from "@/util/passwort/strength-helper";
 import { State } from "@/app/(safespace)/space/daten-verarbeitung/kapitel2/level/components/recommendation-quiz";
 import RobotInPasswort from "@/components/robot-in-passwort";
+import { AchievementId } from "@/util/achievement-data";
+import { users } from "@/server/database/schema";
 
 const states: State[] = [
   {
@@ -57,7 +59,16 @@ const states: State[] = [
     style: {
       width: "150px",
       height: "150px",
-      marginLeft: "calc(100% + 400px)",
+    },
+  },
+  {
+    expression: "smiling",
+    rotation: 0,
+    text: "",
+    style: {
+      width: "150px",
+      height: "150px",
+      marginRight: "calc(100% + 400px)",
     },
     delay: 3000,
     end: true,
@@ -77,7 +88,10 @@ export default function PasswordStrength() {
   const currentQuestion = passwordData[currentQuestionIndex];
   const [animateShake, setAnimateShake] = useState(false);
   const [animatePulse, setAnimatePulse] = useState(false);
+  const [continueGame, setContinueGame] = useState(false);
+  const [moduleFinished, setModuleFinished] = useState(false);
   const userServiceRef = useRef<PersistUserService | null>(null);
+  const messageService = useMessages();
 
   useEffect(() => {
     const context = new PersistUserService();
@@ -88,12 +102,37 @@ export default function PasswordStrength() {
 
     const setAchievement = async () => {
       if (highscore === 15) {
-        await userServiceRef.current?.setAchievement("PASSWORD_STRENGTH", true);
+        await userServiceRef.current
+          ?.setAchievement(AchievementId.PASSWORD_STRENGTH, true)
+          .then((res) => {
+            if (res) {
+              messageService.showAchievement(AchievementId.PASSWORD_STRENGTH);
+            }
+          });
       }
     };
     fetchHighScore();
     setAchievement();
   }, [highscore]);
+
+  useEffect(() => {
+    userServiceRef.current = new PersistUserService();
+    const fetchAchievements = async () => {
+      let finished;
+      const achievements = await userServiceRef.current?.getAchievement();
+      if (Array.isArray(achievements)) {
+        finished = achievements
+          .map((a) => a.achievementEnum)
+          .includes(AchievementId.PASSWORT_FINISHED);
+      } else {
+        finished =
+          AchievementId.PASSWORT_FINISHED === achievements?.achievementEnum;
+      }
+      setModuleFinished(finished);
+    };
+
+    fetchAchievements();
+  }, []);
 
   useEffect(() => {
     if (gameStarted) {
@@ -160,11 +199,11 @@ export default function PasswordStrength() {
           </>
         ) : (
           <div className="flex flex-col w-full overflow-hidden">
-            {highscore === 10 ? (
+            {highscore == 10 && !continueGame && !moduleFinished ? (
               <div className="flex  flex-col justify-center items-center mt-72">
                 <RobotInPasswort
                   states={states}
-                  href="/space/passwort/builder"
+                  setContinueGame={setContinueGame}
                 />
               </div>
             ) : (

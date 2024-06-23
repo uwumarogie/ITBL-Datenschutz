@@ -7,7 +7,10 @@ type Achievement = {
 };
 
 export class PersistUserService {
-  public userId: string | null = localStorage.getItem("userId");
+  public userId: string | null =
+    typeof window !== "undefined" && window.localStorage
+      ? localStorage.getItem("userId")
+      : null;
 
   constructor() {}
 

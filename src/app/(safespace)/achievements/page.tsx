@@ -38,9 +38,13 @@ export default function Achievements() {
           }
         });
       setAchievements(fetchedAchievements);
+      setProgress(
+        fetchedAchievements.filter((a) => a.progress).length /
+          AchievementData.achievements.length,
+      );
     };
 
-    fetchData().then((r) => console.log(r));
+    fetchData();
   }, []);
 
   function getProgress(
@@ -56,10 +60,6 @@ export default function Achievements() {
     );
   }
   const steps = [
-    {
-      progress: 0.1,
-      text: "Einstieg",
-    },
     {
       progress: 0.8,
       text: "Master Quiz",
@@ -83,6 +83,7 @@ export default function Achievements() {
             key={a.title}
             id={a.id}
             title={a.title}
+            icon={a.icon}
             description={a.description}
             progress={a.progress}
           />

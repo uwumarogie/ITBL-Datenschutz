@@ -9,6 +9,7 @@ import {
   topTenPasswords,
 } from "@/util/passwort/password-quiz-data";
 import QuizList from "@/components/Quiz/quiz-list";
+import { AchievementId } from "@/util/achievement-data";
 
 const hintCards = [
   {
@@ -76,7 +77,7 @@ export default function StartGame() {
           router.push("/space/passwort/builder");
         }}
         onNextQuestion={handleQuestionChange}
-        achievement="PASSWORD_QUIZ"
+        achievement={AchievementId.PASSWORD_QUIZ}
       />
       <div className="max-w-[400px]">
         {currentHintCard && (

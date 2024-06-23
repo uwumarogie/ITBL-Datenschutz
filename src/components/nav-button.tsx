@@ -50,7 +50,7 @@ export function NavButton({
         className="hidden sm:block absolute left-3 top-[50px] px-2 py-1 bg-gray-700 text-white text-xs min-w-[130px] rounded transition-opacity duration-300 z-50"
         style={{ opacity: isHovered ? 1 : 0 }}
       >
-        {description}
+        {isFinished ? "Abgeschlossen: " + description : description}
       </div>
     </Link>
   );

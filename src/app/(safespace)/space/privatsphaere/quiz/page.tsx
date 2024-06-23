@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import QuizList from "@/components/Quiz/quiz-list";
 import { QuizParams } from "@/components/Quiz/quiz";
+import { AchievementId } from "@/util/achievement-data";
 
 export default function StartGame() {
   const [showHintCard, setShowHintCard] = useState(false);
@@ -133,6 +134,7 @@ export default function StartGame() {
           router.push("/space/privatsphaere/perso/1");
         }}
         onNextQuestion={handleQuestionChange}
+        achievement={AchievementId.PRIVATSPHAERE_QUIZ}
       />
       <div className="max-w-[400px]">
         {showHintCard && (

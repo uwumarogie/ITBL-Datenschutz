@@ -3,7 +3,6 @@
 import {
   Airplane,
   Browsers,
-  Calendar,
   CarProfile,
   CreditCard,
   Cross,
@@ -13,6 +12,7 @@ import {
   Hospital,
   MapPin,
   PhoneCall,
+  Scroll,
   Sun,
   SunHorizon,
 } from "@phosphor-icons/react";
@@ -45,7 +45,7 @@ const unsortedQuestions: PrivacyQuizQuestion[] = [
     questionText: "Markus Sozialversicherungsnummer",
     explanation:
       "Die Sozialversicherungsnummer ist eine eindeutige Identifikationsnummer, die einer Person zugeordnet ist und zur Verfolgung ihrer Sozialversicherungsansprüche verwendet wird. Daher ist sie personenbezogen.",
-    icon: <Calendar size={150} />,
+    icon: <Scroll size={28} />,
     isPersonenbezogen: true,
   },
   {
