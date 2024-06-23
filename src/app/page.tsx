@@ -118,9 +118,18 @@ export default function HomePage() {
           )}
         </div>
         <>
-          {mode === "singlePlayer" && <SinglePlayer username={username} />}
+          {mode === "singlePlayer" && (
+            <SinglePlayer
+              username={username}
+              generateUsername={generateUsername}
+            />
+          )}
           {mode === "multiPlayer" && (
-            <Multiplayer username={username} setGameCode={setGameCode} />
+            <Multiplayer
+              username={username}
+              setGameCode={setGameCode}
+              generateUsername={generateUsername}
+            />
           )}
         </>
         <div>
