@@ -38,6 +38,10 @@ export default function Achievements() {
           }
         });
       setAchievements(fetchedAchievements);
+      setProgress(
+        fetchedAchievements.filter((a) => a.progress).length /
+          AchievementData.achievements.length,
+      );
     };
 
     fetchData();
@@ -56,10 +60,6 @@ export default function Achievements() {
     );
   }
   const steps = [
-    {
-      progress: 0.1,
-      text: "Einstieg",
-    },
     {
       progress: 0.8,
       text: "Master Quiz",

@@ -24,7 +24,9 @@ export default function AchievementCard({
     <div className={clsx("flex flex-col items-center", className)}>
       <div className={achievementIconCardStyle}>
         {icon ? (
-          <span>icon</span>
+          <span className={progress ? "text-[rgb(249,115,22)]" : "text-[gray]"}>
+            {icon}
+          </span>
         ) : (
           <Star
             color={progress ? "rgb(249 115 22)" : "gray"}

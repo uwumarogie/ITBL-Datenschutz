@@ -1,5 +1,20 @@
 "use client";
-import { Password } from "@phosphor-icons/react";
+import {
+  Barbell,
+  CloudArrowDown,
+  Detective,
+  FishSimple,
+  HandSwipeRight,
+  IconProps,
+  Lightbulb,
+  ListChecks,
+  LockKey,
+  Password,
+  PencilRuler,
+  Robot,
+  Scales,
+  Star,
+} from "@phosphor-icons/react";
 
 export type Achievement = {
   id: string;
@@ -10,103 +25,130 @@ export type Achievement = {
 };
 
 export enum AchievementId {
-  DATENSCHUTZ_HELD = "DATENSCHUTZ_HELD",
-  WERBE_GURU = "WERBE_GURU",
-  PHISHING_FAENGER = "PHISHING_FAENGER",
-  INTRO_FINISHED = "INTRO_FINISHED",
+  MASTER_QUIZ = "MASTER_QUIZ", //TODO
+  WERBE_GURU = "WERBE_GURU", //TODO
+  INTRO_FINISHED = "INTRO_FINISHED", //TODO
+  DATENVERARBEITUNG_FINISHED = "DATENVERARBEITUNG_FINISHED", //TODO
+  MEINE_RECHTE_FINISHED = "MEINE_RECHTE_FINISHED", //TODO
   PASSWORT_FINISHED = "PASSWORT_FINISHED",
   PRIVATSPHAERE_FINISHED = "PRIVATSPHAERE_FINISHED",
-  DATENVERARBEITUNG_FINISHED = "DATENVERARBEITUNG_FINISHED",
   PHISHING_FINISHED = "PHISHING_FINISHED",
-  MEINE_RECHTE_FINISHED = "MEINE_RECHTE_FINISHED",
   PASSWORD_QUIZ = "PASSWORD_QUIZ",
   PASSWORD_STRENGTH = "PASSWORD_STRENGTH",
   PASSWORD_BUILDER = "PASSWORD_BUILDER",
   PROFIL_DETEKTIV = "PROFIL_DETEKTIV",
+  PRIVATSPHAERE_QUIZ = "PRIVATSPHAERE_QUIZ",
+  PRIVATSPHAERE_SWIPE = "PRIVATSPHAERE_SWIPE",
 }
 
 export namespace AchievementData {
+  const iconProps: IconProps = {
+    weight: "fill",
+    className: "w-full h-full p-3",
+  };
+
   export const achievements: Achievement[] = [
     {
-      id: AchievementId.DATENSCHUTZ_HELD,
-      title: "Datenschutz-Held",
+      id: AchievementId.MASTER_QUIZ,
+      title: "Master",
       description:
-        "Du bist jetzt in deinem Gebiet ein Profi. Kläre eine Person in deinem Umfeld auf und überzeuge sie, ein sicheres Passwort zu erstellen.",
+        "Schließe das Master-Quiz erfolgreich ab und werde zum Datenschutz-Experte",
       progress: false,
+      icon: <Star {...iconProps} />,
     },
     {
       id: AchievementId.WERBE_GURU,
       title: "Werbe-Guru",
       description: "Erziele 5 perfekte Werbeangebote.",
-      progress: true,
-    },
-    {
-      id: AchievementId.PHISHING_FAENGER,
-      title: "Phishing-Fänger",
-      description: "Erkenne und melde 2 Phishing-Versuche.",
-      progress: true,
+      progress: false,
+      icon: <Robot {...iconProps} />,
     },
     {
       id: AchievementId.INTRO_FINISHED,
       title: "Einsteiger",
       description: "Schließe das Intromodul erfolgreich ab",
-      progress: true,
+      progress: false,
+      icon: <Lightbulb {...iconProps} />,
     },
     {
       id: AchievementId.PASSWORT_FINISHED,
       title: "Passwort-Profi",
       description: "Schließe das Passwortmodul erfolgreich ab",
-      progress: true,
+      progress: false,
+      icon: <Password {...iconProps} />,
     },
     {
       id: AchievementId.PRIVATSPHAERE_FINISHED,
       title: "Privatsphäre-Protektor",
       description: "Schließe das Privatsphäremodul erfolgreich ab",
-      progress: true,
+      progress: false,
+      icon: <LockKey {...iconProps} />,
     },
     {
       id: AchievementId.DATENVERARBEITUNG_FINISHED,
       title: "Datenverarbeitungs-Diplomat",
       description: "Schließe das Datenverarbeitungsmodul erfolgreich ab",
-      progress: true,
+      progress: false,
+      icon: <CloudArrowDown {...iconProps} />,
     },
     {
       id: AchievementId.PHISHING_FINISHED,
       title: "Phishing-Abwehrer",
       description: "Schließe das Phishingmodul erfolgreich ab",
-      progress: true,
+      progress: false,
+      icon: <FishSimple {...iconProps} />,
     },
     {
       id: AchievementId.MEINE_RECHTE_FINISHED,
       title: "Rechte-Ratgeber",
       description: 'Schließe das "Meine Rechte"-Modul erfolgreich ab',
-      progress: true,
+      progress: false,
+      icon: <Scales {...iconProps} />,
     },
     {
       id: AchievementId.PASSWORD_QUIZ,
       title: "Passwort-Quiz",
-      description: "Beantworte alle Fragen im ersten Quiz richtig",
-      progress: true,
+      description: "Beantworte alle Fragen im Passwort-Quiz Quiz richtig",
+      progress: false,
+      icon: <ListChecks {...iconProps} />,
     },
     {
       id: AchievementId.PROFIL_DETEKTIV,
       title: "Profil-Detektiv",
       description:
         "Ordne alle Anzeichen für Fake- und reale Profile beim ersten Versuch korrekt zu",
-      progress: true,
+      progress: false,
+      icon: <Detective {...iconProps} />,
     },
     {
       id: AchievementId.PASSWORD_STRENGTH,
       title: "Passwort-Strength",
       description: "Erziele 15 Punkte in der Passwort-Strength-Quiz.",
-      progress: true,
+      progress: false,
+      icon: <Barbell {...iconProps} />,
     },
     {
       id: AchievementId.PASSWORD_BUILDER,
       title: "Passwort-Builder",
       description:
         "Erstelle ein sicheres Passwort, dass mehr als 1 Millionen Jahre zum Knacken bräuchte",
-      progress: true,
+      progress: false,
+      icon: <PencilRuler {...iconProps} />,
+    },
+    {
+      id: AchievementId.PRIVATSPHAERE_QUIZ,
+      title: "Privatsphäre-Quiz",
+      description: "Beantworte alle Fragen im Privatsphäre-Quiz richtig",
+      progress: false,
+      icon: <ListChecks {...iconProps} />,
+    },
+    {
+      id: AchievementId.PRIVATSPHAERE_SWIPE,
+      title: "Privatsphäre-Schützer",
+      description:
+        "Entscheide für alle Daten richtig, ob sie personenbezogen sind oder nicht",
+      progress: false,
+      icon: <HandSwipeRight {...iconProps} />,
     },
   ];
 }

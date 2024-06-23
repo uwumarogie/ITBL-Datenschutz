@@ -172,7 +172,8 @@ function QuizEndScreen({
             id={achievementData.id}
             title={achievementData.title}
             description={achievementData.description}
-            progress={achievementData.progress}
+            progress={true}
+            icon={achievementData.icon}
           />
         </>
       )}

@@ -20,8 +20,12 @@ export function PrivacyQuiz({
   const [answer, setAnswer] = useState<boolean | null>(null);
   const messageService = useMessages();
   const currentQuestion = questions[currentQuestionIndex];
+  const [firstTry, setFirstTry] = useState(true);
 
   const handleAnswer = (answer: boolean) => {
+    if (currentQuestion.isPersonenbezogen != answer) {
+      setFirstTry(false);
+    }
     setAnswer(answer);
   };
 
@@ -40,6 +44,18 @@ export function PrivacyQuiz({
               );
             }
           });
+        if (firstTry) {
+          userService
+            .setAchievement(AchievementId.PRIVATSPHAERE_SWIPE, true)
+            .then((res) => {
+              if (res) {
+                messageService.addMessage(
+                  "Achievement abgeschlossen: Datenschützer",
+                  "success",
+                );
+              }
+            });
+        }
       }
       return prevIndex + 1;
     });
