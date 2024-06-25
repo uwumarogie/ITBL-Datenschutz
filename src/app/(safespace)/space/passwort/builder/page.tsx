@@ -15,17 +15,19 @@ export default function Builder() {
   const [input, setInput] = useState("");
   const [isSecure, setIsSecure] = useState(false);
   const [hint, setHint] = useState("0.00 Sekunden");
-  const messageService = useMessages()
+  const messageService = useMessages();
 
   useEffect(() => {
     const context = new PersistUserService();
     const setAchievement = async () => {
       if (hint.includes("Unendlich")) {
-        await context.setAchievement(AchievementId.PASSWORD_BUILDER, true).then((res) => {
-          if (res) {
-            messageService.showAchievement(AchievementId.PASSWORD_BUILDER)
-          }
-        });
+        await context
+          .setAchievement(AchievementId.PASSWORD_BUILDER, true)
+          .then((res) => {
+            if (res) {
+              messageService.showAchievement(AchievementId.PASSWORD_BUILDER);
+            }
+          });
       }
     };
     setAchievement();
