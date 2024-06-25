@@ -35,7 +35,7 @@ export default function Button({
   } else if (style == "neutral") {
     buttonStyle = "bg-gray-500 text-white";
     buttonHoverStyle = "hover:bg-gray-600";
-  } 
+  }
   const buttonDisabledStyle = "opacity-50 " + buttonStyle;
 
   const mergedStyle = clsx(
