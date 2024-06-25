@@ -3,7 +3,7 @@
 import { IntroductionText } from "@/components/introduction-text";
 import { ActionCard } from "@/components/action-card";
 import Image from "next/image";
-import { ProgressBar } from "@/components/ProgressBar";
+import { ProgressBar } from "@/components/progress-bar";
 import React, { useEffect, useState } from "react";
 import { PersistUserService } from "@/services/user/PersistUserService";
 import { HighScoreEnum } from "@/server/database/schema";

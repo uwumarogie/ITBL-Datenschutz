@@ -32,7 +32,7 @@ export default function ProfileAnalysis({
   minFoundTerms,
   hint,
   href,
-  children
+  children,
 }: ProfileAnalysisProps & { children?: React.ReactNode }) {
   const [state, setState] = useState(0);
   const [termInput, setTermInput] = useState("");
@@ -42,28 +42,33 @@ export default function ProfileAnalysis({
   const { addMessage } = useMessages();
 
   function checkTerm() {
-    const distances = terms.map(term => ({term, distance: distance(termInput.toLowerCase(), term.toLowerCase())}))
-      .filter(({distance}) => distance <= MAX_DISTANCE).sort((a,b) => b.distance - a.distance)
+    const distances = terms
+      .map((term) => ({
+        term,
+        distance: distance(termInput.toLowerCase(), term.toLowerCase()),
+      }))
+      .filter(({ distance }) => distance <= MAX_DISTANCE)
+      .sort((a, b) => b.distance - a.distance);
 
-    console.log(distances)
+    console.log(distances);
 
-    let newTermFound = false
-    for(let {term, distance} of distances){
-      if(foundTerms.includes(term)){
+    let newTermFound = false;
+    for (let { term, distance } of distances) {
+      if (foundTerms.includes(term)) {
         addMessage(
           "Du hast diesen Begriff bereits gefunden. Finde eine andere Eigenschaft!",
           "info",
         );
-        return
-      }else{
-        newTermFound = true
-        setFoundTerms(terms => [...terms, term])
+        return;
+      } else {
+        newTermFound = true;
+        setFoundTerms((terms) => [...terms, term]);
         setTermInput("");
-        return
+        return;
       }
     }
 
-    if(!newTermFound) {
+    if (!newTermFound) {
       addMessage(
         "Dieser Begriff scheint nicht zu passen. Versuche einen ähnliche oder ganz anderen Begriff.",
         "error",
@@ -80,9 +85,7 @@ export default function ProfileAnalysis({
   return (
     <div className="h-full relative flex @container justify-evenly">
       <div className="h-full w-full max-w-[600px] mr-10 border-2 rounded-xl shadow overflow-hidden">
-        <div className="h-full box-border">
-          {children}
-        </div>
+        <div className="h-full box-border">{children}</div>
       </div>
       <div className="flex flex-col gap-4 z-40 max-w-96 @2xl:relative @2xl:h-full">
         {showRobot && (
@@ -126,7 +129,14 @@ export default function ProfileAnalysis({
               onChange={(ev) => setTermInput(ev.target.value ?? "")}
               onKeyUp={(ev) => ev.key == "Enter" && checkTerm()}
             />
-            <Button onClick={checkTerm} style={foundTerms.length >= minFoundTerms ? "secondary" : "default"}>Überprüfen</Button>
+            <Button
+              onClick={checkTerm}
+              style={
+                foundTerms.length >= minFoundTerms ? "secondary" : "default"
+              }
+            >
+              Überprüfen
+            </Button>
             {hint && foundTerms.length < minFoundTerms && (
               <HintCard
                 text="Welche Infos soll ich suchen?"
@@ -141,7 +151,9 @@ export default function ProfileAnalysis({
                   Klasse! Du hast alle Begriffe gefunden!
                 </span>
                 <Link href={href}>
-                  <Button onClick={() => {}} className="animate-bounce">Weiter</Button>
+                  <Button onClick={() => {}} className="animate-bounce">
+                    Weiter
+                  </Button>
                 </Link>
               </div>
             )}
