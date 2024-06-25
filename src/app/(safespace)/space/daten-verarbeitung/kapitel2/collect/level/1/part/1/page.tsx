@@ -271,7 +271,7 @@ type HistoryPost = {
   date?: string;
 };
 
-export function PostHistory({ posts }: { posts: HistoryPost[] }) {
+function PostHistory({ posts }: { posts: HistoryPost[] }) {
   return (
     <div className="flex flex-col h-full">
       {posts.map((post) => (
@@ -281,7 +281,7 @@ export function PostHistory({ posts }: { posts: HistoryPost[] }) {
   );
 }
 
-export function PostHistoryPost({
+function PostHistoryPost({
   src,
   caption,
   like,
