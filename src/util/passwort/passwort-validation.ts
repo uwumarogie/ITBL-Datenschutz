@@ -26,7 +26,7 @@ export function getColor(condition: boolean) {
 }
 
 export function calculateBruteForceTime(password: string): string {
-  const attemptsPerSecond = 1e9; // 1 Milliarde Versuche pro Sekunde
+  const attemptsPerSecond = 2e12; // 1 Milliarde Versuche pro Sekunde
   const secondsInMinute = 60;
   const secondsInHour = 60 * secondsInMinute;
   const secondsInDay = 24 * secondsInHour;
@@ -49,18 +49,18 @@ export function calculateBruteForceTime(password: string): string {
 
   const passwordLength = password.length;
   const totalCombinations = Math.pow(characterSetSize, passwordLength);
-  const timeInSeconds = totalCombinations / attemptsPerSecond;
+  const timeInSeconds = (totalCombinations / attemptsPerSecond) * 60;
 
   const formatNumber = (num: number): string => {
     const roundedNum = num.toPrecision(3);
     if (num >= 1e12) {
       return "Unendlich 😏";
     } else if (num >= 1e9) {
-      return `${roundedNum} Millarden Jahre`;
+      return `${num} Millarden Jahre`;
     } else if (num >= 1e6) {
-      return `${roundedNum} Millionen Jahre`;
+      return `${num} Millionen Jahre`;
     } else {
-      return `${roundedNum} Jahre`;
+      return `${num} Jahre`;
     }
   };
 
@@ -80,6 +80,9 @@ export function calculateBruteForceTime(password: string): string {
     const minutes = timeInSeconds / secondsInMinute;
     return `${minutes.toPrecision(3)} Minuten`;
   } else {
-    return `${timeInSeconds.toPrecision(3)} Sekunden`;
+    if (timeInSeconds.toString().includes("e")) {
+      return "0.1 Sekunde";
+    }
+    return `${timeInSeconds} Sekunden`;
   }
 }
