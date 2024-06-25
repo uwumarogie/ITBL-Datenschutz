@@ -35,10 +35,7 @@ export default function Button({
   } else if (style == "neutral") {
     buttonStyle = "bg-gray-500 text-white";
     buttonHoverStyle = "hover:bg-gray-600";
-  } else if (style == "secondary") {
-    buttonStyle = "text-white bg-[#004F86]";
-    buttonHoverStyle = "hover:bg-[#004170]";
-  }
+  } 
   const buttonDisabledStyle = "opacity-50 " + buttonStyle;
 
   const mergedStyle = clsx(
