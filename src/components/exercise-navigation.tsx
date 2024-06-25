@@ -19,25 +19,29 @@ const exerciseLinksData = [
     slug: "/space/privatsphaere",
     text: "Privatsphäre",
     imageSrc: "/privacy.png",
-    description: "Hier lernst du alles zum Thema Privatsphäre.",
+    description:
+      "Hier lernst du was genau personenbezogene Daten sind und warum du sie besser schützen solltest.",
   },
   {
     slug: "/space/daten-verarbeitung",
     text: "Daten Verarbeitung",
     imageSrc: "/data-processing.png",
-    description: "Hier lernst du alles zum Thema Datenverarbeitung.",
+    description:
+      "Hier lernst du wie deine persönlichen Daten verarbeitet werden und was man alles aus ihnen herauslesen kann.",
   },
   {
     slug: "/space/phishing",
     text: "Phishing",
     imageSrc: "/phishing.png",
-    description: "Hier lernst du alles zum Thema Phishing.",
+    description:
+      "Hier lernst du, wie du Fake oder Phishing Profile von echten Profilen unterscheiden kannst.",
   },
   {
     slug: "/space/rechte",
     text: "Meine Rechte",
     imageSrc: "/rights.png",
-    description: "Hier lernst du alles zum Thema Datenrecht.",
+    description:
+      "Hier lernst du, welche Rechte du hast und wie du sie geltend machen kannst.",
   },
 ];
 

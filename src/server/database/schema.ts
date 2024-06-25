@@ -10,7 +10,15 @@ import {
 import { createSelectSchema } from "drizzle-zod";
 import { AchievementId } from "@/util/achievement-data";
 
-const achievementArray = Object.values(AchievementId) as [string, ...string[]];
+const achievementArray = Object.values(AchievementId) as AchievementId[];
+
+const achievementEnum:
+  | readonly [string, ...string[]]
+  | [string, ...string[]]
+  | undefined =
+  achievementArray.length > 0
+    ? [achievementArray[0], ...achievementArray.slice(1)]
+    : undefined;
 
 const highScoreArray = ["PASSWORD_STRENGTH"] as const;
 export enum HighScoreEnum {
@@ -27,12 +35,12 @@ export const users = pgTable("users", {
 });
 
 export const achievements = pgTable("achievements", {
-  id: serial("id").primaryKey().notNull(),
+  id: serial("id").primaryKey(),
   userId: integer("user_id")
     .references(() => users.id, { onDelete: "cascade" })
     .notNull(),
   achievementEnum: varchar("achievement_enum", {
-    enum: achievementArray,
+    enum: achievementEnum,
   }).notNull(),
   isAchieved: boolean("is_achieved").notNull(),
   createdAt: timestamp("createdAt").notNull().defaultNow(),

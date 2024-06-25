@@ -31,8 +31,10 @@ export function Overlay() {
         <span
           className="flex justify-center items-center gap-2 mt-2 hover:cursor-pointer"
           onClick={() => {
-            localStorage.removeItem("gameCode");
-            localStorage.removeItem("userId");
+            if (typeof window !== "undefined" && window.localStorage) {
+              localStorage.removeItem("gameCode");
+              localStorage.removeItem("userId");
+            }
             router.push("/");
           }}
         >

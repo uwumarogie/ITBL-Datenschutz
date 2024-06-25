@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import clsx from "clsx";
 import Image from "next/image";
 
@@ -26,6 +26,17 @@ export function VideoPlayer({
 }: VideoPlayerProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
 
+  useEffect(() => {
+    const videoElement = videoRef.current;
+    return () => {
+      if (videoElement) {
+        videoElement.pause();
+        videoElement.currentTime = 0;
+        videoElement.src = "";
+      }
+    };
+  });
+
   const handleTimestampClick = (timestamp: number) => {
     if (videoRef.current) {
       videoRef.current.currentTime = timestamp;
@@ -47,7 +58,7 @@ export function VideoPlayer({
         </video>
       </div>
       <div className="min-w-fit flex flex-col gap-y-2">
-        <div className="text-3xl pb-4">Kapitel</div>
+        <div className="text-3xl">Kapitel</div>
         {timestamps.map((timestamp, index) => (
           <span
             key={index}
@@ -59,7 +70,7 @@ export function VideoPlayer({
               alt={timestamp.label}
               width={50}
               height={50}
-              className="bg-orange-500 p-3 rounded-xl mr-4"
+              className="bg-orange-500 p-3 rounded-xl mr-4 max-h-[50px]"
             />
             <span className="flex flex-col justify-center">
               <span>{timestamp.label}</span>

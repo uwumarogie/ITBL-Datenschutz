@@ -2,7 +2,7 @@
 
 import { InlineNavigation } from "@/components/inline-navigation";
 import React from "react";
-import { ProgressBar } from "@/components/ProgressBar";
+import { ProgressBar } from "@/components/progress-bar";
 import { usePathname, useRouter } from "next/navigation";
 
 export default function DataProgressingLayout({

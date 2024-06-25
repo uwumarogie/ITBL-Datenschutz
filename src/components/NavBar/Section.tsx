@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { redirect, usePathname } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { DesktopSection } from "@/components/NavBar/DesktopNavigation/desktop-section";
 import { MobileSection } from "@/components/NavBar/MobileNavigation/mobile-section";
 
@@ -81,7 +81,11 @@ export function Section() {
   }, [getActiveSection, path]);
 
   useEffect(() => {
-    if (!localStorage.getItem("gameCode")) {
+    if (
+      typeof window !== "undefined" &&
+      window.localStorage &&
+      !localStorage.getItem("gameCode")
+    ) {
       setSections(
         sections.filter((s) => s.sectionName !== SectionName.LEADERBOARD),
       );

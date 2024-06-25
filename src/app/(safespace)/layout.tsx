@@ -11,7 +11,11 @@ export default function Layout({
   children: React.ReactNode;
 }>) {
   useEffect(() => {
-    if (!localStorage.getItem("userId")) {
+    if (
+      typeof window !== "undefined" &&
+      window.localStorage &&
+      !localStorage.getItem("userId")
+    ) {
       redirect("/");
     }
   }, []);

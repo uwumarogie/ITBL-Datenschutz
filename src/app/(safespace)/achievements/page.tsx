@@ -2,7 +2,7 @@
 
 import AchievementCard from "@/components/Achievements/achievement-card";
 import { useEffect, useState } from "react";
-import { ProgressBar } from "@/components/ProgressBar";
+import { ProgressBar } from "@/components/progress-bar";
 import { Achievement, AchievementData } from "@/util/achievement-data";
 import { PersistUserService } from "@/services/user/PersistUserService";
 
@@ -19,13 +19,13 @@ export default function Achievements() {
   useEffect(() => {
     const fetchData = async () => {
       const context = new PersistUserService();
-      const userData = await context.getAchievement();
+      const achievementData = await context.getAchievement();
       const fetchedAchievements = AchievementData.achievements
         .map(
           (a) =>
             ({
               ...a,
-              progress: getProgress(userData, a.id),
+              progress: getProgress(achievementData, a.id),
             }) as Achievement,
         )
         .sort((a, b) => {
@@ -38,9 +38,13 @@ export default function Achievements() {
           }
         });
       setAchievements(fetchedAchievements);
+      setProgress(
+        fetchedAchievements.filter((a) => a.progress).length /
+          AchievementData.achievements.length,
+      );
     };
 
-    fetchData().then((r) => console.log(r));
+    fetchData();
   }, []);
 
   function getProgress(
@@ -56,10 +60,6 @@ export default function Achievements() {
     );
   }
   const steps = [
-    {
-      progress: 0.1,
-      text: "Einstieg",
-    },
     {
       progress: 0.8,
       text: "Master Quiz",
@@ -83,6 +83,7 @@ export default function Achievements() {
             key={a.title}
             id={a.id}
             title={a.title}
+            icon={a.icon}
             description={a.description}
             progress={a.progress}
           />

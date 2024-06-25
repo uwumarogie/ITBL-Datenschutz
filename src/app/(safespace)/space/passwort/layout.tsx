@@ -1,4 +1,5 @@
 import { InlineNavigation } from "@/components/inline-navigation";
+import React from "react";
 
 export default function Layout({
   children,
@@ -10,10 +11,7 @@ export default function Layout({
       <div className="hidden sm:block">
         <InlineNavigation />
       </div>
-      <div
-        className="h-[calc(100vh-165px)] sm:h-[calc(100vh-190px)]"
-        style={{ overflowY: "auto" }}
-      >
+      <div className="h-[calc(100vh-175px)] sm:h-[calc(100vh-210px)] overflow-y-auto">
         {children}
       </div>
     </div>

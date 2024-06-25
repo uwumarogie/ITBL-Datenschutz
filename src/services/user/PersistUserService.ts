@@ -7,9 +7,10 @@ type Achievement = {
 };
 
 export class PersistUserService {
-  public userId: number | null = parseInt(
-    localStorage.getItem("userId") ?? "0",
-  );
+  public userId: string | null =
+    typeof window !== "undefined" && window.localStorage
+      ? localStorage.getItem("userId")
+      : null;
 
   constructor() {}
 
@@ -31,7 +32,7 @@ export class PersistUserService {
     return await response.json();
   }
 
-  async setAchievement(achievementId: string, unlocked: boolean) {
+  async setAchievement(achievement: string, unlocked: boolean) {
     try {
       const response = await fetch("/api/setAchievement", {
         method: "POST",
@@ -40,7 +41,7 @@ export class PersistUserService {
         },
         body: JSON.stringify({
           userId: this.userId,
-          achievementId: achievementId,
+          achievementEnum: achievement,
           unlocked: unlocked,
         }),
       });

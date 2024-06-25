@@ -1,20 +1,19 @@
 import { NextRequest, NextResponse } from "next/server";
 import * as z from "zod";
 import { achievements, users } from "@/server/database/schema";
-import { eq } from "drizzle-orm";
+import { and, eq } from "drizzle-orm";
 import { db } from "@/server/database/connection";
-import { AchievementId } from "@/util/achievement-data";
 
 const requestSchema = z.object({
-  userId: z.number(),
-  achievementId: z.nativeEnum(AchievementId),
+  userId: z.coerce.number(),
+  achievementEnum: z.string(),
   unlocked: z.boolean(),
 });
 
 export async function POST(req: NextRequest) {
   try {
     const requestData = await req.json();
-    const { userId, achievementId, unlocked } =
+    const { userId, achievementEnum, unlocked } =
       requestSchema.parse(requestData);
     const userData = await db.select().from(users).where(eq(users.id, userId));
 
@@ -25,10 +24,27 @@ export async function POST(req: NextRequest) {
       });
     }
 
+    const foundAchievement = await db
+      .select()
+      .from(achievements)
+      .where(
+        and(
+          eq(achievements.userId, userId),
+          eq(achievements.achievementEnum, achievementEnum),
+        ),
+      );
+
+    if (foundAchievement.length > 0) {
+      return new NextResponse("Achievement already set", {
+        status: 400,
+        statusText: "Achievement already set",
+      });
+    }
+
     await db.insert(achievements).values({
       userId: userId,
       isAchieved: unlocked,
-      achievementEnum: achievementId,
+      achievementEnum: achievementEnum,
     });
 
     return new NextResponse("Achievement set", {

@@ -11,7 +11,7 @@ export type CheckboxData = {
   left: number;
   hoverText: string;
   isChecked: boolean;
-  isPersonenbezogen: boolean;
+  isPersonalData: boolean;
 };
 
 type Props = {
@@ -20,8 +20,9 @@ type Props = {
   imgSrc: string;
   hint: string;
   title: string;
-  description: string;
+  description?: string;
   nextPageHref: string;
+  onFinish?: (value: boolean) => void;
 };
 
 export default function PersoComponent({
@@ -32,6 +33,7 @@ export default function PersoComponent({
   title,
   description,
   nextPageHref,
+  onFinish: setFinished,
 }: Props) {
   const router = useRouter();
   const [showHint, setShowHint] = useState(false);
@@ -49,10 +51,14 @@ export default function PersoComponent({
 
   const validateInput = () => {
     const correct = checkboxes.every(
-      (checkbox) => checkbox.isChecked === checkbox.isPersonenbezogen,
+      (checkbox) => checkbox.isChecked === checkbox.isPersonalData,
     );
     if (correct) {
-      router.push(nextPageHref);
+      if (setFinished) {
+        setFinished(true);
+      } else {
+        router.push(nextPageHref);
+      }
     } else {
       addMessage(
         "Leider hast du noch nicht alle personenbezogenen Daten gefunden. Versuchs nochmal!",
@@ -100,7 +106,7 @@ export default function PersoComponent({
         </Button>
         <Button
           className="m-4 w-24 h-11 bg-gray-400 hover:bg-gray-500"
-          onClick={() => setShowHint(!showHint)}
+          onClick={() => setShowHint((prev) => !prev)}
         >
           Hilfe
         </Button>

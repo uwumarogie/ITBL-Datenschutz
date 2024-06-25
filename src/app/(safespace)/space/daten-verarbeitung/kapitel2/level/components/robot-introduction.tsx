@@ -32,7 +32,7 @@ export default function RobotIntroduction({
   }, []);
 
   function onClick() {
-    setState(state + 1);
+    setState((prev) => prev + 1);
     if (state + 2 == states.length) {
       setTimeout(() => {
         router.push(href);

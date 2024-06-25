@@ -1,8 +1,6 @@
 import Image from "next/image";
 import Button from "@/components/button";
-import { ArrowLeft } from "@phosphor-icons/react";
 import { useRouter } from "next/navigation";
-import Link from "next/link";
 import React, { cloneElement } from "react";
 import clsx from "clsx";
 
@@ -46,7 +44,7 @@ export default function ModuleIntro({
           <Image
             className="w-full h-full max-h-40 lg:max-h-96 object-contain object-center lg:object-right"
             src={background}
-            alt={"Background image"}
+            alt="Background image"
             width="1000"
             height="1000"
           />
