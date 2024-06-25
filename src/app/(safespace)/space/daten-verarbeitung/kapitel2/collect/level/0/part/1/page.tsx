@@ -128,9 +128,9 @@ const terms = [
 ];
 
 const robotText =
-  "Hier siehst du Maries Instagram Feed. Wie lässt sie sich durch ihre Posts beschreiben? Schreibe dir mindestens drei Aspekte auf.";
+  "Hier siehst du Maries Instagram Feed. Wie lässt sie sich durch ihre Posts beschreiben? Schreibe dir mindestens fünf Aspekte auf.";
 const task =
-  "Untersuche Maries Profil und finde 3 Eigenschaften und Aspekte, die ihre Person bzw. Persönlichkeit beschreiben.";
+  "Untersuche Maries Profil und finde 5 Eigenschaften und Aspekte, die ihre Person bzw. Persönlichkeit beschreiben.";
 
 export default function DataProcessing1() {
   return (
@@ -139,7 +139,7 @@ export default function DataProcessing1() {
       robotText={robotText}
       task={task}
       terms={terms}
-      minFoundTerms={3}
+      minFoundTerms={5}
       hint="Wie alt ist sie? Was macht sie in ihrem Leben? Welche Hobbies hat sie? "
       href="/space/daten-verarbeitung/kapitel2/collect/level/0/part/2"
     >

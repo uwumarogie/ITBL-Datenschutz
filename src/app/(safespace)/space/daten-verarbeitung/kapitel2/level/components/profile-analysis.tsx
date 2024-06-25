@@ -87,7 +87,7 @@ export default function ProfileAnalysis({
       <div className="h-full w-full max-w-[600px] mr-10 border-2 rounded-xl shadow overflow-hidden">
         <div className="h-full box-border">{children}</div>
       </div>
-      <div className="flex flex-col gap-4 z-40 max-w-96 @2xl:relative @2xl:h-full">
+      <div className="flex flex-col gap-4 z-40 max-w-96 @2xl:relative @2xl:h-full overflow-y-auto">
         {showRobot && (
           <div className="flex flex-col justify-center items-center gap-10 h-full">
             <p className="max-w-80 box-content w-full text-center px-8 py-6 bg-white shadow-lg rounded-2xl">

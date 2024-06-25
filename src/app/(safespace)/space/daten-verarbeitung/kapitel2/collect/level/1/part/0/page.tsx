@@ -20,45 +20,51 @@ const states: State[] = [
     rotation: 0,
     text: "",
     style: {
-      marginLeft: "calc(100% + 400px)",
+      marginLeft: "calc(-100% - 400px)",
+      marginTop: "calc(-50%)"
     },
   },
   {
     expression: "smiling",
     rotation: 0,
-    text: "Hey! Ich bin AIris. Mein Boss hat mir aufgetragen, ein Paar Instagram Profile anzusehen und passende Werbung zu verteilen. ",
+    text: "Du hast schon mal gute Arbeit geleistet! Wir kennen uns nun schon gut mit Marie aus.",
   },
   {
     expression: "resting",
     rotation: -0.4,
-    text: "Ich bin ziemlich neu hier, vielleicht kannst du mir dabei helfen?",
+    text: "Wir können aber noch viel mehr erfahren!",
     style: {
       marginLeft: "100px",
       marginBottom: "30px",
     },
   },
   {
-    expression: "angry",
+    expression: "resting",
     rotation: 0.6,
-    text: "Ich darf heute noch den ganzen Tag die Arbeit meines Chefs machen!!!",
+    text: "Hast du dir angesehen, wer Maries posts geliket hat?",
     style: {
       marginRight: "150px",
       marginTop: "30px",
     },
   },
   {
-    expression: "sad",
-    rotation: -0.1,
-    text: "Leider komme ich aus meiner Blechbüchse nicht so leicht raus.",
+    expression: "resting",
+    rotation: -0.6,
+    text: "Oder welchen Profilen Marie alles folgt? ",
     style: {
-      width: "150px",
-      height: "150px",
+      marginRight: "-30px",
+      marginTop: "px",
     },
   },
   {
     expression: "smiling",
     rotation: 0,
-    text: "Egal. Lass uns loslegen!",
+    text: "Ich habe dir ein paar mehr Daten aus Maries Interaktionen geschickt.",
+  },
+  {
+    expression: "smiling",
+    rotation: 0,
+    text: "Schauen wir doch gleich etwas genauer rein!",
     style: {
       width: "300px",
       height: "300px",

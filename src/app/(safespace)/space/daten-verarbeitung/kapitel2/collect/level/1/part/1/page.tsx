@@ -104,7 +104,8 @@ const profile: InstagramProfileData = {
   ],
 };
 
-const terms = [
+const terms =  [
+  // Level 1
   "Marie",
   "Frau",
   "Mädchen",
@@ -136,7 +137,128 @@ const terms = [
   "Livia",
   "Lieblingscafé",
   "Tante Emma",
-];
+  // Level 2
+  "Urlaub",
+  "Bali",
+  "Reisen",
+  "See",
+  "Deko",
+  "Haushalt",
+  "Einrichtung",
+  "Spongebob",
+  "Meme",
+  "Schule",
+  "Fächer",
+  "Politik",
+  "Schulfächer",
+  "Universität",
+  "Technik",
+  "Backen",
+  "Süßigkeiten",
+  "Handwerk",
+  "Tiere",
+  "Vögel",
+  "Niedlich",
+  "Ferien",
+  "Abenteuer",
+  "Strand",
+  "Dekoration",
+  "Haushaltstipps",
+  "Möbel",
+  "SpongeBob Schwammkopf",
+  "Witz",
+  "Unterricht",
+  "Themen",
+  "Regierung",
+  "Unterrichtsfächer",
+  "Hochschule",
+  "Technologie",
+  "Kuchen",
+  "Bonbons",
+  "Heimwerken",
+  "Haustiere",
+  "Papageien",
+  "Kawaii",
+  "Erholung",
+  "Tourismus",
+  "Seeufer",
+  "Wohnaccessoires",
+  "Küchenhelfer",
+  "Wohnraumgestaltung",
+  "Cartoon",
+  "GIF",
+  "Bildungswesen",
+  "Studienfächer",
+  "Wahl",
+  "Bildung",
+  "Uni",
+  "Innovation",
+  "Plätzchen",
+  "Nascherei",
+  "DIY",
+  "Wildtiere",
+  "Singvögel",
+  "Süß",
+  "Freizeit",
+  "Exkursion",
+  "Gewässer",
+  "Basteln",
+  "Alltagshelfer",
+  "Dekor",
+  "Zeichentrick",
+  "Scherz",
+  "Schulbildung",
+  "Studienrichtungen",
+  "Bundespolitik",
+  "Kurse",
+  "Campus",
+  "Erfindung",
+  "Gebäck",
+  "Leckereien",
+  "Handarbeit",
+  "Fauna",
+  "Ornithologie",
+  "Herzallerliebst",
+  "Urlaubsort",
+  "Fernreisen",
+  "Badesee",
+  "Raumgestaltung",
+  "Putzmittel",
+  "Wohnideen",
+  "Nickelodeon",
+  "Internetphänomen",
+  "Lehrplan",
+  "Spezialgebiete",
+  "Wahlkampf",
+  "Wissensgebiete",
+  "Akademie",
+  "Gadgets",
+  "Konditorei",
+  "Süßwaren",
+  "Bastelarbeit",
+  "Tierschutz",
+  "Vogelfutter",
+  "Niedlichkeit",
+  "Ausflug",
+  "Reiseziele",
+  "Badestrand",
+  "Interieur",
+  "Haushaltswaren",
+  "Wohnungseinrichtung",
+  "Comicfigur",
+  "Online-Meme",
+  "Schulfächer",
+  "Regierungen",
+  "Unterrichtsfächer",
+  "Fachhochschule",
+  "IT",
+  "Konditorenhandwerk",
+  "Zuckerwaren",
+  "Heimwerkerprojekte",
+  "Zootiere",
+  "Vögelarten",
+  "Babytiere"
+]
 
 const historyPost: HistoryPost[] = [
   {
@@ -219,9 +341,9 @@ const historyPost: HistoryPost[] = [
 ];
 
 const robotText =
-  "Hier siehst du Maries Instagram Feed. Wie lässt sie sich durch ihre Posts beschreiben? Schreibe dir mindestens drei Aspekte auf.";
+  "Hier siehst du wieder Maries Profil. Zusätzlich habe ich dir Maries zuletzt gesehene Posts hinzugefüht. Klicke dafür auf den \"Verlauf\"-Tab. Wieder die gleiche Aufgabe: Sammle mindestens 15 Aspekte, die Maries Profil beschreiben.";
 const task =
-  "Untersuche Maries Profil und finde 3 Eigenschaften und Aspekte, die ihre Person bzw. Persönlichkeit beschreiben.";
+  "Untersuche Maries Profil und Verlauf und finde 15 Eigenschaften und Aspekte, die Marie interessant finden könnte. Beziehe dich v.a. auf den Verlauf.";
 
 export default function DataProcessing1() {
   return (
@@ -230,7 +352,7 @@ export default function DataProcessing1() {
       robotText={robotText}
       task={task}
       terms={terms}
-      minFoundTerms={3}
+      minFoundTerms={15}
       hint="Was kannst du aus dem Postverlauf lesen? Mit wem interagiert Marie? Welche Verbindungen gibt es zu anderen Profilen? Versuche einen Schritt weiter zu denken und verbindungen herzustellen."
       href="/space/daten-verarbeitung/kapitel2/collect/level/1/part/2"
     >
