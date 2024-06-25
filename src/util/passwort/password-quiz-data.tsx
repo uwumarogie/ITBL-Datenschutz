@@ -86,22 +86,28 @@ export type PasswordData = {
 
 export const passwordData: PasswordData[] = [
   {
-    password: "JohnDoe!123",
+    password: "JosP7s+sw",
     strength: 2,
     explanation: "Das Passwort erfüllt alle Bedingungen.",
   },
   {
-    password: "Emily2020!",
-    strength: 2,
-    explanation: "Das Passwort erfüllt alle Bedingungen.",
-  },
-  {
-    password: "Pass123word",
+    password: "eWg!m8",
     strength: 1,
-    explanation: "Das Passwort enthält kein Sonderzeichen.",
+    explanation: "Das Passwort ist zu kurz.",
   },
   {
-    password: "Chris$789",
+    password: "emily2020",
+    strength: 0,
+    explanation:
+      "Das Passwort enthält keinen Großbuchstaben und kein Sonderzeichen.",
+  },
+  {
+    password: "HaPPy!",
+    strength: 0,
+    explanation: "Das Passwort enthält keine Zahl und ist zu kurz.",
+  },
+  {
+    password: "Z7gT@f8!3",
     strength: 2,
     explanation: "Das Passwort erfüllt alle Bedingungen.",
   },
@@ -109,7 +115,7 @@ export const passwordData: PasswordData[] = [
     password: "helloworld",
     strength: 0,
     explanation:
-      "Das Passwort enthält keinen Großbuchstaben und kein Sonderzeichen.",
+      "Das Passwort enthält keinen Großbuchstaben, keine Zahl und kein Sonderzeichen.",
   },
   {
     password: "Summer@2021",
@@ -117,22 +123,22 @@ export const passwordData: PasswordData[] = [
     explanation: "Das Passwort erfüllt alle Bedingungen.",
   },
   {
-    password: "Welcome123",
+    password: "P3f!Qx",
     strength: 1,
-    explanation: "Das Passwort enthält kein Sonderzeichen.",
+    explanation: "Das Passwort ist zu kurz.",
   },
   {
-    password: "MyPass@word",
-    strength: 1,
-    explanation: "Das Passwort enthält keine Zahl.",
+    password: "Wolke7",
+    strength: 0,
+    explanation: "Das Passwort enthält kein Sonderzeichen und ist zu kurz.",
   },
   {
-    password: "Sarah!78",
+    password: "Ae7mg?gX",
     strength: 2,
     explanation: "Das Passwort erfüllt alle Bedingungen.",
   },
   {
-    password: "David@2022",
+    password: "F4j@Qj$6#",
     strength: 2,
     explanation: "Das Passwort erfüllt alle Bedingungen.",
   },
@@ -154,9 +160,9 @@ export const passwordData: PasswordData[] = [
     explanation: "Das Passwort enthält keine Zahl.",
   },
   {
-    password: "Robert123",
+    password: "d7hg&asd1",
     strength: 1,
-    explanation: "Das Passwort enthält kein Sonderzeichen.",
+    explanation: "Das Passwort enthält keinen Großbuchstaben.",
   },
   {
     password: "simplepass",
@@ -165,19 +171,19 @@ export const passwordData: PasswordData[] = [
       "Das Passwort enthält keinen Großbuchstaben, kein Sonderzeichen und keine Zahl.",
   },
   {
-    password: "Good$Pass1",
+    password: "Z12kL!f?sH",
     strength: 2,
     explanation: "Das Passwort erfüllt alle Bedingungen.",
   },
   {
-    password: "Str@ngth8",
-    strength: 2,
-    explanation: "Das Passwort erfüllt alle Bedingungen.",
+    password: "abc123$%&",
+    strength: 1,
+    explanation: "Das Passwort enthält keinen Großbuchstaben.",
   },
   {
-    password: "Michael123$",
-    strength: 2,
-    explanation: "Das Passwort erfüllt alle Bedingungen.",
+    password: "F4ss!",
+    strength: 1,
+    explanation: "Das Passwort ist zu kurz.",
   },
   {
     password: "WeakPass",
@@ -185,7 +191,7 @@ export const passwordData: PasswordData[] = [
     explanation: "Das Passwort enthält kein Sonderzeichen und keine Zahl.",
   },
   {
-    password: "Anna2022@",
+    password: "Id3jf&fsa1",
     strength: 2,
     explanation: "Das Passwort erfüllt alle Bedingungen.",
   },
@@ -205,7 +211,7 @@ export const passwordData: PasswordData[] = [
     explanation: "Das Passwort enthält kein Sonderzeichen.",
   },
   {
-    password: "Lucy@1234",
+    password: "sgPPs%3t",
     strength: 2,
     explanation: "Das Passwort erfüllt alle Bedingungen.",
   },
@@ -215,12 +221,13 @@ export const passwordData: PasswordData[] = [
     explanation: "Das Passwort enthält keine Zahl.",
   },
   {
-    password: "Type1234",
+    password: "1234ABCD",
     strength: 1,
-    explanation: "Das Passwort enthält kein Sonderzeichen.",
+    explanation:
+      "Das Passwort enthält keinen Kleinbuchstaben und kein Sonderzeichen.",
   },
   {
-    password: "Secure!Pass",
+    password: "GlücksKlee! ",
     strength: 1,
     explanation: "Das Passwort enthält keine Zahl.",
   },
@@ -230,29 +237,29 @@ export const passwordData: PasswordData[] = [
     explanation: "Das Passwort enthält kein Sonderzeichen und keine Zahl.",
   },
   {
-    password: "Admin@2020",
+    password: "W2j@Tp$9#",
     strength: 2,
     explanation: "Das Passwort erfüllt alle Bedingungen.",
   },
   {
-    password: "P@ssw0rd!",
-    strength: 2,
-    explanation: "Das Passwort erfüllt alle Bedingungen.",
+    password: "Black&White",
+    strength: 1,
+    explanation: "Das Passwort enthält keine Zahl.",
   },
   {
-    password: "NotSoSecure",
+    password: "NotSecure",
     strength: 0,
     explanation: "Das Passwort enthält kein Sonderzeichen und keine Zahl.",
   },
   {
-    password: "Jasmine@1",
+    password: "Is1gPdkk!",
     strength: 2,
     explanation: "Das Passwort erfüllt alle Bedingungen.",
   },
   {
-    password: "Aladdin123",
-    strength: 1,
-    explanation: "Das Passwort enthält kein Sonderzeichen.",
+    password: "!Aladdin123!",
+    strength: 2,
+    explanation: "Das Passwort erfüllt alle Bedingungen.",
   },
   {
     password: "GenieLamp!",
@@ -260,14 +267,14 @@ export const passwordData: PasswordData[] = [
     explanation: "Das Passwort enthält keine Zahl.",
   },
   {
-    password: "Mermaid2021",
+    password: "M3rm@id",
     strength: 1,
-    explanation: "Das Passwort enthält kein Sonderzeichen.",
+    explanation: "Das Passwort ist zu kurz.",
   },
   {
-    password: "Password!2",
-    strength: 2,
-    explanation: "Das Passwort erfüllt alle Bedingungen.",
+    password: "Abc123",
+    strength: 0,
+    explanation: "Das Passwort enthält kein Sonderzeichen und ist zu kurz.",
   },
   {
     password: "TechGeek!123",
@@ -280,14 +287,14 @@ export const passwordData: PasswordData[] = [
     explanation: "Das Passwort erfüllt alle Bedingungen.",
   },
   {
-    password: "P@ssword123",
+    password: "Ocean11! ",
     strength: 2,
     explanation: "Das Passwort erfüllt alle Bedingungen.",
   },
   {
-    password: "User@2020",
-    strength: 2,
-    explanation: "Das Passwort erfüllt alle Bedingungen.",
+    password: "Sh?Ts23",
+    strength: 1,
+    explanation: "Das Passwort ist zu kurz.",
   },
   {
     password: "Default1",
