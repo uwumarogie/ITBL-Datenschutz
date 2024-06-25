@@ -9,7 +9,7 @@ import AnimatedText from "@/components/animated/AnimatedText";
 import Button from "@/components/button";
 import Link from "next/link";
 
-type State = {
+export type State = {
   expression: RobotExpression;
   rotation: number;
   text: string;

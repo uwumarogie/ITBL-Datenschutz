@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import clsx from "clsx";
 import Image from "next/image";
 
@@ -25,6 +25,17 @@ export function VideoPlayer({
   height,
 }: VideoPlayerProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const videoElement = videoRef.current;
+    return () => {
+      if (videoElement) {
+        videoElement.pause();
+        videoElement.currentTime = 0;
+        videoElement.src = "";
+      }
+    };
+  });
 
   const handleTimestampClick = (timestamp: number) => {
     if (videoRef.current) {

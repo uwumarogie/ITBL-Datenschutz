@@ -2,7 +2,7 @@
 
 import InstagramProfile, {
   InstagramProfileData,
-} from "@/app/(safespace)/space/daten-verarbeitung/instagram-profile";
+} from "@/components/instagram-profile";
 import Robot from "@/components/robot/robot";
 import { useState } from "react";
 import { useRouter } from "next/navigation";

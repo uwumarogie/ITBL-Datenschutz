@@ -5,6 +5,7 @@ const config: Config = {
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/services/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
     extend: {
@@ -20,6 +21,18 @@ const config: Config = {
       },
     },
     keyframes: {
+      fadeOut: {
+        "0%": { opacity: "1" },
+        "100%": { opacity: "0" },
+      },
+      blurOut: {
+        "0%": { filter: "blur(6px)" },
+        "100%": { filter: "blur(0px)" },
+      },
+      blurIn: {
+        "0%": { filter: "blur(0px)" },
+        "100%": { filter: "blur(6px)" },
+      },
       slideIn: {
         "0%": { transform: "translateX(100%)" },
         "100%": { transform: "translateX(0)" },
@@ -27,20 +40,6 @@ const config: Config = {
       slideOut: {
         "0%": { transform: "translateX(0)" },
         "100%": { transform: "translateX(100%)" },
-      },
-      bounce: {
-        "0%": {
-          transform: "translateY(-30%)",
-          animationTimingFunction: "cubic-bezier(0.8, 0, 1, 1)",
-        },
-        "50%": {
-          transform: "translateY(0)",
-          animationTimingFunction: "cubic-bezier(0, 0, 0.2, 1)",
-        },
-        "100%": {
-          transform: "translateY(-30%)",
-          animationTimingFunction: "cubic-bezier(0.8, 0, 1, 1)",
-        },
       },
       shake: {
         "0%, 100%": { transform: "translateX(0)" },
@@ -61,8 +60,18 @@ const config: Config = {
         "0%": { transform: "translateY(-100%)" },
         "100%": { transform: "translateY(0)" },
       },
+      scaleIn: {
+        "0%": { transform: "scale(0)" },
+        "100%": { transform: "scale(1)" },
+      },
+      scaleOut: {
+        "0%": { transform: "scale(1)" },
+        "100%": { transform: "scale(0)" },
+      },
     },
     animation: {
+      blurOut: "blurOut 2s ease-in-out",
+      blurIn: "blurIn 2s ease-in-out",
       slideIn: "slideIn 0.5s ease-out forwards",
       slideOut: "slideOut 0.5s ease-out forwards",
       shake: "shake 0.5s ease-in-out",
@@ -70,6 +79,9 @@ const config: Config = {
       slideUp: "slideUp 0.5s ease-out forwards",
       slideDown: "slideDown 0.5s ease-out forwards",
       bounce: "bounce 1s infinite",
+      scaleIn: "scaleIn 0.3s ease-in-out",
+      scaleOut: "scaleOut 0.3s ease-in-out",
+      fadeOut: "fadeOut 0.5s ease-in-out",
     },
   },
   plugins: [require("@tailwindcss/container-queries")],

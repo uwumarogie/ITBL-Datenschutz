@@ -1,36 +1,43 @@
 "use client";
-import Button from "@/components/button";
-import { VideoPlayer } from "@/components/video-player";
-import { useRouter } from "next/navigation";
 
-const timestamps = [
-  { label: "Die Anfrage & das Gewinnspiel", time: 0, durationInMinutes: 2 },
-  { label: "Das böse Erwachen", time: 124, durationInMinutes: 1 },
-  { label: "Verhalten bei Fake-Profilen", time: 208, durationInMinutes: 1 },
+import { useRouter } from "next/navigation";
+import ModuleIntro, { ModuleChapter } from "@/components/module-intro";
+import { InstagramLogo, Lightbulb, ListDashes } from "@phosphor-icons/react";
+
+const title = "Phishing";
+const description =
+  "In diesem Modul lernst du, wie du Phishing-Angriffe auf sozialen Medien erkennst und vermeidest. Dabei wird dir beigbracht wie du Fake Profile von realen Profilen unterscheiden kannst und wie du dich verhalten solltest, wenn du eins entdeckst.";
+const entryPath = "/space/phishing/video";
+const chapter: ModuleChapter[] = [
   {
-    label: "Was sind Fake-Profile und ihre Ziele?",
-    time: 248,
-    durationInMinutes: 1,
+    title: "Einführung",
+    icon: <Lightbulb />,
+    minutes: "6",
   },
-  { label: "Anzeichen für Fake-Profile", time: 299, durationInMinutes: 1 },
+  {
+    title: "Wissenüberprüfung",
+    icon: <ListDashes />,
+    minutes: "5",
+  },
+  {
+    title: "Fake Profile erkennen",
+    icon: <InstagramLogo />,
+    minutes: "5",
+  },
 ];
 
-export default function Phishing() {
+export default function DataProcessing() {
   const router = useRouter();
+
   return (
-    <div className="flex flex-col justify-between h-full">
-      <VideoPlayer
-        src="/videos/video_phishing.mp4"
-        timestamps={timestamps}
-        height={720}
-        width={1280}
+    <div className="relative h-full w-full flex flex-col">
+      <ModuleIntro
+        title={title}
+        description={description}
+        entryPath={entryPath}
+        chapter={chapter}
+        background="/phishing.png"
       />
-      <Button
-        className="max-w-[120px] mt-6"
-        onClick={() => router.push("/space/phishing/profiling")}
-      >
-        Weiter
-      </Button>
     </div>
   );
 }

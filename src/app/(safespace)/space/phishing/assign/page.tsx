@@ -7,7 +7,11 @@ import { useState } from "react";
 import Button from "@/components/button";
 import { HintCard } from "@/components/hint-card";
 import clsx from "clsx";
-import Image from "next/image";
+import Robot from "@/components/robot/robot";
+import Task from "@/components/task";
+import { PersistUserService } from "@/services/user/PersistUserService";
+import { AchievementId } from "@/util/achievement-data";
+import { useMessages } from "@/services/notfication/message-provider";
 
 type Profile = {
   instagramProfile: InstagramProfileData;
@@ -17,14 +21,23 @@ type Profile = {
 
 export default function Assign() {
   const router = useRouter();
+  const messageService = useMessages();
   const [activeIndex, setActiveIndex] = useState(0);
   const [wrongAnmiation, setWrongAnimation] = useState(false);
   const [instructionsRead, setInstructionsRead] = useState(false);
   const [moduleFinished, setModuleFinished] = useState(false);
 
-  const handleRating = (isReal: boolean) => {
+  const handleRating = async (isReal: boolean) => {
     if (profiles[activeIndex].isRealProfile == isReal) {
       if (activeIndex + 1 == profiles.length) {
+        const userService = new PersistUserService();
+        await userService
+          .setAchievement(AchievementId.PHISHING_FINISHED, true)
+          .then((res) => {
+            if (res) {
+              messageService.showAchievement(AchievementId.PHISHING_FINISHED);
+            }
+          });
         setModuleFinished(true);
       }
       setActiveIndex(activeIndex + 1);
@@ -38,32 +51,28 @@ export default function Assign() {
     <>
       {moduleFinished ? (
         <div className="flex flex-col items-center text-center gap-6 md:mt-6">
-          <span className="text-5xl text-blue-background">Geschafft!</span>
+          <span className="text-5xl text-blue-background">Gut gemacht!</span>
+          <Robot expression="smiling" />
           <span className="max-w-[600px]">
-            Du hast das Modul erfolgreich abgeschlossen
+            Du hast das Modul abgschlossen. Denke aber daran, dass es durch den
+            Einsatz von KI immer schwieriger wird fake Profile zu erkennen, da
+            realistische Bilder und glaubwürdige Texte generiert werden können.
           </span>
-          <Button onClick={() => router.push("/space/phishing")}>
-            Zurück zum Anfang
+          <Button onClick={() => router.push("/space")}>
+            Zurück zur Startseite
           </Button>
         </div>
       ) : (
         <>
           {!instructionsRead ? (
-            <div className="p-2 flex flex-col items-center gap-4 lg:mt-8 max-w-[700px]">
-              <Image
-                src="/assign-profiles.png"
-                alt="profiles"
-                width={250}
-                height={250}
-                className="w-[120px] h-[120px] md:w-[250px] md:h-[250px]"
-              />
-              <span className="text-center">
-                Jetzt bist du an der Reihe dien Wissen anzuwenden: Du wirst
-                jetzt eine Reihe von Profilen gezeigt bekommen, die entweder
-                Anzeichen von realen Profilen aufweisen oder aber Hinweise drauf
-                enthalten, dass es sich eher um Phishing obzw. Fake-Profile
-                handelt. Ordne die Profile in eine der beiden Kategorien
-                einordnen.
+            <div className="p-2 flex flex-col items-center gap-4 lg:mt-8">
+              <Robot expression="resting" className="mb-6" />
+              <span className="text-center max-w-[700px]">
+                Du wirst jetzt eine Reihe von Profilen gezeigt bekommen, die
+                entweder Anzeichen von realen Profilen aufweisen oder aber
+                Hinweise drauf enthalten, dass es sich eher um Phishing bzw.
+                Fake-Profile handelt. Ordne die Profile einer der beiden
+                Kategorien zu.
               </span>
               <Button
                 onClick={() => setInstructionsRead(true)}
@@ -86,7 +95,10 @@ export default function Assign() {
               )}
 
               <div className="flex flex-col justify-between items-center w-full max-w-[700px] gap-y-4">
-                <div className="flex flex-col items-center mt-4 sm:mt-16 gap-y-4 max-w-[80%] text-center">
+                <Task>
+                  Achtung! Alle Profile sind von uns zu Übungszwecken erstellt!
+                </Task>
+                <div className="flex flex-col items-center gap-y-4 max-w-[80%] text-center">
                   <span className="text-lg md:text-2xl text-blue-background">
                     Wie würdest du{" "}
                     {profiles[activeIndex].instagramProfile.username}{" "}
@@ -127,12 +139,12 @@ export default function Assign() {
                     </Button>
                   </div>
                 </div>
-                <div className="w-[250px] h-[200px]">
+                <div className="w-[400px] h-[170px]">
                   <HintCard
                     text="Brauchst du Hilfe?"
                     buttonText="Tipp anzeigen"
                     hint={
-                      <div className="text-blue-background overflow-y-auto h-[130px]">
+                      <div className="text-blue-background overflow-y-auto h-[100px]">
                         {profiles[activeIndex].hint}
                       </div>
                     }
@@ -272,7 +284,7 @@ const profiles: Profile[] = [
   {
     instagramProfile: {
       username: "christiano_ronaldo7",
-      profileImageSrc: "/insta-profiles/cr7/1.jpeg",
+      profileImageSrc: "/insta-profiles/cr7/1.png",
       followers: 972,
       followingCount: 532,
       following: dummyFollowings,
@@ -281,128 +293,57 @@ const profiles: Profile[] = [
         {
           imageSrc: "/insta-profiles/cr7/2.jpeg",
           caption: "",
-          likedBy: "Gefällt 82 Mal",
+          likedBy: "82 Mal",
         },
         {
           imageSrc: "/insta-profiles/cr7/3.jpeg",
           caption: "",
-          likedBy: "Gefällt 101 Mal",
+          likedBy: "101 Mal",
         },
         {
           imageSrc: "/insta-profiles/cr7/4.png",
           caption: "",
-          likedBy: "Gefällt 30 Mal",
+          likedBy: "30 Mal",
         },
         {
           imageSrc: "/insta-profiles/cr7/5.jpg",
           caption: "",
-          likedBy: "Gefällt 24 Mal",
+          likedBy: "24 Mal",
         },
         {
           imageSrc: "/insta-profiles/cr7/6.jpg",
           caption: "",
-          likedBy: "Gefällt 70 Mal",
+          likedBy: "70 Mal",
         },
         {
           imageSrc: "/insta-profiles/cr7/7.jpg",
           caption: "",
-          likedBy: "Gefällt 99 Mal",
+          likedBy: "99 Mal",
         },
         {
           imageSrc: "/insta-profiles/cr7/8.png",
           caption: "",
-          likedBy: "Gefällt 32 Mal",
+          likedBy: "32 Mal",
         },
         {
           imageSrc: "/insta-profiles/cr7/9.png",
           caption: "",
-          likedBy: "Gefällt 31 Mal",
+          likedBy: "31 Mal",
         },
       ],
     },
     isRealProfile: false,
-    hint: "Bei diesem Profil ist es recht offensichtlich, dass es sich nicht um den echten Cristiano Ronaldo handelt. Am auffälligsten sind die wenigen Follower",
+    hint: "Bei diesem Profil ist es recht offensichtlich, dass es sich nicht um den echten Cristiano Ronaldo handelt. Am auffälligsten sind die wenigen Follower und der Name, der falsch geschrieben ist",
   },
   {
     instagramProfile: {
       username: "coachhero",
-      profileImageSrc: "/insta-profiles/heidiklum/1.jpg",
+      profileImageSrc: "/insta-profiles/no-profilepic.png",
       followers: 12,
       followingCount: 130,
       following: dummyFollowings,
       description: "http://datingcoach.com/program",
-      posts: [
-        {
-          imageSrc: "/insta-profiles/heidiklum/2.jpeg",
-          caption: "",
-          likedBy: "Gefällt " + dummyFollowings[4] + " und weiteren Personen",
-        },
-        {
-          imageSrc: "/insta-profiles/heidiklum/3.jpeg",
-          caption: "",
-          likedBy: "Gefällt " + dummyFollowings[5] + " und weiteren Personen",
-        },
-        {
-          imageSrc: "/insta-profiles/heidiklum/4.jpeg",
-          caption: "",
-          likedBy: "Gefällt " + dummyFollowings[6] + " und weiteren Personen",
-        },
-        {
-          imageSrc: "/insta-profiles/heidiklum/5.jpeg",
-          caption: "",
-          likedBy: "Gefällt " + dummyFollowings[7] + " und weiteren Personen",
-        },
-        {
-          imageSrc: "/insta-profiles/heidiklum/6.jpeg",
-          caption: "",
-          likedBy: "Gefällt " + dummyFollowings[8] + " und weiteren Personen",
-        },
-        {
-          imageSrc: "/insta-profiles/heidiklum/7.jpeg",
-          caption: "",
-          likedBy: "Gefällt " + dummyFollowings[9] + " und weiteren Personen",
-        },
-        {
-          imageSrc: "/insta-profiles/heidiklum/8.jpeg",
-          caption: "",
-          likedBy: "Gefällt " + dummyFollowings[10] + " und weiteren Personen",
-        },
-        {
-          imageSrc: "/insta-profiles/heidiklum/9.jpeg",
-          caption: "",
-          likedBy: "Gefällt " + dummyFollowings[11] + " und weiteren Personen",
-        },
-        {
-          imageSrc: "/insta-profiles/heidiklum/10.jpeg",
-          caption: "",
-          likedBy: "Gefällt " + dummyFollowings[12] + " und weiteren Personen",
-        },
-        {
-          imageSrc: "/insta-profiles/heidiklum/11.jpeg",
-          caption: "",
-          likedBy: "Gefällt " + dummyFollowings[13] + " und weiteren Personen",
-        },
-        {
-          imageSrc: "/insta-profiles/heidiklum/12.jpeg",
-          caption: "",
-          likedBy: "Gefällt " + dummyFollowings[14] + " und weiteren Personen",
-        },
-        {
-          imageSrc: "/insta-profiles/heidiklum/13.jpeg",
-          caption: "",
-          likedBy: "Gefällt " + dummyFollowings[15] + " und weiteren Personen",
-        },
-        {
-          imageSrc: "/insta-profiles/heidiklum/14.jpeg",
-          caption: "",
-          likedBy: "Gefällt " + dummyFollowings[4] + " und weiteren Personen",
-        },
-        {
-          imageSrc: "/insta-profiles/heidiklum/15.jpeg",
-          caption: "",
-          likedBy: "Gefällt " + dummyFollowings[4] + " und weiteren Personen",
-        },
-      ],
+      posts: [],
     },
     isRealProfile: false,
     hint: "Bei diesem Profil ist der Link in der Beschreibung besonders auffällig und ein guter Indikator dafür, dass es sich um ein Phishing Profil handelt",
@@ -410,15 +351,125 @@ const profiles: Profile[] = [
   {
     instagramProfile: {
       username: "heidiklum",
-      profileImageSrc: "/insta-profiles/no-profilepic.png",
+      profileImageSrc: "/insta-profiles/heidiklum/1.png",
       followers: 12000000,
       followingCount: 824,
       following: dummyFollowings,
       description: "Sunglasses at Night 😎 LISTEN NOW",
-      posts: [],
+      posts: [
+        {
+          imageSrc: "/insta-profiles/heidiklum/2.jpg",
+          caption: "",
+          likedBy: dummyFollowings[4] + " und weiteren Personen",
+        },
+        {
+          imageSrc: "/insta-profiles/heidiklum/3.jpg",
+          caption: "",
+          likedBy: dummyFollowings[5] + " und weiteren Personen",
+        },
+        {
+          imageSrc: "/insta-profiles/heidiklum/4.jpg",
+          caption: "",
+          likedBy: dummyFollowings[6] + " und weiteren Personen",
+        },
+        {
+          imageSrc: "/insta-profiles/heidiklum/5.jpg",
+          caption: "",
+          likedBy: dummyFollowings[7] + " und weiteren Personen",
+        },
+        {
+          imageSrc: "/insta-profiles/heidiklum/6.jpg",
+          caption: "",
+          likedBy: dummyFollowings[8] + " und weiteren Personen",
+        },
+        {
+          imageSrc: "/insta-profiles/heidiklum/7.jpg",
+          caption: "",
+          likedBy: dummyFollowings[9] + " und weiteren Personen",
+        },
+        {
+          imageSrc: "/insta-profiles/heidiklum/8.jpg",
+          caption: "",
+          likedBy: dummyFollowings[10] + " und weiteren Personen",
+        },
+        {
+          imageSrc: "/insta-profiles/heidiklum/9.jpg",
+          caption: "",
+          likedBy: dummyFollowings[11] + " und weiteren Personen",
+        },
+        {
+          imageSrc: "/insta-profiles/heidiklum/10.jpg",
+          caption: "",
+          likedBy: dummyFollowings[12] + " und weiteren Personen",
+        },
+        {
+          imageSrc: "/insta-profiles/heidiklum/11.jpg",
+          caption: "",
+          likedBy: dummyFollowings[13] + " und weiteren Personen",
+        },
+        {
+          imageSrc: "/insta-profiles/heidiklum/12.jpg",
+          caption: "",
+          likedBy: dummyFollowings[14] + " und weiteren Personen",
+        },
+        {
+          imageSrc: "/insta-profiles/heidiklum/13.jpg",
+          caption: "",
+          likedBy: dummyFollowings[15] + " und weiteren Personen",
+        },
+        {
+          imageSrc: "/insta-profiles/heidiklum/14.jpg",
+          caption: "",
+          likedBy: dummyFollowings[16] + " und weiteren Personen",
+        },
+        {
+          imageSrc: "/insta-profiles/heidiklum/16.jpg",
+          caption: "",
+          likedBy: dummyFollowings[17] + " und weiteren Personen",
+        },
+        {
+          imageSrc: "/insta-profiles/heidiklum/17.jpg",
+          caption: "",
+          likedBy: dummyFollowings[18] + " und weiteren Personen",
+        },
+        {
+          imageSrc: "/insta-profiles/heidiklum/18.jpg",
+          caption: "",
+          likedBy: dummyFollowings[19] + " und weiteren Personen",
+        },
+        {
+          imageSrc: "/insta-profiles/heidiklum/19.jpg",
+          caption: "",
+          likedBy: dummyFollowings[20] + " und weiteren Personen",
+        },
+        {
+          imageSrc: "/insta-profiles/heidiklum/20.jpg",
+          caption: "",
+          likedBy: dummyFollowings[21] + " und weiteren Personen",
+        },
+        {
+          imageSrc: "/insta-profiles/heidiklum/21.jpg",
+          caption: "",
+          likedBy: "Gefällt " + dummyFollowings[22] + " und weiteren Personen",
+        },
+        {
+          imageSrc: "/insta-profiles/heidiklum/22.jpg",
+          caption: "",
+          likedBy: dummyFollowings[23] + " und weiteren Personen",
+        },
+        {
+          imageSrc: "/insta-profiles/heidiklum/23.png",
+          caption: "",
+          likedBy: dummyFollowings[24] + " und weiteren Personen",
+        },
+      ],
+      dummyPostsCount: 7894,
+      story: true,
+      verificated: true,
+      isPublic: true,
     },
-    isRealProfile: false,
-    hint: "Bei diesem Profil ist der Link in der Beschreibung besonders auffällig und ein guter Indikator dafür, dass es sich um ein Phishing Profil handelt",
+    isRealProfile: true,
+    hint: "Das Profil scheint eher ein reales Profil zu sein. Hinweise drauf sind vor allem das Verifizierungshäkchen und die vielen Follower.",
   },
   {
     instagramProfile: {
@@ -433,18 +484,18 @@ const profiles: Profile[] = [
         {
           imageSrc: "/insta-profiles/gewinnspiel/1.png",
           caption:
-            "!!KEIN FAKE ECHTE HANDYS!! 	Registrieren und Gewinnen: http://iphonegewinnen.de Probiert euer Glück und gewinnt ein neues Iphone 15 (Link) Welche Farbe wollt ihr gewinnen? !Kein fake!",
-          likedBy: "Gefällt 32 Mal",
+            "!!KEIN FAKE ECHTE HANDYS!! 	Registrieren und Gewinnen: http://iphonegewinnen.de Probiert euer Glück und gewinnt ein neues Iphone 15 Welche Farbe wollt ihr gewinnen? !Kein fake!",
+          likedBy: "32 Mal",
         },
         {
           imageSrc: "/insta-profiles/gewinnspiel/2.jpg",
           caption:
-            "!!KEIN FAKE ECHTE HANDYS!! 	Registrieren und Gewinnen: http://iphonegewinnen.de Sei du die nächste! Gewinne ein brandneues Iphone 15 (Link)",
-          likedBy: "Gefällt 31 Mal",
+            "!!KEIN FAKE ECHTE HANDYS!! 	Registrieren und Gewinnen: http://iphonegewinnen.de Sei du die nächste! Gewinne ein brandneues Iphone 15",
+          likedBy: "31 Mal",
         },
       ],
     },
     isRealProfile: false,
-    hint: "Bei diesem Profil ist der Link in der Beschreibung besonders auffällig und ein guter Indikator dafür, dass es sich um ein Phishing Profil handelt",
+    hint: "Hier sollte man bei dem aufdringlichen Text in der Bio vorsichtig sein. Auch hier ist der Link wieder auffällig",
   },
 ];

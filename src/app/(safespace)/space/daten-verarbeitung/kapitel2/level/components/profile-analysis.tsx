@@ -2,16 +2,18 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import InstagramProfile, {
   InstagramProfileData,
-} from "@/app/(safespace)/space/daten-verarbeitung/instagram-profile";
+} from "@/components/instagram-profile";
 import Task from "@/components/task";
 import Button from "@/components/button";
 import Robot from "@/components/robot/robot";
 import clsx from "clsx";
+import { HintCard } from "@/components/hint-card";
 
 type ProfileAnalysisProps = {
   profile: InstagramProfileData;
   robotText: string;
   task: string;
+  hint?: string;
   href: string;
 };
 
@@ -19,6 +21,7 @@ export default function ProfileAnalysis({
   profile,
   robotText,
   task,
+  hint,
   href,
 }: ProfileAnalysisProps) {
   const [state, setState] = useState(0);
@@ -54,7 +57,7 @@ export default function ProfileAnalysis({
                 className="w-full mt-4"
                 onClick={() => setShowMessage(false)}
               >
-                Alles klar!
+                Weiter
               </Button>
             </p>
           )}
@@ -67,6 +70,13 @@ export default function ProfileAnalysis({
             onClick={onClick}
           />
         </div>
+        {hint && (
+          <HintCard
+            text="Welche Infos soll ich suchen?"
+            buttonText="Tipp zeigen"
+            hint={hint}
+          />
+        )}
       </div>
     </div>
   );
