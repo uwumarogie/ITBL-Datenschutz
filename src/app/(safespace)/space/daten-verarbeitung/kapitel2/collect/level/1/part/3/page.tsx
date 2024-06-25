@@ -1,22 +1,7 @@
 "use client";
 
-import { NodeImageProgram } from "@sigma/node-image";
-import { useEffect, useMemo, useRef, useState } from "react";
-import Graph from "graphology";
-import Sigma from "sigma";
-import forceAtlas2 from "graphology-layout-forceatlas2";
-import { assignLayout } from "graphology-layout/utils";
-import { circular, random } from "graphology-layout";
-import { animateNodes } from "sigma/utils";
-import forceLayout from "graphology-layout-force";
-import ForceSupervisor from "graphology-layout-force/worker";
-import Button from "@/components/button";
-import { useRouter } from "next/navigation";
-import { motion } from "framer-motion";
-import AnimatedText from "@/components/animated/AnimatedText";
-import { atRule } from "postcss";
 import DataGraph, {
-  DataGraphState,
+  DataGraphState, Node, Edge
 } from "@/app/(safespace)/space/daten-verarbeitung/kapitel2/level/components/data-graph";
 
 const nodeFactor = () => ({
@@ -33,9 +18,37 @@ const nodeAttr = () => ({
   color: "#003A62",
 });
 
+const baseFactors: Node[] = [
+  {
+    name: "allgemein",
+    attributes: { ...nodeFactor()},
+    edgeTo: "user",
+  },
+  {
+    name: "schule",
+    attributes: { ...nodeFactor() },
+    edgeTo: "user",
+  },
+  {
+    name: "musik",
+    attributes: { ...nodeFactor() },
+    edgeTo: "user",
+  },
+  {
+    name: "familie",
+    attributes: { ...nodeFactor()},
+    edgeTo: "user",
+  },
+  {
+    name: "ferienjob",
+    attributes: { ...nodeFactor()},
+    edgeTo: "user",
+  },
+]
+
 const states: DataGraphState[] = [
   {
-    text: "Nach unserer ersten Analyse wissen wir nun schon viele Dinge über Marie. Wir sammeln alle Informationen in einer Art Mind Map.",
+    text: "Aus unserer vorherigen Analyse haben wir durch die Dinge, die Marie aktiv veröffentlicht hat, viel über sie gelernt",
     addNodes: [
       {
         name: "user",
@@ -49,161 +62,110 @@ const states: DataGraphState[] = [
           image: "/posts/profile_marie.png",
         },
       },
-    ],
+      ...baseFactors,
+      ...(
+        baseFactors.reduce((acc, next) => {
+          const attrs = [0,1,2,3,4].map(i => ({
+            name: next.name + "_" + i,
+            attributes: {...nodeAttr()},
+            edgeTo: next.name
+          } as Node))
+          return [...acc, ...attrs]
+        }, [] as Node[])
+      )
+    ]
   },
   {
-    text: "Wir können schon allgemeine Dinge über sie erfahren: Alter, Wohnort, Geschlecht, Schule ...",
+    text: "Über Daten, die Marie unbewusst generiert hat, haben wir nun neue Verbindungen herstellen können.",
+    addNodes: [
+      ...(
+        baseFactors.reduce((acc, next) => {
+          const attrs = [6,7].map(i => ({
+            name: next.name + "_" + i,
+            attributes: {...nodeAttr()},
+            edgeTo: next.name
+          } as Node))
+          return [...acc, ...attrs]
+        }, [] as Node[])
+      )
+    ],
+    addEdges: [
+      {
+        source: "schule",
+        target: "musik",
+      },
+      {
+        source: "familie_2",
+        target: "ferienjob_4"
+      },
+      {
+        source: "familie_1",
+        target: "allgemein_0"
+      },
+      {
+        source: "musik_1",
+        target: "musik_2"
+      },
+      {
+        source: "schule_3",
+        target: "allgemein_3"
+      }
+    ]
+  },
+  {
+    text: "Wir haben außerdem neue Beziehungen durch Freunde und Follower."
+  },
+  {
+    text: "Nehmen wir als Beispiel Lukas.",
     addNodes: [
       {
-        name: "allgemein",
-        attributes: { ...nodeFactor(), label: "Allgemein" },
-        edgeTo: "user",
-      },
-      {
-        name: "age",
-        attributes: { ...nodeAttr(), label: "17 Jahre alt" },
-        edgeTo: "allgemein",
-      },
-      {
-        name: "wohnort",
-        attributes: { ...nodeAttr(), label: "lebt in München" },
-        edgeTo: "allgemein",
-      },
-      {
-        name: "aussehen",
-        attributes: { ...nodeAttr(), label: "Aussehen" },
-        edgeTo: "allgemein",
-      },
-      {
-        name: "follower",
-        attributes: { ...nodeAttr(), label: "97 Follower" },
-        edgeTo: "allgemein",
-      },
-      {
-        name: "following",
-        attributes: { ...nodeAttr(), label: "folgt 189 Personen" },
-        edgeTo: "allgemein",
-      },
-      {
-        name: "schule",
-        attributes: { ...nodeFactor(), label: "Schule" },
-        edgeTo: "user",
-      },
-      {
-        name: "klasse",
-        attributes: { ...nodeAttr(), label: "12. Klasse" },
-        edgeTo: "schule",
-      },
-      {
-        name: "schule-ort",
+        name: "lukas",
         attributes: {
-          ...nodeAttr(),
-          label: "Franz von Miller Gymnasium in München",
+          x: 300,
+          y: 0,
+          size: 60,
+          label: "Lukas",
+          color: "#efefef",
+          image: "/posts/profile_lukas.png",
         },
-        edgeTo: "schule",
       },
-      {
-        name: "situation-schule",
-        attributes: { ...nodeAttr(), label: "lernt viel" },
-        edgeTo: "schule",
-      },
-      {
-        name: "stress_schule",
-        attributes: { ...nodeAttr(), label: "Stress" },
-        edgeTo: "schule",
-      },
-    ],
+    ]
   },
   {
-    text: "Wir wissen nun auch einiges über ihre aktuelle Hobbies und Dinge, die sie mag.",
+    text: "Lukas hat sein eigenes Universum an Daten um sich herum",
     addNodes: [
-      {
-        name: "musik",
-        attributes: { ...nodeFactor(), label: "Musik" },
-        edgeTo: "user",
-      },
-      {
-        name: "fan",
-        attributes: { ...nodeAttr(), label: "Billie Eilish" },
-        edgeTo: "musik",
-      },
-      {
-        name: "konzert",
-        attributes: { ...nodeAttr(), label: "Konzert" },
-        edgeTo: "musik",
-      },
-      {
-        name: "konzert_dortmund",
-        attributes: { ...nodeAttr(), label: "Dortmund" },
-        edgeTo: "musik",
-      },
-      {
-        name: "song_billie",
-        attributes: { ...nodeAttr(), label: "Everything I wanted" },
-        edgeTo: "musik",
-      },
-      {
-        name: "song_emotional",
-        attributes: { ...nodeAttr(), label: "Emotional" },
-        edgeTo: "musik",
-      },
-      {
-        name: "song_sentimental",
-        attributes: { ...nodeAttr(), label: "Sentimental" },
-        edgeTo: "musik",
-      },
-    ],
+      ...baseFactors.map(n => ({
+        name: n.name + "_lukas",
+        attributes: {...n.attributes, x: n.attributes.x + 360, color: "green"},
+        edgeTo: "lukas"
+      })),
+      ...baseFactors.reduce((acc, next) => {
+        const attrs = [0,1,2].map(i => ({
+          name: next.name + "_lukas" + "_" + i,
+          attributes: {...nodeAttr()},
+          edgeTo: next.name + "_lukas"
+        } as Node))
+        return [...acc, ...attrs]
+      }, [] as Node[])
+    ]
   },
   {
-    text: 'Wenn sie emotionale Lieder wie "Everything I wanted" hört, können wir vermuten, dass ihr andere emotionale Lieder ebenso gefallen könnten.',
+    text: "Wenn wir nun Verbindung zwischen Marie und Lukas herstellen, ..."
   },
   {
-    text: "Und das war es auch noch nicht. Wir können immer noch ein paar andere Dinge von Marie analysieren und speichern.",
-    addNodes: [
+    text: "Können wir von Marie aus auf ganz neue Themen kommen.",
+    addEdges: [
       {
-        name: "familie",
-        attributes: { ...nodeFactor(), label: "Familie" },
-        edgeTo: "user",
-      },
-      {
-        name: "schwester",
-        attributes: { ...nodeAttr(), label: "Schwester Lea" },
-        edgeTo: "familie",
-      },
-      {
-        name: "hund",
-        attributes: { ...nodeAttr(), label: "Hund" },
-        edgeTo: "familie",
-      },
-      {
-        name: "familienmensch",
-        attributes: { ...nodeAttr(), label: "Familienmensch" },
-        edgeTo: "familie",
-      },
-      {
-        name: "ferienjob",
-        attributes: { ...nodeFactor(), label: "Ferienjob" },
-        edgeTo: "user",
-      },
-      {
-        name: "sneaker",
-        attributes: { ...nodeAttr(), label: "Sneaker" },
-        edgeTo: "ferienjob",
-      },
-      {
-        name: "sneaker_name",
-        attributes: { ...nodeAttr(), label: "Nike AIR JORDAN 1" },
-        edgeTo: "ferienjob",
-      },
-    ],
+        source: "user",
+        target: "lukas",
+        attributes: {weight: 20, size: 30, color: "red"}
+      }
+    ]
   },
   {
-    text: "In diesem ersten Schritt haben wir schon bei einer kurzen Analyse viele Informationen über Marie erhalten.",
-  },
-  {
-    text: "Wir gehen nun einen Schritt weiter und versuchen noch mehr Daten zu erhalten.",
-  },
-];
+    text: "Über diese Beziehungen können wir nun ganz neue Themen vorschlagen, die Marie gefallen könnten."
+  }
+]
 
 export default function DataProcessing3() {
   return (

@@ -4,7 +4,7 @@ import InstagramProfile, {
   InstagramProfileData,
 } from "@/components/instagram-profile";
 import Robot from "@/components/robot/robot";
-import { useState } from "react";
+import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import Button from "@/components/button";
 import clsx from "clsx";
@@ -142,6 +142,10 @@ export default function DataProcessing1() {
       minFoundTerms={3}
       hint="Wie alt ist sie? Was macht sie in ihrem Leben? Welche Hobbies hat sie? "
       href="/space/daten-verarbeitung/kapitel2/collect/level/0/part/2"
-    />
+    >
+
+
+      <InstagramProfile profile={profile} className="w-full" />
+    </ProfileAnalysis>
   );
 }

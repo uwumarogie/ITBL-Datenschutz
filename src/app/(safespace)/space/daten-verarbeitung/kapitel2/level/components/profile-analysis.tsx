@@ -32,7 +32,8 @@ export default function ProfileAnalysis({
   minFoundTerms,
   hint,
   href,
-}: ProfileAnalysisProps) {
+  children
+}: ProfileAnalysisProps & { children?: React.ReactNode }) {
   const [state, setState] = useState(0);
   const [termInput, setTermInput] = useState("");
   const [showRobot, setShowRobot] = useState(true);
@@ -41,29 +42,28 @@ export default function ProfileAnalysis({
   const { addMessage } = useMessages();
 
   function checkTerm() {
-    for (let term of foundTerms) {
-      if (
-        distance(term.toLowerCase(), termInput.toLowerCase()) <= MAX_DISTANCE
-      ) {
+    const distances = terms.map(term => ({term, distance: distance(termInput.toLowerCase(), term.toLowerCase())}))
+      .filter(({distance}) => distance <= MAX_DISTANCE).sort((a,b) => b.distance - a.distance)
+
+    console.log(distances)
+
+    let newTermFound = false
+    for(let {term, distance} of distances){
+      if(foundTerms.includes(term)){
         addMessage(
           "Du hast diesen Begriff bereits gefunden. Finde eine andere Eigenschaft!",
           "info",
         );
-        return;
-      }
-    }
-    let termFound = false;
-    for (let term of terms) {
-      if (
-        distance(term.toLowerCase(), termInput.toLowerCase()) <= MAX_DISTANCE
-      ) {
-        setFoundTerms((terms) => [...terms, term]);
-        termFound = true;
+        return
+      }else{
+        newTermFound = true
+        setFoundTerms(terms => [...terms, term])
         setTermInput("");
-        break;
+        return
       }
     }
-    if (!termFound) {
+
+    if(!newTermFound) {
       addMessage(
         "Dieser Begriff scheint nicht zu passen. Versuche einen ähnliche oder ganz anderen Begriff.",
         "error",
@@ -78,13 +78,13 @@ export default function ProfileAnalysis({
   }
 
   return (
-    <div className="h-full relative flex @container">
-      <div className="h-full w-full @2xl:w-1/2 @2xl:max-w-md flex-shrink-0 mr-10 border-2 rounded-xl shadow overflow-hidden">
+    <div className="h-full relative flex @container justify-evenly">
+      <div className="h-full w-full max-w-[600px] mr-10 border-2 rounded-xl shadow overflow-hidden">
         <div className="h-full box-border">
-          <InstagramProfile profile={profile} className="w-full" />
+          {children}
         </div>
       </div>
-      <div className="flex flex-col gap-4 absolute bottom-0 right-0 z-40 @2xl:relative @2xl:w-full @2xl:h-full">
+      <div className="flex flex-col gap-4 z-40 max-w-96 @2xl:relative @2xl:h-full">
         {showRobot && (
           <div className="flex flex-col justify-center items-center gap-10 h-full">
             <p className="max-w-80 box-content w-full text-center px-8 py-6 bg-white shadow-lg rounded-2xl">
@@ -120,13 +120,13 @@ export default function ProfileAnalysis({
               ))}
             </ul>
             <input
-              className="w-full border-[1px] border-gray-200 rounded-xl resize-none outline-none py-4 px-6 hidden @2xl:block"
+              className="w-full border-[1px] border-gray-200 rounded-xl resize-none outline-none py-4 px-6 block"
               placeholder="Eigenschaft / Aspekt"
               value={termInput}
               onChange={(ev) => setTermInput(ev.target.value ?? "")}
               onKeyUp={(ev) => ev.key == "Enter" && checkTerm()}
             />
-            <Button onClick={checkTerm}>Überprüfen</Button>
+            <Button onClick={checkTerm} style={foundTerms.length >= minFoundTerms ? "secondary" : "default"}>Überprüfen</Button>
             {hint && foundTerms.length < minFoundTerms && (
               <HintCard
                 text="Welche Infos soll ich suchen?"
@@ -141,7 +141,7 @@ export default function ProfileAnalysis({
                   Klasse! Du hast alle Begriffe gefunden!
                 </span>
                 <Link href={href}>
-                  <Button onClick={() => {}}>Weiter</Button>
+                  <Button onClick={() => {}} className="animate-bounce">Weiter</Button>
                 </Link>
               </div>
             )}

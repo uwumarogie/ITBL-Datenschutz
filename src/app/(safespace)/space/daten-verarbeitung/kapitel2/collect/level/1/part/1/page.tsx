@@ -4,12 +4,23 @@ import InstagramProfile, {
   InstagramProfileData,
 } from "@/components/instagram-profile";
 import Robot from "@/components/robot/robot";
-import { useState } from "react";
+import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import Button from "@/components/button";
 import clsx from "clsx";
 import Task from "@/components/task";
 import ProfileAnalysis from "@/app/(safespace)/space/daten-verarbeitung/kapitel2/level/components/profile-analysis";
+import {Tab, TabList, TabPanel, Tabs} from "react-tabs";
+import Image from "next/image";
+import {
+  BookmarkSimple,
+  ChatCircle,
+  Heart,
+  Hourglass,
+  PaperPlaneRight,
+  PaperPlaneTilt,
+  ThumbsDown
+} from "@phosphor-icons/react";
 
 const profile: InstagramProfileData = {
   username: "marie_magic1995",
@@ -127,6 +138,86 @@ const terms = [
   "Tante Emma",
 ];
 
+const historyPost: HistoryPost[] = [
+  {
+    src: "/datenverarbeitung/collect/level1/post-history/post_history1.jpg",
+    caption: "Baliurlaub",
+    like: true,
+    time: "65 Sekunden",
+    tags: ["Urlaub", "Reisen", "See"],
+    date: "gerade eben"
+  },
+  {
+    src: "/datenverarbeitung/collect/level1/post-history/post_history_dislike4.jpg",
+    caption: "Nachrichtenbeitrag - Ukraine",
+    date: "gestern",
+    time: "4 Sekunden",
+    tags: ["Nachrichten", "Ukraine", "Bürgergeld", "Sozialstaat"]
+  },
+  {
+    src: "/datenverarbeitung/collect/level1/post-history/post_history_dislike5.jpg",
+    caption: "Geschirr - Deko",
+    tags: ["Deko", "Haushalt", "Einrichtung"]
+  },
+  {
+    src: "/datenverarbeitung/collect/level1/post-history/post_history_dislike2.jpg",
+    caption: "Deutschrap Brandneu - Playlist",
+    time: "1 Sekunde",
+    tags: ["Musik", "Deutschrap", "Rap"]
+  },
+  {
+    src: "/datenverarbeitung/collect/level1/post-history/post_history3.jpg",
+    caption: "Meme",
+    date: "vor vier Tagen",
+    comment: "Kommentiert mit \"@Lukas, du 😂\"",
+    tags: ["Spongebob", "Meme"]
+  },
+  {
+    src: "/datenverarbeitung/collect/level1/post-history/post_history4.jpg",
+    caption: "Schule - Kritik",
+    save: true,
+    tags: ["Schule", "Fächer", "Politik"]
+  },
+  {
+    src: "/datenverarbeitung/collect/level1/post-history/post_history2.jpg",
+    caption: "Technische Universität München",
+    send: "An @Tanja",
+    tags: ["Universität", "Technik"]
+  },
+  {
+    src: "/datenverarbeitung/collect/level1/post-history/post_history6.jpg",
+    caption: "Gebäck",
+    like: true,
+    time: "63 Sekunden",
+    tags: ["Backen", "Süßigkeiten", "Handwerk"]
+  },
+  {
+    src: "/datenverarbeitung/collect/level1/post-history/post_history_dislike1.jpg",
+    caption: "Fußball EM 2024",
+    dislike: true,
+    tags: ["Fußball", "EM", "Österreich", "Frankreich"]
+  },
+  {
+    src: "/datenverarbeitung/collect/level1/post-history/post_history_dislike6.jpg",
+    caption: "Supermärkte",
+    dislike: true,
+    time: "2 Sekunden",
+    tags: ["Markt", "Einkaufen", "Lebensmittel", "Gründung", "Lokal"]
+  },
+  {
+    src: "/datenverarbeitung/collect/level1/post-history/post_history5.jpg",
+    caption: "Vögel - Tiere",
+    like: true,
+    date: "vor 1 Stunde",
+    tags: ["Tiere", "Vögel", "Niedlich"]
+  },
+  {
+    src: "/datenverarbeitung/collect/level1/post-history/post_history_dislike3.jpg",
+    caption: "Buchvorstellung",
+    tags: ["Literatur", "Bücher", "Kinder"]
+  },
+]
+
 const robotText =
   "Hier siehst du Maries Instagram Feed. Wie lässt sie sich durch ihre Posts beschreiben? Schreibe dir mindestens drei Aspekte auf.";
 const task =
@@ -140,8 +231,66 @@ export default function DataProcessing1() {
       task={task}
       terms={terms}
       minFoundTerms={3}
-      hint="Wie alt ist sie? Was macht sie in ihrem Leben? Welche Hobbies hat sie? "
+      hint="Was kannst du aus dem Postverlauf lesen? Mit wem interagiert Marie? Welche Verbindungen gibt es zu anderen Profilen? Versuche einen Schritt weiter zu denken und verbindungen herzustellen."
       href="/space/daten-verarbeitung/kapitel2/collect/level/1/part/2"
-    />
+    >
+      <Tabs className="h-full flex flex-col">
+        <TabList className="flex border-b-2 flex-shrink-0">
+          <Tab className="cursor-pointer p-4 text-center outline-none w-full border-b-sky-800">Profil</Tab>
+          <Tab className="cursor-pointer p-4 text-center outline-none w-full border-b-sky-800">Verlauf</Tab>
+        </TabList>
+
+        <TabPanel className="overflow-y-auto">
+          <InstagramProfile profile={profile} className="w-full" />
+        </TabPanel>
+        <TabPanel className="overflow-y-auto">
+          <span className="m-4 block italic opacity-50">Diese Posts wurden Marie zuletzt angezeigt.</span>
+          <PostHistory posts={historyPost}/>
+        </TabPanel>
+
+      </Tabs>
+    </ProfileAnalysis>
   );
+}
+
+type HistoryPost = {
+  src: string,
+  caption: string,
+  like?: boolean,
+  save?: boolean,
+  send?: string,
+  dislike?: boolean,
+  time?: string,
+  comment?: string,
+  tags?: string[]
+  date?: string,
+}
+
+export function PostHistory({ posts }: {
+  posts: HistoryPost[]
+}) {
+  return <div className="flex flex-col h-full">
+    {posts.map(post => <PostHistoryPost key={post.src} {...post}/>)}
+  </div>
+}
+
+export function PostHistoryPost({src, caption, like, save, send, dislike, time, comment, tags, date}: HistoryPost){
+  return <div className="flex p-4 items-center">
+    <Image src={src} alt={caption} width="200" height="200" className="flex-shrink-0 w-20 h-20 object-cover object-center bg-gray-100 rounded-xl"/>
+    <div className="flex flex-col ml-6 w-full">
+      <span className="font-semibold text-xl">{caption}<span className="text-sm font-thin ml-2 opacity-50">{date}</span></span>
+      {time && <span className="flex items-center gap-2"><Hourglass weight="fill" className="opacity-40"/>{time} betrachtet</span>}
+      {comment && <span className="flex items-center gap-2"><ChatCircle weight="fill" className="opacity-40"/>{comment}</span>}
+      {send && <span className="flex items-center gap-2"><PaperPlaneTilt weight="fill" className="opacity-40"/>{send}</span>}
+      <span className="flex flex-wrap gap-1 mt-1">
+        {tags && tags.map(tag => (<span key={tag}
+                                        className="flex items-center py-1 px-2 rounded-full bg-blue-50 text-xs text-blue-900">#{tag}</span>))}
+      </span>
+    </div>
+    <div className="mr-2 ml-6 flex-shrink-0">
+      {like && <Heart weight="fill" className="h-8 w-8" color="red"/>}
+      {save && <BookmarkSimple className="h-8 w-8"/>}
+      {dislike && <ThumbsDown className="h-8 w-8"/>}
+    </div>
+  </div>
 }
