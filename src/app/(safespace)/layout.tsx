@@ -35,7 +35,7 @@ export default function Layout({
 
   return (
     <div className="bg-blue-background h-screen bg-fixed">
-      <span className="absolute top-3 right-14 text-white hidden sm:block">
+      <span className="absolute top-4 right-14 text-white hidden text-sm sm:block">
         <span className="text-slate-400">Eingeloggt als:</span> {username}
       </span>
       <div className="flex justify-center h-reduced-safari sm:h-full px-3 pt-1 sm:py-11 sm:pr-8 sm:pl-0 flex-col sm:flex-row">
