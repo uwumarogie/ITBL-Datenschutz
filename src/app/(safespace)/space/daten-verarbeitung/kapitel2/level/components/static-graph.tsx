@@ -1,11 +1,10 @@
-import {useEffect, useMemo, useRef} from "react";
+import { useEffect, useMemo, useRef } from "react";
 import Graph from "graphology";
-import {node} from "prop-types";
+import { node } from "prop-types";
 import Sigma from "sigma";
-import {NodeImageProgram} from "@sigma/node-image";
-import {circular} from "graphology-layout";
+import { NodeImageProgram } from "@sigma/node-image";
+import { circular } from "graphology-layout";
 import ForceSupervisor from "graphology-layout-force/worker";
-
 
 export type Node = {
   name: string;
@@ -20,25 +19,29 @@ export type Edge = {
   attributes?: any | undefined;
 };
 
-export default function StaticGraph({nodes, edges, className}: {nodes?: Node[], edges?: [], className?: string }) {
+export default function StaticGraph({
+  nodes,
+  edges,
+  className,
+}: {
+  nodes?: Node[];
+  edges?: [];
+  className?: string;
+}) {
   const sigmaContainer = useRef(null);
 
   const graph = useMemo(() => {
     const g = new Graph();
 
-    nodes?.forEach(
-      ({ name, attributes, edgeTo, edgeAttributes }) => {
-        g.addNode(name, attributes);
-      },
-    );
+    nodes?.forEach(({ name, attributes, edgeTo, edgeAttributes }) => {
+      g.addNode(name, attributes);
+    });
 
-    nodes?.forEach(
-      ({ name, attributes, edgeTo, edgeAttributes }) => {
-        if (edgeTo) {
-          g.addEdge(name, edgeTo, edgeAttributes);
-        }
-      },
-    )
+    nodes?.forEach(({ name, attributes, edgeTo, edgeAttributes }) => {
+      if (edgeTo) {
+        g.addEdge(name, edgeTo, edgeAttributes);
+      }
+    });
     edges?.forEach(({ source, target, attributes }) =>
       g.addEdge(source, target, attributes),
     );
@@ -56,7 +59,6 @@ export default function StaticGraph({nodes, edges, className}: {nodes?: Node[], 
       },
     });
 
-
     circular.assign(graph);
 
     const layout = new ForceSupervisor(graph, {
@@ -67,9 +69,11 @@ export default function StaticGraph({nodes, edges, className}: {nodes?: Node[], 
     return () => {
       sigma.kill();
     };
-  })
+  });
 
-  return <div className={className}>
-    <div className="h-full w-full" ref={sigmaContainer}></div>
-  </div>
+  return (
+    <div className={className}>
+      <div className="h-full w-full" ref={sigmaContainer}></div>
+    </div>
+  );
 }

@@ -143,8 +143,6 @@ export default function DataProcessing1() {
       hint="Wie alt ist sie? Was macht sie in ihrem Leben? Welche Hobbies hat sie? "
       href="/space/daten-verarbeitung/kapitel2/collect/level/0/part/2"
     >
-
-
       <InstagramProfile profile={profile} className="w-full" />
     </ProfileAnalysis>
   );
