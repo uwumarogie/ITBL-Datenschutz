@@ -8,7 +8,7 @@ import { GameController, Info, Lightbulb } from "@phosphor-icons/react";
 const title = "Datenverarbeitung";
 const description = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dolore commodi commodo veniam imperdiet nihil iusto gubergren, in facilisis mazim nam dolores mazim dolore est eros iure doming culpa. 
 Nisi sadipscing elitr. Euismod dolores accumsan.`;
-const entryPath = "/space/daten-verarbeitung/kapitel1";
+const entryPath = "/space/daten-verarbeitung/overview";
 const chapter: ModuleChapter[] = [
   {
     title: "Einführung",
@@ -30,7 +30,7 @@ export default function DataProcessing() {
   const router = useRouter();
 
   return (
-    <div className="relative h-full w-full flex flex-col">
+    <div className="relative h-full w-full flex flex-col overflow-y-auto">
       <ModuleIntro
         title={title}
         description={description}

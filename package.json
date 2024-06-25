@@ -20,6 +20,7 @@
     "@types/react-beautiful-dnd": "13.1.8",
     "dotenv-cli": "7.4.2",
     "drizzle-orm": "0.31.2",
+    "fastest-levenshtein": "^1.0.16",
     "framer-motion": "11.2.10",
     "graphology": "0.25.4",
     "graphology-layout": "0.6.1",

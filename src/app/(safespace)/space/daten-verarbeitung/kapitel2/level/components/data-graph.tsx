@@ -108,13 +108,13 @@ export default function DataGraph({ states, href }: DataGraphProps) {
 
   return (
     <div className="h-full flex flex-col justify-center items-center">
-      <h3 className="mt-10 mb-16 font-medium text-2xl text-center w-full md:w-3/4">
+      <h3 className="mb-4 font-medium text-xl text-center w-full md:w-3/4">
         <AnimatedText>{(states[state].text ?? "") as string}</AnimatedText>
       </h3>
 
       <div className="h-full w-full" ref={sigmaContainer}></div>
 
-      <Button className="mt-16" onClick={onClick}>
+      <Button className="mt-4" onClick={onClick}>
         Weiter
       </Button>
     </div>

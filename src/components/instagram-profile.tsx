@@ -7,6 +7,8 @@ import {
   BookmarkSimple,
   ChatCircle,
   Heart,
+  MapPin,
+  MusicNotes,
   PaperPlaneTilt,
   SealCheck,
   User,
@@ -17,6 +19,8 @@ export type InstagramPost = {
   imageSrc: string;
   caption: string;
   likedBy?: string | undefined;
+  location?: string | undefined;
+  song?: string | undefined;
 };
 
 export type InstagramProfileData = {
@@ -24,7 +28,7 @@ export type InstagramProfileData = {
   profileImageSrc: string;
   followers: number;
   followingCount: number;
-  following: string[];
+  following?: string[] | undefined;
   description: string;
   posts: InstagramPost[];
   story?: boolean;
@@ -51,7 +55,7 @@ export default function InstagramProfile({
           onClick={() => setCurrentPost(null)}
         />
       )}
-      {showFollowing && (
+      {profile.following && showFollowing && (
         <Following
           following={profile.following}
           onClick={() => setShowFollowing(false)}
@@ -239,7 +243,21 @@ function CurrentPost({
               width="50"
               height="50"
             />
-            <span className="font-medium pr-2">{profile.username}</span>
+            <div className="flex flex-col">
+              <span className="font-medium pr-2">{profile.username}</span>
+              {post.song && (
+                <span className="text-xs">
+                  <MusicNotes className="inline mr-1" />
+                  {post.song}
+                </span>
+              )}
+              {post.location && (
+                <span className="text-xs">
+                  <MapPin className="inline mr-1" />
+                  {post.location}
+                </span>
+              )}
+            </div>
           </div>
           <Image
             src={post.imageSrc}
