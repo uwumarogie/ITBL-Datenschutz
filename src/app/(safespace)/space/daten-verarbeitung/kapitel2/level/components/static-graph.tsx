@@ -1,6 +1,5 @@
 import { useEffect, useMemo, useRef } from "react";
 import Graph from "graphology";
-import { node } from "prop-types";
 import Sigma from "sigma";
 import { NodeImageProgram } from "@sigma/node-image";
 import { circular } from "graphology-layout";
@@ -47,7 +46,7 @@ export default function StaticGraph({
     );
 
     return g;
-  }, [node, edges]);
+  }, [nodes, edges]);
 
   // Construct graph and setup Sigma.js
   useEffect(() => {
