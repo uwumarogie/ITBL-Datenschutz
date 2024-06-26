@@ -18,6 +18,8 @@ import { atRule } from "postcss";
 import DataGraph, {
   DataGraphState,
 } from "@/app/(safespace)/space/daten-verarbeitung/kapitel2/level/components/data-graph";
+import Robot from "@/components/robot/robot";
+import clsx from "clsx";
 
 const nodeFactor = () => ({
   x: Math.random(),
@@ -60,6 +62,44 @@ const states: DataGraphState[] = [
         edgeTo: "user",
       },
       {
+        name: "schule",
+        attributes: { ...nodeFactor(), label: "Schule" },
+        edgeTo: "user",
+      },
+    ],
+  },
+  {
+    text: "Wir wissen nun auch einiges über ihre aktuelle Hobbies und Dinge, die sie mag.",
+    addNodes: [
+      {
+        name: "musik",
+        attributes: { ...nodeFactor(), label: "Musik" },
+        edgeTo: "user",
+      },
+    ],
+  },
+  {
+    text: 'Wenn sie emotionale Lieder wie "Everything I wanted" hört, können wir vermuten, dass ihr andere emotionale Lieder ebenso gefallen könnten.',
+  },
+  {
+    text: "Und das war es auch noch nicht. Wir können immer noch ein paar andere Dinge von Marie analysieren und speichern.",
+    addNodes: [
+      {
+        name: "familie",
+        attributes: { ...nodeFactor(), label: "Familie" },
+        edgeTo: "user",
+      },
+      {
+        name: "ferienjob",
+        attributes: { ...nodeFactor(), label: "Ferienjob" },
+        edgeTo: "user",
+      },
+    ],
+  },
+  {
+    text: "Einige detailliertere Informationen haben wir noch ausgelassen. Fügen wir sie hinzu haben wir schon ein relativ genaues Bild von Marie.",
+    addNodes: [
+      {
         name: "age",
         attributes: { ...nodeAttr(), label: "17 Jahre alt" },
         edgeTo: "allgemein",
@@ -85,11 +125,6 @@ const states: DataGraphState[] = [
         edgeTo: "allgemein",
       },
       {
-        name: "schule",
-        attributes: { ...nodeFactor(), label: "Schule" },
-        edgeTo: "user",
-      },
-      {
         name: "klasse",
         attributes: { ...nodeAttr(), label: "12. Klasse" },
         edgeTo: "schule",
@@ -111,16 +146,6 @@ const states: DataGraphState[] = [
         name: "stress_schule",
         attributes: { ...nodeAttr(), label: "Stress" },
         edgeTo: "schule",
-      },
-    ],
-  },
-  {
-    text: "Wir wissen nun auch einiges über ihre aktuelle Hobbies und Dinge, die sie mag.",
-    addNodes: [
-      {
-        name: "musik",
-        attributes: { ...nodeFactor(), label: "Musik" },
-        edgeTo: "user",
       },
       {
         name: "fan",
@@ -152,19 +177,6 @@ const states: DataGraphState[] = [
         attributes: { ...nodeAttr(), label: "Sentimental" },
         edgeTo: "musik",
       },
-    ],
-  },
-  {
-    text: 'Wenn sie emotionale Lieder wie "Everything I wanted" hört, können wir vermuten, dass ihr andere emotionale Lieder ebenso gefallen könnten.',
-  },
-  {
-    text: "Und das war es auch noch nicht. Wir können immer noch ein paar andere Dinge von Marie analysieren und speichern.",
-    addNodes: [
-      {
-        name: "familie",
-        attributes: { ...nodeFactor(), label: "Familie" },
-        edgeTo: "user",
-      },
       {
         name: "schwester",
         attributes: { ...nodeAttr(), label: "Schwester Lea" },
@@ -181,21 +193,19 @@ const states: DataGraphState[] = [
         edgeTo: "familie",
       },
       {
-        name: "ferienjob",
-        attributes: { ...nodeFactor(), label: "Ferienjob" },
-        edgeTo: "user",
+        name: "sneaker_name",
+        attributes: { ...nodeAttr(), label: "Nike AIR JORDAN 1" },
+        edgeTo: "ferienjob",
       },
       {
         name: "sneaker",
         attributes: { ...nodeAttr(), label: "Sneaker" },
         edgeTo: "ferienjob",
       },
-      {
-        name: "sneaker_name",
-        attributes: { ...nodeAttr(), label: "Nike AIR JORDAN 1" },
-        edgeTo: "ferienjob",
-      },
-    ],
+    ]
+  },
+  {
+    text: "Einige detailliertere Informationen haben wir noch ausgelassen. Fügen wir sie hinzu haben wir schon ein relativ genaues Bild von Marie.",
   },
   {
     text: "In diesem ersten Schritt haben wir schon bei einer kurzen Analyse viele Informationen über Marie erhalten.",
@@ -206,10 +216,31 @@ const states: DataGraphState[] = [
 ];
 
 export default function DataProcessing3() {
+  const [showRobot, setShowRobot] = useState(false)
+  function onStateChange(state: number) {
+    console.log(state)
+    if(state == 6) {
+      setShowRobot(true)
+    }
+  }
   return (
-    <DataGraph
-      states={states}
-      href="/space/daten-verarbeitung/kapitel2/collect/level/1/part/0"
-    />
+    <div className="w-full h-full relative">
+      <div
+        className={clsx("absolute bottom-0 inline-flex flex-col py-4 px-6 m-4 z-10 transition-all duration-700 bg-white shadow-md rounded-xl", showRobot ? "right-0 opacity-100" : "right-[-100%] opacity-0")}>
+        <div className="bg-white rounded-xl max-w-96">
+          <span className="block mb-4">Wow! Das waren jetzt aber viele neue Punkte! Zoome mit dem Mausrad in die Mind-Map, um mehr Details zu sehen.</span>
+
+        </div>
+        <div className="w-full flex justify-between items-end">
+          <Button style="secondary" onClick={() => setShowRobot(false)}>Schließen</Button>
+          <Robot expression="smiling"/>
+        </div>
+      </div>
+      <DataGraph
+        states={states}
+        href="/space/daten-verarbeitung/kapitel2/collect/level/1/part/0"
+        onStateChange={onStateChange}
+      />
+    </div>
   );
 }

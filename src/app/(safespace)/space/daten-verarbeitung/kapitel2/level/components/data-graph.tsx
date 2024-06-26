@@ -29,10 +29,11 @@ export type DataGraphState = {
 
 type DataGraphProps = {
   states: DataGraphState[];
+  onStateChange?: (state: number) => void,
   href: string;
 };
 
-export default function DataGraph({ states, href }: DataGraphProps) {
+export default function DataGraph({ states, href, onStateChange }: DataGraphProps) {
   const sigmaContainer = useRef(null);
   const [state, setState] = useState(0);
   const router = useRouter();
@@ -82,6 +83,7 @@ export default function DataGraph({ states, href }: DataGraphProps) {
     const nextState = state + 1;
     setState(nextState);
     const data = states[nextState];
+    onStateChange?.(nextState)
 
     for (const node of data.addNodes ?? []) {
       graph.addNode(node.name, node.attributes);
@@ -107,7 +109,7 @@ export default function DataGraph({ states, href }: DataGraphProps) {
   }
 
   return (
-    <div className="h-full flex flex-col justify-center items-center">
+    <div className="h-full flex flex-col justify-center items-center relative">
       <h3 className="mb-4 font-medium text-xl text-center w-full md:w-3/4">
         <AnimatedText>{(states[state].text ?? "") as string}</AnimatedText>
       </h3>
