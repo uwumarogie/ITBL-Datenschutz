@@ -83,9 +83,9 @@ const config: Config = {
         "100%": { transform: "scale(0)" },
       },
       rotate: {
-        "0%": { transform: "rotate(0deg)"},
-        "100%": { transform: "rotate(360deg)"}
-      }
+        "0%": { transform: "rotate(0deg)" },
+        "100%": { transform: "rotate(360deg)" },
+      },
     },
     animation: {
       blurOut: "blurOut 2s ease-in-out",
@@ -101,7 +101,7 @@ const config: Config = {
       scaleOut: "scaleOut 0.3s ease-in-out",
       fadeOut: "fadeOut 0.5s ease-in-out",
       rotate: "rotate 6s linear infinite",
-      rotateInv: "rotate 6s linear reverse infinite"
+      rotateInv: "rotate 6s linear reverse infinite",
     },
   },
   plugins: [require("@tailwindcss/container-queries")],

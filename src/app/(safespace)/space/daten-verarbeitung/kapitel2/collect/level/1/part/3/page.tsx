@@ -4,7 +4,9 @@ import DataGraph, {
   DataGraphState,
   Node,
   Edge,
-} from "@/app/(safespace)/space/daten-verarbeitung/kapitel2/level/components/data-graph";
+} from "@/app/(safespace)/space/daten-verarbeitung/kapitel2/components/data-graph";
+import { PersistUserService } from "@/services/user/PersistUserService";
+import { AchievementId } from "@/util/achievement-data";
 
 const nodeFactor = () => ({
   x: Math.random(),
@@ -179,9 +181,17 @@ const states: DataGraphState[] = [
 ];
 
 export default function DataProcessing3() {
+  async function onDone() {
+    const context = new PersistUserService();
+    await context.setAchievement(
+      AchievementId.DATA_PROCESSING_CHECKPOINT_COLLECT,
+      true,
+    );
+  }
   return (
     <DataGraph
       states={states}
+      onDone={onDone}
       href="/space/daten-verarbeitung/overview"
     />
   );

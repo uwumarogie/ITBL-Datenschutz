@@ -3,7 +3,8 @@ import {
   Barbell,
   CloudArrowDown,
   Detective,
-  FishSimple, Gear,
+  FishSimple,
+  Gear,
   HandSwipeRight,
   IconProps,
   Lightbulb,
@@ -161,7 +162,7 @@ export namespace AchievementData {
       title: "Datenmaschine",
       description: "Werde Meister in der Datensammlung und -verarbeitung",
       progress: false,
-      icon: <Gear {...iconProps}/>
-    }
+      icon: <Gear {...iconProps} />,
+    },
   ];
 }

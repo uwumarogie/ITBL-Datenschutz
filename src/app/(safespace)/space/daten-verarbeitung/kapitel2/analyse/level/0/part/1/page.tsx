@@ -5,19 +5,21 @@ import { useState } from "react";
 import Task from "@/components/task";
 import {
   Cross,
-  House, Info,
+  House,
+  Info,
   MagnifyingGlass,
   Plus,
   PlusSquare,
   Trash,
   User,
-  Video, X,
+  Video,
+  X,
 } from "@phosphor-icons/react";
 import clsx from "clsx";
 import Button from "@/components/button";
 import { useMessages } from "@/services/notfication/message-provider";
 import Link from "next/link";
-import {CollectData} from "@/app/(safespace)/space/daten-verarbeitung/data/collect";
+import { CollectData } from "@/app/(safespace)/space/daten-verarbeitung/data/collect";
 import TagList from "@/app/(safespace)/space/daten-verarbeitung/kapitel2/analyse/components/tag-list";
 
 type FeedPost = string;
@@ -91,17 +93,22 @@ export default function DataProcessingPart1() {
 
   return (
     <div className="flex w-full h-full gap-10 relative">
-
-      <TagList show={showData} onClose={() => setShowData(false)}/>
+      <TagList show={showData} onClose={() => setShowData(false)} />
 
       <div className="flex flex-wrap content-start gap-4 overflow-y-auto h-full max-w-[500px] m-auto">
         {!done && (
           <div>
             <Task>
-              Wähle aus den verfügbaren Posts diejenigen aus, die Marie am meisten
-              gefallen könnten.
+              Wähle aus den verfügbaren Posts diejenigen aus, die Marie am
+              meisten gefallen könnten.
             </Task>
-            <Button style="secondary" className="mt-4" onClick={() => setShowData(!showData)}><Info weight="fill" className="mr-4"/> Gesammelte Daten</Button>
+            <Button
+              style="secondary"
+              className="mt-4"
+              onClick={() => setShowData(!showData)}
+            >
+              <Info weight="fill" className="mr-4" /> Gesammelte Daten
+            </Button>
           </div>
         )}
 

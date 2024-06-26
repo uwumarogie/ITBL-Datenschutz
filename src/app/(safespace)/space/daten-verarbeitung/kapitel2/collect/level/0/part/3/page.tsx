@@ -17,7 +17,7 @@ import AnimatedText from "@/components/animated/AnimatedText";
 import { atRule } from "postcss";
 import DataGraph, {
   DataGraphState,
-} from "@/app/(safespace)/space/daten-verarbeitung/kapitel2/level/components/data-graph";
+} from "@/app/(safespace)/space/daten-verarbeitung/kapitel2/components/data-graph";
 import Robot from "@/components/robot/robot";
 import clsx from "clsx";
 
@@ -202,7 +202,7 @@ const states: DataGraphState[] = [
         attributes: { ...nodeAttr(), label: "Sneaker" },
         edgeTo: "ferienjob",
       },
-    ]
+    ],
   },
   {
     text: "Einige detailliertere Informationen haben wir noch ausgelassen. Fügen wir sie hinzu haben wir schon ein relativ genaues Bild von Marie.",
@@ -216,24 +216,32 @@ const states: DataGraphState[] = [
 ];
 
 export default function DataProcessing3() {
-  const [showRobot, setShowRobot] = useState(false)
+  const [showRobot, setShowRobot] = useState(false);
   function onStateChange(state: number) {
-    console.log(state)
-    if(state == 6) {
-      setShowRobot(true)
+    console.log(state);
+    if (state == 6) {
+      setShowRobot(true);
     }
   }
   return (
     <div className="w-full h-full relative">
       <div
-        className={clsx("absolute bottom-0 inline-flex flex-col py-4 px-6 m-4 z-10 transition-all duration-700 bg-white shadow-md rounded-xl", showRobot ? "right-0 opacity-100" : "right-[-100%] opacity-0")}>
+        className={clsx(
+          "absolute bottom-0 inline-flex flex-col py-4 px-6 m-4 z-10 transition-all duration-700 bg-white shadow-md rounded-xl",
+          showRobot ? "right-0 opacity-100" : "right-[-100%] opacity-0",
+        )}
+      >
         <div className="bg-white rounded-xl max-w-96">
-          <span className="block mb-4">Wow! Das waren jetzt aber viele neue Punkte! Zoome mit dem Mausrad in die Mind-Map, um mehr Details zu sehen.</span>
-
+          <span className="block mb-4">
+            Wow! Das waren jetzt aber viele neue Punkte! Zoome mit dem Mausrad
+            in die Mind-Map, um mehr Details zu sehen.
+          </span>
         </div>
         <div className="w-full flex justify-between items-end">
-          <Button style="secondary" onClick={() => setShowRobot(false)}>Schließen</Button>
-          <Robot expression="smiling"/>
+          <Button style="secondary" onClick={() => setShowRobot(false)}>
+            Schließen
+          </Button>
+          <Robot expression="smiling" />
         </div>
       </div>
       <DataGraph

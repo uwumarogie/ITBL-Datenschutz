@@ -29,11 +29,17 @@ export type DataGraphState = {
 
 type DataGraphProps = {
   states: DataGraphState[];
-  onStateChange?: (state: number) => void,
+  onStateChange?: (state: number) => void;
+  onDone?: () => void;
   href: string;
 };
 
-export default function DataGraph({ states, href, onStateChange }: DataGraphProps) {
+export default function DataGraph({
+  states,
+  href,
+  onStateChange,
+  onDone,
+}: DataGraphProps) {
   const sigmaContainer = useRef(null);
   const [state, setState] = useState(0);
   const router = useRouter();
@@ -83,7 +89,7 @@ export default function DataGraph({ states, href, onStateChange }: DataGraphProp
     const nextState = state + 1;
     setState(nextState);
     const data = states[nextState];
-    onStateChange?.(nextState)
+    onStateChange?.(nextState);
 
     for (const node of data.addNodes ?? []) {
       graph.addNode(node.name, node.attributes);
@@ -102,6 +108,7 @@ export default function DataGraph({ states, href, onStateChange }: DataGraphProp
 
   async function onClick() {
     if (state >= states.length - 1) {
+      onDone?.();
       router.push(href);
       return;
     }

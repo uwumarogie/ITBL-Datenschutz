@@ -4,7 +4,7 @@ import Button from "@/components/button";
 import Link from "next/link";
 import StaticGraph, {
   Node,
-} from "@/app/(safespace)/space/daten-verarbeitung/kapitel2/level/components/static-graph";
+} from "@/app/(safespace)/space/daten-verarbeitung/kapitel2/components/static-graph";
 import Image from "next/image";
 
 export default function DataProcessing3() {
@@ -30,7 +30,8 @@ export default function DataProcessing3() {
       <div className="grid grid-cols-1 lg:grid-cols-[auto_300px] gap-10">
         <div>
           <h3 className="text-xl font-semibold mb-2">Beitrag geliket</h3>
-          Dadurch, dass Marie ein Meme geliked hat konnte der Algorithmus hier Daten über ihre Präferenzen sammeln.
+          Dadurch, dass Marie ein Meme geliked hat konnte der Algorithmus hier
+          Daten über ihre Präferenzen sammeln.
         </div>
         <div>
           <Image
@@ -43,7 +44,9 @@ export default function DataProcessing3() {
 
         <div>
           <h3 className="text-xl font-semibold mb-2">Gespeicherte Inhalte</h3>
-          Durch die Speicherung von Rezepten, konnte über Marie diese Information gesammelt und gespeichert werden. Dadurch passt der Algorithmus weitere Inhalte auf dieses potentielle Hobby an.
+          Durch die Speicherung von Rezepten, konnte über Marie diese
+          Information gesammelt und gespeichert werden. Dadurch passt der
+          Algorithmus weitere Inhalte auf dieses potentielle Hobby an.
         </div>
         <div>
           <Image
@@ -56,7 +59,10 @@ export default function DataProcessing3() {
 
         <div>
           <h3 className="text-xl font-semibold mb-2">Nutzerinteraktion</h3>
-          Durch die Zeit, die Marie jeweils auf bestimmten Posts verbracht hat, kann festgestellt werden, welche Inhalte Marie besonders gut gefallen und welche gar nicht. Man geht davon aus, dass lange Interaktionszeiten tendenziell auf ein höheres Interesse schließen.
+          Durch die Zeit, die Marie jeweils auf bestimmten Posts verbracht hat,
+          kann festgestellt werden, welche Inhalte Marie besonders gut gefallen
+          und welche gar nicht. Man geht davon aus, dass lange
+          Interaktionszeiten tendenziell auf ein höheres Interesse schließen.
         </div>
         <div>
           <Image
@@ -69,7 +75,10 @@ export default function DataProcessing3() {
 
         <div>
           <h3 className="text-xl font-semibold mb-2">Gesendete Posts</h3>
-          Marie hat an ihre Freundin Lisa eine Jacke gesendet, die sie toll findet. Dadurch können weitere ihrer Präferenzen in Bezug auf Kleidung gespeichert werden und passendere Inhalte auf Sie zugeschnitten werden.
+          Marie hat an ihre Freundin Lisa eine Jacke gesendet, die sie toll
+          findet. Dadurch können weitere ihrer Präferenzen in Bezug auf Kleidung
+          gespeichert werden und passendere Inhalte auf Sie zugeschnitten
+          werden.
         </div>
         <div>
           <Image
@@ -82,9 +91,12 @@ export default function DataProcessing3() {
 
         <div>
           <h3 className="text-xl font-semibold mb-2">Freunde von Freunden</h3>
-          Durch das Netzwerk von Lisa auf Social Media, können weitere Informationen über sie und ihre Präferenzen gesammelt werden.
-          Wenn wir wissen, dass Marie und Lisa befreundet sind, können wir davon ausgehen, dass sie ähnliche Interessen haben.
-          Findet nun Lisa einen bestimmten Künstler interessant, könnte es Marie vielleicht genau so gefallen.
+          Durch das Netzwerk von Lisa auf Social Media, können weitere
+          Informationen über sie und ihre Präferenzen gesammelt werden. Wenn wir
+          wissen, dass Marie und Lisa befreundet sind, können wir davon
+          ausgehen, dass sie ähnliche Interessen haben. Findet nun Lisa einen
+          bestimmten Künstler interessant, könnte es Marie vielleicht genau so
+          gefallen.
         </div>
         <div>
           <Image
@@ -104,8 +116,12 @@ export default function DataProcessing3() {
         <div>
           <h3 className="text-xl font-semibold mb-2">Ähnliche Profile</h3>
           <div>
-            Diese Beziehung können wir auch mit fremden Konten herstellen. Gibt es Profile, die ähnliche Interessen wie Marie haben, können Marie nun neue Inhalte vorgeschlagen werden.
-            Marie hat zwar noch nicht von &quotOlivia Rodrigo&quot gehört, aber Profile mit ähnlichen Interessen kennen sie. Marie könnte der neue Künstler dann auch gefallen.
+            Diese Beziehung können wir auch mit fremden Konten herstellen. Gibt
+            es Profile, die ähnliche Interessen wie Marie haben, können Marie
+            nun neue Inhalte vorgeschlagen werden. Marie hat zwar noch nicht von
+            &quotOlivia Rodrigo&quot gehört, aber Profile mit ähnlichen
+            Interessen kennen sie. Marie könnte der neue Künstler dann auch
+            gefallen.
           </div>
         </div>
         <div>

@@ -6,7 +6,7 @@ import Button from "@/components/button";
 import clsx from "clsx";
 import { useRouter } from "next/navigation";
 import AnimatedText from "@/components/animated/AnimatedText";
-import RobotIntroduction from "@/app/(safespace)/space/daten-verarbeitung/kapitel2/level/components/robot-introduction";
+import RobotIntroduction from "@/app/(safespace)/space/daten-verarbeitung/kapitel2/components/robot-introduction";
 
 export type State = {
   expression: RobotExpression;

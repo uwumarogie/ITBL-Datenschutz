@@ -9,7 +9,7 @@ import { useRouter } from "next/navigation";
 import Button from "@/components/button";
 import clsx from "clsx";
 import Task from "@/components/task";
-import ProfileAnalysis from "@/app/(safespace)/space/daten-verarbeitung/kapitel2/level/components/profile-analysis";
+import ProfileAnalysis from "@/app/(safespace)/space/daten-verarbeitung/kapitel2/components/profile-analysis";
 import { CollectData } from "@/app/(safespace)/space/daten-verarbeitung/data/collect";
 
 const profile: InstagramProfileData = {
@@ -94,7 +94,7 @@ const profile: InstagramProfileData = {
   ],
 };
 
-const terms = CollectData.termsLevel0
+const terms = CollectData.termsLevel0;
 
 const robotText =
   "Hier siehst du Maries Instagram Feed. Wie lässt sie sich durch ihre Posts beschreiben? Schreibe dir mindestens fünf Aspekte auf.";

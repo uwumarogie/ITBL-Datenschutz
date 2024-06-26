@@ -1,6 +1,3 @@
-
-
-
 export namespace CollectData {
   export const termsLevel0 = [
     "Marie",
@@ -156,8 +153,13 @@ export namespace CollectData {
     "Heimwerkerprojekte",
     "Zootiere",
     "Vögelarten",
-    "Babytiere"
-  ]
+    "Babytiere",
+  ];
 
-  export const termsAll = [...termsLevel0, ...termsLevel1].sort()
+  export const termsAll = [...termsLevel0, ...termsLevel1]
+    .sort()
+    .reduce((acc, next) => {
+      if (!acc.includes(next)) acc.push(next);
+      return acc;
+    }, [] as string[]);
 }

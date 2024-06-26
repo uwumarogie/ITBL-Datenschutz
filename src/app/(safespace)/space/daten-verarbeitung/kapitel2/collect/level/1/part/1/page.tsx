@@ -9,7 +9,7 @@ import { useRouter } from "next/navigation";
 import Button from "@/components/button";
 import clsx from "clsx";
 import Task from "@/components/task";
-import ProfileAnalysis from "@/app/(safespace)/space/daten-verarbeitung/kapitel2/level/components/profile-analysis";
+import ProfileAnalysis from "@/app/(safespace)/space/daten-verarbeitung/kapitel2/components/profile-analysis";
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import Image from "next/image";
 import {
@@ -105,7 +105,7 @@ const profile: InstagramProfileData = {
   ],
 };
 
-const terms =  CollectData.termsAll
+const terms = CollectData.termsAll;
 
 const historyPost: HistoryPost[] = [
   {
@@ -188,7 +188,7 @@ const historyPost: HistoryPost[] = [
 ];
 
 const robotText =
-  "Hier siehst du wieder Maries Profil. Zusätzlich habe ich dir Maries zuletzt gesehene Posts hinzugefüht. Klicke dafür auf den \"Verlauf\"-Tab. Wieder die gleiche Aufgabe: Sammle mindestens 15 Aspekte, die Maries Profil beschreiben.";
+  'Hier siehst du wieder Maries Profil. Zusätzlich habe ich dir Maries zuletzt gesehene Posts hinzugefüht. Klicke dafür auf den "Verlauf"-Tab. Wieder die gleiche Aufgabe: Sammle mindestens 15 Aspekte, die Maries Profil beschreiben.';
 const task =
   "Untersuche Maries Profil und Verlauf und finde 15 Eigenschaften und Aspekte, die Marie interessant finden könnte. Beziehe dich v.a. auf den Verlauf.";
 
