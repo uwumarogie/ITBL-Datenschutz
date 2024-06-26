@@ -3,8 +3,9 @@
 import { DesktopNav } from "@/components/NavBar/DesktopNavigation/desktop-nav";
 import { MobileNav } from "@/components/NavBar/MobileNavigation/mobile-nav";
 import { PersistUserService } from "@/services/user/PersistUserService";
-import { redirect } from "next/navigation";
+import { redirect, usePathname } from "next/navigation";
 import React, { useEffect, useState } from "react";
+import clsx from "clsx";
 
 export default function Layout({
   children,
@@ -12,6 +13,11 @@ export default function Layout({
   children: React.ReactNode;
 }>) {
   const [username, setUsername] = useState("");
+  const [collapsed, setCollapsed] = useState(false);
+  const [isOverview, setIsOverview] = useState(false);
+
+  const path = usePathname();
+
   useEffect(() => {
     const fetchUserData = async () => {
       if (
@@ -33,21 +39,35 @@ export default function Layout({
     fetchUserData();
   }, []);
 
+  useEffect(() => {
+    console.log("Site change", path.split("/"));
+    const isOverview = path.split("/").length <= 2;
+    setIsOverview(isOverview);
+    setCollapsed(!isOverview);
+  }, [path]);
+
   return (
     <div className="bg-blue-background h-screen bg-fixed">
-      <span className="absolute top-4 right-14 text-white hidden text-sm sm:block">
+      <span className="absolute top-4 right-14 text-white hidden text-sm sm:block opacity-50 hover:opacity-100">
         <span className="text-slate-400">Eingeloggt als:</span> {username}
       </span>
-      <div className="flex justify-center h-reduced-safari sm:h-full px-3 pt-1 sm:py-11 sm:pr-8 sm:pl-0 flex-col sm:flex-row">
-        <div className="hidden sm:block">
-          <DesktopNav />
+      <div className="flex h-reduced-safari sm:h-full px-3 pt-1 sm:py-11 sm:pr-8 sm:pl-0 flex-col sm:flex-row">
+        <div
+          className={clsx(
+            "hidden sm:block transition-all flex-shrink-0",
+            collapsed ? "w-40" : "w-[340px]",
+          )}
+          onMouseEnter={() => setCollapsed(false)}
+          onMouseLeave={() => setCollapsed(!isOverview)}
+        >
+          <DesktopNav isCollapsed={collapsed} />
         </div>
 
         <div className="sm:hidden">
           <MobileNav />
         </div>
 
-        <div className="flex flex-row justify-center grow min-w-[220px] overflow-hidden">
+        <div className="flex flex-row justify-center grow min-w-[220px] overflow-hidden z-10">
           <div className="bg-white rounded-3xl py-6 w-full">{children}</div>
         </div>
       </div>

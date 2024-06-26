@@ -9,6 +9,7 @@ export type Props = {
   setSection: (activeSection: SectionName) => void;
   activeSection: SectionName;
   sectionItems: SectionItem[];
+  isCollapsed: boolean;
 };
 
 export enum SectionName {
@@ -57,7 +58,7 @@ const sectionItems: SectionItem[] = [
   },
 ];
 
-export function Section() {
+export function Section({ isCollapsed }: { isCollapsed: boolean }) {
   const path = usePathname();
   const getActiveSection = () => {
     if (path.startsWith("/space")) {
@@ -99,6 +100,7 @@ export function Section() {
           setSection={setActiveSection}
           activeSection={activeSection}
           sectionItems={sections}
+          isCollapsed={isCollapsed}
         />
       </div>
 
@@ -107,6 +109,7 @@ export function Section() {
           setSection={setActiveSection}
           activeSection={activeSection}
           sectionItems={sections}
+          isCollapsed={false}
         />
       </div>
     </div>

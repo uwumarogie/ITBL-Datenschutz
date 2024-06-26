@@ -5,13 +5,14 @@ import { ActionCard } from "@/components/action-card";
 import { Section } from "../Section";
 import { SignOut } from "@phosphor-icons/react";
 import { useRouter } from "next/navigation";
+import clsx from "clsx";
 
-export function DesktopNav() {
+export function DesktopNav({ isCollapsed }: { isCollapsed: boolean }) {
   const router = useRouter();
   return (
-    <div className="flex flex-col w-[340px] h-full justify-between align-center">
+    <div className="flex flex-col w-full h-full justify-between align-center">
       <div>
-        <div className="flex flex-row space-x-4 justify-center items-center mt-5">
+        <div className="flex flex-row space-x-4 justify-start items-center ml-14 mt-5 mb-12">
           <Link
             href={"/space"}
             className="flex items-center bg-blue-contrast rounded-xl max-h-14 min-w-14 justify-center p-4"
@@ -24,11 +25,23 @@ export function DesktopNav() {
               className="mx-auto"
             />
           </Link>
-          <h2 className="text-white text-3xl font-bold">SafeSpace</h2>
+          <h2
+            className={clsx(
+              "text-white text-3xl font-bold transition-opacity",
+              isCollapsed && "opacity-0",
+            )}
+          >
+            SafeSpace
+          </h2>
         </div>
-        <Section />
+        <Section isCollapsed={isCollapsed} />
       </div>
-      <div className="mx-auto">
+      <div
+        className={clsx(
+          "mx-auto transition-opacity",
+          isCollapsed && "opacity-0",
+        )}
+      >
         <ActionCard
           title="Master Quiz"
           description="Teste all dein Wissen"
