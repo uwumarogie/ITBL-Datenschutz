@@ -13,7 +13,7 @@ import ProfileAnalysis from "@/app/(safespace)/space/daten-verarbeitung/kapitel2
 import { CollectData } from "@/app/(safespace)/space/daten-verarbeitung/data/collect";
 
 const profile: InstagramProfileData = {
-  username: "marie_magic1995",
+  username: "marie_magic2007",
   profileImageSrc: "/posts/profile_marie.png",
   followers: 97,
   followingCount: 189,
