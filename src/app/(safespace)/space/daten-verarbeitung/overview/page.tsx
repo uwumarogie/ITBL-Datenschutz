@@ -43,8 +43,8 @@ const chapter = [
     unlockedBy: "INTRODUCTION",
     title: "2. Datensammlung",
     description:
-      "Analysie Social Media Profile und sammle möglichst viele Daten!.",
-    buttonText: "Kaptiel starten",
+      "Analysiere Social Media Profile und sammle möglichst viele Daten!.",
+    buttonText: "Kapitel starten",
     iconSrc: "/safety-first.svg",
     primaryColor: "#A9D6E5",
     secondaryColor: "#2A6F97",
@@ -56,7 +56,7 @@ const chapter = [
     title: "3. Datenverarbeitung",
     description:
       "Nutze deine analysierten Daten und wähle perfekt zugeschnittene Angebote aus!",
-    buttonText: "Kaptiel starten",
+    buttonText: "Kapitel starten",
     iconSrc: "/safety-first.svg",
     primaryColor: "#A9D6E5",
     secondaryColor: "#2A6F97",
@@ -102,10 +102,7 @@ export default function DataProcessingOverview() {
         <div className="flex justify-start p-3 lg:p-5 lg:mt-1">
           <IntroductionText
             headline="Datenverarbeitung"
-            text="Germanus, regius hibridas mechanice contactus de emeritis, domesticus index.
-            Cum decor credere, omnes seculaes resuscitabo peritus, dexter domuses.
-            Cum accola assimilant, omnes parmaes tractare talis, altus lumenes.
-            Bi-color omnia hic falleres rumor est?"
+            text="Was genau ist Datenverarbeitung und was passiert dabei eigentlich? Diese Fragen werden in den folgenden Kapiteln beantwortet. Erweitere dein Wissen und wende es direkt in den Aufgaben dieses Moduls an."
           />
         </div>
         <div className="flex flex-wrap mx-3">

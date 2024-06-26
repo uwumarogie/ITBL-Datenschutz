@@ -10,6 +10,7 @@ import Button from "@/components/button";
 import clsx from "clsx";
 import Task from "@/components/task";
 import ProfileAnalysis from "@/app/(safespace)/space/daten-verarbeitung/kapitel2/level/components/profile-analysis";
+import { CollectData } from "@/app/(safespace)/space/daten-verarbeitung/data/collect";
 
 const profile: InstagramProfileData = {
   username: "marie_magic1995",
@@ -93,39 +94,7 @@ const profile: InstagramProfileData = {
   ],
 };
 
-const terms = [
-  "Marie",
-  "Frau",
-  "Mädchen",
-  "Weiblich",
-  "München",
-  "MUC",
-  "17",
-  "17 Jahre",
-  "Hund",
-  "Schwester Lea",
-  "Schüler",
-  "Schülerin",
-  "Schule",
-  "12.Klasse",
-  "Gruppenarbeit",
-  "Billie Eilish",
-  "Fan",
-  "Musik",
-  "Konzert",
-  "Dortmund",
-  "Ferienjob",
-  "Sneaker",
-  "Kaffee",
-  "Freunde",
-  "Michael",
-  "Sarah",
-  "Lena",
-  "Lukas",
-  "Livia",
-  "Lieblingscafé",
-  "Tante Emma",
-];
+const terms = CollectData.termsLevel0
 
 const robotText =
   "Hier siehst du Maries Instagram Feed. Wie lässt sie sich durch ihre Posts beschreiben? Schreibe dir mindestens fünf Aspekte auf.";

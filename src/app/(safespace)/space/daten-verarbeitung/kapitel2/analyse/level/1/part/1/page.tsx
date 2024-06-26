@@ -1,17 +1,19 @@
 "use client";
 
-import RecommendationQuiz from "@/app/(safespace)/space/daten-verarbeitung/kapitel2/level/components/recommendation-quiz";
+import RecommendationQuiz
+  from "@/app/(safespace)/space/daten-verarbeitung/kapitel2/level/components/recommendation-quiz";
 import Image from "next/image";
-import { useState } from "react";
+import {useState} from "react";
 import Task from "@/components/task";
 import Button from "@/components/button";
 import clsx from "clsx";
-import { useMessages } from "@/services/notfication/message-provider";
+import {useMessages} from "@/services/notfication/message-provider";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
-import { PersistUserService } from "@/services/user/PersistUserService";
-import { AchievementId } from "@/util/achievement-data";
-import { CheckCircle } from "@phosphor-icons/react";
+import {useRouter} from "next/navigation";
+import {PersistUserService} from "@/services/user/PersistUserService";
+import {AchievementId} from "@/util/achievement-data";
+import {CheckCircle, Info} from "@phosphor-icons/react";
+import TagList from "@/app/(safespace)/space/daten-verarbeitung/kapitel2/analyse/components/tag-list";
 
 type Item = {
   img: string;
@@ -103,12 +105,12 @@ const items: Item[] = [
 ];
 
 function Item({
-  img,
-  text,
-  attributes,
-  onClick,
-  selected,
-}: Item & { onClick: () => void; selected?: boolean }) {
+                img,
+                text,
+                attributes,
+                onClick,
+                selected,
+              }: Item & { onClick: () => void; selected?: boolean }) {
   return (
     <div
       className={clsx(
@@ -135,7 +137,7 @@ function Item({
             selected ? "text-md" : "text-xl",
           )}
         >
-          {selected && <CheckCircle weight="fill" />}
+          {selected && <CheckCircle weight="fill"/>}
           {text}
         </span>
         <div className="flex gap-2 flex-wrap">
@@ -159,7 +161,8 @@ function Item({
 export default function DataProcessingPart1() {
   const [selected, setSelected] = useState<Item[]>([]);
   const [success, setSuccess] = useState(false);
-  const { addMessage } = useMessages();
+  const [showData, setShowData] = useState(false);
+  const {addMessage} = useMessages();
   const router = useRouter();
 
   function selectItem(item: Item) {
@@ -208,11 +211,16 @@ export default function DataProcessingPart1() {
   }
 
   return (
-    <div className="flex flex-col gap-6 overflow-y-auto h-full items-center">
+    <div className="flex flex-col gap-6 overflow-y-auto h-full items-center relative">
+      <TagList show={showData} onClose={() => setShowData(false)}/>
       {!success && (
-        <Task>Wähle alle Werbeanzeigen aus, die Marie gefallen könnten.</Task>
+        <div className="flex items-center gap-4 w-full">
+          <Task>Wähle alle Werbeanzeigen aus, die Marie gefallen könnten.</Task>
+          <Button style="secondary" onClick={() => setShowData(true)}><Info weight="fill" className="mr-4"/> Gesammelte
+            Daten</Button>
+          <Button onClick={checkSuccess}>Erfolg prüfen</Button>
+        </div>
       )}
-      {!success && <Button onClick={checkSuccess}>Erfolg prüfen</Button>}
 
       {success && (
         <Button className="my-6" onClick={next}>
@@ -222,34 +230,37 @@ export default function DataProcessingPart1() {
 
       <div className="flex gap-8 justify-evenly w-full">
         {!success && (
-          <div className="flex flex-col w-full gap-4 max-w-[800px]">
-            <span className="text-2xl font-semibold">Alle Werbeanzeigen</span>
-            {items
-              .filter((item) => !selected.includes(item))
-              .map((item) => (
-                <Item
-                  key={item.img}
-                  {...item}
-                  onClick={() => selectItem(item)}
-                />
-              ))}
+          <div className="w-full flex flex-col gap-8 items-center">
+            <span className="text-2xl font-semibold mb-8 inline-block">Alle Werbeanzeigen</span>
+            <div className="grid grid-cols-1 auto-rows-min 2xl:grid-cols-2 w-full gap-4 max-w-[800px]">
+              {items
+                .filter((item) => !selected.includes(item))
+                .map((item) => (
+                  <Item
+                    key={item.img}
+                    {...item}
+                    onClick={() => selectItem(item)}
+                  />
+                ))}
+            </div>
           </div>
         )}
 
-        <div className="flex flex-col w-full gap-4 max-w-[800px]">
+        <div className="w-full flex flex-col gap-8 items-center">
           <span className="text-2xl font-semibold inline-flex items-center gap-4">
-            <CheckCircle weight="fill" /> Erfolgreiche Werbeanzeigen (
+            <CheckCircle weight="fill"/> Erfolgreiche Werbeanzeigen (
             {selected.length})
           </span>
-
-          {selected.map((item, i) => (
-            <Item
-              key={item.img}
-              {...item}
-              onClick={() => selectItem(item)}
-              selected
-            />
-          ))}
+          <div className="grid grid-cols-1 auto-rows-min 2xl:grid-cols-2 w-full gap-4 max-w-[800px]">
+            {selected.map((item, i) => (
+              <Item
+                key={item.img}
+                {...item}
+                onClick={() => selectItem(item)}
+                selected
+              />
+            ))}
+          </div>
         </div>
       </div>
     </div>

@@ -6,8 +6,7 @@ import ModuleIntro, { ModuleChapter } from "@/components/module-intro";
 import { GameController, Info, Lightbulb } from "@phosphor-icons/react";
 
 const title = "Datenverarbeitung";
-const description = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dolore commodi commodo veniam imperdiet nihil iusto gubergren, in facilisis mazim nam dolores mazim dolore est eros iure doming culpa. 
-Nisi sadipscing elitr. Euismod dolores accumsan.`;
+const description = `In diesem Modul lernst du, wie Daten im digitalen Zeitalter gesammelt, verarbeitet und geschützt werden. Im Anschluss kannst du dein Wissen testen und es dann im Laufe des Kapitels anwenden. Ein besonderes Highlight dieses Moduls: Verstehe nicht nur, wie deine Daten gesammelt werden, sondern übernimm selbst die Rolle eines Recommender-Algorithmus. Starte jetzt, um mehr zu erfahren.`;
 const entryPath = "/space/daten-verarbeitung/overview";
 const chapter: ModuleChapter[] = [
   {
