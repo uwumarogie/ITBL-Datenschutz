@@ -123,7 +123,7 @@ export namespace AchievementData {
     {
       id: AchievementId.PASSWORD_STRENGTH,
       title: "Passwort-Strength",
-      description: "Erziele 15 Punkte in der Passwort-Strength-Quiz.",
+      description: "Erziele 15 Punkte im Passwort-Strength Spiel.",
       progress: false,
       icon: <Barbell {...iconProps} />,
     },
