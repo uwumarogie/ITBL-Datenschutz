@@ -6,7 +6,6 @@ import Robot, { RobotExpression } from "@/components/robot/robot";
 import { CSSProperties, useEffect, useState } from "react";
 import clsx from "clsx";
 import AnimatedText from "@/components/animated/AnimatedText";
-import { next } from "sucrase/dist/types/parser/tokenizer";
 import { useRouter } from "next/navigation";
 import { AchievementId } from "@/util/achievement-data";
 import { PersistUserService } from "@/services/user/PersistUserService";
