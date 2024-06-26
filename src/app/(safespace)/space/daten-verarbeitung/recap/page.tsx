@@ -88,30 +88,33 @@ export default function DataProcessingRecap() {
         .setAchievement(AchievementId.DATA_PROCESSING_DONE, true)
         .then(() => {
           messageService.showAchievement(AchievementId.DATA_PROCESSING_DONE);
+          setTimeout(() => {
+            router.push("/space/")
+          }, 4000)
         });
     }
   }
 
 
   return (
-    <div className="relative w-full h-full flex justify-center items-center">
-      <div className="relative w-full h-1/2">
-        <div className="absolute w-full h-full pointer-events-none">
-          <div className="absolute transition-all duration-700 flex justify-center"  style={states[state].style}>
-            <AnimatedText className="absolute top-[calc(100%+2rem)] w-[300px] text-center text-lg">
+    <div className="relative w-full h-full flex flex-col justify-center items-center">
+      <div className="relative w-full h-full xl:h-1/2">
+        <div className="xl:absolute xl:w-full xl:h-full pointer-events-none">
+          <div className="relative xl:absolute transition-all duration-700 flex flex-col items-center justify-center !top-0 !left-0"  style={states[state].style}>
+            <AnimatedText className="mb-4 xl:mb-0 xl:absolute top-[calc(100%+2rem)] xl:w-[300px] text-center xl:text-lg">
               {states[state].text ?? ""}
             </AnimatedText>
             <Robot className="relative transition-all size-32"
                    expression={states[state].expression ?? "resting"}/>
           </div>
         </div>
-        <div className="ml-[50%] w-1/2 h-full flex flex-col justify-around transition-all">
-          <span className={clsx("opacity-0 transition-opacity text-lg", state >= 3 && "opacity-100")}><span className="bg-sky-800 text-white font-bold rounded-full w-6 h-6 inline-flex justify-center items-center mr-2">1</span> Informationen über einen Nutzer können über Text- und Bilddaten gesammelt werden.</span>
-          <span className={clsx("opacity-0 transition-opacity text-lg", state >= 4 && "opacity-100")}><span className="bg-sky-800 text-white font-bold rounded-full w-6 h-6 inline-flex justify-center items-center mr-2">2</span> Durch das Interagieren mit Social Media Apps (Liken, Scrollen, Teilen, ...) generiert man unbewusst wertvolle Daten, die viele Informationen über einen Preis geben können.</span>
-          <span className={clsx("opacity-0 transition-opacity text-lg", state >= 5 && "opacity-100")}><span className="bg-sky-800 text-white font-bold rounded-full w-6 h-6 inline-flex justify-center items-center mr-2">3</span> Social Media Portale nutzen diese komplexe Daten, um dir für dich zugeschnittene Inhalte zu präsentieren. Wie diese Auswahl erstellt wird, ist oft geheim und sehr komplex.</span>
+        <div className="flex flex-col justify-around transition-all gap-4 mt-10 xl:gap-0 xl:mt-0 xl:ml-[50%] xl:w-1/2 xl:h-full ">
+          <span className={clsx("opacity-0 transition-opacity text-sm xl:text-lg", state >= 3 && "opacity-100")}><span className="bg-sky-800 text-white font-bold rounded-full w-6 h-6 inline-flex justify-center items-center mr-2">1</span> Informationen über einen Nutzer können über Text- und Bilddaten gesammelt werden.</span>
+          <span className={clsx("opacity-0 transition-opacity text-sm xl:text-lg", state >= 4 && "opacity-100")}><span className="bg-sky-800 text-white font-bold rounded-full w-6 h-6 inline-flex justify-center items-center mr-2">2</span> Durch das Interagieren mit Social Media Apps (Liken, Scrollen, Teilen, ...) generiert man unbewusst wertvolle Daten, die viele Informationen über einen Preis geben können.</span>
+          <span className={clsx("opacity-0 transition-opacity text-sm xl:text-lg", state >= 5 && "opacity-100")}><span className="bg-sky-800 text-white font-bold rounded-full w-6 h-6 inline-flex justify-center items-center mr-2">3</span> Social Media Portale nutzen diese komplexe Daten, um dir für dich zugeschnittene Inhalte zu präsentieren. Wie diese Auswahl erstellt wird, ist oft geheim und sehr komplex.</span>
         </div>
       </div>
-      <Button className="absolute bottom-0 " onClick={next}>Weiter</Button>
+      <Button className="flex-shrink-0" onClick={next}>Weiter</Button>
     </div>
   );
 }
