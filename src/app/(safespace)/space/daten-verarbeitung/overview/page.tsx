@@ -94,7 +94,7 @@ export default function DataProcessingOverview() {
   }, []);
 
   return (
-    <div className="flex flex-wrap items-start w-full overflow-y-auto h-full">
+    <div className="flex flex-wrap items-start justify-start content-start w-full overflow-y-auto h-full">
       <div className="mt-4 w-full">
         <ProgressBar progress={getProgress()} steps={steps} />
       </div>
@@ -105,12 +105,11 @@ export default function DataProcessingOverview() {
             text="Was genau ist Datenverarbeitung und was passiert dabei eigentlich? Diese Fragen werden in den folgenden Kapiteln beantwortet. Erweitere dein Wissen und wende es direkt in den Aufgaben dieses Moduls an."
           />
         </div>
-        <div className="flex flex-wrap mx-3">
+        <div className="grid grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 mx-3">
           {chapter.map((c) => (
             <div
               key={c.unlockedBy}
               className={clsx(
-                "max-w-[300px]",
                 !checkpoints.includes(c.unlockedBy) &&
                   "grayscale opacity-50 pointer-events-none",
               )}

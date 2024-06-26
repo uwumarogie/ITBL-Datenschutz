@@ -27,7 +27,7 @@ export default function DataProcessing3() {
         Was konnten wir aus dem Profil herauslesen?
       </h3>
 
-      <div className="grid grid-cols-[auto_300px] gap-10">
+      <div className="grid grid-cols-1 lg:grid-cols-[auto_300px] gap-10">
         <div>
           <h3 className="text-lg font-semibold">Beitrag geliket</h3>
           lorem ipsum dolor sit amet consectetur adipiscing elit justo eu
@@ -110,7 +110,7 @@ export default function DataProcessing3() {
         </div>
       </div>
 
-      <div>
+      <div className="mt-10 flex justify-center">
         <Link href="/space/daten-verarbeitung/kapitel2/collect/level/1/part/3">
           <Button onClick={() => {}}>Weiter</Button>
         </Link>

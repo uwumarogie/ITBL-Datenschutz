@@ -3,7 +3,7 @@ import {
   Barbell,
   CloudArrowDown,
   Detective,
-  FishSimple,
+  FishSimple, Gear,
   HandSwipeRight,
   IconProps,
   Lightbulb,
@@ -44,6 +44,7 @@ export enum AchievementId {
   DATA_PROCESSING_CHECKPOINT_INTRODUCTION = "#DATA_PROCESSING_CHECKPOINT_INTRODUCTION",
   DATA_PROCESSING_CHECKPOINT_COLLECT = "#DATA_PROCESSING_CHECKPOINT_COLLECT",
   DATA_PROCESSING_CHECKPOINT_PROCESS = "#DATA_PROCESSING_CHECKPOINT_PROCESS",
+  DATA_PROCESSING_DONE = "DATA_PROCESSING_DONE",
 }
 
 export namespace AchievementData {
@@ -155,5 +156,12 @@ export namespace AchievementData {
       progress: false,
       icon: <HandSwipeRight {...iconProps} />,
     },
+    {
+      id: AchievementId.DATA_PROCESSING_DONE,
+      title: "Datenmaschine",
+      description: "Werde Meister in der Datensammlung und -verarbeitung",
+      progress: false,
+      icon: <Gear {...iconProps}/>
+    }
   ];
 }
