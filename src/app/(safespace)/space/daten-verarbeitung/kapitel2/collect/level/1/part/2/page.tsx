@@ -30,9 +30,7 @@ export default function DataProcessing3() {
       <div className="grid grid-cols-1 lg:grid-cols-[auto_300px] gap-10">
         <div>
           <h3 className="text-lg font-semibold">Beitrag geliket</h3>
-          lorem ipsum dolor sit amet consectetur adipiscing elit justo eu
-          feugiat cillum nam tincidunt sanctus eleifend ipsum kasd obcaecat
-          justo sanctus in euismod ex iusto elitr nisl amet veniam stet
+          Dadurch, dass Marie ein Meme geliked hat konnte der Algorithmus hier Daten über ihre Präferenzen sammeln.
         </div>
         <div>
           <Image
@@ -45,9 +43,7 @@ export default function DataProcessing3() {
 
         <div>
           <h3 className="text-lg font-semibold">Gespeicherte Inhalte</h3>
-          lorem ipsum dolor sit amet consectetur adipiscing elit justo eu
-          feugiat cillum nam tincidunt sanctus eleifend ipsum kasd obcaecat
-          justo sanctus in euismod ex iusto elitr nisl amet veniam stet
+          Durch die Speicherung von Rezepten, konnte über Marie diese Information gesammelt und gespeichert werden. Dadurch passt der Algorithmus weitere Inhalte auf dieses potentielle Hobby an.
         </div>
         <div>
           <Image
@@ -60,9 +56,7 @@ export default function DataProcessing3() {
 
         <div>
           <h3 className="text-lg font-semibold">Nutzerinteraktion</h3>
-          lorem ipsum dolor sit amet consectetur adipiscing elit justo eu
-          feugiat cillum nam tincidunt sanctus eleifend ipsum kasd obcaecat
-          justo sanctus in euismod ex iusto elitr nisl amet veniam stet
+          Durch die Zeit, die Marie jeweils auf bestimmten Posts verbracht hat, kann festgestellt werden, welche Inhalte Marie besonders gut gefallen und welche gar nicht. Man geht davon aus, dass lange Interaktionszeiten tendenziell auf ein höheres Interesse schließen.
         </div>
         <div>
           <Image
@@ -75,9 +69,7 @@ export default function DataProcessing3() {
 
         <div>
           <h3 className="text-lg font-semibold">Gesendete Posts</h3>
-          lorem ipsum dolor sit amet consectetur adipiscing elit justo eu
-          feugiat cillum nam tincidunt sanctus eleifend ipsum kasd obcaecat
-          justo sanctus in euismod ex iusto elitr nisl amet veniam stet
+          Marie hat an ihre Freundin Lisa eine Jacke gesendet, die sie toll findet. Dadurch können weitere ihrer Präferenzen in Bezug auf Kleidung gespeichert werden und passendere Inhalte auf Sie zugeschnitten werden.
         </div>
         <div>
           <Image
@@ -90,9 +82,9 @@ export default function DataProcessing3() {
 
         <div>
           <h3 className="text-lg font-semibold">Freunde von Freunden</h3>
-          lorem ipsum dolor sit amet consectetur adipiscing elit justo eu
-          feugiat cillum nam tincidunt sanctus eleifend ipsum kasd obcaecat
-          justo sanctus in euismod ex iusto elitr nisl amet veniam stet
+          Durch das Netzwerk von Lisa auf Social Media, können weitere Informationen über sie und ihre Präferenzen gesammelt werden.
+          Wenn wir wissen, dass Marie und Lisa befreundet sind, können wir davon ausgehen, dass sie ähnliche Interessen haben.
+          Findet nun Lisa einen bestimmten Künstler interessant, könnte es Marie vielleicht genau so gefallen.
         </div>
         <div>
           <Image
@@ -103,6 +95,22 @@ export default function DataProcessing3() {
           />
           <Image
             src="/datenverarbeitung/collect/level1/explain_reference2.png"
+            alt={"Like"}
+            width="300"
+            height="200"
+          />
+        </div>
+
+        <div>
+          <h3 className="text-lg font-semibold">Ähnliche Profile</h3>
+          <div>
+            Diese Beziehung können wir auch mit fremden Konten herstellen. Gibt es Profile, die ähnliche Interessen wie Marie haben, können Marie nun neue Inhalte vorgeschlagen werden.
+            Marie hat zwar noch nicht von &quotOlivia Rodrigo&quot gehört, aber Profile mit ähnlichen Interessen kennen sie. Marie könnte der neue Künstler dann auch gefallen.
+          </div>
+        </div>
+        <div>
+          <Image
+            src="/datenverarbeitung/collect/level1/explain_similar_accounts.png"
             alt={"Like"}
             width="300"
             height="200"

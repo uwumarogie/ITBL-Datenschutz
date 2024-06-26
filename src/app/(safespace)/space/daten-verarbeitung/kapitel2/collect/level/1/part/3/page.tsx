@@ -182,7 +182,7 @@ export default function DataProcessing3() {
   return (
     <DataGraph
       states={states}
-      href="/space/daten-verarbeitung/kapitel2/collect/done"
+      href="/space/daten-verarbeitung/overview"
     />
   );
 }
