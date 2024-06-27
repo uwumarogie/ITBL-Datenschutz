@@ -4,6 +4,7 @@ import {
   CloudArrowDown,
   Detective,
   FishSimple,
+  Gavel,
   HandSwipeRight,
   IconProps,
   Lightbulb,
@@ -39,6 +40,7 @@ export enum AchievementId {
   PROFIL_DETEKTIV = "PROFIL_DETEKTIV",
   PRIVATSPHAERE_QUIZ = "PRIVATSPHAERE_QUIZ",
   PRIVATSPHAERE_SWIPE = "PRIVATSPHAERE_SWIPE",
+  RECHTSANWALT = "RECHTSANWALT",
 }
 
 export namespace AchievementData {
@@ -149,6 +151,14 @@ export namespace AchievementData {
         "Entscheide für alle Daten richtig, ob sie personenbezogen sind oder nicht",
       progress: false,
       icon: <HandSwipeRight {...iconProps} />,
+    },
+    {
+      id: AchievementId.RECHTSANWALT,
+      title: "Rechtsanwalt",
+      description:
+        "Ordne im DSGVO Game beim ersten Versuch alle Aussagen den richtigen Artikeln zu",
+      progress: false,
+      icon: <Gavel {...iconProps} />,
     },
   ];
 }
