@@ -13,7 +13,6 @@ import { passwordAnimation } from "@/util/passwort/strength-helper";
 import { State } from "@/app/(safespace)/space/daten-verarbeitung/kapitel2/level/components/recommendation-quiz";
 import RobotInPasswort from "@/components/robot-in-passwort";
 import { AchievementId } from "@/util/achievement-data";
-import { users } from "@/server/database/schema";
 
 const states: State[] = [
   {

@@ -8,18 +8,26 @@ import { useMessages } from "@/services/notfication/message-provider";
 import { useEffect, useRef, useState } from "react";
 import { calculateBruteForceTime } from "@/util/passwort/passwort-validation";
 import { PersistUserService } from "@/services/user/PersistUserService";
+import { AchievementId } from "@/util/achievement-data";
 
 export default function Builder() {
   const { addMessage } = useMessages();
   const [input, setInput] = useState("");
   const [isSecure, setIsSecure] = useState(false);
   const [hint, setHint] = useState("0.00 Sekunden");
+  const messageService = useMessages();
 
   useEffect(() => {
     const context = new PersistUserService();
     const setAchievement = async () => {
       if (hint.includes("Unendlich")) {
-        await context.setAchievement("PASSWORD_BUILDER", true);
+        await context
+          .setAchievement(AchievementId.PASSWORD_BUILDER, true)
+          .then((res) => {
+            if (res) {
+              messageService.showAchievement(AchievementId.PASSWORD_BUILDER);
+            }
+          });
       }
     };
     setAchievement();

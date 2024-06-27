@@ -96,7 +96,13 @@ export default function Leaderboard() {
                     username === user.name && "text-orange-600 font-bold",
                   )}
                 >
-                  {capitalizeName(user.name)}
+                  {capitalizeName(user.name)}{" "}
+                  {username === user.name && (
+                    <span className="text-blue-background font-medium">
+                      {" "}
+                      (Du)
+                    </span>
+                  )}
                 </span>
               </div>
             </div>
