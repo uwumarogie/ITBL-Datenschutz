@@ -45,6 +45,8 @@ async function createPlayer(username: string, mode: string, gameCode: string) {
 }
 
 export default function HomePage() {
+  const [checkboxChecked, setCheckboxChecked] = useState(false);
+  const [dataProtectionAgreed, setDataProtectionAgreed] = useState(false);
   const [mode, setMode] = useState<Mode | null>(null);
   const [username, setUsername] = useState("");
   const [gameCode, setGameCode] = useState("");
@@ -98,51 +100,78 @@ export default function HomePage() {
       <h1 className="flex text-xl lg:text-5xl text-white font-mono mb-10 ">
         Willkommen zu Safe Space
       </h1>
-      <div className="flex flex-col space-y-4 justify-center items-center w-200 p-10 shadow-lg bg-blue-200 rounded-3xl">
-        <div className="flex space-x-5 justify-center">
-          {!mode && (
-            <div className="flex flex-col md:flex-row gap-5">
-              <Button
-                onClick={() => handleModeSelection("singlePlayer")}
-                className="flex justify-center w-full md:w-72 h-14 p-5 text-2xl"
-              >
-                Single Player
-              </Button>
-              <Button
-                onClick={() => handleModeSelection("multiPlayer")}
-                className="flex justify-center w-full md:w-72 h-14 p-5 text-2xl"
-              >
-                Multiplayer
-              </Button>
+      {!dataProtectionAgreed && (
+        <div className="flex flex-col space-y-4 mx-10 w-200 p-10 shadow-lg bg-blue-200 rounded-3xl">
+          <div>Datenschutzerklärung</div>
+          <div className="flex flex-col">
+            <div>
+              <input
+                id="data_aggreement"
+                type="checkbox"
+                className="mr-2"
+                onChange={(ev) => setCheckboxChecked(ev.target.checked)}
+              />
+              <label htmlFor="data_aggreement">
+                Ich habe die Informationen gelesen und stimme der anonymisierten
+                Datenspeicherung und -verarbeitung zu.
+              </label>
             </div>
-          )}
-        </div>
-        <>
-          {mode === "singlePlayer" && (
-            <SinglePlayer
-              username={username}
-              generateUsername={generateUsername}
-            />
-          )}
-          {mode === "multiPlayer" && (
-            <Multiplayer
-              username={username}
-              setGameCode={setGameCode}
-              generateUsername={generateUsername}
-            />
-          )}
-        </>
-        <div>
-          {mode !== null && (
             <Button
-              onClick={handleStartGame}
-              className="flex justify-center text-xl w-full h-14 p-5 mb-2"
+              className="mt-4"
+              onClick={() => setDataProtectionAgreed(checkboxChecked)}
             >
-              Start
+              Weiter
             </Button>
-          )}
+          </div>
         </div>
-      </div>
+      )}
+      {dataProtectionAgreed && (
+        <div className="flex flex-col space-y-4 justify-center items-center w-200 p-10 shadow-lg bg-blue-200 rounded-3xl">
+          <div className="flex space-x-5 justify-center">
+            {!mode && (
+              <div className="flex flex-col md:flex-row gap-5">
+                <Button
+                  onClick={() => handleModeSelection("singlePlayer")}
+                  className="flex justify-center w-full md:w-72 h-14 p-5 text-2xl"
+                >
+                  Single Player
+                </Button>
+                <Button
+                  onClick={() => handleModeSelection("multiPlayer")}
+                  className="flex justify-center w-full md:w-72 h-14 p-5 text-2xl"
+                >
+                  Multiplayer
+                </Button>
+              </div>
+            )}
+          </div>
+          <>
+            {mode === "singlePlayer" && (
+              <SinglePlayer
+                username={username}
+                generateUsername={generateUsername}
+              />
+            )}
+            {mode === "multiPlayer" && (
+              <Multiplayer
+                username={username}
+                setGameCode={setGameCode}
+                generateUsername={generateUsername}
+              />
+            )}
+          </>
+          <div>
+            {mode !== null && (
+              <Button
+                onClick={handleStartGame}
+                className="flex justify-center text-xl w-full h-14 p-5 mb-2"
+              >
+                Start
+              </Button>
+            )}
+          </div>
+        </div>
+      )}
     </div>
   );
 }
