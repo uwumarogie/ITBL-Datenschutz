@@ -15,6 +15,7 @@ import { PersistUserService } from "@/services/user/PersistUserService";
 import { AchievementId } from "@/util/achievement-data";
 import { useMessages } from "@/services/notfication/message-provider";
 import { Question, QuestionMark } from "@phosphor-icons/react";
+import Task from "@/components/task";
 
 type Field = {
   id: string;
@@ -435,7 +436,7 @@ export default function Profiling() {
               </div>
               {!instructionsRead && (
                 <div className="p-2 flex flex-col gap-4 lg:mt-4">
-                  {instruction}
+                  <Task>{instruction}</Task>
                   <Button
                     onClick={() => setInstructionsRead(true)}
                     className="max-w-[150px]"
