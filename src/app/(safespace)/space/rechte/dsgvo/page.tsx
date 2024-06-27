@@ -203,6 +203,10 @@ export default function Profiling() {
       setModuleFinished(true);
     } else {
       setFirstTry(false);
+      messageService.addMessage(
+        "Leider hast du nicht alle Aussagen richtig gematcht. Versuchs nochmal!",
+        "error",
+      );
       setWrongAnimation(true);
       setTimeout(() => setWrongAnimation(false), 700);
     }
@@ -266,183 +270,178 @@ export default function Profiling() {
             Du hast alle Aussagen den richtigen Artiklen der
             Datenschutzgrundverordnung zugeordnet.
           </span>
-          <Button onClick={() => router.push("/space/phishing/assign")}>
-            Weiter
-          </Button>
+          <Button onClick={() => router.push("/space/rechte")}>Weiter</Button>
         </div>
       ) : (
-        <div>
+        <div className="">
+          {!instructionsRead && (
+            <div className="p-2 flex flex-col gap-4 lg:mb-4 max-w-[1100px]">
+              <Task>{instruction}</Task>
+              <Button
+                onClick={() => setInstructionsRead(true)}
+                className="max-w-[150px]"
+              >
+                Starten
+              </Button>
+            </div>
+          )}
           <DragDropContext onDragEnd={onDragEnd}>
-            <div className="container">
-              {columns.wordsPool.items.length != 0 && (
-                <Droppable droppableId="wordsPool">
-                  {(provided) => (
-                    <div
-                      ref={provided.innerRef}
-                      {...provided.droppableProps}
-                      className={clsx(
-                        "p-2 flex flex-wrap gap-x-4 gap-y-2 mb-4",
-                        !instructionsRead && "opacity-60",
-                      )}
-                    >
-                      {columns.wordsPool.items.map((item, index) => (
-                        <Draggable
-                          key={item}
-                          draggableId={item}
-                          index={index}
-                          isDragDisabled={!instructionsRead}
-                        >
-                          {(provided) => (
-                            <div
-                              ref={provided.innerRef}
-                              {...provided.draggableProps}
-                              {...provided.dragHandleProps}
-                              className="p-2 text-blue-background bg-module-blue rounded-xl text-xs sm:text-sm lg:text-base lg:max-w-[49%]"
-                            >
-                              {instructionsRead
-                                ? item
-                                : item.substring(0, 20) + "..."}
-                            </div>
-                          )}
-                        </Draggable>
-                      ))}
-                      {provided.placeholder}
-                    </div>
-                  )}
-                </Droppable>
-              )}
-              <div className={clsx(!instructionsRead && "opacity-60")}>
-                <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 lg:gap-y-5">
-                  {Object.entries(columns)
-                    .filter(([columnId]) => columnId !== "wordsPool")
-                    .map(([columnId, column]) => (
-                      <Droppable key={columnId} droppableId={columnId}>
+            {columns.wordsPool.items.length != 0 && (
+              <Droppable droppableId="wordsPool">
+                {(provided) => (
+                  <div
+                    ref={provided.innerRef}
+                    {...provided.droppableProps}
+                    className={clsx(
+                      "p-2 flex flex-wrap gap-x-4 gap-y-2 mb-4 w-full",
+                      !instructionsRead && "opacity-60",
+                    )}
+                  >
+                    {columns.wordsPool.items.map((item, index) => (
+                      <Draggable
+                        key={item}
+                        draggableId={item}
+                        index={index}
+                        isDragDisabled={!instructionsRead}
+                      >
                         {(provided) => (
                           <div
                             ref={provided.innerRef}
-                            {...provided.droppableProps}
-                            className="min-h-[10vh] flex flex-col justify-start"
+                            {...provided.draggableProps}
+                            {...provided.dragHandleProps}
+                            className="p-2 text-blue-background bg-module-blue rounded-xl text-xs sm:text-sm lg:text-base lg:max-w-[49%] 2xl:max-w-[32%]"
                           >
-                            <div className="flex space-between flex-col">
-                              <span
-                                onClick={() => handleExplanationClick(columnId)}
+                            {instructionsRead
+                              ? item
+                              : item.substring(0, 25) + "..."}
+                          </div>
+                        )}
+                      </Draggable>
+                    ))}
+                    {provided.placeholder}
+                  </div>
+                )}
+              </Droppable>
+            )}
+            <div className={clsx(!instructionsRead && "opacity-60")}>
+              <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 lg:gap-y-5">
+                {Object.entries(columns)
+                  .filter(([columnId]) => columnId !== "wordsPool")
+                  .map(([columnId, column]) => (
+                    <Droppable key={columnId} droppableId={columnId}>
+                      {(provided) => (
+                        <div
+                          ref={provided.innerRef}
+                          {...provided.droppableProps}
+                          className="min-h-[10vh] flex flex-col justify-start"
+                        >
+                          <div className="flex space-between flex-col">
+                            <span
+                              onClick={() => handleExplanationClick(columnId)}
+                              className={clsx(
+                                "flex justify-between items-center min-h-[45px] lg:min-h-[56px]",
+                                instructionsRead && "hover:cursor-pointer",
+                              )}
+                            >
+                              <h3
                                 className={clsx(
-                                  "flex justify-between items-center min-h-[45px] lg:min-h-[56px]",
-                                  instructionsRead && "hover:cursor-pointer",
+                                  "text-sm lg:text-lg text-blue-background font-medium",
+                                  instructionsRead &&
+                                    "hover:underline hoverunderline-offset-3 max-w-[93%]",
                                 )}
                               >
-                                <h3
-                                  className={clsx(
-                                    "text-sm lg:text-lg text-blue-background font-medium",
-                                    instructionsRead &&
-                                      "hover:underline hoverunderline-offset-3 max-w-[90%]",
-                                  )}
-                                >
+                                {
+                                  dsgvoArticles.find((a) => a.id === column.id)
+                                    ?.title
+                                }
+                              </h3>
+                              <Question
+                                weight="fill"
+                                size={25}
+                                color="#FB6D3A"
+                              />
+                            </span>
+                            {showExplanation === columnId && (
+                              <div className="flex flex-col">
+                                <span className="text-sm font-semibold text-gray-700">
                                   {
                                     dsgvoArticles.find(
                                       (a) => a.id === column.id,
-                                    )?.title
+                                    )?.article
                                   }
-                                </h3>
-                                <Question
-                                  weight="fill"
-                                  size={25}
-                                  color="#013A63"
-                                />
-                              </span>
-                              {showExplanation === columnId && (
-                                <div className="flex flex-col">
-                                  <span className="text-sm font-semibold text-gray-700">
-                                    {
-                                      dsgvoArticles.find(
-                                        (a) => a.id === column.id,
-                                      )?.article
-                                    }
-                                  </span>
+                                </span>
 
-                                  <span className="text-gray-700 text-sm mb-2">
-                                    {
-                                      dsgvoArticles.find(
-                                        (a) => a.id === column.id,
-                                      )?.explanation
-                                    }
-                                  </span>
-                                </div>
-                              )}
-                            </div>
-                            <div className="py-2 px-4 border-gray-300 border-2 rounded-2xl min-h-[10vh]">
-                              {column.items.map((item, index) => (
-                                <Draggable
-                                  key={item}
-                                  draggableId={item}
-                                  index={index}
-                                >
-                                  {(provided) => (
-                                    <div
-                                      ref={provided.innerRef}
-                                      {...provided.draggableProps}
-                                      {...provided.dragHandleProps}
-                                      className={clsx(
-                                        "p-2 bg-module-blue text-blue-background rounded-xl text-xs sm:text-sm lg:text-base",
-                                        wrongAnimation &&
-                                          incorrectItems[columnId]?.includes(
-                                            item,
-                                          ) &&
-                                          "animate-shake text-white bg-red-500",
-                                      )}
-                                    >
-                                      {item}
-                                    </div>
-                                  )}
-                                </Draggable>
-                              ))}
-                              {provided.placeholder}
-                            </div>
+                                <span className="text-gray-700 text-sm mb-2">
+                                  {
+                                    dsgvoArticles.find(
+                                      (a) => a.id === column.id,
+                                    )?.explanation
+                                  }
+                                </span>
+                              </div>
+                            )}
                           </div>
-                        )}
-                      </Droppable>
-                    ))}
-                </div>
-                {instructionsRead && (
-                  <div className="flex justify-between">
-                    <div>
-                      <Button
-                        className="min-w-[150px] mt-6"
-                        onClick={() => handleFinish()}
-                        style={
-                          columns.wordsPool.items.length == 0
-                            ? "default"
-                            : "neutral"
-                        }
-                        disabled={columns.wordsPool.items.length != 0}
-                      >
-                        {columns.wordsPool.items.length == 0
-                          ? "Überprüfen"
-                          : "noch " +
-                            columns.wordsPool.items.length +
-                            "/" +
-                            dsgvoArticles.length +
-                            "zuordnen"}
-                      </Button>
-                    </div>
-                    <HintCard
-                      text={"Was muss ich machen?"}
-                      buttonText={"Aufgabe anzeigen"}
-                      hint={instruction}
-                      className="max-w-[250px] sm:max-w-[400px] ml-2 mt-8 flex-end p-2"
-                    />
-                  </div>
-                )}
+                          <div className="py-2 px-4 border-gray-300 border-2 rounded-2xl min-h-[10vh]">
+                            {column.items.map((item, index) => (
+                              <Draggable
+                                key={item}
+                                draggableId={item}
+                                index={index}
+                              >
+                                {(provided) => (
+                                  <div
+                                    ref={provided.innerRef}
+                                    {...provided.draggableProps}
+                                    {...provided.dragHandleProps}
+                                    className={clsx(
+                                      "p-2 bg-module-blue text-blue-background rounded-xl text-xs sm:text-sm lg:text-base",
+                                      wrongAnimation &&
+                                        incorrectItems[columnId]?.includes(
+                                          item,
+                                        ) &&
+                                        "animate-shake text-white bg-red-500",
+                                    )}
+                                  >
+                                    {item}
+                                  </div>
+                                )}
+                              </Draggable>
+                            ))}
+                            {provided.placeholder}
+                          </div>
+                        </div>
+                      )}
+                    </Droppable>
+                  ))}
               </div>
-              {!instructionsRead && (
-                <div className="p-2 flex flex-col gap-4 lg:mt-4">
-                  <Task>{instruction}</Task>
-                  <Button
-                    onClick={() => setInstructionsRead(true)}
-                    className="max-w-[150px]"
-                  >
-                    Starten
-                  </Button>
+              {instructionsRead && (
+                <div className="flex justify-between">
+                  <div>
+                    <Button
+                      className="min-w-[150px] mt-6"
+                      onClick={() => handleFinish()}
+                      style={
+                        columns.wordsPool.items.length == 0
+                          ? "default"
+                          : "neutral"
+                      }
+                      disabled={columns.wordsPool.items.length != 0}
+                    >
+                      {columns.wordsPool.items.length == 0
+                        ? "Überprüfen"
+                        : "noch " +
+                          columns.wordsPool.items.length +
+                          "/" +
+                          dsgvoArticles.length +
+                          "zuordnen"}
+                    </Button>
+                  </div>
+                  <HintCard
+                    text={"Was muss ich machen?"}
+                    buttonText={"Aufgabe anzeigen"}
+                    hint={instruction}
+                    className="max-w-[250px] sm:max-w-[400px] ml-2 mt-8 flex-end p-2"
+                  />
                 </div>
               )}
             </div>
