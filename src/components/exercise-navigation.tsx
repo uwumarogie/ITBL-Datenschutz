@@ -2,7 +2,7 @@
 
 import ExerciseLink from "@/components/exercise-link";
 import { PersistUserService } from "@/services/user/PersistUserService";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { AchievementId } from "@/util/achievement-data";
 
 const exerciseLinksData = [
