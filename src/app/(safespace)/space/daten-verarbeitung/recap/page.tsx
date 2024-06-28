@@ -82,11 +82,13 @@ export default function DataProcessingRecap() {
     } else {
       // router.push("/space/daten-verarbeitung/done")
       const userService = new PersistUserService();
-      // await context.setAchievement(AchievementId.DATA_PROCESSING_DONE, true)
+      // await context.setAchievement(AchievementId.DATENVERARBEITUNG_FINISHED, true)
       await userService
-        .setAchievement(AchievementId.DATA_PROCESSING_DONE, true)
+        .setAchievement(AchievementId.DATENVERARBEITUNG_FINISHED, true)
         .then(() => {
-          messageService.showAchievement(AchievementId.DATA_PROCESSING_DONE);
+          messageService.showAchievement(
+            AchievementId.DATENVERARBEITUNG_FINISHED,
+          );
           setTimeout(() => {
             router.push("/space/");
           }, 4000);
