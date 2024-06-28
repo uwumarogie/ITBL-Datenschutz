@@ -113,49 +113,53 @@ const quizzes: QuizParams[] = [
     showCorrectAnswer: true,
   },
   {
-    question: "Welche Rechte hast du gemäß der DSGVO, wenn ein Unternehmen deine personenbezogenen Daten verarbeitet?",
+    question:
+      "Welche Rechte hast du gemäß der DSGVO, wenn ein Unternehmen deine personenbezogenen Daten verarbeitet?",
     answers: [
       "Du hast das Recht, jederzeit eine Entschädigung zu verlangen.",
       "Du hast das Recht, das Unternehmen zu verklagen, wenn du keine Werbung erhältst.",
       "Du hast das Recht, die Verarbeitung deiner Daten ohne Angabe von Gründen zu stoppen.",
-      "Du hast das Recht, jederzeit die Löschung deiner personenbezogenen Daten zu verlangen."
+      "Du hast das Recht, jederzeit die Löschung deiner personenbezogenen Daten zu verlangen.",
     ],
     correctAnswer: 3,
     showCorrectAnswer: true,
   },
   {
-    question: "Welche Maßnahmen sollten Social-Media-Plattformen ergreifen, um den Datenschutz ihrer Nutzer zu gewährleisten?",
+    question:
+      "Welche Maßnahmen sollten Social-Media-Plattformen ergreifen, um den Datenschutz ihrer Nutzer zu gewährleisten?",
     answers: [
       "Veröffentlichung aller Nutzerdaten für Transparenz.",
       "Sicherstellung, dass Nutzerdaten nur nach Zustimmung des Nutzers verarbeitet werden.",
       "Verkauf von Nutzerdaten an Drittunternehmen.",
-      "Erlaubnis zur unbegrenzten Datenspeicherung ohne Benachrichtigung der Nutzer."
+      "Erlaubnis zur unbegrenzten Datenspeicherung ohne Benachrichtigung der Nutzer.",
     ],
     correctAnswer: 1,
     showCorrectAnswer: true,
   },
   {
-    question: "Welches Recht hast du bezüglich der Verarbeitung deiner personenbezogenen Daten durch Social-Media-Unternehmen?",
+    question:
+      "Welches Recht hast du bezüglich der Verarbeitung deiner personenbezogenen Daten durch Social-Media-Unternehmen?",
     answers: [
       "Das Recht, alle deine Daten auf dem Profil eines anderen Nutzers anzuzeigen.",
       "Das Recht, eine vollständige Kopie aller deiner gespeicherten Daten zu erhalten.",
       "Das Recht, die Datenschutzbestimmungen zu ändern.",
-      "Das Recht, das Unternehmen zu verpflichten, Werbung zu senden."
+      "Das Recht, das Unternehmen zu verpflichten, Werbung zu senden.",
     ],
     correctAnswer: 1,
     showCorrectAnswer: true,
   },
   {
-    question: "Was kannst du tun, wenn du der Meinung bist, dass deine Datenschutzrechte verletzt wurden?",
+    question:
+      "Was kannst du tun, wenn du der Meinung bist, dass deine Datenschutzrechte verletzt wurden?",
     answers: [
       "Eine negative Bewertung auf der Webseite des Unternehmens hinterlassen.",
       "Eine Beschwerde bei der zuständigen Datenschutzbehörde einreichen.",
       "Die Datenschutzverletzung ignorieren und weitermachen.",
-      "Eine Petition starten, um das Unternehmen zu schließen."
+      "Eine Petition starten, um das Unternehmen zu schließen.",
     ],
     correctAnswer: 1,
     showCorrectAnswer: true,
-  }
+  },
 ];
 
 export default function MasterQuiz() {
