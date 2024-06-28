@@ -36,12 +36,12 @@ export function DesktopSection({
               index > 0 &&
                 sectionItems[index - 1].sectionName === activeSection &&
                 "rounded-tr-3xl",
-              index < 3 &&
-                sectionItems.length == 4 &&
-                sectionItems[index + 1].sectionName === activeSection &&
-                "rounded-br-3xl",
               index < 2 &&
                 sectionItems.length == 3 &&
+                sectionItems[index + 1].sectionName === activeSection &&
+                "rounded-br-3xl",
+              index < 1 &&
+                sectionItems.length == 2 &&
                 sectionItems[index + 1].sectionName === activeSection &&
                 "rounded-br-3xl",
             )}
@@ -50,8 +50,9 @@ export function DesktopSection({
       )}
       <div
         className={clsx(
-          "flex items-center justify-center flex-row space-x-5 min-w-60 max-w-96 min-h-5 bg-blue-background z-30 ",
-          activeSection === SectionName.CHATBOT && "rounded-tr-3xl",
+          "flex items-center justify-center flex-row space-x-5 min-w-60 max-w-96 min-h-8 bg-blue-background z-30 ",
+          activeSection === sectionItems[sectionItems.length - 1].sectionName &&
+            "rounded-tr-3xl",
         )}
       />
     </div>
