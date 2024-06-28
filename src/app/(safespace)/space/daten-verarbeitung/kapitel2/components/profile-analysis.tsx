@@ -138,11 +138,13 @@ export default function ProfileAnalysis({
               Überprüfen
             </Button>
             {hint && foundTerms.length < minFoundTerms && (
-              <HintCard
-                text="Welche Infos soll ich suchen?"
-                buttonText="Tipp zeigen"
-                hint={hint}
-              />
+              <div className="px-2 pt-4">
+                <HintCard
+                  text="Welche Infos soll ich suchen?"
+                  buttonText="Tipp zeigen"
+                  hint={hint}
+                />
+              </div>
             )}
             {foundTerms.length >= minFoundTerms && (
               <div className="flex flex-col justify-center items-center h-full">
