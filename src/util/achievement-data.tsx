@@ -5,6 +5,7 @@ import {
   Detective,
   FishSimple,
   Gear,
+  Gavel,
   HandSwipeRight,
   IconProps,
   Lightbulb,
@@ -26,7 +27,7 @@ export type Achievement = {
 };
 
 export enum AchievementId {
-  MASTER_QUIZ = "MASTER_QUIZ", //TODO
+  MASTER_QUIZ = "MASTER_QUIZ",
   WERBE_GURU = "WERBE_GURU", //TODO
   INTRO_FINISHED = "INTRO_FINISHED", //TODO
   DATENVERARBEITUNG_FINISHED = "DATENVERARBEITUNG_FINISHED", //TODO
@@ -40,12 +41,14 @@ export enum AchievementId {
   PROFIL_DETEKTIV = "PROFIL_DETEKTIV",
   PRIVATSPHAERE_QUIZ = "PRIVATSPHAERE_QUIZ",
   PRIVATSPHAERE_SWIPE = "PRIVATSPHAERE_SWIPE",
-
+    
   DATA_PROCESSING_CHECKPOINT_STARTED = "#DATA_PROCESSING_CHECKPOINT_STARTED",
   DATA_PROCESSING_CHECKPOINT_INTRODUCTION = "#DATA_PROCESSING_CHECKPOINT_INTRODUCTION",
   DATA_PROCESSING_CHECKPOINT_COLLECT = "#DATA_PROCESSING_CHECKPOINT_COLLECT",
   DATA_PROCESSING_CHECKPOINT_PROCESS = "#DATA_PROCESSING_CHECKPOINT_PROCESS",
   DATA_PROCESSING_DONE = "DATA_PROCESSING_DONE",
+    
+  RECHTSANWALT = "RECHTSANWALT",
 }
 
 export namespace AchievementData {
@@ -130,7 +133,7 @@ export namespace AchievementData {
     {
       id: AchievementId.PASSWORD_STRENGTH,
       title: "Passwort-Strength",
-      description: "Erziele 15 Punkte in der Passwort-Strength-Quiz.",
+      description: "Erziele 15 Punkte im Passwort-Strength Spiel.",
       progress: false,
       icon: <Barbell {...iconProps} />,
     },
@@ -163,6 +166,14 @@ export namespace AchievementData {
       description: "Werde Meister in der Datensammlung und -verarbeitung",
       progress: false,
       icon: <Gear {...iconProps} />,
+    },
+    {
+      id: AchievementId.RECHTSANWALT,
+      title: "Rechtsanwalt",
+      description:
+        "Ordne im DSGVO Game beim ersten Versuch alle Aussagen den richtigen Artikeln zu",
+      progress: false,
+      icon: <Gavel {...iconProps} />,
     },
   ];
 }

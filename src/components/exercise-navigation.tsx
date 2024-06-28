@@ -1,4 +1,9 @@
+"use client";
+
 import ExerciseLink from "@/components/exercise-link";
+import { PersistUserService } from "@/services/user/PersistUserService";
+import React, { useEffect, useState } from "react";
+import { AchievementId } from "@/util/achievement-data";
 
 const exerciseLinksData = [
   {
@@ -7,6 +12,7 @@ const exerciseLinksData = [
     imageSrc: "/intro.png",
     description:
       "Hier bekommst du einen generellen Überblick in das das Thema Datenschutz",
+    unlocked: true,
   },
   {
     slug: "/space/passwort",
@@ -46,21 +52,45 @@ const exerciseLinksData = [
 ];
 
 export function ExerciseNavigation() {
+  const [modulesUnlocked, setModulesUnlocked] = useState(false);
+
+  useEffect(() => {
+    async function fetchAchievements() {
+      try {
+        const userService = new PersistUserService();
+        const fetchedAchievements = await userService.getAchievement();
+        const achievements = Array.isArray(fetchedAchievements)
+          ? fetchedAchievements
+          : [fetchedAchievements];
+
+        if (
+          achievements.find(
+            (a) => a.achievementEnum == AchievementId.INTRO_FINISHED,
+          )
+        ) {
+          setModulesUnlocked(true);
+        }
+      } catch {}
+    }
+    fetchAchievements().then();
+  }, []);
+
   return (
     <div className="h-full">
       <h1 className="text-blue-background text-lg md:text-l lg:text-2xl xl:text-4xl max-h-[60px] font-extrabold mb-2 px-6">
         Sicher unterwegs in sozialen Medien
       </h1>
       <div className="flex flex-col h-reduced-40 justify-center overflow-y-auto px-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-2 h-full">
+        <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-x-8 gap-y-2 h-full">
           {exerciseLinksData.map(
-            ({ slug, text, imageSrc, description }, index) => (
+            ({ slug, text, imageSrc, description, unlocked }, index) => (
               <ExerciseLink
                 key={index}
                 slug={slug}
                 text={text}
                 imageSrc={imageSrc}
                 description={description}
+                unlocked={unlocked || modulesUnlocked}
               />
             ),
           )}
