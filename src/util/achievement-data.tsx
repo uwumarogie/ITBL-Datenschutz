@@ -87,7 +87,8 @@ export namespace AchievementData {
     {
       id: AchievementId.DATENVERARBEITUNG_FINISHED,
       title: "Datenmaschine",
-      description: "Schließe das Datenverarbeitungsmodul ab und Werde Meister in der Datensammlung und -verarbeitung",
+      description:
+        "Schließe das Datenverarbeitungsmodul ab und Werde Meister in der Datensammlung und -verarbeitung",
       progress: false,
       icon: <Gear {...iconProps} />,
     },
