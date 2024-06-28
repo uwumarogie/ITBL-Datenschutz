@@ -14,6 +14,7 @@ import Robot from "@/components/robot/robot";
 import { PersistUserService } from "@/services/user/PersistUserService";
 import { AchievementId } from "@/util/achievement-data";
 import { useMessages } from "@/services/notfication/message-provider";
+import Task from "@/components/task";
 
 type Column = {
   id: string;
@@ -283,11 +284,13 @@ export default function Profiling() {
               </div>
               {!instructionRead && (
                 <div className="p-2 flex flex-col gap-4 lg:mt-4">
-                  Ordne die oben aufgeführten Anzeichen den entsprechenden
-                  Kategorien zu: &quot;Anzeichen für Fake Profile&quot; oder
-                  &quot;Anzeichen für Echte Profile&quot;. Ziehe die einzelnen
-                  Anzeichen aus dem Wörter-Pool und lege sie in die
-                  entsprechende Kategorie.
+                  <Task>
+                    Ordne die oben aufgeführten Anzeichen den entsprechenden
+                    Kategorien zu: &quot;Anzeichen für Fake Profile&quot; oder
+                    &quot;Anzeichen für Echte Profile&quot;. Ziehe die einzelnen
+                    Anzeichen aus dem Wörter-Pool und lege sie in die
+                    entsprechende Kategorie.
+                  </Task>
                   <Button
                     onClick={() => setInstructionsRead(true)}
                     className="max-w-[150px]"
