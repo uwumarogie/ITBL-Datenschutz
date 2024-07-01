@@ -69,7 +69,7 @@ export default function QuizList({
 
   return (
     <div className={className}>
-      <div className="py-4 flex gap-6 justify-center items-center">
+      <div className="py-4 flex flex-wrap gap-x-6 gap-y-2 justify-center items-center">
         {quizzesState.map((_, index) => (
           <div
             key={index}
