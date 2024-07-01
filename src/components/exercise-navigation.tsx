@@ -60,7 +60,7 @@ const exerciseLinksData = [
 export function ExerciseNavigation() {
   const [modulesUnlocked, setModulesUnlocked] = useState(true);
   const [modulesFinished, setModulesFinished] = useState<string[]>([]);
-  const sorted = exerciseLinksData.toSorted((a, b) => {
+  const sorted = [...exerciseLinksData].sort((a, b) => {
     const aFinished = modulesFinished.includes(a.finishedAchievement);
     const bFinished = modulesFinished.includes(b.finishedAchievement);
     return aFinished && !bFinished ? 1 : !aFinished && bFinished ? -1 : 0;
