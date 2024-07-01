@@ -92,7 +92,10 @@ export default function Layout({
           onMouseEnter={() => setCollapsed(false)}
           onMouseLeave={() => setCollapsed(!isOverview)}
         >
-          <DesktopNav isCollapsed={collapsed} masterQuizUnlocked={masterQuizUnlocked} />
+          <DesktopNav
+            isCollapsed={collapsed}
+            masterQuizUnlocked={masterQuizUnlocked}
+          />
         </div>
 
         <div className="sm:hidden">

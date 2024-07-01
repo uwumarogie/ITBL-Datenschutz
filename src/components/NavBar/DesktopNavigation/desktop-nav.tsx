@@ -9,10 +9,10 @@ import Button from "@/components/button";
 
 export function DesktopNav({
   masterQuizUnlocked,
-  isCollapsed
+  isCollapsed,
 }: {
-  masterQuizUnlocked: boolean,
-  isCollapsed: boolean
+  masterQuizUnlocked: boolean;
+  isCollapsed: boolean;
 }) {
   const router = useRouter();
   return (
@@ -42,10 +42,12 @@ export function DesktopNav({
         </div>
         <Section isCollapsed={isCollapsed} />
       </div>
-      <div className={clsx(
-        "mx-auto transition-opacity",
-        isCollapsed && "opacity-0",
-      )}>
+      <div
+        className={clsx(
+          "mx-auto transition-opacity",
+          isCollapsed && "opacity-0",
+        )}
+      >
         <div
           className={clsx(
             "min-w-[225px] h-[270px] rounded-xl p-4 scale-95",
