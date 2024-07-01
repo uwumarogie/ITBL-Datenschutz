@@ -10,6 +10,7 @@ type ButtonProps = {
   className?: string | undefined;
   style?: ButtonStyle;
   disabled?: boolean | undefined;
+  type?: "submit" | "button" | undefined;
 } & PropsWithChildren;
 
 export default function Button({
@@ -18,6 +19,7 @@ export default function Button({
   className,
   style,
   disabled,
+  type,
 }: ButtonProps) {
   const buttonBase =
     "inline-flex justify-center items-center align-center px-6 py-3 font-medium rounded-2xl transition-colors";
@@ -46,7 +48,12 @@ export default function Button({
     onClick && !disabled && buttonHoverStyle,
   );
   return (
-    <button className={mergedStyle} onClick={onClick} disabled={disabled}>
+    <button
+      className={mergedStyle}
+      type={type}
+      onClick={onClick}
+      disabled={disabled}
+    >
       {children}
     </button>
   );
