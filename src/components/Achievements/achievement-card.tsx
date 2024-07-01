@@ -44,7 +44,7 @@ export default function AchievementCard({
           className={clsx("w-full", !progress && "!bg-gray-400")}
           disabled={!progress}
         >
-          {progress ? "Geschafft!" : "Noch nicht freigeschalten"}
+          {progress ? "Geschafft!" : "Noch nicht freigeschaltet"}
         </Button>
       </div>
     </div>
