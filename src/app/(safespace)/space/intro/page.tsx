@@ -103,7 +103,7 @@ const states: State[] = [
     },
   },
   {
-    text: "Halt, stopp! [Name], du teilst hier gerade alle deine persönlichen Daten! Das ist super gefährlich!",
+    text: "Halt, stopp! [Name], Robo-X will hier gerade all deine persönlichen Daten abfangen! Das ist super gefährlich!",
     typeEvil: "disguised",
     expressionEvil: "sad",
     expressionGood: "angry",
@@ -127,7 +127,7 @@ const states: State[] = [
     expressionGood: "angry",
     speaker: "SafeBot",
     styleEvil: styleEvilLeft,
-    styleGood: styleGoodRight,
+    styleGood: {...styleGoodRight, width: "12rem", height: "12rem"},
     input: {
       type: "options",
       options: ["Wirklich? Ich dachte, das wäre alles harmlos.."],
@@ -137,7 +137,7 @@ const states: State[] = [
     text: "Genau deshalb sind wir hier. Durch SafeSpace lernst du, wie du deine Daten sicher schützt und welche Gefahren auf Social Media Plattformen lauern.",
     typeEvil: "evil",
     expressionEvil: "angry",
-    expressionGood: "smiling",
+    expressionGood: "resting",
     speaker: "SafeBot",
     styleEvil: styleEvilHidden,
     styleGood: styleEvilCenter,
@@ -146,7 +146,7 @@ const states: State[] = [
     text: "Lass uns gemeinsam durchstarten und sicherstellen, dass dir sowas nie wieder passiert!",
     typeEvil: "evil",
     expressionEvil: "angry",
-    expressionGood: "resting",
+    expressionGood: "smiling",
     speaker: "SafeBot",
     styleEvil: styleEvilHidden,
     styleGood: styleEvilCenter,
@@ -164,7 +164,6 @@ const states: State[] = [
 
 async function geoFindMe() {
   return new Promise<void>((resolve, reject) => {
-    console.log("Find me");
     if (!navigator.geolocation) {
       reject();
     } else {
