@@ -127,7 +127,7 @@ const states: State[] = [
     expressionGood: "angry",
     speaker: "SafeBot",
     styleEvil: styleEvilLeft,
-    styleGood: {...styleGoodRight, width: "12rem", height: "12rem"},
+    styleGood: { ...styleGoodRight, width: "12rem", height: "12rem" },
     input: {
       type: "options",
       options: ["Wirklich? Ich dachte, das wäre alles harmlos.."],
