@@ -14,9 +14,13 @@ export default function AnimatedText({
     <AnimatePresence>
       <motion.span
         key={children}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1, transition: { delay: 0.4 } }}
-        exit={{ opacity: 0 }}
+        initial={{ opacity: 0, position: "absolute" }}
+        animate={{
+          opacity: 1,
+          position: "relative",
+          transition: { delay: 0.31 },
+        }}
+        exit={{ opacity: 0, transitionEnd: { position: "absolute" } }}
         transition={{ duration: 0.3 }}
         className={className}
         style={style}
