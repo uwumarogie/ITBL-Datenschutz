@@ -7,7 +7,7 @@ export type RobotExpression = "smiling" | "resting" | "angry" | "sad";
 export type RobotProps = {
   expression?: RobotExpression | undefined;
   headRotation?: number | undefined;
-  type?: "default" | "evil" | "disguised"
+  type?: "default" | "evil" | "disguised";
 };
 
 export default function Robot({
@@ -47,27 +47,27 @@ export default function Robot({
     animation: "hover 6s infinite",
   };
 
-  let fill300, fill300Darker, fill400, fill500 = "#ffff"
+  let fill300,
+    fill300Darker,
+    fill400,
+    fill500 = "#ffff";
 
-  if(type == "evil") {
-    fill300 = "#ff6659"
-    fill300Darker = "#d24437"
-    fill400 = "#b63c32"
-    fill500 = "#9c352a"
-  } else if(type == "disguised") {
-    fill300 = "#6cffc8"
-    fill300Darker = "#47d8a2"
-    fill400 = "#54cc9d"
-    fill500 = "#308767"
-  }else {
-    fill300 = "#DBF5FD"
-    fill300Darker = "#D7F6FF"
-    fill400 = "#B2EDFF"
-    fill500 = "#A4D5E4"
+  if (type == "evil") {
+    fill300 = "#ff6659";
+    fill300Darker = "#d24437";
+    fill400 = "#b63c32";
+    fill500 = "#9c352a";
+  } else if (type == "disguised") {
+    fill300 = "#6cffc8";
+    fill300Darker = "#47d8a2";
+    fill400 = "#54cc9d";
+    fill500 = "#308767";
+  } else {
+    fill300 = "#DBF5FD";
+    fill300Darker = "#D7F6FF";
+    fill400 = "#B2EDFF";
+    fill500 = "#A4D5E4";
   }
-
-
-
 
   return (
     <svg
