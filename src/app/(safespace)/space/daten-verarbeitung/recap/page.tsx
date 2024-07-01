@@ -59,7 +59,7 @@ const states: State[] = [
     },
   },
   {
-    text: "Versuche doch mal bewusst beim Scrollen durch deine Apps zu betrachte, wo du gerade unbewusst Daten generierst!",
+    text: "Versuche doch mal bewusst beim Scrollen durch deine Apps zu beachten, wo du gerade unbewusst Daten generierst!",
     style: {
       top: "calc(30% - 4rem)",
       left: "calc(25% - 4rem)",
@@ -148,7 +148,7 @@ export default function DataProcessingRecap() {
             <span className="bg-sky-800 text-white font-bold rounded-full w-6 h-6 inline-flex justify-center items-center mr-2">
               3
             </span>{" "}
-            Social Media Portale nutzen diese komplexe Daten, um dir für dich
+            Social Media Portale nutzen diese komplexen Daten, um dir für dich
             zugeschnittene Inhalte zu präsentieren. Wie diese Auswahl erstellt
             wird, ist oft geheim und sehr komplex.
           </span>

@@ -119,7 +119,7 @@ export default function DataProcessing3() {
             Diese Beziehung können wir auch mit fremden Konten herstellen. Gibt
             es Profile, die ähnliche Interessen wie Marie haben, können Marie
             nun neue Inhalte vorgeschlagen werden. Marie hat zwar noch nicht von
-            &quotOlivia Rodrigo&quot gehört, aber Profile mit ähnlichen
+            &quot;Olivia Rodrigo&quot; gehört, aber Profile mit ähnlichen
             Interessen kennen sie. Marie könnte der neue Künstler dann auch
             gefallen.
           </div>
