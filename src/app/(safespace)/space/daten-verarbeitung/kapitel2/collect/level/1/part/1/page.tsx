@@ -142,6 +142,13 @@ const historyPost: HistoryPost[] = [
     tags: ["Spongebob", "Meme"],
   },
   {
+    src: "/datenverarbeitung/collect/level1/post-history/post_history7.jpg",
+    caption: "Neue Jacke - Jetzt bestellen",
+    date: "gestern",
+    send: "an Lisa gesendet",
+    tags: ["Jacke", "Mode", "Klamotten"],
+  },
+  {
     src: "/datenverarbeitung/collect/level1/post-history/post_history4.jpg",
     caption: "Schule - Kritik",
     save: true,
