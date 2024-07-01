@@ -4,11 +4,12 @@ import { useRouter } from "next/navigation";
 import { QuizParams } from "@/components/Quiz/quiz";
 import QuizList from "@/components/Quiz/quiz-list";
 import { AchievementId } from "@/util/achievement-data";
+import { useEffect, useState } from "react";
 
 const quizzes: QuizParams[] = [
   {
     question:
-      "Wie solltest du dich nicht Verhalten, wenn ein Fake-Profil mit dir Kontakt aufnehmen möchte?",
+      "Wie solltest du dich nicht verhalten, wenn ein Fake-Profil mit dir Kontakt aufnehmen möchte?",
     answers: [
       "Freundschaftsanfrage annehmen und persönliche Daten teilen",
       "Profil blockieren",
@@ -31,7 +32,7 @@ const quizzes: QuizParams[] = [
   },
   {
     question:
-      "Warum sollten Sie bei der Weitergabe Ihrer persönlichen Daten im Internet vorsichtig sein?",
+      "Warum solltest du bei der Weitergabe deiner persönlichen Daten im Internet vorsichtig sein?",
     answers: [
       "Um Spam zu vermeiden",
       "Um Identitätsdiebstahl zu vermeiden",
@@ -43,23 +44,23 @@ const quizzes: QuizParams[] = [
   },
   {
     question:
-      "Welche der folgenden Methoden ist NICHT geeignet, um Ihre persönlichen Daten online zu schützen?",
+      "Welche der folgenden Methoden ist NICHT geeignet, um deine persönlichen Daten online zu schützen?",
     answers: [
       "Die Verwendung starker, eindeutiger Passwörter für verschiedene Konten",
       "Anklicken unbekannter Links",
       "Aktivieren der Zwei-Faktor-Authentifizierung",
-      "Ihre Software und Anwendungen auf dem neuesten Stand halten",
+      "Deine Software und Anwendungen auf dem neuesten Stand halten",
     ],
     correctAnswer: 1,
     showCorrectAnswer: true,
   },
   {
     question:
-      "Was sollten Sie tun, wenn Sie den Verdacht haben, dass Ihre persönlichen Daten kompromittiert worden sind?",
+      "Was solltest du tun, wenn du den Verdacht hast, dass deine persönlichen Daten kompromittiert worden sind?",
     answers: [
-      "Ändern Sie sofort Ihre Passwörter",
+      "Ändern Sie sofort deine Passwörter",
       "Ignorieren Sie die Sache und hoffen Sie auf das Beste",
-      "Löschen Sie alle Ihre Konten in sozialen Netzwerken",
+      "Löschen Sie alle deine Konten in sozialen Netzwerken",
       "Posten Sie es in sozialen Netzwerken",
     ],
     correctAnswer: 0,
@@ -109,6 +110,54 @@ const quizzes: QuizParams[] = [
       "Das Recht, beliebige Daten anderer Nutzer zu sammeln und zu speichern",
     ],
     correctAnswer: 2,
+    showCorrectAnswer: true,
+  },
+  {
+    question:
+      "Welche Rechte hast du gemäß der DSGVO, wenn ein Unternehmen deine personenbezogenen Daten verarbeitet?",
+    answers: [
+      "Du hast das Recht, jederzeit eine Entschädigung zu verlangen.",
+      "Du hast das Recht, das Unternehmen zu verklagen, wenn du keine Werbung erhältst.",
+      "Du hast das Recht, die Verarbeitung deiner Daten ohne Angabe von Gründen zu stoppen.",
+      "Du hast das Recht, jederzeit die Löschung deiner personenbezogenen Daten zu verlangen.",
+    ],
+    correctAnswer: 3,
+    showCorrectAnswer: true,
+  },
+  {
+    question:
+      "Welche Maßnahmen sollten Social-Media-Plattformen ergreifen, um den Datenschutz ihrer Nutzer zu gewährleisten?",
+    answers: [
+      "Veröffentlichung aller Nutzerdaten für Transparenz.",
+      "Sicherstellung, dass Nutzerdaten nur nach Zustimmung des Nutzers verarbeitet werden.",
+      "Verkauf von Nutzerdaten an Drittunternehmen.",
+      "Erlaubnis zur unbegrenzten Datenspeicherung ohne Benachrichtigung der Nutzer.",
+    ],
+    correctAnswer: 1,
+    showCorrectAnswer: true,
+  },
+  {
+    question:
+      "Welches Recht hast du bezüglich der Verarbeitung deiner personenbezogenen Daten durch Social-Media-Unternehmen?",
+    answers: [
+      "Das Recht, alle deine Daten auf dem Profil eines anderen Nutzers anzuzeigen.",
+      "Das Recht, eine vollständige Kopie aller deiner gespeicherten Daten zu erhalten.",
+      "Das Recht, die Datenschutzbestimmungen zu ändern.",
+      "Das Recht, das Unternehmen zu verpflichten, Werbung zu senden.",
+    ],
+    correctAnswer: 1,
+    showCorrectAnswer: true,
+  },
+  {
+    question:
+      "Was kannst du tun, wenn du der Meinung bist, dass deine Datenschutzrechte verletzt wurden?",
+    answers: [
+      "Eine negative Bewertung auf der Webseite des Unternehmens hinterlassen.",
+      "Eine Beschwerde bei der zuständigen Datenschutzbehörde einreichen.",
+      "Die Datenschutzverletzung ignorieren und weitermachen.",
+      "Eine Petition starten, um das Unternehmen zu schließen.",
+    ],
+    correctAnswer: 1,
     showCorrectAnswer: true,
   },
 ];

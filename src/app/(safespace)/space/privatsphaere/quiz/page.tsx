@@ -33,11 +33,11 @@ export default function StartGame() {
     {
       quiz: {
         question:
-          "Welche Informationen solltest du nicht in sozialen Netzwerken teilen, um Ihre Privatsphäre zu schützen?",
+          "Welche Informationen solltest du nicht in sozialen Netzwerken teilen, um deine Privatsphäre zu schützen?",
         answers: [
           "Deine Wohnanschrift und Telefonnummer.",
           "Fotos mit deinen Freunden",
-          "Die Schule, an der du studiere",
+          "Deine Schule",
           "Deine Haustiere",
         ],
         showCorrectAnswer: true,

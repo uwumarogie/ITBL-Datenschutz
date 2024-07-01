@@ -32,8 +32,10 @@ export default function Button({
     buttonStyle = "bg-red-500 text-white";
     buttonHoverStyle = "hover:bg-red-600";
   } else if (style == "secondary") {
-    buttonStyle = "text-white bg-[#004F86]";
-    buttonHoverStyle = "hover:bg-[#004170]";
+    // buttonStyle = "text-white bg-[#004F86]";
+    // buttonHoverStyle = "hover:bg-[#004170]";
+    buttonStyle = "text-[#004F86] bg-transparent border-2 border-sky-100";
+    buttonHoverStyle = "hover:bg-sky-100";
   } else if (style == "neutral") {
     buttonStyle = "bg-gray-500 text-white";
     buttonHoverStyle = "hover:bg-gray-600";
