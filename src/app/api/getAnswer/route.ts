@@ -37,6 +37,7 @@ export async function POST(rqq: NextRequest) {
             Wenn die Antwort Nein ist, bitte erkläre, warum und spreche den User mit DU an.
             Wenn die Antwort Ja ist, bitte erkläre, warum und spreche den User mit DU an.
             Bewerte die Übereinstimmung mit der richtigen Antwort auf einer Skala von 1 bis 10. 10 ist eindeutige Übereinstimmung.
+            Bitte gebe mir für die reason nur einen kurzen Text, der eine Lerneffekt bei den Schülern auslösen kann. Maximal 4 kurze Sätze.
             Gebe mir diesen Format aus und gebe immer ein score und eine Begründung, welches immer ein string ist,  an. Die Begründung soll einen Lerneffekt bei den Schülern auslösen.
             {score: number, reason: Begründung }
             `,

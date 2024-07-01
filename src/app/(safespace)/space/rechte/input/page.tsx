@@ -4,9 +4,12 @@ import React, { useState } from "react";
 import Button from "@/components/button";
 import getFeedback, {
   extractScoreAndReason,
+  showAchievementRightInput,
 } from "@/app/(safespace)/space/rechte/input/action";
 import { questions } from "@/util/rights/rights-data";
 import { Score } from "@/app/(safespace)/space/rechte/input/score";
+import { useMessages } from "@/services/notfication/message-provider";
+import { useRouter } from "next/navigation";
 
 export default function RightsInputValidation() {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
@@ -16,8 +19,9 @@ export default function RightsInputValidation() {
   >([]);
   const [showModal, setShowModal] = useState(false);
   const [loading, setLoading] = useState(false);
-
+  const messageService = useMessages();
   const currentQuestion = questions[currentQuestionIndex];
+  const router = useRouter();
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -36,11 +40,17 @@ export default function RightsInputValidation() {
     setUserInput("");
   };
 
-  const handleNextQuestion = () => {
+  const handleNextQuestion = async () => {
     setUserInput("");
     setShowModal(false);
     if (currentQuestionIndex < questions.length - 1) {
       setCurrentQuestionIndex((prevState) => prevState + 1);
+    } else {
+      await showAchievementRightInput(
+        answers,
+        questions.length,
+        messageService,
+      );
     }
   };
 
@@ -63,15 +73,22 @@ export default function RightsInputValidation() {
           value={userInput}
           onChange={(e) => setUserInput(e.target.value)}
         />
-        <Button type="submit" disabled={userInput.length === 0}>
-          {currentQuestionIndex < questions.length - 1
-            ? "Nächste Frage"
-            : "Auswerten"}
-        </Button>
+        <div className="flex flex-row gap-x-4">
+          <Button type="submit" disabled={userInput.length === 0}>
+            {currentQuestionIndex < questions.length - 1
+              ? "Nächste Frage"
+              : "Auswerten"}
+          </Button>
+          {currentQuestionIndex === questions.length - 1 && (
+            <Button onClick={() => router.push("/space/rechte")}>
+              Zurück zur Startseite
+            </Button>
+          )}
+        </div>
       </form>
       {showModal && (
         <div className="flex justify-center items-center fixed inset-0 bg-black bg-opacity-50">
-          <div className="bg-white p-8 rounded-xl max-w-2xl max-h-[40vh] mx-auto my-auto">
+          <div className="bg-white p-8 rounded-xl max-w-2xl max-h-[45vh] mx-auto my-auto">
             {loading ? (
               <div className="flex flex-col items-center">Loading ...</div>
             ) : (
