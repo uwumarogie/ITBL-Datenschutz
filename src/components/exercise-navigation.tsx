@@ -52,7 +52,7 @@ const exerciseLinksData = [
 ];
 
 export function ExerciseNavigation() {
-  const [modulesUnlocked, setModulesUnlocked] = useState(false);
+  const [modulesUnlocked, setModulesUnlocked] = useState(true);
 
   useEffect(() => {
     async function fetchAchievements() {
@@ -64,11 +64,11 @@ export function ExerciseNavigation() {
           : [fetchedAchievements];
 
         if (
-          achievements.find(
+          !achievements.find(
             (a) => a.achievementEnum == AchievementId.INTRO_FINISHED,
           )
         ) {
-          setModulesUnlocked(true);
+          setModulesUnlocked(false);
         }
       } catch {}
     }
