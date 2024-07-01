@@ -16,7 +16,6 @@ export enum SectionName {
   ERKUNDEN,
   FORTSCHRITT,
   LEADERBOARD,
-  CHATBOT,
 }
 
 type SectionItem = {
@@ -49,13 +48,6 @@ const sectionItems: SectionItem[] = [
     alt: "Leaderboard",
     href: "/leaderboard",
   },
-  {
-    sectionName: SectionName.CHATBOT,
-    srcActive: "/section/chatbot-active.svg",
-    srcInactive: "/section/chatbot.svg",
-    alt: "Chatbot",
-    href: "/chatbot",
-  },
 ];
 
 export function Section({ isCollapsed }: { isCollapsed: boolean }) {
@@ -67,8 +59,6 @@ export function Section({ isCollapsed }: { isCollapsed: boolean }) {
       return SectionName.FORTSCHRITT;
     } else if (path.startsWith("/leaderboard")) {
       return SectionName.LEADERBOARD;
-    } else if (path.startsWith("/chatbot")) {
-      return SectionName.CHATBOT;
     }
     return SectionName.ERKUNDEN;
   };

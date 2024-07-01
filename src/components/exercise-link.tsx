@@ -3,25 +3,44 @@ import Image from "next/image";
 import { displayText } from "@/util/landing-page";
 import Button from "./button";
 import { useRouter } from "next/navigation";
+import clsx from "clsx";
+import { Lock, LockKey } from "@phosphor-icons/react";
 
 type ExerciseLink = {
   slug: string;
   text: string;
   imageSrc: string;
   description: string;
+  unlocked: boolean;
 };
 export default function ExerciseLink({
   slug,
   text,
   imageSrc,
   description,
+  unlocked,
 }: ExerciseLink) {
   const modifiedText = displayText(text);
   const router = useRouter();
   return (
-    <div className="flex flex-col justify-center h-full rounded-2xl">
+    <div
+      className={clsx(
+        "flex flex-col justify-center h-full rounded-2xl relative",
+        !unlocked && "grayscale pointer-events-none",
+      )}
+    >
+      {!unlocked && (
+        <div className="w-full h-full absolute z-20 flex justify-center items-center">
+          <LockKey className="w-24 h-24" weight="duotone" />
+        </div>
+      )}
       <div className="relative group flex justify-center bg-sky-200 rounded-2xl p-2 max-h-[290px] min-h-[240px] h-full">
-        <div className="flex flex-col justify-between">
+        <div
+          className={clsx(
+            "flex flex-col justify-between",
+            !unlocked && "opacity-20",
+          )}
+        >
           <h3 className="text-center text-blue-background text-xl h-[56px]">
             {modifiedText}
           </h3>
