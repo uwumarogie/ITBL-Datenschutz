@@ -2,9 +2,13 @@ import Link from "next/link";
 import Image from "next/image";
 import { InlineNavigation } from "@/components/inline-navigation";
 import { useRouter } from "next/navigation";
-import { SignOut } from "@phosphor-icons/react";
+import { LockKey, SignOut, Star } from "@phosphor-icons/react";
 
-export function Overlay() {
+export function Overlay({
+  masterQuizUnlocked,
+}: {
+  masterQuizUnlocked: boolean;
+}) {
   const router = useRouter();
   return (
     <div className="absolute left-[-0.3rem] right-[-0.3rem] top-full mt-2 bg-white shadow-xl px-5 pt-6 pb-4 z-50 rounded-3xl">
@@ -15,17 +19,15 @@ export function Overlay() {
           </div>
 
           <Link
-            href="/space/spaceholder"
+            href={masterQuizUnlocked ? "/space/masterquiz" : ""}
             className="flex flex-col items-center bg-blue-contrast rounded-xl min-h-16 min-w-16 justify-center py-4 px-2"
           >
             <span className="pb-2 text-xs text-white">MasterQuiz</span>
-            <Image
-              src="/star.svg"
-              alt="Logo"
-              width={60}
-              height={60}
-              className="mx-auto"
-            />
+            {masterQuizUnlocked ? (
+              <Star size={60} color="#FFDB58" weight="fill" />
+            ) : (
+              <LockKey size={60} weight="duotone" color="#A9D6E5" />
+            )}
           </Link>
         </div>
         <span

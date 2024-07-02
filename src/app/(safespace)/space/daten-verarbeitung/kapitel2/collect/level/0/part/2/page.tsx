@@ -1,108 +1,122 @@
 "use client";
 
-import { CSSProperties, useEffect, useState, Suspense } from "react";
-import Robot, { RobotExpression } from "@/components/robot/robot";
+import Button from "@/components/button";
+import Link from "next/link";
 import Image from "next/image";
-import RecommendationQuiz from "@/app/(safespace)/space/daten-verarbeitung/kapitel2/level/components/recommendation-quiz";
 
-type State = {
-  expression: RobotExpression;
-  rotation: number;
-  text: string;
-  loading?: boolean;
-  manualNext?: boolean;
-  hideButton?: boolean;
-  end?: boolean;
-  delay?: number;
-  style?: CSSProperties | undefined;
-};
-
-export type AdvertisementData = {
-  id: string;
-  imageSrc: string;
-  name: string;
-  description: string;
-  isSuccessful: boolean;
-};
-
-const advertisements: AdvertisementData[] = [
-  {
-    id: "0",
-    imageSrc: "/phishing.png",
-    name: "Antivirenschutz",
-    description: "Beschreibung für eine Antivirensoftware",
-    isSuccessful: false,
-  },
-  {
-    id: "1",
-    imageSrc: "/data-processing.png",
-    name: "Richtige Anzeige",
-    description: "Beschreibung für eine Antivirensoftware",
-    isSuccessful: true,
-  },
-  {
-    id: "2",
-    imageSrc: "/phishing.png",
-    name: "Antivirenschutz",
-    description: "Beschreibung für eine Antivirensoftware",
-    isSuccessful: false,
-  },
-  {
-    id: "3",
-    imageSrc: "/phishing.png",
-    name: "Antivirenschutz",
-    description: "Beschreibung für eine Antivirensoftware",
-    isSuccessful: false,
-  },
-  {
-    id: "4",
-    imageSrc: "/phishing.png",
-    name: "Antivirenschutz",
-    description: "Beschreibung für eine Antivirensoftware",
-    isSuccessful: false,
-  },
-];
-
-export default function DataProcessing2() {
+export default function DataProcessing3() {
   return (
-    <RecommendationQuiz
-      items={advertisements}
-      href="/space/daten-verarbeitung/kapitel2/level/0/part/3"
-      robotTextQuestion="Ich habe hier ein paar Werbeanzeigen für dich. Welche würde bei Marie am besten ankommen?"
-      renderItem={(data, onClick) => (
-        <Advertisement advertisement={data} onClick={onClick} key={data.id} />
-      )}
-    />
-  );
-}
+    <div className="relative h-full w-full overflow-y-auto">
+      <h3 className="font-semibold text-3xl mb-10">
+        Was konnten wir aus dem Profil herauslesen?
+      </h3>
 
-function Advertisement({
-  advertisement,
-  onClick,
-}: {
-  advertisement: AdvertisementData;
-  onClick?: (advertisement: AdvertisementData) => void;
-}) {
-  return (
-    <div
-      className="bg-blue-200 rounded-xl w-full flex"
-      onClick={() => {
-        console.log("Hello", onClick);
-        onClick?.(advertisement);
-      }}
-    >
-      <Image
-        src={advertisement.imageSrc}
-        alt={"Advertisement"}
-        width="100"
-        height="100"
-        className="h-full object-contain"
-      />
-      <div className="flex flex-col justify-center pl-6 pr-4">
-        <span className="text-lg font-semibold text-blue-950">
-          {advertisement.name}
-        </span>
-        <span className="text-slate-800">{advertisement.description}</span>
+      <span>
+        Es gibt viele Möglichkeiten, wie man die Daten einer Person durch ihr
+        Profil erhält. Lass uns gemeinsam herausfinden, welche Informationen wir
+        aus Maries Profil entnehmen können.
+      </span>
+
+      <div className="grid grid-cols-1 lg:grid-cols-[auto_300px] gap-10 mt-4">
+        <div>
+          <h3 className="text-xl font-semibold mb-2">Profilbeschreibung</h3>
+          Durch die Profilbeschreibung erhalten wir folgende Informationen:
+          <ul className="list-disc ml-4">
+            <li>Maries voller Name ist Marie Magic</li>
+            <li>sie wurde 2007</li>
+            <li>Marie lebt in München</li>
+            <li>ist 17 Jahre alt</li>
+            <li>hat 14 Posts ={">"} postet also gelegentlich</li>
+            <li>
+              hat 97 Follower ={">"} privates Profil, sie ist keine Influencerin
+            </li>
+            <li>folgt 189 Profilen</li>
+          </ul>
+          Vor allem Follower und gefolgte Profile werden später noch wichtig.
+          Behalte sie am besten gleich im Kopf!
+        </div>
+        <div>
+          <Image
+            className="rounded-xl shadow-md"
+            src="/datenverarbeitung/collect/level0/marked/explain_profile.png"
+            alt={"Like"}
+            width="300"
+            height="200"
+          />
+        </div>
+
+        <div>
+          <h3 className="text-xl font-semibold mb-2">Veröffentlichte Bilder</h3>
+          Mit fast jedem Foto erhält man zusätzliche Daten. Hier zum Beispiel
+          erfahren wir, dass sie Hunde sehr gerne mag.
+        </div>
+        <div>
+          <Image
+            className="rounded-xl shadow-md"
+            src="/datenverarbeitung/collect/level0/marked/explain_post.png"
+            alt={"Like"}
+            width="300"
+            height="200"
+          />
+        </div>
+
+        <div>
+          <h3 className="text-xl font-semibold mb-2">Postbeschreibung</h3>
+          Auch durch die Caption, können neue Daten verarbeitet werden. Auf dem
+          Foto is ein jüngeres Mädchen zu erkennen. Mithilfe dem hinzugefügten
+          Text lässt sich erschließen, dass das ihre jüngere Schwester Lea ist.
+        </div>
+        <div>
+          <Image
+            className="rounded-xl shadow-md"
+            src="/datenverarbeitung/collect/level0/marked/explain_caption.png"
+            alt={"Like"}
+            width="300"
+            height="200"
+          />
+        </div>
+
+        <div>
+          <h3 className="text-xl font-semibold mb-2">Hashtags</h3>
+          Das Foto zeigt nur den Besuch eines Konzerts. Es soll auch der beste
+          Tag ihres Lebens gewesen sein. Mehr Informationen haben wir jedoch
+          nicht. Oft helfen einem Hashtags gewisse Lücken zu füllen. Durch die
+          hinzugefügten Hashtags wissen wir, dass es ein Konzert von Billie
+          Eilish war, welches 2023 in Dortmund stattgefunden hat. Hashtags sind
+          für Algorithmen besonders einfach, da sie direkt Begriffe darstellen,
+          die für Vorschläge verwendet werden können.
+        </div>
+        <div>
+          <Image
+            className="rounded-xl shadow-md"
+            src="/datenverarbeitung/collect/level0/marked/explain_hashtags.png"
+            alt={"Like"}
+            width="300"
+            height="200"
+          />
+        </div>
+
+        <div>
+          <h3 className="text-xl font-semibold mb-2">Freunde markieren</h3>
+          Hin und wieder markiert Marie gerne ihre Freunde. Somit werden neue
+          Verbindungen hergestellt. Wir erfahren, dass Michael, Sarah, Lena,
+          Lukas und Livia ihre Schulfreunde sind.
+        </div>
+        <div>
+          <Image
+            className="rounded-xl shadow-md"
+            src="/datenverarbeitung/collect/level0/marked/explain_friends.png"
+            alt={"Like"}
+            width="300"
+            height="200"
+          />
+        </div>
+      </div>
+
+      <div className="mt-10 flex justify-center">
+        <Link href="/space/daten-verarbeitung/kapitel2/collect/level/0/part/3">
+          <Button onClick={() => {}}>Weiter</Button>
+        </Link>
       </div>
     </div>
   );

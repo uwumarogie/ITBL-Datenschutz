@@ -6,7 +6,7 @@ import Button from "@/components/button";
 import clsx from "clsx";
 import { useRouter } from "next/navigation";
 import AnimatedText from "@/components/animated/AnimatedText";
-import RobotIntroduction from "@/app/(safespace)/space/daten-verarbeitung/kapitel2/level/components/robot-introduction";
+import RobotIntroduction from "@/app/(safespace)/space/daten-verarbeitung/kapitel2/components/robot-introduction";
 
 export type State = {
   expression: RobotExpression;
@@ -26,21 +26,21 @@ const states: State[] = [
   {
     expression: "smiling",
     rotation: 0,
-    text: "Hey! Ich bin AIris. Mein Boss hat mir aufgetragen, ein Paar Instagram Profile anzusehen und passende Werbung zu verteilen. ",
+    text: "Hallo! Da bin ich wieder.",
   },
   {
     expression: "resting",
     rotation: -0.4,
-    text: "Ich bin ziemlich neu hier, vielleicht kannst du mir dabei helfen?",
+    text: "Nachdem du dich nun etwas mit Datenverarbeitung beschäftigt hast, hätte ich eine Aufgabe für dich.",
     style: {
       marginLeft: "100px",
       marginBottom: "30px",
     },
   },
   {
-    expression: "angry",
+    expression: "resting",
     rotation: 0.6,
-    text: "Ich darf heute noch den ganzen Tag die Arbeit meines Chefs machen!!!",
+    text: "Mein Chef hat mich gebeten, das Social Media Profil von Marie anzusehen.",
     style: {
       marginRight: "150px",
       marginTop: "30px",
@@ -49,16 +49,17 @@ const states: State[] = [
   {
     expression: "sad",
     rotation: -0.1,
-    text: "Leider komme ich aus meiner Blechbüchse nicht so leicht raus.",
-    style: {
-      width: "150px",
-      height: "150px",
-    },
+    text: "Mein Arbeitsspeicher ist leider etwas voll heute, deswegen brauche ich deine Unterstützung.",
+  },
+  {
+    expression: "smiling",
+    rotation: 0.2,
+    text: "Alle Infos aus Maries Profil werden wir später noch brauchen.",
   },
   {
     expression: "smiling",
     rotation: 0,
-    text: "Egal. Lass uns loslegen!",
+    text: "Lass uns also gleich mal loslegen! ",
     style: {
       width: "300px",
       height: "300px",
@@ -66,7 +67,7 @@ const states: State[] = [
   },
   {
     expression: "smiling",
-    rotation: 0,
+    rotation: 1.5,
     text: "",
     style: {
       position: "absolute",
@@ -79,7 +80,7 @@ export default function DataProcessing0() {
   return (
     <RobotIntroduction
       states={states}
-      href="/space/daten-verarbeitung/kapitel2/level/0/part/1"
+      href="/space/daten-verarbeitung/kapitel2/collect/level/0/part/1"
     />
   );
 }

@@ -1,9 +1,10 @@
 "use client";
 import {
   Barbell,
-  CloudArrowDown,
   Detective,
   FishSimple,
+  Gear,
+  Gavel,
   HandSwipeRight,
   IconProps,
   Lightbulb,
@@ -25,11 +26,10 @@ export type Achievement = {
 };
 
 export enum AchievementId {
-  MASTER_QUIZ = "MASTER_QUIZ", //TODO
-  WERBE_GURU = "WERBE_GURU", //TODO
+  MASTER_QUIZ = "MASTER_QUIZ",
   INTRO_FINISHED = "INTRO_FINISHED", //TODO
-  DATENVERARBEITUNG_FINISHED = "DATENVERARBEITUNG_FINISHED", //TODO
-  MEINE_RECHTE_FINISHED = "MEINE_RECHTE_FINISHED", //TODO
+  DATENVERARBEITUNG_FINISHED = "DATENVERARBEITUNG_FINISHED",
+  MEINE_RECHTE_FINISHED = "MEINE_RECHTE_FINISHED",
   PASSWORT_FINISHED = "PASSWORT_FINISHED",
   PRIVATSPHAERE_FINISHED = "PRIVATSPHAERE_FINISHED",
   PHISHING_FINISHED = "PHISHING_FINISHED",
@@ -39,6 +39,13 @@ export enum AchievementId {
   PROFIL_DETEKTIV = "PROFIL_DETEKTIV",
   PRIVATSPHAERE_QUIZ = "PRIVATSPHAERE_QUIZ",
   PRIVATSPHAERE_SWIPE = "PRIVATSPHAERE_SWIPE",
+
+  DATA_PROCESSING_CHECKPOINT_STARTED = "#DATA_PROCESSING_CHECKPOINT_STARTED",
+  DATA_PROCESSING_CHECKPOINT_INTRODUCTION = "#DATA_PROCESSING_CHECKPOINT_INTRODUCTION",
+  DATA_PROCESSING_CHECKPOINT_COLLECT = "#DATA_PROCESSING_CHECKPOINT_COLLECT",
+  DATA_PROCESSING_CHECKPOINT_PROCESS = "#DATA_PROCESSING_CHECKPOINT_PROCESS",
+
+  RECHTSANWALT = "RECHTSANWALT",
 }
 
 export namespace AchievementData {
@@ -55,13 +62,6 @@ export namespace AchievementData {
         "Schließe das Master-Quiz erfolgreich ab und werde zum Datenschutz-Experte",
       progress: false,
       icon: <Star {...iconProps} />,
-    },
-    {
-      id: AchievementId.WERBE_GURU,
-      title: "Werbe-Guru",
-      description: "Erziele 5 perfekte Werbeangebote.",
-      progress: false,
-      icon: <Robot {...iconProps} />,
     },
     {
       id: AchievementId.INTRO_FINISHED,
@@ -86,10 +86,11 @@ export namespace AchievementData {
     },
     {
       id: AchievementId.DATENVERARBEITUNG_FINISHED,
-      title: "Datenverarbeitungs-Diplomat",
-      description: "Schließe das Datenverarbeitungsmodul erfolgreich ab",
+      title: "Datenmaschine",
+      description:
+        "Schließe das Datenverarbeitungsmodul ab und Werde Meister in der Datensammlung und -verarbeitung",
       progress: false,
-      icon: <CloudArrowDown {...iconProps} />,
+      icon: <Gear {...iconProps} />,
     },
     {
       id: AchievementId.PHISHING_FINISHED,
@@ -149,6 +150,14 @@ export namespace AchievementData {
         "Entscheide für alle Daten richtig, ob sie personenbezogen sind oder nicht",
       progress: false,
       icon: <HandSwipeRight {...iconProps} />,
+    },
+    {
+      id: AchievementId.RECHTSANWALT,
+      title: "Rechtsanwalt",
+      description:
+        "Ordne im DSGVO Game beim ersten Versuch alle Aussagen den richtigen Artikeln zu",
+      progress: false,
+      icon: <Gavel {...iconProps} />,
     },
   ];
 }

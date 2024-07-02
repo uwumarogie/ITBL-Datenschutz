@@ -35,7 +35,7 @@ export function quizStateClasses(
   quizzes: QuizParams[],
 ) {
   let classes =
-    "rounded-full w-10 h-10 inline-flex justify-center items-center font-bold ";
+    "rounded-full w-10 h-10 inline-flex justify-center items-center font-bold flex-shrink-0 ";
   if (index === currentQuizIndex) {
     classes += "bg-orange-500 text-white";
   } else if (quizzesState[index].isDone) {

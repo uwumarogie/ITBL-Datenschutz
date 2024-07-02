@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { SectionName } from "../Section";
 import Image from "next/image";
+import clsx from "clsx";
 
 type DesktopSectionItem = {
   setSection: (activeSection: SectionName) => void;
@@ -11,6 +12,7 @@ type DesktopSectionItem = {
   alt: string;
   href: string;
   className: string;
+  isCollapsed: boolean;
 };
 
 export function DesktopSectionItem({
@@ -22,6 +24,7 @@ export function DesktopSectionItem({
   alt,
   href,
   className,
+  isCollapsed,
 }: DesktopSectionItem) {
   return (
     <Link
@@ -40,7 +43,14 @@ export function DesktopSectionItem({
       ) : (
         <Image src={srcInactive} alt={alt} width={30} height={30} />
       )}
-      <span className="text-center">{alt}</span>
+      <span
+        className={clsx(
+          "text-center transition-opacity",
+          isCollapsed && "opacity-0",
+        )}
+      >
+        {alt}
+      </span>
     </Link>
   );
 }

@@ -9,13 +9,13 @@ export type Props = {
   setSection: (activeSection: SectionName) => void;
   activeSection: SectionName;
   sectionItems: SectionItem[];
+  isCollapsed: boolean;
 };
 
 export enum SectionName {
   ERKUNDEN,
   FORTSCHRITT,
   LEADERBOARD,
-  CHATBOT,
 }
 
 type SectionItem = {
@@ -48,16 +48,9 @@ const sectionItems: SectionItem[] = [
     alt: "Leaderboard",
     href: "/leaderboard",
   },
-  {
-    sectionName: SectionName.CHATBOT,
-    srcActive: "/section/chatbot-active.svg",
-    srcInactive: "/section/chatbot.svg",
-    alt: "Chatbot",
-    href: "/chatbot",
-  },
 ];
 
-export function Section() {
+export function Section({ isCollapsed }: { isCollapsed: boolean }) {
   const path = usePathname();
   const getActiveSection = () => {
     if (path.startsWith("/space")) {
@@ -66,8 +59,6 @@ export function Section() {
       return SectionName.FORTSCHRITT;
     } else if (path.startsWith("/leaderboard")) {
       return SectionName.LEADERBOARD;
-    } else if (path.startsWith("/chatbot")) {
-      return SectionName.CHATBOT;
     }
     return SectionName.ERKUNDEN;
   };
@@ -99,6 +90,7 @@ export function Section() {
           setSection={setActiveSection}
           activeSection={activeSection}
           sectionItems={sections}
+          isCollapsed={isCollapsed}
         />
       </div>
 
@@ -107,6 +99,7 @@ export function Section() {
           setSection={setActiveSection}
           activeSection={activeSection}
           sectionItems={sections}
+          isCollapsed={false}
         />
       </div>
     </div>

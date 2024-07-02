@@ -5,7 +5,11 @@ import React, { useState } from "react";
 import { Overlay } from "./mobile-overlay";
 import { Section } from "../Section";
 
-export function MobileNav() {
+export function MobileNav({
+  masterQuizUnlocked,
+}: {
+  masterQuizUnlocked: boolean;
+}) {
   const [showOverlay, setOverlay] = useState(false);
 
   const toggleOverlay = () => {
@@ -26,8 +30,8 @@ export function MobileNav() {
           className="mx-auto"
         />
       </nav>
-      <Section />
-      {showOverlay && <Overlay />}
+      <Section isCollapsed={false} />
+      {showOverlay && <Overlay masterQuizUnlocked={masterQuizUnlocked} />}
     </div>
   );
 }
