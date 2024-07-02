@@ -19,7 +19,6 @@ const quizzes: QuizParams[] = [
       "Nein, das ist keine Verletzung meiner Rechte, weil: das Foto während einer öffentlichen Veranstaltung aufgenommen wurde und für Nachrichtenzwecke verwendet wird, was normalerweise als rechtlich zulässig gilt, insbesondere wenn es sich um eine Berichterstattung von öffentlichem Interesse handelt.",
       "Nein, das ist keine Verletzung meiner Rechte, weil: öffentliche Veranstaltungen in der Regel erlauben, dass Bilder der Teilnehmer für verschiedene Zwecke genutzt werden, einschließlich kommerzieller und redaktioneller Berichterstattung, ohne individuelle Einwilligung.",
       "Ja, das ist eine Verletzung meiner Rechte, weil: meine persönliche Zustimmung für jede Art von Veröffentlichung erforderlich ist, unabhängig vom Kontext oder der Art der Veranstaltung.",
-      "",
     ],
     correctAnswer: 1,
     showCorrectAnswer: true,
