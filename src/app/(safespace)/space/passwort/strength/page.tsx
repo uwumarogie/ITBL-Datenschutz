@@ -13,6 +13,7 @@ import { passwordAnimation } from "@/util/passwort/strength-helper";
 import { State } from "@/app/(safespace)/space/daten-verarbeitung/kapitel2/components/recommendation-quiz";
 import RobotInPasswort from "@/components/robot-in-passwort";
 import { AchievementId } from "@/util/achievement-data";
+import { HintCard } from "@/components/hint-card";
 
 const states: State[] = [
   {
@@ -73,6 +74,8 @@ const states: State[] = [
     end: true,
   },
 ];
+const instruction =
+  "Ein Passwort gilt nur als stark, wenn alle Kriterien erfüllt sind. Ist nur eine Bedingung falsch gilt das Passwort als mittel und ansonten als schwach. Du bekommst für jedes richtig eingeordnete Passwort einen Punkt. Falls du das Passwort falsch einordnest wird deine Punktzahl auf 0 zurückgesetzt.";
 
 export default function PasswordStrength() {
   const [highscore, setHighscore] = useState(0);
@@ -186,7 +189,7 @@ export default function PasswordStrength() {
   };
 
   return (
-    <div className="flex flex-col max-w-[1100px] lg:px-6 justify-start h-full">
+    <div className="flex flex-col w-full lg:px-6 justify-start">
       <div className="flex justify-between mt-4 gap-8 h-full">
         {!gameStarted ? (
           <>
@@ -206,7 +209,7 @@ export default function PasswordStrength() {
                 />
               </div>
             ) : (
-              <>
+              <div className="flex flex-col h-full justify-between">
                 <PlayGame
                   animatePulse={animatePulse}
                   animateShake={animateShake}
@@ -216,14 +219,21 @@ export default function PasswordStrength() {
                   displayPassword={displayPassword}
                   handleButtonClick={handleButtonClick}
                 />
-
-                <Button
-                  className="md:mb-2 max-w-[100px] bg-gray-600 hover:bg-gray-700 mt-10 text-sm"
-                  onClick={() => router.push("/space/passwort/builder")}
-                >
-                  Zurück
-                </Button>
-              </>
+                <div className="flex flex-row justify-between mt-12">
+                  <Button
+                    className="md:mb-2 h-[50px] w-[200px] bg-gray-600 hover:bg-gray-700 text-sm"
+                    onClick={() => router.push("/space/passwort/builder")}
+                  >
+                    Zurück zur Modulübersicht
+                  </Button>
+                  <HintCard
+                    text={"Was muss ich machen?"}
+                    buttonText={"Aufgabe anzeigen"}
+                    hint={instruction}
+                    className="max-w-[250px] sm:max-w-[400px] ml-2 flex-end p-2"
+                  />
+                </div>
+              </div>
             )}
           </div>
         )}
@@ -260,7 +270,7 @@ function Intro({
     <div className="flex flex-col gap-y-12">
       <IntroductionText
         headline="Bewerte die Stärke des Passworts"
-        text="Ein Passwort gilt nur als stark, wenn alle Kriterien erfüllt sind. Ist nur eine Bedingung falsch gilt das Passwort als mittel und ansonten als schwach. Du bekommst für jedes richtig eingeordnete Passwort einen Punkt. Falls du das Passwort falsch einordnest wird deine Punktzahl auf 0 zurückgesetzt."
+        text={instruction}
       />
       <Button
         onClick={() => {
