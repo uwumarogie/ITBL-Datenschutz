@@ -23,7 +23,7 @@ export default function DataProcessing3() {
           Durch die Profilbeschreibung erhalten wir folgende Informationen:
           <ul className="list-disc ml-4">
             <li>Maries voller Name ist Marie Magic</li>
-            <li>sie wurde 2007</li>
+            <li>sie wurde 2007 geboren</li>
             <li>Marie lebt in München</li>
             <li>ist 17 Jahre alt</li>
             <li>hat 14 Posts ={">"} postet also gelegentlich</li>
