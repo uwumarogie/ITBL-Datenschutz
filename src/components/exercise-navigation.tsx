@@ -11,7 +11,7 @@ const exerciseLinksData = [
     text: "Intro & Overview",
     imageSrc: "/intro.png",
     description:
-      "Hier bekommst du einen generellen Überblick in das das Thema Datenschutz",
+      "Hier bekommst du einen generellen Überblick in das Thema Datenschutz",
     unlocked: true,
     finishedAchievement: AchievementId.INTRO_FINISHED,
   },
