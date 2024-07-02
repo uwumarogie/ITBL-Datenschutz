@@ -88,7 +88,8 @@ const config: Config = {
       },
       pulse: {
         "0%": { opacity: "100%" },
-        "100%": { opacity: "60%" },
+        "50%": { opacity: "70%" },
+        "100%": { opacity: "100%" },
       },
     },
     animation: {
