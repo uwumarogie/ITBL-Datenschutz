@@ -12,10 +12,10 @@ import {
   LockKey,
   Password,
   PencilRuler,
-  Robot,
   Scales,
   Star,
 } from "@phosphor-icons/react";
+import React from "react";
 
 export type Achievement = {
   id: string;
@@ -46,6 +46,7 @@ export enum AchievementId {
   DATA_PROCESSING_CHECKPOINT_PROCESS = "#DATA_PROCESSING_CHECKPOINT_PROCESS",
 
   RECHTSANWALT = "RECHTSANWALT",
+  RECHTSANWALT_INPUT = "RECHTSANWALT_INPUT",
 }
 
 export namespace AchievementData {
@@ -156,6 +157,13 @@ export namespace AchievementData {
       title: "Rechtsanwalt",
       description:
         "Ordne im DSGVO Game beim ersten Versuch alle Aussagen den richtigen Artikeln zu",
+      progress: false,
+      icon: <Gavel {...iconProps} />,
+    },
+    {
+      id: AchievementId.RECHTSANWALT_INPUT,
+      title: "Jurist",
+      description: "Beantworte alle Fragen im Meine-Rechte-Quiz richtig",
       progress: false,
       icon: <Gavel {...iconProps} />,
     },

@@ -14,7 +14,7 @@ import Robot from "@/components/robot/robot";
 import { PersistUserService } from "@/services/user/PersistUserService";
 import { AchievementId } from "@/util/achievement-data";
 import { useMessages } from "@/services/notfication/message-provider";
-import { Question, QuestionMark } from "@phosphor-icons/react";
+import { Question } from "@phosphor-icons/react";
 import Task from "@/components/task";
 
 type Field = {
@@ -270,7 +270,9 @@ export default function Profiling() {
             Du hast alle Aussagen den richtigen Artiklen der
             Datenschutzgrundverordnung zugeordnet.
           </span>
-          <Button onClick={() => router.push("/space/rechte")}>Weiter</Button>
+          <Button onClick={() => router.push("/space/rechte/quiz")}>
+            Weiter
+          </Button>
         </div>
       ) : (
         <div className="">
