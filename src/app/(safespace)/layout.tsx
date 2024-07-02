@@ -106,7 +106,10 @@ export default function Layout({
         </div>
       </div>
       <span className="absolute bottom-3 w-full text-center">
-        <span onClick={() => router.push("/impressum")} className="text-white text-sm opacity-50 hover:opacity-100 hover:underline hover:cursor-pointer">
+        <span
+          onClick={() => router.push("/impressum")}
+          className="text-white text-sm opacity-50 hover:opacity-100 hover:underline hover:cursor-pointer"
+        >
           Impressum
         </span>
       </span>
