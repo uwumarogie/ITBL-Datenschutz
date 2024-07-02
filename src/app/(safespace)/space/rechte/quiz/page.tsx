@@ -9,10 +9,11 @@ const quizzes: QuizParams[] = [
     question:
       "Ein Foto von dir bei einem öffentlichen Sportereignis wird in einem lokalen Nachrichtenartikel verwendet, ohne dich um Erlaubnis zu bitten.",
     answers: [
-      "Ja, das ist eine Verletzung meiner Rechte, weil das Bild in einem kommerziellen Kontext ohne meine Zustimmung verwendet wurde, obwohl es häufig durch Allgemeine Geschäftsbedingungen (AGB) oder Teilnahmebedingungen bei Veranstaltungen geregelt ist, dass Bilder zu solchen Zwecken genutzt werden dürfen.",
-      "Nein, das ist keine Verletzung meiner Rechte, weil das Foto während einer öffentlichen Veranstaltung aufgenommen wurde und für Nachrichtenzwecke verwendet wird, was normalerweise als rechtlich zulässig gilt, insbesondere wenn es sich um eine Berichterstattung von öffentlichem Interesse handelt.",
-      "Ja, weil die Nutzung des Bildes ohne explizite Zustimmung auch in Nachrichtenmedien nicht erlaubt ist.",
-      "Nein, weil die Aufnahme bei einer Veranstaltung stattfand, die ausdrücklich das Fotografieren erlaubte.",
+      "Ja, das ist eine Verletzung meiner Rechte, weil: das Bild in einem kommerziellen Kontext ohne meine Zustimmung verwendet wurde, obwohl es häufig durch Allgemeine Geschäftsbedingungen (AGB) oder Teilnahmebedingungen bei Veranstaltungen geregelt ist, dass Bilder zu solchen Zwecken genutzt werden dürfen.",
+      "Nein, das ist keine Verletzung meiner Rechte, weil: das Foto während einer öffentlichen Veranstaltung aufgenommen wurde und für Nachrichtenzwecke verwendet wird, was normalerweise als rechtlich zulässig gilt, insbesondere wenn es sich um eine Berichterstattung von öffentlichem Interesse handelt.",
+      "Nein, das ist keine Verletzung meiner Rechte, weil: öffentliche Veranstaltungen in der Regel erlauben, dass Bilder der Teilnehmer für verschiedene Zwecke genutzt werden, einschließlich kommerzieller und redaktioneller Berichterstattung, ohne individuelle Einwilligung.",
+      "Ja, das ist eine Verletzung meiner Rechte, weil: meine persönliche Zustimmung für jede Art von Veröffentlichung erforderlich ist, unabhängig vom Kontext oder der Art der Veranstaltung.",
+      "",
     ],
     correctAnswer: 1,
     showCorrectAnswer: true,
@@ -21,24 +22,24 @@ const quizzes: QuizParams[] = [
     question:
       "Du hast in deinem privaten Instagram-Account ein Foto von einer Party gepostet, bei der auch Freunde von dir zu sehen sind. Ein Magazin nimmt das Bild ohne deine Zustimmung und verwendet es für einen Online-Artikel über Jugendpartys.",
     answers: [
-      "Ja, das ist eine Verletzung meiner Rechte, weil das Magazin mein Bild ohne Zustimmung verwendet hat, was meine Urheberrechte und die Privatsphäre der abgebildeten Personen verletzt.",
-      "Nein, das ist keine Verletzung meiner Rechte, weil das Foto auf einem sozialen Netzwerk geteilt wurde und daher als öffentlich zugänglich gilt.",
-      "Ja, weil die Verwendung des Bildes ohne Zustimmung das Recht auf ein Privatleben verletzt.",
-      "Nein, weil die Bildrechte nach dem Posten im sozialen Netzwerk nicht mehr ausschließlich beim Urheber liegen.",
+      "Nein, das ist keine Verletzung meiner Rechte, weil: Inhalte, die online geteilt werden, automatisch für redaktionelle Zwecke genutzt werden dürfen, insbesondere wenn sie in einem öffentlichen Profil gepostet wurden.",
+      "Ja, das ist eine Verletzung meiner Rechte, weil: alle abgebildeten Personen ihre Zustimmung zur Veröffentlichung in einem Magazin geben müssen, unabhängig davon, wo das Foto ursprünglich gepostet wurde.",
+      "Nein, das ist keine Verletzung meiner Rechte, weil: das Foto auf einem sozialen Netzwerk geteilt wurde und daher als öffentlich zugänglich gilt.",
+      "Ja, das ist eine Verletzung meiner Rechte, weil: das Magazin mein Bild ohne Zustimmung verwendet hat, was meine Urheberrechte und die Privatsphäre der abgebildeten Personen verletzt. ",
     ],
-    correctAnswer: 0,
+    correctAnswer: 3,
     showCorrectAnswer: true,
   },
   {
     question:
       "Du hattest einen privaten Chatverlauf mit einem Freund auf einer Messenger-App. Später bemerkst du, dass der Freund Screenshots dieses Chats auf einer öffentlichen Social-Media-Plattform geteilt hat.",
     answers: [
-      "Ja, das ist eine Verletzung meiner Rechte, weil private Nachrichten ohne Zustimmung des anderen Beteiligten nicht öffentlich geteilt werden dürfen.",
-      "Nein, das ist keine Verletzung meiner Rechte, weil der Freund hat das Recht, seine Nachrichten und Kommunikation zu teilen, wie er möchte.",
-      "Ja, weil das Teilen von privaten Gesprächen ohne Einwilligung gegen Datenschutzgesetze verstößt.",
-      "Nein, weil einmal gesendete Nachrichten im digitalen Raum nicht mehr als privat gelten.",
+      "Nein, das ist keine Verletzung meiner Rechte, weil: der Freund hat das Recht, seine Nachrichten und Kommunikation zu teilen, wie er möchte.",
+      "Ja, das ist eine Verletzung meiner Rechte, weil: Nachrichten in Messenger-Apps generell nie weitergegeben werden dürfen, selbst wenn beide Parteien zustimmen würden",
+      "Ja, das ist eine Verletzung meiner Rechte, weil: private Nachrichten ohne Zustimmung des anderen Beteiligten nicht öffentlich geteilt werden dürfen. ",
+      "Nein, das ist keine Verletzung meiner Rechte, weil: sobald Nachrichten gesendet werden, verliert der Absender die Kontrolle über deren Weiterverwendung.",
     ],
-    correctAnswer: 0,
+    correctAnswer: 2,
     showCorrectAnswer: true,
   },
   {
@@ -55,14 +56,14 @@ const quizzes: QuizParams[] = [
   },
   {
     question:
-      "Du findest alte, peinliche Fotos und Beiträge von dir aus deiner Jugendzeit auf einer Suchmaschine. Du möchtest, dass diese Informationen aus den Suchergebnissen entfernt werden.",
+      ": Du findest alte, peinliche Fotos und Beiträge von dir aus deiner Jugendzeit auf einer Suchmaschine. Du möchtest, dass diese Informationen aus den Suchergebnissen entfernt werden.",
     answers: [
-      "Ja, sie dürfen das, weil die Schufa das Recht hat, bestimmte Informationen zurückzuhalten, um ihren Dienst zu schützen.",
-      "Nein, sie dürfen das nicht, weil jeder Bürger das Recht hat, einmal jährlich eine kostenlose Selbstauskunft zu erhalten, um die über ihn gespeicherten Daten zu überprüfen.",
-      "Ja, weil es spezifische gesetzliche Ausnahmen gibt, die Auskünfte in bestimmten Fällen verhindern können.",
-      "Nein, weil Transparenz in der Datenverarbeitung grundlegend ist und Zugang zu eigenen Daten nicht verweigert werden darf.",
+      "Ja, ich habe das Recht, weil: jeder kann jederzeit verlangen, dass jegliche Informationen über sie aus dem Internet gelöscht werden, unabhängig von deren Relevanz oder Kontext.",
+      "Nein, ich habe nicht das Recht, weil: einmal im Internet veröffentlichte Informationen für immer zugänglich bleiben müssen.",
+      "Ja, ich habe das Recht, weil: das Recht auf Vergessenwerden ermöglicht es Einzelpersonen, die Löschung persönlicher Daten zu verlangen, wenn diese Daten nicht mehr relevant sind oder ihre Veröffentlichung unangemessen ist.",
+      "Nein, ich habe nicht das Recht, weil: Suchmaschinen nicht verpflichtet sind, alte oder peinliche Inhalte aus ihren Ergebnissen zu entfernen, selbst wenn diese nicht mehr relevant sind.",
     ],
-    correctAnswer: 1,
+    correctAnswer: 2,
     showCorrectAnswer: true,
   },
   {
@@ -79,12 +80,12 @@ const quizzes: QuizParams[] = [
   },
   {
     question:
-      "Du hast dich für einen Newsletter eines Online-Shops angemeldet. Später stellst du fest, dass deine persönlichen Daten an Dritte für Marketingzwecke weitergegeben wurden, ohne dass du dem ausdrücklich zugestimmt hast.",
+      " Du möchtest eine Selbstauskunft bei der Schufa anfordern, um zu sehen, welche Daten über dich gespeichert sind, aber die Schufa verweigert deine Anfrage.",
     answers: [
-      "Ja, das ist eine Verletzung meiner Rechte, weil die Weitergabe persönlicher Daten an Dritte für Marketingzwecke ohne ausdrückliche Zustimmung des Betroffenen gegen Datenschutzgesetze verstößt.",
-      "Nein, das ist keine Verletzung meiner Rechte, weil Unternehmen das Recht haben, Daten ihrer Nutzer für Geschäfts- und Marketingzwecke zu nutzen.",
-      "Ja, weil ich niemals einer solchen Nutzung meiner Daten zugestimmt habe und sie deshalb rechtswidrig ist.",
-      "Nein, weil bei der Anmeldung zu einem Dienst oft eine Klausel enthalten ist, die eine solche Nutzung erlaubt.",
+      "Ja, sie dürfen das, weil: die Schufa das Recht hat, bestimmte Informationen zurückzuhalten, um ihren Dienst zu schützen.",
+      "Nein, sie dürfen das nicht, weil: die Schufa gesetzlich verpflichtet ist, alle Anfragen von Privatpersonen innerhalb eines Monats zu beantworten.",
+      "Ja, sie dürfen das, weil: die Schufa nur auf Anfrage von Banken und Unternehmen Auskünfte erteilen muss, nicht an Privatpersonen.",
+      "Nein, sie dürfen das nicht, weil: jeder Bürger das Recht hat, einmal jährlich eine kostenlose Selbstauskunft zu erhalten, um die über ihn gespeicherten Daten zu überprüfen. ",
     ],
     correctAnswer: 0,
     showCorrectAnswer: true,
