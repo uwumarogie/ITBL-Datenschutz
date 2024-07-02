@@ -69,7 +69,7 @@ export default function StartGame() {
   );
 
   return (
-    <div className="flex flex-col xl:gap-8 2xl:mt-8 px-2 lg:px-4">
+    <div className="flex items-center flex-col xl:gap-8 2xl:mt-8 px-2 lg:px-4">
       <QuizList
         className="max-w-[1100px]"
         quizzes={quizzes}
