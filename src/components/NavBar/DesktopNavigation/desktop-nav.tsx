@@ -52,7 +52,7 @@ export function DesktopNav({
           className={clsx(
             "min-w-[225px] h-[270px] rounded-xl p-4 scale-95",
             !masterQuizUnlocked && "opacity-60",
-            masterQuizUnlocked && "animate-bounce",
+            masterQuizUnlocked && "animate-pulse",
           )}
           style={{ backgroundColor: "#014F86", animationIterationCount: 8 }}
         >
