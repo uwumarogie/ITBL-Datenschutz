@@ -63,7 +63,8 @@ Ausgabeformat:
       statusText: "answer received",
     });
   } catch (error) {
-    console.error("Error processing POST request", error);
+    console.log("Error processing POST request", error);
+    console.log((error as Error).message);
     return new NextResponse("Error", {
       status: 400,
       statusText: "Error",
