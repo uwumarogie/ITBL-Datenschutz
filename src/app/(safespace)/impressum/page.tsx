@@ -7,11 +7,11 @@ export default function Impressum() {
       <p className="mb-4">
         Angaben gemäß § 5 TMG:
         <br />
-        Name
+        Name: Technische Universität München
         <br />
-        Straße
+        Straße: Arcisstraße 21
         <br />
-        PLZ München
+        PLZ: 80333 München
       </p>
       <p className="mb-4">
         Kontakt: Anna Weber
