@@ -86,6 +86,11 @@ const config: Config = {
         "0%": { transform: "rotate(0deg)" },
         "100%": { transform: "rotate(360deg)" },
       },
+      pulse: {
+        "0%": { opacity: "100%" },
+        "50%": { opacity: "70%" },
+        "100%": { opacity: "100%" },
+      },
     },
     animation: {
       blurOut: "blurOut 2s ease-in-out",
@@ -102,6 +107,7 @@ const config: Config = {
       fadeOut: "fadeOut 0.5s ease-in-out",
       rotate: "rotate 6s linear infinite",
       rotateInv: "rotate 6s linear reverse infinite",
+      pulse: "pulse 1s ease-in-out",
     },
   },
   plugins: [require("@tailwindcss/container-queries")],

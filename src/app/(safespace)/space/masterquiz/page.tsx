@@ -4,7 +4,6 @@ import { useRouter } from "next/navigation";
 import { QuizParams } from "@/components/Quiz/quiz";
 import QuizList from "@/components/Quiz/quiz-list";
 import { AchievementId } from "@/util/achievement-data";
-import { useEffect, useState } from "react";
 
 const quizzes: QuizParams[] = [
   {
@@ -58,10 +57,10 @@ const quizzes: QuizParams[] = [
     question:
       "Was solltest du tun, wenn du den Verdacht hast, dass deine persönlichen Daten kompromittiert worden sind?",
     answers: [
-      "Ändern Sie sofort deine Passwörter",
-      "Ignorieren Sie die Sache und hoffen Sie auf das Beste",
-      "Löschen Sie alle deine Konten in sozialen Netzwerken",
-      "Posten Sie es in sozialen Netzwerken",
+      "Sofort deine Passwörter ändern",
+      "Die Sache ignorieren und auf das Beste hoffen",
+      "Alle deine Konten in sozialen Netzwerken löschen",
+      "Es in sozialen Netzwerken posten",
     ],
     correctAnswer: 0,
     showCorrectAnswer: true,
