@@ -14,14 +14,14 @@ const chapter: ModuleChapter[] = [
     minutes: "3",
   },
   {
-    title: "Wurde mein Recht verletzt?",
-    icon: <Question />,
-    minutes: "5",
-  },
-  {
     title: "DSGVO",
     icon: <Scales />,
     minutes: "8",
+  },
+  {
+    title: "Wurde mein Recht verletzt?",
+    icon: <Question />,
+    minutes: "5",
   },
 ];
 

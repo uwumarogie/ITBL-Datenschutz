@@ -12,7 +12,6 @@ import {
   LockKey,
   Password,
   PencilRuler,
-  Robot,
   Scales,
   Star,
 } from "@phosphor-icons/react";
@@ -163,9 +162,8 @@ export namespace AchievementData {
     },
     {
       id: AchievementId.RECHTSANWALT_INPUT,
-      title: "Rechtsanwalt",
-      description:
-        "Beantworte 75% aller Fragen richtig bezüglich meine Rechte ein",
+      title: "Jurist",
+      description: "Beantworte alle Fragen im Meine-Rechte-Quiz richtig",
       progress: false,
       icon: <Gavel {...iconProps} />,
     },

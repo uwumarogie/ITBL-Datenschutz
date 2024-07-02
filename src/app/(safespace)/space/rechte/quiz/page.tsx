@@ -3,6 +3,12 @@
 import QuizList from "@/components/Quiz/quiz-list";
 import { QuizParams } from "@/components/Quiz/quiz";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
+import Robot from "@/components/robot/robot";
+import Button from "@/components/button";
+import { AchievementId } from "@/util/achievement-data";
+import { useMessages } from "@/services/notfication/message-provider";
+import { PersistUserService } from "@/services/user/PersistUserService";
 
 const quizzes: QuizParams[] = [
   {
@@ -92,13 +98,45 @@ const quizzes: QuizParams[] = [
 ];
 
 export default function DataProtectionChapter1Quiz() {
+  const [moduleFinished, setModuleFinished] = useState(false);
+  const messageService = useMessages();
   const router = useRouter();
   return (
-    <QuizList
-      quizzes={quizzes}
-      onFinish={() => {
-        router.push("/space/rechte/page");
-      }}
-    />
+    <>
+      {moduleFinished ? (
+        <div className="flex flex-col items-center text-center gap-6 md:mt-6">
+          <span className="text-5xl text-blue-background">Gut gemacht!</span>
+          <Robot expression="smiling" />
+          <span className="max-w-[600px]">
+            Du hast das Modul erfolgreich abgeschlossen!
+          </span>
+          <Button
+            onClick={() => {
+              const userService = new PersistUserService();
+              userService
+                .setAchievement(AchievementId.MEINE_RECHTE_FINISHED, true)
+                .then(() => {
+                  messageService.showAchievement(
+                    AchievementId.MEINE_RECHTE_FINISHED,
+                  );
+                });
+              setTimeout(() => {
+                router.push("/space");
+              }, 3500);
+            }}
+          >
+            Zurück zur Startseite
+          </Button>
+        </div>
+      ) : (
+        <QuizList
+          quizzes={quizzes}
+          onFinish={() => {
+            setModuleFinished(true);
+          }}
+          achievement={AchievementId.RECHTSANWALT_INPUT}
+        />
+      )}
+    </>
   );
 }
