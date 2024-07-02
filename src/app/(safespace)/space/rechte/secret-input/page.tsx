@@ -5,9 +5,9 @@ import Button from "@/components/button";
 import getFeedback, {
   extractScoreAndReason,
   showAchievementRightInput,
-} from "@/app/(safespace)/space/rechte/input/action";
+} from "@/app/(safespace)/space/rechte/secret-input/action";
 import { questions } from "@/util/rights/rights-data";
-import { Score } from "@/app/(safespace)/space/rechte/input/score";
+import { Score } from "@/app/(safespace)/space/rechte/secret-input/score";
 import { useMessages } from "@/services/notfication/message-provider";
 import { useRouter } from "next/navigation";
 
@@ -88,7 +88,7 @@ export default function RightsInputValidation() {
       </form>
       {showModal && (
         <div className="flex justify-center items-center fixed inset-0 bg-black bg-opacity-50">
-          <div className="bg-white p-8 rounded-xl max-w-2xl max-h-[45vh] mx-auto my-auto">
+          <div className="bg-white p-8 rounded-xl max-w-2xl max-h-[50vh] mx-auto my-auto">
             {loading ? (
               <div className="flex flex-col items-center">Loading ...</div>
             ) : (

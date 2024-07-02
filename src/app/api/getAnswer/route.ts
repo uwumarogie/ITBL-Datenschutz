@@ -27,19 +27,24 @@ export async function POST(rqq: NextRequest) {
           {
             role: "user",
             content: `
-            Ist das eine Verletzung deiner Rechte?
-            Das ist die Situation: ${situation}
-            Die Frage ist: Ist das eine Verletzung deiner Rechte?
-            Das ist der User input: ${userInput}
-            Das ist die Lösung: ${solution}
-            Bitte vergleiche den User input mit der Lösung und antworte mit "Ja" oder "nein" und fasse die Begründung kurz und bündig.
-            Es sollt nicht länger sein als 3 Sätze.
-            Wenn die Antwort Nein ist, bitte erkläre, warum und spreche den User mit DU an.
-            Wenn die Antwort Ja ist, bitte erkläre, warum und spreche den User mit DU an.
-            Bewerte die Übereinstimmung mit der richtigen Antwort auf einer Skala von 1 bis 10. 10 ist eindeutige Übereinstimmung.
-            Bitte gebe mir für die reason nur einen kurzen Text, der eine Lerneffekt bei den Schülern auslösen kann. Maximal 4 kurze Sätze.
-            Gebe mir diesen Format aus und gebe immer ein score und eine Begründung, welches immer ein string ist,  an. Die Begründung soll einen Lerneffekt bei den Schülern auslösen.
-            {score: number, reason: Begründung }
+Ist das eine Verletzung deiner Rechte?
+Situation: ${situation}
+Frage: Ist das eine Verletzung deiner Rechte?
+User-Input: ${userInput}
+Lösung: ${solution}
+Aufgabe: Vergleiche den User-Input mit der Lösung. Antwort mit "Ja" oder "Nein". Fasse die Begründung kurz und bündig zusammen.
+Regeln:
+1. Die Antwort sollte nicht länger als 3 Sätze sein.
+2. Bei einem "Nein", erkläre kurz, warum nicht, und sprich den User direkt an.
+3. Bei einem "Ja", erkläre kurz, warum, und sprich den User direkt mit "DU" an.
+4. Bewerte die Übereinstimmung mit der richtigen Antwort auf einer Skala von 1 bis 10, wobei 10 eine eindeutige Übereinstimmung bedeutet.
+5. Wenn die Antwort des Users mit der Lösung übereinstimmt, aber keine Begründung gegeben ist, vergib einen Score von 2.
+6. Wenn die Antwort und Begründung vollständig mit der Lösung übereinstimmen, vergib einen Score von 10.
+7. Wenn die Antwort falsch ist, vergib einen Score zwischen 1 und 5 basierend auf der Relevanz der Begründung.
+Anleitung für die Begründung:
+- Gebe einen kurzen Text, der einen Lerneffekt bei den Schülern auslöst. Maximal 4 Sätze.
+Ausgabeformat:
+{score: number, reason: string}
             `,
           },
         ],

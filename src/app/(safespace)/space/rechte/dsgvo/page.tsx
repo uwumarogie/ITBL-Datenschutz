@@ -270,7 +270,9 @@ export default function Profiling() {
             Du hast alle Aussagen den richtigen Artiklen der
             Datenschutzgrundverordnung zugeordnet.
           </span>
-          <Button onClick={() => router.push("/space/rechte")}>Weiter</Button>
+          <Button onClick={() => router.push("/space/rechte/secret-input")}>
+            Weiter
+          </Button>
         </div>
       ) : (
         <div className="">

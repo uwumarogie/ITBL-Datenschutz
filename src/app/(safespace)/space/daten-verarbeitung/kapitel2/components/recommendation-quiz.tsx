@@ -146,7 +146,7 @@ export default function RecommendationQuiz<
 
   return (
     <div className="relative h-full w-full flex flex-col items-center justify-center">
-      {/*<input className="absolute w-10 top-0 right-0 border-[1px] border-gray-200 outline-none z-40" type="number"*/}
+      {/*<secret-input className="absolute w-10 top-0 right-0 border-[1px] border-gray-200 outline-none z-40" type="number"*/}
       {/*       value={state} onChange={(ev) => setState(ev.target.valueAsNumber ?? 0)}/>*/}
 
       {notes && notes != "" && (
