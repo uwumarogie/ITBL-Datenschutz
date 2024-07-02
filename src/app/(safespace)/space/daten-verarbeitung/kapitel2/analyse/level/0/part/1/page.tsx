@@ -26,14 +26,14 @@ type FeedPost = string;
 const posts = [
   "/datenverarbeitung/analyse/level0/wrong_post3.jpg",
   "/datenverarbeitung/analyse/level0/wrong_post8.jpg",
-  "/datenverarbeitung/analyse/level0/wrong_post6.jpg",
+  "/datenverarbeitung/analyse/level0/correct_post10.jpg",
   "/datenverarbeitung/analyse/level0/wrong_post2.jpg",
   "/datenverarbeitung/analyse/level0/correct_post7.jpg",
   "/datenverarbeitung/analyse/level0/wrong_post11.jpg",
   "/datenverarbeitung/analyse/level0/correct_post6.jpg",
   "/datenverarbeitung/analyse/level0/wrong_post10.jpg",
+  "/datenverarbeitung/analyse/level0/correct_post11.jpg",
   "/datenverarbeitung/analyse/level0/correct_post2.jpg",
-  "/datenverarbeitung/analyse/level0/wrong_post5.jpg",
   "/datenverarbeitung/analyse/level0/wrong_post1.jpg",
   "/datenverarbeitung/analyse/level0/correct_post3.jpg",
   "/datenverarbeitung/analyse/level0/wrong_post9.jpg",
@@ -56,6 +56,8 @@ const correctPosts = [
   "/datenverarbeitung/analyse/level0/correct_post4.jpg",
   "/datenverarbeitung/analyse/level0/correct_post9.jpg",
   "/datenverarbeitung/analyse/level0/correct_post8.jpg",
+  "/datenverarbeitung/analyse/level0/correct_post10.jpg",
+  "/datenverarbeitung/analyse/level0/correct_post11.jpg",
 ];
 
 export default function DataProcessingPart1() {

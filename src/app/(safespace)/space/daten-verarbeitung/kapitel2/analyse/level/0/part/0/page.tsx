@@ -7,7 +7,7 @@ import Task from "@/components/task";
 
 export default function DataProcessingPart0() {
   return (
-    <div className="w-full h-full overflow-y-auto flex flex-col gap-4">
+    <div className="w-full h-full overflow-y-auto flex flex-col gap-4 max-w-[800px]">
       <h3 className="text-3xl font-medium mb-4 inline-flex gap-6 items-center">
         <GameController /> 4-You Page erstellen
       </h3>

@@ -15,7 +15,7 @@ export default function TagList({
   return (
     <div
       className={clsx(
-        "absolute w-full h-full z-20 flex items-center justify-center transition-all",
+        "fixed top-0 left-0 w-full h-full z-20 flex items-center justify-center transition-all",
         show ? "opacity-100" : "opacity-0 pointer-events-none",
       )}
     >
@@ -39,7 +39,7 @@ export default function TagList({
         </div>
       </div>
       <div
-        className="absolute w-full h-full bg-black opacity-20 rounded-2xl cursor-pointer"
+        className="absolute w-full h-full bg-black opacity-40 rounded-2xl cursor-pointer"
         onClick={onClose}
       ></div>
     </div>
