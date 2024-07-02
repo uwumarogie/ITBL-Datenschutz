@@ -233,8 +233,8 @@ function CurrentPost({
       className="w-full h-full z-30 flex items-center absolute cursor-pointer"
       onClick={onClick}
     >
-      <div className="p-5 z-30 h-full w-full flex items-center">
-        <div className="bg-white p-2 pb-4 rounded-xl w-full">
+      <div className="p-10 z-30 h-full w-full flex items-center justify-center">
+        <div className="bg-white p-2 pb-4 rounded-xl w-full overflow-y-auto">
           <div className="pb-2 px-1 flex items-center">
             <Image
               className="rounded-full border-[1px] border-gray-300 w-8 h-8 flex-shrink-0 bg-white mr-4"
@@ -264,7 +264,7 @@ function CurrentPost({
             alt={post.caption}
             width="400"
             height="400"
-            className="w-full h-fit rounded-lg"
+            className="w-full h-fit rounded-lg max-h-[400px] object-center object-cover"
           />
           <div className="flex gap-4 px-2 pt-4 pb-3">
             <Heart className="flex-shrink-0" size="24" />
