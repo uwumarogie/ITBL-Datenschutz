@@ -48,6 +48,11 @@ export async function showAchievementRightInput(
       .then(() => {
         messageService.showAchievement(AchievementId.RECHTSANWALT_INPUT);
       });
+    await userService
+      .setAchievement(AchievementId.MEINE_RECHTE_FINISHED, true)
+      .then(() =>
+        messageService.showAchievement(AchievementId.MEINE_RECHTE_FINISHED),
+      );
   }
   return null;
 }
