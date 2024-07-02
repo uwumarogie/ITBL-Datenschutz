@@ -3,8 +3,7 @@
 import { DesktopNav } from "@/components/NavBar/DesktopNavigation/desktop-nav";
 import { MobileNav } from "@/components/NavBar/MobileNavigation/mobile-nav";
 import { PersistUserService } from "@/services/user/PersistUserService";
-import { redirect, usePathname } from "next/navigation";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import clsx from "clsx";
 import { useMessages } from "@/services/notfication/message-provider";
@@ -106,6 +105,14 @@ export default function Layout({
           <div className="bg-white rounded-3xl py-6 w-full">{children}</div>
         </div>
       </div>
+      <span className="absolute bottom-3 w-full text-center">
+        <span
+          onClick={() => router.push("/impressum")}
+          className="text-white text-sm opacity-50 hover:opacity-100 hover:underline hover:cursor-pointer"
+        >
+          Impressum
+        </span>
+      </span>
     </div>
   );
 }
