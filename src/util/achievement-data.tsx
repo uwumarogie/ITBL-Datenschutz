@@ -109,7 +109,7 @@ export namespace AchievementData {
     {
       id: AchievementId.PASSWORD_QUIZ,
       title: "Passwort-Quiz",
-      description: "Beantworte alle Fragen im Passwort-Quiz Quiz richtig",
+      description: "Beantworte alle Fragen im Passwort-Quiz richtig",
       progress: false,
       icon: <ListChecks {...iconProps} />,
     },

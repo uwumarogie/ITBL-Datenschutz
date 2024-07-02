@@ -30,6 +30,7 @@ export async function POST(req: NextRequest) {
         and(
           eq(users.id, achievements.userId),
           eq(achievements.isAchieved, true),
+          sql`${achievements.achievementEnum} NOT LIKE '#%'`
         ),
       )
       .where(eq(users.gameCode, gameCode))
