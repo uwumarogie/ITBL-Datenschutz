@@ -31,6 +31,28 @@ export default function Layout({
   const router = useRouter();
   const { addMessage } = useMessages();
 
+  async function fetchData() {
+    const userService = new PersistUserService();
+    try {
+      const user = await userService.getUser();
+      setUsername(user.userName);
+    } catch (error) {
+      console.error("User not found", error);
+    }
+
+    userService.getAchievement().then((data) => {
+      const achievements = Array.isArray(data) ? data : [data];
+      const unlocked = modulesFinished.every((a) =>
+        achievements.find((achievement) => achievement.achievementEnum === a),
+      );
+
+      if (unlocked) {
+        console.log("Master quiz unlocked");
+        setMasterQuizUnlocked(true);
+      }
+    });
+  }
+
   useEffect(() => {
     const fetchUserData = async () => {
       if (
@@ -45,31 +67,17 @@ export default function Layout({
         );
         return;
       }
-
-      const userService = new PersistUserService();
-
-      try {
-        const user = await userService.getUser();
-        setUsername(user.userName);
-      } catch (error) {
-        console.error("User not found", error);
-      }
-
-      userService.getAchievement().then((data) => {
-        const achievements = Array.isArray(data) ? data : [data];
-        const unlocked = modulesFinished.every((a) =>
-          achievements.find((achievement) => achievement.achievementEnum === a),
-        );
-
-        if (unlocked) {
-          console.log("Master quiz unlocked");
-          setMasterQuizUnlocked(true);
-        }
-      });
+      fetchData();
     };
 
-    fetchUserData().then();
+    fetchUserData();
   }, []);
+
+  useEffect(() => {
+    if (path === "/space") {
+      fetchData();
+    }
+  }, [path]);
 
   useEffect(() => {
     const isOverview = path.split("/").length <= 2;

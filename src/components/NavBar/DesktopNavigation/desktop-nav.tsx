@@ -52,8 +52,9 @@ export function DesktopNav({
           className={clsx(
             "min-w-[225px] h-[270px] rounded-xl p-4 scale-95",
             !masterQuizUnlocked && "opacity-60",
+            masterQuizUnlocked && "animate-bounce",
           )}
-          style={{ backgroundColor: "#014F86" }}
+          style={{ backgroundColor: "#014F86", animationIterationCount: 10 }}
         >
           <div className="flex flex-col justify-between h-full">
             <div className="flex flex-col relative justify-start items-start ">
