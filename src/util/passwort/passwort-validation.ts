@@ -56,13 +56,13 @@ export function calculateBruteForceTime(password: string): string {
     if (num >= 1e12) {
       return "Unendlich 😏";
     } else if (num >= 1e9) {
-      roundedNum = Math.ceil(num/1e9);
+      roundedNum = Math.ceil(num / 1e9);
       return `${Number(roundedNum)} Milliarden Jahre`;
     } else if (num >= 1e6) {
-      roundedNum = Math.ceil(num/1e6);
+      roundedNum = Math.ceil(num / 1e6);
       return `${Number(roundedNum)} Millionen Jahre`;
     } else if (num >= 1e3) {
-      roundedNum = Math.ceil(num/1e3);
+      roundedNum = Math.ceil(num / 1e3);
       return `${Number(roundedNum)} Tausend Jahre`;
     } else {
       return `${Number(roundedNum)} Jahre`;
