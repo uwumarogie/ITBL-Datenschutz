@@ -30,7 +30,7 @@ export default function NotificationsProvider({
       }, 4000);
       setTimeout(() => {
         setAchievementMessage(undefined);
-        removeMessage(achievementMsg.id)
+        removeMessage(achievementMsg.id);
       }, 4500);
     }
   }, [messages]);
