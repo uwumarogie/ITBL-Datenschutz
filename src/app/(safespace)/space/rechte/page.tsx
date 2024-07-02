@@ -6,7 +6,7 @@ import { Lightbulb, Question, Scales } from "@phosphor-icons/react";
 const title = "Meine Rechte";
 const description =
   "In diesem Modul lernst du die Beduetung der Datenschutzgrundverordnung im Bezug auf Social Media kennen und welche Rechte dir als Nutzer zustehen";
-const entryPath = "/space/rechte/dsgvo";
+const entryPath = "/space/rechte/intro";
 const chapter: ModuleChapter[] = [
   {
     title: "Einführung",
@@ -21,7 +21,7 @@ const chapter: ModuleChapter[] = [
   {
     title: "Wurde mein Recht verletzt?",
     icon: <Question />,
-    minutes: "5",
+    minutes: "7",
   },
 ];
 

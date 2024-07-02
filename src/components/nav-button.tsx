@@ -47,7 +47,7 @@ export function NavButton({
         )}
       </span>
       <div
-        className="hidden sm:block absolute left-3 top-[50px] px-2 py-1 bg-gray-700 text-white text-xs min-w-[130px] rounded transition-opacity duration-300 z-50"
+        className="hidden sm:block absolute pointer-events-none left-3 top-[50px] px-2 py-1 bg-gray-700 text-white text-xs min-w-[130px] rounded transition-opacity duration-300 z-50"
         style={{ opacity: isHovered ? 1 : 0 }}
       >
         {isFinished ? "Abgeschlossen: " + description : description}

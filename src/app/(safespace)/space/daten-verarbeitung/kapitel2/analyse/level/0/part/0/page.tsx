@@ -30,9 +30,9 @@ export default function DataProcessingPart0() {
       </div>
 
       <span>
-        Instagram analysiert deine Daten, speichert sie. Das haben wir bereits
-        erledigt. Anhand dieser Daten schlagt dir die App einen Feed vor, der
-        auf deine Interessen zugeschnitten ist. Somit gefallen dir die
+        Instagram analysiert deine Daten und speichert sie. Das haben wir
+        bereits erledigt. Anhand dieser Daten schlägt dir die App einen Feed
+        vor, der auf deine Interessen zugeschnitten ist. Somit gefallen dir die
         vorgeschlagenen Posts wahrscheinlich und du klickst dich unbewusst lange
         durch die App durch.
       </span>
@@ -44,8 +44,7 @@ export default function DataProcessingPart0() {
 
       <Task>
         Auf der linken Seite wirst du einige unterschiedliche Fotos finden.
-        Suche dir die zu Marie passenden Fotos aus, die Marie am meisten
-        ansprechen könnten.
+        Suche dir diejenigen Fotos aus, die Marie am meisten ansprechen könnten.
       </Task>
 
       <Link href="/space/daten-verarbeitung/kapitel2/analyse/level/0/part/1">

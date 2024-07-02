@@ -30,7 +30,7 @@ export function MobileNav({
           className="mx-auto"
         />
       </nav>
-      <Section />
+      <Section isCollapsed={false} />
       {showOverlay && <Overlay masterQuizUnlocked={masterQuizUnlocked} />}
     </div>
   );

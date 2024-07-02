@@ -52,15 +52,20 @@ export function calculateBruteForceTime(password: string): string {
   const timeInSeconds = (totalCombinations / attemptsPerSecond) * 60;
 
   const formatNumber = (num: number): string => {
-    const roundedNum = num.toPrecision(3);
+    let roundedNum;
     if (num >= 1e12) {
       return "Unendlich 😏";
     } else if (num >= 1e9) {
-      return `${num} Millarden Jahre`;
+      roundedNum = Math.ceil(num / 1e9);
+      return `${Number(roundedNum)} Milliarden Jahre`;
     } else if (num >= 1e6) {
-      return `${num} Millionen Jahre`;
+      roundedNum = Math.ceil(num / 1e6);
+      return `${Number(roundedNum)} Millionen Jahre`;
+    } else if (num >= 1e3) {
+      roundedNum = Math.ceil(num / 1e3);
+      return `${Number(roundedNum)} Tausend Jahre`;
     } else {
-      return `${num} Jahre`;
+      return `${Number(roundedNum)} Jahre`;
     }
   };
 
@@ -69,20 +74,17 @@ export function calculateBruteForceTime(password: string): string {
     return formatNumber(years);
   } else if (timeInSeconds >= secondsInMonth * 2) {
     const months = timeInSeconds / secondsInMonth;
-    return `${months.toPrecision(3)} Monate`;
+    return `${Number(months.toFixed(2))} Monate`;
   } else if (timeInSeconds >= secondsInDay * 2) {
     const days = timeInSeconds / secondsInDay;
-    return `${days.toPrecision(3)} Tage`;
+    return `${Number(days.toFixed(2))} Tage`;
   } else if (timeInSeconds >= secondsInHour * 2) {
     const hours = timeInSeconds / secondsInHour;
-    return `${hours.toPrecision(3)} Stunden`;
+    return `${Number(hours.toFixed(2))} Stunden`;
   } else if (timeInSeconds >= secondsInMinute * 2) {
     const minutes = timeInSeconds / secondsInMinute;
-    return `${minutes.toPrecision(3)} Minuten`;
+    return `${Number(minutes.toFixed(2))} Minuten`;
   } else {
-    if (timeInSeconds.toString().includes("e")) {
-      return "0.1 Sekunde";
-    }
-    return `${timeInSeconds} Sekunden`;
+    return `${Number(timeInSeconds.toFixed(2))} Sekunden`;
   }
 }

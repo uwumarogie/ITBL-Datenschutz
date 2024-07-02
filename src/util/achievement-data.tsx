@@ -110,7 +110,7 @@ export namespace AchievementData {
     {
       id: AchievementId.PASSWORD_QUIZ,
       title: "Passwort-Quiz",
-      description: "Beantworte alle Fragen im Passwort-Quiz Quiz richtig",
+      description: "Beantworte alle Fragen im Passwort-Quiz richtig",
       progress: false,
       icon: <ListChecks {...iconProps} />,
     },
@@ -133,7 +133,7 @@ export namespace AchievementData {
       id: AchievementId.PASSWORD_BUILDER,
       title: "Passwort-Builder",
       description:
-        "Erstelle ein sicheres Passwort, dass mehr als 1 Millionen Jahre zum Knacken bräuchte",
+        "Erstelle ein sicheres Passwort, dass mehr als 1 Billionen Jahre zum Knacken bräuchte",
       progress: false,
       icon: <PencilRuler {...iconProps} />,
     },

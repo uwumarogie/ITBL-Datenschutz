@@ -1,16 +1,19 @@
 import { CSSProperties } from "react";
 import "./robot.css";
+import clsx from "clsx";
 
 export type RobotExpression = "smiling" | "resting" | "angry" | "sad";
 
 export type RobotProps = {
   expression?: RobotExpression | undefined;
   headRotation?: number | undefined;
+  type?: "default" | "evil" | "disguised";
 };
 
 export default function Robot({
   expression,
   headRotation,
+  type,
   className,
   onClick,
   style,
@@ -43,6 +46,29 @@ export default function Robot({
     transitionTimingFunction: "cubic-bezier(0.34, 5, 0.64, 0.8)",
     animation: "hover 6s infinite",
   };
+
+  let fill300,
+    fill300Darker,
+    fill400,
+    fill500 = "#ffff";
+
+  if (type == "evil") {
+    fill300 = "#ff6659";
+    fill300Darker = "#d24437";
+    fill400 = "#b63c32";
+    fill500 = "#9c352a";
+  } else if (type == "disguised") {
+    fill300 = "#6cffc8";
+    fill300Darker = "#47d8a2";
+    fill400 = "#54cc9d";
+    fill500 = "#308767";
+  } else {
+    fill300 = "#DBF5FD";
+    fill300Darker = "#D7F6FF";
+    fill400 = "#B2EDFF";
+    fill500 = "#A4D5E4";
+  }
+
   return (
     <svg
       width="142"
@@ -51,14 +77,14 @@ export default function Robot({
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       overflow="visible"
-      className={className}
+      className={clsx(className, "transition-all robot")}
       style={{ animation: "hover-lg 5s infinite", ...style }}
       onClick={onClick}
     >
       <g style={headStyle} id="head">
         <path
           d="M1.35892 45.248C1.42971 43.3721 2.88968 41.8443 4.7604 41.6884C5.69685 41.6103 6.5 42.3493 6.5 43.289V64.566C6.5 66.1864 5.18641 67.5 3.56601 67.5C1.90223 67.5 0.571376 66.118 0.634115 64.4554L1.35892 45.248Z"
-          fill="#D7F6FF"
+          fill={fill300Darker}
           stroke="black"
         />
         <path
@@ -72,7 +98,7 @@ export default function Robot({
         />
         <path
           d="M3 52C3 28.804 21.804 10 45 10H97C120.196 10 139 28.804 139 52V64.8491C139 73.0162 132.031 79.4379 123.883 78.8778C85.1713 76.2167 58.0886 76.192 19.1907 78.8142C10.4645 79.4024 3 72.5249 3 63.7789V52Z"
-          fill="#DBF5FD"
+          fill={fill300}
         />
         <path
           d="M3.75 52C3.75 29.2183 22.2183 10.75 45 10.75H97C119.782 10.75 138.25 29.2183 138.25 52V64.8491C138.25 72.5757 131.655 78.6603 123.934 78.1295C85.1888 75.4661 58.0721 75.4414 19.1403 78.0659C10.8404 78.6254 3.75 72.0842 3.75 63.7789V52Z"
@@ -105,17 +131,17 @@ export default function Robot({
         </g>
         <path
           d="M133.5 44.0891C133.5 42.7243 134.672 41.6541 136.031 41.7776C137.177 41.8818 138.073 42.8094 138.138 43.9579L139.297 64.435C139.392 66.099 138.068 67.5 136.401 67.5C134.799 67.5 133.5 66.2012 133.5 64.599V44.0891Z"
-          fill="#DBF5FD"
+          fill={fill300}
           stroke="black"
         />
         <path
           d="M136.5 45.3266C136.5 44.3178 137.318 43.5 138.327 43.5C139.287 43.5 140.084 44.244 140.149 45.2024L141.29 61.939C141.385 63.3243 140.286 64.5 138.898 64.5C137.574 64.5 136.5 63.4264 136.5 62.1022V45.3266Z"
-          fill="#C2F1FF"
+          fill={fill400}
           stroke="black"
         />
         <path
           d="M63.5 10C63.5 8.61929 64.6193 7.5 66 7.5H78C79.3807 7.5 80.5 8.61929 80.5 10V10.5H63.5V10Z"
-          fill="#B0E0EF"
+          fill={fill500}
           stroke="black"
         />
         <path d="M72 7.5V1" stroke="black" strokeLinecap="round" />
@@ -137,19 +163,19 @@ export default function Robot({
       <g style={bodyStyle}>
         <path
           d="M42.75 106.4C42.75 104.936 43.9364 103.75 45.4 103.75H94.6C96.0636 103.75 97.25 104.936 97.25 106.4C97.25 113.497 91.4969 119.25 84.4 119.25H55.6C48.5031 119.25 42.75 113.497 42.75 106.4Z"
-          fill="#A4D5E4"
+          fill={fill500}
           stroke="black"
           strokeWidth="1.5"
         />
         <path
           d="M29.75 95.6C29.75 93.4737 31.4737 91.75 33.6 91.75H106.4C108.526 91.75 110.25 93.4737 110.25 95.6C110.25 105.348 102.348 113.25 92.6 113.25H47.4C37.6522 113.25 29.75 105.348 29.75 95.6Z"
-          fill="#B2EDFF"
+          fill={fill400}
           stroke="black"
           strokeWidth="1.5"
         />
         <path
           d="M19.75 91.314C19.75 89.4458 21.3654 87.9784 23.2333 88.1491C59.6758 91.4794 81.5599 91.4165 116.763 88.1551C118.632 87.9819 120.25 89.4495 120.25 91.3185C120.25 99.5649 113.565 106.25 105.318 106.25H34.686C26.4371 106.25 19.75 99.5629 19.75 91.314Z"
-          fill="#DBF5FD"
+          fill={fill300}
           stroke="black"
           strokeWidth="1.5"
         />

@@ -48,7 +48,7 @@ export default function ProfileAnalysis({
         distance: distance(termInput.toLowerCase(), term.toLowerCase()),
       }))
       .filter(({ distance }) => distance <= MAX_DISTANCE)
-      .sort((a, b) => b.distance - a.distance);
+      .sort((a, b) => a.distance - b.distance);
 
     console.log(distances);
 

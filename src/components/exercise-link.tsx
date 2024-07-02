@@ -4,7 +4,7 @@ import { displayText } from "@/util/landing-page";
 import Button from "./button";
 import { useRouter } from "next/navigation";
 import clsx from "clsx";
-import { Lock, LockKey } from "@phosphor-icons/react";
+import { CheckCircle, Lock, LockKey } from "@phosphor-icons/react";
 
 type ExerciseLink = {
   slug: string;
@@ -12,6 +12,7 @@ type ExerciseLink = {
   imageSrc: string;
   description: string;
   unlocked: boolean;
+  finished: boolean;
 };
 export default function ExerciseLink({
   slug,
@@ -19,6 +20,7 @@ export default function ExerciseLink({
   imageSrc,
   description,
   unlocked,
+  finished,
 }: ExerciseLink) {
   const modifiedText = displayText(text);
   const router = useRouter();
@@ -34,16 +36,29 @@ export default function ExerciseLink({
           <LockKey className="w-24 h-24" weight="duotone" />
         </div>
       )}
-      <div className="relative group flex justify-center bg-sky-200 rounded-2xl p-2 max-h-[290px] min-h-[240px] h-full">
+      <div
+        className={clsx(
+          "relative group flex justify-center bg-sky-200 rounded-2xl p-2 max-h-[290px] min-h-[240px] h-full",
+          finished && "opacity-30 hover:opacity-100 transition-opacity",
+        )}
+      >
         <div
           className={clsx(
             "flex flex-col justify-between",
             !unlocked && "opacity-20",
           )}
         >
-          <h3 className="text-center text-blue-background text-xl h-[56px]">
-            {modifiedText}
-          </h3>
+          <div className="flex justify-center items-center gap-6">
+            <h3 className="text-center text-blue-background text-xl h-[56px]">
+              {modifiedText}
+            </h3>
+            {finished && (
+              <CheckCircle
+                className="w-6 h-6 text-blue-background"
+                weight="fill"
+              />
+            )}
+          </div>
           <Image
             src={imageSrc}
             alt={imageSrc}
