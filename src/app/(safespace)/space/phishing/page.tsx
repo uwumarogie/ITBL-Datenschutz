@@ -1,6 +1,4 @@
 "use client";
-
-import { useRouter } from "next/navigation";
 import ModuleIntro, { ModuleChapter } from "@/components/module-intro";
 import { InstagramLogo, Lightbulb, ListDashes } from "@phosphor-icons/react";
 
@@ -27,8 +25,6 @@ const chapter: ModuleChapter[] = [
 ];
 
 export default function DataProcessing() {
-  const router = useRouter();
-
   return (
     <div className="relative h-full w-full flex flex-col">
       <ModuleIntro

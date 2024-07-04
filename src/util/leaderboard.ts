@@ -28,12 +28,6 @@ export async function getLeaderboardData(gameCode: string) {
   }
 }
 
-export function extractScore(achievement: { [key: string]: number | null }) {
-  return Object.entries(achievement)
-    .filter(([key, value]) => key.endsWith("Score") && value !== null)
-    .reduce((total, [, value]) => total + value!, 0);
-}
-
 export function capitalizeName(str: string) {
   if (str.length === 0) return str;
   return str.charAt(0).toUpperCase() + str.slice(1);

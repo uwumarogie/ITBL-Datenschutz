@@ -31,7 +31,6 @@ export default function Page() {
   return (
     <div className="h-full relative">
       <ExerciseNavigation />
-
       <RobotIntroduction
         visible={showRobotIntroduction}
         onClose={() => setShowRobotIntroduction(false)}

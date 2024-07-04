@@ -29,7 +29,7 @@ export async function POST(req: NextRequest) {
       statusText: "The highscore was set",
     });
   } catch (error) {
-    console.error("Error setting highscore:", error);
+    console.error("Error setting Highscore:", error);
     return new NextResponse("Error", {
       status: 500,
       statusText: "Internal Server Error",

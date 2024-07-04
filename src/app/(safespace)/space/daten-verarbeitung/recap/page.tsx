@@ -5,7 +5,7 @@ import Link from "next/link";
 import Robot, { RobotExpression } from "@/components/robot/robot";
 import { CSSProperties, useEffect, useState } from "react";
 import clsx from "clsx";
-import AnimatedText from "@/components/animated/AnimatedText";
+import AnimatedText from "@/components/animated/animated-text";
 import { useRouter } from "next/navigation";
 import { AchievementId } from "@/util/achievement-data";
 import { PersistUserService } from "@/services/user/PersistUserService";

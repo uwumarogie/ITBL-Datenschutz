@@ -64,6 +64,7 @@ export function ProgressBar({
                   width="0"
                   height="0"
                   className={iconStyle}
+                  priority
                 />
               )}
               <span

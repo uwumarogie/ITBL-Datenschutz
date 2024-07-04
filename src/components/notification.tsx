@@ -50,6 +50,7 @@ export default function Notification({
             height={20}
             onClick={() => setIsVisible(false)}
             className="cursor-pointer"
+            priority
           />
         </div>
       </div>

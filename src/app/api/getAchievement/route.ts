@@ -13,7 +13,7 @@ export async function POST(req: NextRequest) {
     const request = await req.json();
     const { userId } = await requestSchema.parseAsync(request);
 
-    const userArchievements = await db
+    const userAchievements = await db
       .select({
         achievementEnum: achievements.achievementEnum,
         isAchieved: achievements.isAchieved,
@@ -22,14 +22,14 @@ export async function POST(req: NextRequest) {
       .from(achievements)
       .where(eq(achievements.userId, userId));
 
-    if (!userArchievements) {
+    if (!userAchievements) {
       return new Response("Achievement not found", {
         status: 404,
         statusText: "Achievement not found",
       });
     }
 
-    return new NextResponse(JSON.stringify(userArchievements), { status: 200 });
+    return new NextResponse(JSON.stringify(userAchievements), { status: 200 });
   } catch (error) {
     console.error("Error processing POST request", error);
     return new Response("Error", {

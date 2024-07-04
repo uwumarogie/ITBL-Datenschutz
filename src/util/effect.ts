@@ -1,4 +1,4 @@
-import { DependencyList, EffectCallback, useEffect } from "react";
+import { DependencyList, useEffect } from "react";
 
 export function useAsyncEffect(
   effect: () => Promise<void>,

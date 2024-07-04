@@ -1,7 +1,7 @@
 "use client";
 
 import clsx from "clsx";
-import { Props, SectionName } from "../Section";
+import { Props } from "../Section";
 import { DesktopSectionItem } from "@/components/NavBar/DesktopNavigation/desktop-section-item";
 import React from "react";
 

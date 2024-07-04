@@ -5,7 +5,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { Notepad } from "@phosphor-icons/react";
 import clsx from "clsx";
 import Robot, { RobotExpression } from "@/components/robot/robot";
-import AnimatedText from "@/components/animated/AnimatedText";
+import AnimatedText from "@/components/animated/animated-text";
 import Button from "@/components/button";
 import Link from "next/link";
 
@@ -146,7 +146,7 @@ export default function RecommendationQuiz<
 
   return (
     <div className="relative h-full w-full flex flex-col items-center justify-center">
-      {/*<secret-input className="absolute w-10 top-0 right-0 border-[1px] border-gray-200 outline-none z-40" type="number"*/}
+      {/*<input className="absolute w-10 top-0 right-0 border-[1px] border-gray-200 outline-none z-40" type="number"*/}
       {/*       value={state} onChange={(ev) => setState(ev.target.valueAsNumber ?? 0)}/>*/}
 
       {notes && notes != "" && (

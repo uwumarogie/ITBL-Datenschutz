@@ -270,12 +270,12 @@ export default function Profiling() {
             Du hast alle Aussagen den richtigen Artiklen der
             Datenschutzgrundverordnung zugeordnet.
           </span>
-          <Button onClick={() => router.push("/space/rechte/quiz")}>
+          <Button onClick={() => router.push("/space/rechte/intro")}>
             Weiter
           </Button>
         </div>
       ) : (
-        <div className="">
+        <div>
           {!instructionsRead && (
             <div className="p-2 flex flex-col gap-4 lg:mb-4 max-w-[1100px]">
               <Task>{instruction}</Task>

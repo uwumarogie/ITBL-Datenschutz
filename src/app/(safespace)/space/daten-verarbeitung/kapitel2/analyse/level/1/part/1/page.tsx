@@ -128,6 +128,7 @@ function Item({
           "w-full object-cover rounded-xl",
           selected ? "h-24" : "h-32",
         )}
+        priority
       />
       <div className="flex flex-col gap-2">
         <span

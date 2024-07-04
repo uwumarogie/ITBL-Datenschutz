@@ -33,6 +33,7 @@ export default function DataProcessingChapter1() {
             width="1000"
             height="1000"
             className="h-full object-contain"
+            priority
           />
         </div>
       </div>
@@ -51,12 +52,6 @@ export default function DataProcessingChapter1() {
           <Tab className="cursor-pointer p-4 outline-none  border-b-sky-800">
             2. Verarbeitung und Datenweitergabe
           </Tab>
-          {/*<Tab className="cursor-pointer p-4 outline-none  border-b-sky-800">*/}
-          {/*  3. Datenschutz und Gesetze*/}
-          {/*</Tab>*/}
-          {/*<Tab className="cursor-pointer p-4 outline-none  border-b-sky-800">*/}
-          {/*  4. Sicherheit bei der Datenverarbeitung*/}
-          {/*</Tab>*/}
           <Tab className="cursor-pointer p-4 outline-none  border-b-sky-800">
             3. Verantwortungsvoller Umgang mit Daten
           </Tab>
@@ -106,27 +101,6 @@ export default function DataProcessingChapter1() {
             />
           </div>
         </TabPanel>
-        {/*<TabPanel className="px-4">
-          Datenschutz ist der Schutz deiner persönlichen Daten vor Missbrauch
-          und unbefugtem Zugriff. Es gibt verschiedene Gesetze und Regelungen,
-          wie die Datenschutz-Grundverordnung (DSGVO) in der EU, die festlegen,
-          wie Unternehmen deine Daten sammeln, verarbeiten und speichern dürfen.
-          Diese Gesetze geben dir auch bestimmte Rechte, wie das Recht auf
-          Auskunft über gespeicherte Daten oder das Recht auf Löschung dieser
-          Daten. Es ist wichtig, deine Rechte zu kennen und zu wissen, wie du
-          sie einfordern kannst, um deine Privatsphäre zu schützen.
-        </TabPanel>
-        <TabPanel className="px-4">
-          Um deine Daten sicher zu verarbeiten, sind verschiedene Maßnahmen
-          notwendig. Dazu gehören starke Passwörter, regelmäßige
-          Software-Updates und die Nutzung von Verschlüsselungstechnologien.
-          Vermeide einfache Passwörter und nutze stattdessen komplexe
-          Kombinationen aus Buchstaben, Zahlen und Sonderzeichen. Halte deine
-          Software auf dem neuesten Stand, um Sicherheitslücken zu schließen,
-          und verschlüssele sensible Daten, um sie vor unbefugtem Zugriff zu
-          schützen. Diese Maßnahmen helfen dir, deine Daten vor Missbrauch und
-          Diebstahl zu sichern.
-        </TabPanel>*/}
         <TabPanel className="px-4">
           <div>
             <div className="max-w-[700px]">

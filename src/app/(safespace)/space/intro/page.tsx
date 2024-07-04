@@ -1,13 +1,11 @@
 "use client";
 
-import { InlineNavigation } from "@/components/inline-navigation";
-import { VideoPlayer } from "@/components/video-player";
 import Button from "@/components/button";
 import { PersistUserService } from "@/services/user/PersistUserService";
 import { AchievementId } from "@/util/achievement-data";
 import { useRouter } from "next/navigation";
 import Robot, { RobotExpression } from "@/components/robot/robot";
-import AnimatedText from "@/components/animated/AnimatedText";
+import AnimatedText from "@/components/animated/animated-text";
 import { CSSProperties, useCallback, useEffect, useState } from "react";
 
 type IntroInput = {

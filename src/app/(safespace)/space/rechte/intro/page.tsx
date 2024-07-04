@@ -2,6 +2,7 @@
 
 import Button from "@/components/button";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 const rights = [
   {
@@ -61,14 +62,14 @@ export default function RightsIntro() {
         </div>
         <span className="text-blue-background">
           Falls du noch mehr wissen willst, kannst du dich{" "}
-          <a
+          <Link
             href="https://www.e-recht24.de/datenschutzgrundverordnung.html"
             className="underline"
             target="_blank"
             rel="noopener noreferrer"
           >
             hier
-          </a>{" "}
+          </Link>{" "}
           weiter informieren
         </span>
       </div>

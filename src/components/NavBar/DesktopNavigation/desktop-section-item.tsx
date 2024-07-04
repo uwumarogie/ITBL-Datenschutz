@@ -39,9 +39,10 @@ export function DesktopSectionItem({
           width={30}
           height={30}
           className="scale-100"
+          priority
         />
       ) : (
-        <Image src={srcInactive} alt={alt} width={30} height={30} />
+        <Image src={srcInactive} alt={alt} width={30} height={30} priority />
       )}
       <span
         className={clsx(

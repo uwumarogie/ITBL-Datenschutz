@@ -1,7 +1,7 @@
 import Robot, { RobotExpression } from "@/components/robot/robot";
 import React, { CSSProperties, useEffect, useState } from "react";
 import clsx from "clsx";
-import AnimatedText from "@/components/animated/AnimatedText";
+import AnimatedText from "@/components/animated/animated-text";
 import Button from "@/components/button";
 
 type State = {

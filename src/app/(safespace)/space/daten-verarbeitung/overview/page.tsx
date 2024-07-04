@@ -127,6 +127,7 @@ export default function DataProcessingOverview() {
         width={300}
         height={300}
         className="m-auto min-w-[200px] max-w-[300px] flex-shrink-0"
+        priority
       />
     </div>
   );

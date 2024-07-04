@@ -47,6 +47,7 @@ export default function ModuleIntro({
             alt="Background image"
             width="1000"
             height="1000"
+            priority
           />
         )}
       </div>

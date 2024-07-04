@@ -30,6 +30,7 @@ export function MobileSectionItem({
           width={40}
           height={40}
           className="scale-100"
+          priority
         />
       ) : (
         <Image src={srcInactive} alt={alt} width={40} height={40} />

@@ -71,6 +71,7 @@ export function VideoPlayer({
               width={50}
               height={50}
               className="bg-orange-500 p-3 rounded-xl mr-4 max-h-[50px]"
+              priority
             />
             <span className="flex flex-col justify-center">
               <span>{timestamp.label}</span>
