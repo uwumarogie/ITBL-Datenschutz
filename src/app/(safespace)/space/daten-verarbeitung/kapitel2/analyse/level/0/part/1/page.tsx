@@ -199,6 +199,7 @@ function Post({
         width="200"
         height="200"
         className="w-full h-full object-cover"
+        priority
       />
     </div>
   );

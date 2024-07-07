@@ -36,6 +36,7 @@ export function HintCard({
           alt="Question Mark"
           width={50}
           height={50}
+          priority
         />
       </span>
       <div className="flex flex-col h-full justify-between">
@@ -49,6 +50,7 @@ export function HintCard({
                 height={30}
                 onClick={() => setShowHint(false)}
                 className="cursor-pointer"
+                priority
               />
             </div>
             <div className="px-2 pb-2">{hint}</div>
@@ -70,6 +72,7 @@ export function HintCard({
                   width={400}
                   height={400}
                   className="max-w-[200px] sm:max-w-[300px]"
+                  priority
                 />
               </div>
             )}

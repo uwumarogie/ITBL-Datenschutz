@@ -24,6 +24,7 @@ export function ClientNotFound() {
         alt="cat image"
         width={400}
         height={400}
+        priority
       />
       <Link
         href={newRoute}

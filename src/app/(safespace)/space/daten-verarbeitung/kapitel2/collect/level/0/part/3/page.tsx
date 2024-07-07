@@ -13,7 +13,7 @@ import ForceSupervisor from "graphology-layout-force/worker";
 import Button from "@/components/button";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
-import AnimatedText from "@/components/animated/AnimatedText";
+import AnimatedText from "@/components/animated/animated-text";
 import { atRule } from "postcss";
 import DataGraph, {
   DataGraphState,

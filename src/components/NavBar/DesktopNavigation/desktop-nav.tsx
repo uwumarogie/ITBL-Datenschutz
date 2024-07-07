@@ -29,6 +29,7 @@ export function DesktopNav({
               width={20}
               height={20}
               className="mx-auto"
+              priority
             />
           </Link>
           <h2

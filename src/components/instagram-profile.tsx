@@ -82,6 +82,7 @@ export default function InstagramProfile({
               layout="fixed"
               width="100"
               height="100"
+              priority
             />
 
             <div className="flex w-full justify-around items-center">
@@ -121,6 +122,7 @@ export default function InstagramProfile({
               alt="keine beiträge"
               width={90}
               height={90}
+              priority
             />
             <span className="font-semibold text-xl mt-2 max-w-[250px] text-center">
               Noch keine Beiträge vorhanden
@@ -140,6 +142,7 @@ export default function InstagramProfile({
                   width="200"
                   height="200"
                   className="w-full h-full object-cover"
+                  priority
                 />
               </div>
             ))}
@@ -200,8 +203,6 @@ function Following({
                 key={follower}
                 className="flex items-center py-4 border-b-[1px] last:border-0"
               >
-                {/*<Image*/}
-                {/*  src={"/passwort.png"} alt={"Profile picture"} width="50" height="50"/>*/}
                 <div className="rounded-full border-[1px] border-gray-300 w-8 h-8 flex-shrink-0 bg-white mr-4 flex items-center justify-center">
                   <User weight="fill" className="opacity-30" />
                 </div>
@@ -242,6 +243,7 @@ function CurrentPost({
               alt={"Profile picture"}
               width="50"
               height="50"
+              priority
             />
             <div className="flex flex-col">
               <span className="font-medium pr-2">{profile.username}</span>
@@ -265,6 +267,7 @@ function CurrentPost({
             width="400"
             height="400"
             className="w-full h-fit rounded-lg max-h-[400px] object-center object-cover"
+            priority
           />
           <div className="flex gap-4 px-2 pt-4 pb-3">
             <Heart className="flex-shrink-0" size="24" />

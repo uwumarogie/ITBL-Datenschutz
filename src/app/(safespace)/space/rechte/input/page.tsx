@@ -5,9 +5,9 @@ import Button from "@/components/button";
 import getFeedback, {
   extractScoreAndReason,
   showAchievementRightInput,
-} from "@/app/(safespace)/space/rechte/secret-input/action";
+} from "@/app/(safespace)/space/rechte/input/action";
 import { questions } from "@/util/rights/rights-data";
-import { Score } from "@/app/(safespace)/space/rechte/secret-input/score";
+import { Score } from "@/app/(safespace)/space/rechte/input/score";
 import { useMessages } from "@/services/notfication/message-provider";
 import { useRouter } from "next/navigation";
 

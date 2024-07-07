@@ -91,6 +91,7 @@ export default function StartGame() {
                 alt="Question Mark"
                 width={50}
                 height={50}
+                priority
               />
             </div>
             <div className="flex flex-col h-full justify-between">
@@ -104,6 +105,7 @@ export default function StartGame() {
                       height={30}
                       onClick={() => setShowHint(false)}
                       className="cursor-pointer"
+                      priority
                     />
                   </div>
                   <div className="px-2 pb-2">{currentHintCard.hint}</div>

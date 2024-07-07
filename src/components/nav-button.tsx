@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import clsx from "clsx";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import React, { useState } from "react";
 
 export type NavButtonType = {
   href: string;
@@ -41,6 +41,7 @@ export function NavButton({
             alt="White Tick Button"
             height={20}
             width={20}
+            priority
           />
         ) : (
           icon

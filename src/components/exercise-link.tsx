@@ -65,6 +65,7 @@ export default function ExerciseLink({
             width={200}
             height={200}
             className="mx-auto"
+            priority
           />
         </div>
         <div className="absolute inset-0 h-full flex items-end">

@@ -28,6 +28,7 @@ export function MobileNav({
           width={20}
           height={20}
           className="mx-auto"
+          priority
         />
       </nav>
       <Section isCollapsed={false} />

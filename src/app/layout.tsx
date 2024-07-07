@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { MessageProvider } from "@/services/notfication/message-provider";
 import NotificationsProvider from "@/services/notfication/notifications-provider";
+import React from "react";
 
 const inter = Inter({ subsets: ["latin"] });
 

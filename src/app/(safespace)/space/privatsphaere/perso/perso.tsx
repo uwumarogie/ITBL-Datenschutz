@@ -86,6 +86,7 @@ export default function PersoComponent({
             width={200}
             height={200}
             className="w-full h-auto"
+            priority
           />
           {checkboxes.map(({ bottom, left, hoverText, isChecked }, index) => (
             <Checkbox

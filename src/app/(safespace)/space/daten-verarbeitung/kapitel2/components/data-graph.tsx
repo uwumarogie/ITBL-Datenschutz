@@ -5,7 +5,7 @@ import Sigma from "sigma";
 import { NodeImageProgram } from "@sigma/node-image";
 import { circular } from "graphology-layout";
 import ForceSupervisor from "graphology-layout-force/worker";
-import AnimatedText from "@/components/animated/AnimatedText";
+import AnimatedText from "@/components/animated/animated-text";
 import Button from "@/components/button";
 
 export type Node = {

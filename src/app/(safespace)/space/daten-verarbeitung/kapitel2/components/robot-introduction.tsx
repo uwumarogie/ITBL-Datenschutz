@@ -1,4 +1,4 @@
-import AnimatedText from "@/components/animated/AnimatedText";
+import AnimatedText from "@/components/animated/animated-text";
 import Robot, { RobotExpression } from "@/components/robot/robot";
 import Button from "@/components/button";
 import clsx from "clsx";

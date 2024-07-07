@@ -244,6 +244,7 @@ export default function PasswordStrength() {
             width={90}
             height={90}
             className="mx-auto"
+            priority
           />
           <span className="text-xl text-blue-background">High Score</span>
           <span className="flex relative justify-center w-[50px] h-[36px] text-2xl bottom-[94px] left-[27px]">
