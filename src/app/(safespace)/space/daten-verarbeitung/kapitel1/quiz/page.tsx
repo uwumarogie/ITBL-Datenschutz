@@ -5,7 +5,7 @@ import QuizList from "@/components/Quiz/quiz-list";
 import { QuizParams } from "@/components/Quiz/quiz";
 import { PersistUserService } from "@/services/user/PersistUserService";
 import { AchievementId } from "@/util/achievement-data";
-import {getUserService} from "@/services/user/UserService";
+import { getUserService } from "@/services/user/UserService";
 
 const quizzes: QuizParams[] = [
   {

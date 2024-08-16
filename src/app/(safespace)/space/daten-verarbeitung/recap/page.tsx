@@ -10,7 +10,7 @@ import { useRouter } from "next/navigation";
 import { AchievementId } from "@/util/achievement-data";
 import { PersistUserService } from "@/services/user/PersistUserService";
 import { useMessages } from "@/services/notfication/message-provider";
-import {getUserService} from "@/services/user/UserService";
+import { getUserService } from "@/services/user/UserService";
 
 export type State = {
   text?: string;

@@ -7,7 +7,7 @@ import { useRouter } from "next/navigation";
 import Robot, { RobotExpression } from "@/components/robot/robot";
 import AnimatedText from "@/components/animated/animated-text";
 import { CSSProperties, useCallback, useEffect, useState } from "react";
-import {getUserService} from "@/services/user/UserService";
+import { getUserService } from "@/services/user/UserService";
 
 type IntroInput = {
   type: "text" | "options" | "location";

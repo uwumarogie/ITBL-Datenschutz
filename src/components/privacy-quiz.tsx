@@ -9,7 +9,7 @@ import Robot from "@/components/robot/robot";
 import { PersistUserService } from "@/services/user/PersistUserService";
 import { AchievementId } from "@/util/achievement-data";
 import { useMessages } from "@/services/notfication/message-provider";
-import {getUserService} from "@/services/user/UserService";
+import { getUserService } from "@/services/user/UserService";
 
 export function PrivacyQuiz({
   questions,

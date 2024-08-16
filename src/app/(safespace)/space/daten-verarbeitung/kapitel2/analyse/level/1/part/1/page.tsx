@@ -13,7 +13,7 @@ import { PersistUserService } from "@/services/user/PersistUserService";
 import { AchievementId } from "@/util/achievement-data";
 import { CheckCircle, Info } from "@phosphor-icons/react";
 import TagList from "@/app/(safespace)/space/daten-verarbeitung/kapitel2/analyse/components/tag-list";
-import {getUserService} from "@/services/user/UserService";
+import { getUserService } from "@/services/user/UserService";
 
 type Item = {
   img: string;

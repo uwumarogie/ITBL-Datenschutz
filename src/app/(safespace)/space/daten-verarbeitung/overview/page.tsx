@@ -10,7 +10,7 @@ import { HighScoreEnum } from "@/server/database/schema";
 import { useAsyncEffect } from "@/util/effect";
 import clsx from "clsx";
 import { AchievementId } from "@/util/achievement-data";
-import {getUserService} from "@/services/user/UserService";
+import { getUserService } from "@/services/user/UserService";
 
 const steps = [
   {

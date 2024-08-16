@@ -5,7 +5,7 @@ import Link from "next/link";
 import { PersistUserService } from "@/services/user/PersistUserService";
 import { useRouter } from "next/navigation";
 import { AchievementId } from "@/util/achievement-data";
-import {getUserService} from "@/services/user/UserService";
+import { getUserService } from "@/services/user/UserService";
 
 export default function DataProcessingChapter2CollectDone() {
   const router = useRouter();

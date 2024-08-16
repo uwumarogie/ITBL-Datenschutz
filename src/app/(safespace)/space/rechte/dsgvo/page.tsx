@@ -16,7 +16,7 @@ import { AchievementId } from "@/util/achievement-data";
 import { useMessages } from "@/services/notfication/message-provider";
 import { Question } from "@phosphor-icons/react";
 import Task from "@/components/task";
-import {getUserService} from "@/services/user/UserService";
+import { getUserService } from "@/services/user/UserService";
 
 type Field = {
   id: string;

@@ -1,7 +1,7 @@
 import { HighScoreType } from "@/server/database/schema";
-import {UserDataAchievement, UserService} from "@/services/user/UserService";
+import { UserDataAchievement, UserService } from "@/services/user/UserService";
 
-export class PersistUserService implements UserService{
+export class PersistUserService implements UserService {
   public userId: string | null =
     typeof window !== "undefined" && window.localStorage
       ? localStorage.getItem("userId")
@@ -28,11 +28,12 @@ export class PersistUserService implements UserService{
   }
 
   async isLoggedIn() {
-    return Promise.resolve(typeof window !== "undefined" &&
-    window.localStorage &&
-    localStorage.getItem("userId") != null)
+    return Promise.resolve(
+      typeof window !== "undefined" &&
+        window.localStorage &&
+        localStorage.getItem("userId") != null,
+    );
   }
-
 
   async createPlayer(username: string, mode: string, gameCode: string) {
     try {
@@ -65,7 +66,6 @@ export class PersistUserService implements UserService{
       throw new Error("Failed to create user");
     }
   }
-
 
   async setAchievement(achievement: string, unlocked: boolean) {
     try {
@@ -152,7 +152,7 @@ export class PersistUserService implements UserService{
         throw new Error("Failed to get achievement");
       }
       const data = await response.json();
-      return Array.isArray(data) ? data : [data]
+      return Array.isArray(data) ? data : [data];
     } catch (error: unknown) {
       console.error(error);
       return [];

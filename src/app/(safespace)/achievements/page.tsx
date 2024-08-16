@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { ProgressBar } from "@/components/progress-bar";
 import { Achievement, AchievementData } from "@/util/achievement-data";
 import { PersistUserService } from "@/services/user/PersistUserService";
-import {getUserService} from "@/services/user/UserService";
+import { getUserService } from "@/services/user/UserService";
 
 export type ReturnAchievement = {
   achievementEnum: string;

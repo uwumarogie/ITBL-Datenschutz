@@ -14,7 +14,7 @@ import { State } from "@/app/(safespace)/space/daten-verarbeitung/kapitel2/compo
 import RobotInPasswort from "@/components/robot-in-passwort";
 import { AchievementId } from "@/util/achievement-data";
 import { HintCard } from "@/components/hint-card";
-import {getUserService, UserService} from "@/services/user/UserService";
+import { getUserService, UserService } from "@/services/user/UserService";
 
 const states: State[] = [
   {

@@ -7,7 +7,7 @@ import DataGraph, {
 } from "@/app/(safespace)/space/daten-verarbeitung/kapitel2/components/data-graph";
 import { PersistUserService } from "@/services/user/PersistUserService";
 import { AchievementId } from "@/util/achievement-data";
-import {getUserService} from "@/services/user/UserService";
+import { getUserService } from "@/services/user/UserService";
 
 const nodeFactor = () => ({
   x: Math.random(),

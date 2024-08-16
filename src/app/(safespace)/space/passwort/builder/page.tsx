@@ -10,7 +10,7 @@ import { calculateBruteForceTime } from "@/util/passwort/passwort-validation";
 import { PersistUserService } from "@/services/user/PersistUserService";
 import { AchievementId } from "@/util/achievement-data";
 import Robot from "@/components/robot/robot";
-import {getUserService} from "@/services/user/UserService";
+import { getUserService } from "@/services/user/UserService";
 
 export default function Builder() {
   const { addMessage } = useMessages();

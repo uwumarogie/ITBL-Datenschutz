@@ -11,7 +11,11 @@ import {
   uniqueNamesGenerator,
 } from "unique-names-generator";
 import Impressum from "./(safespace)/impressum/page";
-import {getUserService, ServiceMode, setUserServiceMode} from "@/services/user/UserService";
+import {
+  getUserService,
+  ServiceMode,
+  setUserServiceMode,
+} from "@/services/user/UserService";
 
 export default function HomePage() {
   const [checkboxChecked, setCheckboxChecked] = useState(false);
@@ -36,15 +40,13 @@ export default function HomePage() {
     }
   }, [username]);
 
-  const handleModeSelection = (
-    selectedMode: ServiceMode,
-  ) => {
+  const handleModeSelection = (selectedMode: ServiceMode) => {
     setMode(selectedMode);
   };
 
   const handleStartGame = async () => {
     if (mode !== null && username != null) {
-      setUserServiceMode(mode)
+      setUserServiceMode(mode);
       await getUserService().createPlayer(username, mode, gameCode);
     }
     router.replace("/space");

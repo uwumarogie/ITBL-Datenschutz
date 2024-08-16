@@ -15,7 +15,7 @@ import {
   quizStateClasses,
   QuizzesStateProps,
 } from "@/components/Quiz/helper";
-import {getUserService} from "@/services/user/UserService";
+import { getUserService } from "@/services/user/UserService";
 
 export default function QuizList({
   quizzes,

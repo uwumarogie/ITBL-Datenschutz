@@ -12,7 +12,7 @@ import {
   Scales,
 } from "@phosphor-icons/react";
 import { useEffect, useState } from "react";
-import {getUserService} from "@/services/user/UserService";
+import { getUserService } from "@/services/user/UserService";
 
 type NavBtn = {
   href: string;

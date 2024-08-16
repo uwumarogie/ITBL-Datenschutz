@@ -4,7 +4,7 @@ import ExerciseLink from "@/components/exercise-link";
 import { PersistUserService } from "@/services/user/PersistUserService";
 import React, { useEffect, useState } from "react";
 import { AchievementId } from "@/util/achievement-data";
-import {getUserService} from "@/services/user/UserService";
+import { getUserService } from "@/services/user/UserService";
 
 const exerciseLinksData = [
   {
@@ -75,7 +75,6 @@ export function ExerciseNavigation() {
         const achievements = Array.isArray(fetchedAchievements)
           ? fetchedAchievements
           : [fetchedAchievements];
-
 
         setModulesFinished(
           achievements
