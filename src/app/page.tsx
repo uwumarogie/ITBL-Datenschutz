@@ -11,14 +11,12 @@ import {
   uniqueNamesGenerator,
 } from "unique-names-generator";
 import Impressum from "./(safespace)/impressum/page";
-import {getUserService} from "@/services/user/UserService";
-
-type Mode = "singlePlayer" | "multiPlayer";
+import {getUserService, ServiceMode, setUserServiceMode} from "@/services/user/UserService";
 
 export default function HomePage() {
   const [checkboxChecked, setCheckboxChecked] = useState(false);
   const [dataProtectionAgreed, setDataProtectionAgreed] = useState(false);
-  const [mode, setMode] = useState<Mode | null>(null);
+  const [mode, setMode] = useState<ServiceMode | null>(null);
   const [username, setUsername] = useState("");
   const [gameCode, setGameCode] = useState("");
   const [showImpressum, setShowImpressum] = useState(false);
@@ -39,18 +37,14 @@ export default function HomePage() {
   }, [username]);
 
   const handleModeSelection = (
-    selectedMode: "singlePlayer" | "multiPlayer",
+    selectedMode: ServiceMode,
   ) => {
     setMode(selectedMode);
   };
 
   const handleStartGame = async () => {
-    if (
-      mode !== null &&
-      typeof window !== "undefined" &&
-      window.localStorage &&
-      (localStorage.getItem("userId") === null || username !== undefined)
-    ) {
+    if (mode !== null && username != null) {
+      setUserServiceMode(mode)
       await getUserService().createPlayer(username, mode, gameCode);
     }
     router.replace("/space");

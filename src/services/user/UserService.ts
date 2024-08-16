@@ -12,8 +12,18 @@ export type User = {
   userName: string
 }
 
+export type ServiceMode = "singlePlayer" | "multiPlayer";
+
 export function getUserService(): UserService {
-  return new LocalUserService()
+  if(window.localStorage.getItem("serviceMode") == "multiPlayer") {
+    return new PersistUserService()
+  }else{
+    return new LocalUserService()
+  }
+}
+
+export function setUserServiceMode(mode: ServiceMode) {
+  window.localStorage.setItem("serviceMode", mode)
 }
 
 export interface UserService {
