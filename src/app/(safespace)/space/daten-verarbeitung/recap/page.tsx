@@ -10,6 +10,7 @@ import { useRouter } from "next/navigation";
 import { AchievementId } from "@/util/achievement-data";
 import { PersistUserService } from "@/services/user/PersistUserService";
 import { useMessages } from "@/services/notfication/message-provider";
+import {getUserService} from "@/services/user/UserService";
 
 export type State = {
   text?: string;
@@ -81,7 +82,7 @@ export default function DataProcessingRecap() {
       setState(state + 1);
     } else {
       // router.push("/space/daten-verarbeitung/done")
-      const userService = new PersistUserService();
+      const userService = getUserService();
       // await context.setAchievement(AchievementId.DATENVERARBEITUNG_FINISHED, true)
       await userService
         .setAchievement(AchievementId.DATENVERARBEITUNG_FINISHED, true)

@@ -7,6 +7,7 @@ import DataGraph, {
 } from "@/app/(safespace)/space/daten-verarbeitung/kapitel2/components/data-graph";
 import { PersistUserService } from "@/services/user/PersistUserService";
 import { AchievementId } from "@/util/achievement-data";
+import {getUserService} from "@/services/user/UserService";
 
 const nodeFactor = () => ({
   x: Math.random(),
@@ -182,7 +183,7 @@ const states: DataGraphState[] = [
 
 export default function DataProcessing3() {
   async function onDone() {
-    const context = new PersistUserService();
+    const context = getUserService();
     await context.setAchievement(
       AchievementId.DATA_PROCESSING_CHECKPOINT_COLLECT,
       true,

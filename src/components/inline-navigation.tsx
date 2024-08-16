@@ -12,6 +12,7 @@ import {
   Scales,
 } from "@phosphor-icons/react";
 import { useEffect, useState } from "react";
+import {getUserService} from "@/services/user/UserService";
 
 type NavBtn = {
   href: string;
@@ -65,7 +66,7 @@ export function InlineNavigation() {
 
   useEffect(() => {
     const fetchAchievements = async () => {
-      const userService = new PersistUserService();
+      const userService = getUserService();
       const achievements = await userService.getAchievement();
       if (Array.isArray(achievements)) {
         setUnlockedAchievements(achievements.map((a) => a.achievementEnum));

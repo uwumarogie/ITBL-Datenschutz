@@ -16,6 +16,7 @@ import { AchievementId } from "@/util/achievement-data";
 import { useMessages } from "@/services/notfication/message-provider";
 import { Question } from "@phosphor-icons/react";
 import Task from "@/components/task";
+import {getUserService} from "@/services/user/UserService";
 
 type Field = {
   id: string;
@@ -193,7 +194,7 @@ export default function Profiling() {
 
     if (isFinished) {
       if (firstTry) {
-        const userService = new PersistUserService();
+        const userService = getUserService();
         await userService
           .setAchievement(AchievementId.RECHTSANWALT, true)
           .then(() => {

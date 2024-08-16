@@ -10,6 +10,7 @@ import { HighScoreEnum } from "@/server/database/schema";
 import { useAsyncEffect } from "@/util/effect";
 import clsx from "clsx";
 import { AchievementId } from "@/util/achievement-data";
+import {getUserService} from "@/services/user/UserService";
 
 const steps = [
   {
@@ -78,7 +79,7 @@ export default function DataProcessingOverview() {
   }
 
   useAsyncEffect(async () => {
-    const context = new PersistUserService();
+    const context = getUserService();
     await context.setAchievement(
       AchievementId.DATA_PROCESSING_CHECKPOINT_STARTED,
       true,

@@ -9,6 +9,7 @@ import Button from "@/components/button";
 import { AchievementId } from "@/util/achievement-data";
 import { useMessages } from "@/services/notfication/message-provider";
 import { PersistUserService } from "@/services/user/PersistUserService";
+import {getUserService} from "@/services/user/UserService";
 
 const quizzes: QuizParams[] = [
   {
@@ -112,7 +113,7 @@ export default function DataProtectionChapter1Quiz() {
           </span>
           <Button
             onClick={() => {
-              const userService = new PersistUserService();
+              const userService = getUserService();
               userService
                 .setAchievement(AchievementId.MEINE_RECHTE_FINISHED, true)
                 .then(() => {

@@ -15,6 +15,7 @@ import { PersistUserService } from "@/services/user/PersistUserService";
 import { AchievementId } from "@/util/achievement-data";
 import { useMessages } from "@/services/notfication/message-provider";
 import Task from "@/components/task";
+import {getUserService} from "@/services/user/UserService";
 
 type Column = {
   id: string;
@@ -102,7 +103,7 @@ export default function Profiling() {
 
     if (isFinished) {
       if (firstTry) {
-        const userService = new PersistUserService();
+        const userService = getUserService();
         await userService
           .setAchievement(AchievementId.PROFIL_DETEKTIV, true)
           .then(() => {

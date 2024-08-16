@@ -9,6 +9,7 @@ import Robot from "@/components/robot/robot";
 import { PersistUserService } from "@/services/user/PersistUserService";
 import { AchievementId } from "@/util/achievement-data";
 import { useMessages } from "@/services/notfication/message-provider";
+import {getUserService} from "@/services/user/UserService";
 
 export function PrivacyQuiz({
   questions,
@@ -33,7 +34,7 @@ export function PrivacyQuiz({
     setAnswer(null);
     setCurrentQuestionIndex((prevIndex) => {
       if (prevIndex + 1 == questions.length) {
-        const userService = new PersistUserService();
+        const userService = getUserService();
         userService
           .setAchievement(AchievementId.PRIVATSPHAERE_FINISHED, true)
           .then((res) => {

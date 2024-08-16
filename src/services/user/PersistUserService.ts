@@ -1,12 +1,7 @@
 import { HighScoreType } from "@/server/database/schema";
+import {UserDataAchievement, UserService} from "@/services/user/UserService";
 
-type Achievement = {
-  achievementEnum: string;
-  isAchieved: boolean;
-  userId: string;
-};
-
-export class PersistUserService {
+export class PersistUserService implements UserService{
   public userId: string | null =
     typeof window !== "undefined" && window.localStorage
       ? localStorage.getItem("userId")
@@ -31,6 +26,46 @@ export class PersistUserService {
     }
     return await response.json();
   }
+
+  async isLoggedIn() {
+    return Promise.resolve(typeof window !== "undefined" &&
+    window.localStorage &&
+    localStorage.getItem("userId") != null)
+  }
+
+
+  async createPlayer(username: string, mode: string, gameCode: string) {
+    try {
+      const response = await fetch("/api/createUser", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ username, mode, gameCode }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to create user");
+      }
+      const result = await response.json();
+
+      if (typeof window !== "undefined" && window.localStorage) {
+        localStorage.setItem("userId", result.userData[0].id);
+      }
+
+      if (
+        gameCode !== "" &&
+        typeof window !== "undefined" &&
+        window.localStorage
+      ) {
+        localStorage.setItem("gameCode", result.userData[0].gameCode);
+      }
+    } catch (error) {
+      console.error(error);
+      throw new Error("Failed to create user");
+    }
+  }
+
 
   async setAchievement(achievement: string, unlocked: boolean) {
     try {
@@ -82,7 +117,7 @@ export class PersistUserService {
     }
   }
 
-  async getHighScore(highScoreEnum: HighScoreType) {
+  async getHighScore(highScoreEnum: HighScoreType): Promise<any> {
     try {
       const response = await fetch("/api/getHighScores", {
         method: "POST",
@@ -104,7 +139,7 @@ export class PersistUserService {
     }
   }
 
-  async getAchievement(): Promise<Achievement[] | Achievement> {
+  async getAchievement(): Promise<UserDataAchievement[]> {
     try {
       const response = await fetch("/api/getAchievement", {
         method: "POST",
@@ -116,14 +151,11 @@ export class PersistUserService {
       if (!response.ok) {
         throw new Error("Failed to get achievement");
       }
-      return await response.json();
+      const data = await response.json();
+      return Array.isArray(data) ? data : [data]
     } catch (error: unknown) {
       console.error(error);
-      return {
-        achievementEnum: "",
-        isAchieved: false,
-        userId: "",
-      };
+      return [];
     }
   }
 }

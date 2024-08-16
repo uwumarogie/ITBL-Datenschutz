@@ -5,12 +5,13 @@ import React, { useEffect, useState } from "react";
 import RobotIntroduction from "@/components/robot-introduction";
 import { AchievementId } from "@/util/achievement-data";
 import { PersistUserService } from "@/services/user/PersistUserService";
+import {getUserService} from "@/services/user/UserService";
 
 export default function Page() {
   const [showRobotIntroduction, setShowRobotIntroduction] = useState(false);
 
   useEffect(() => {
-    const userService = new PersistUserService();
+    const userService = getUserService();
 
     userService.getAchievement().then((data) => {
       const achievements = Array.isArray(data) ? data : [data];

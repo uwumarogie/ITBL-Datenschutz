@@ -5,12 +5,13 @@ import Link from "next/link";
 import { PersistUserService } from "@/services/user/PersistUserService";
 import { useRouter } from "next/navigation";
 import { AchievementId } from "@/util/achievement-data";
+import {getUserService} from "@/services/user/UserService";
 
 export default function DataProcessingChapter2CollectDone() {
   const router = useRouter();
 
   async function onClick() {
-    const context = new PersistUserService();
+    const context = getUserService();
     await context.setAchievement(
       AchievementId.DATA_PROCESSING_CHECKPOINT_COLLECT,
       true,

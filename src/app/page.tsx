@@ -11,40 +11,9 @@ import {
   uniqueNamesGenerator,
 } from "unique-names-generator";
 import Impressum from "./(safespace)/impressum/page";
+import {getUserService} from "@/services/user/UserService";
 
 type Mode = "singlePlayer" | "multiPlayer";
-
-async function createPlayer(username: string, mode: string, gameCode: string) {
-  try {
-    const response = await fetch("/api/createUser", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ username, mode, gameCode }),
-    });
-
-    if (!response.ok) {
-      throw new Error("Failed to create user");
-    }
-    const result = await response.json();
-
-    if (typeof window !== "undefined" && window.localStorage) {
-      localStorage.setItem("userId", result.userData[0].id);
-    }
-
-    if (
-      gameCode !== "" &&
-      typeof window !== "undefined" &&
-      window.localStorage
-    ) {
-      localStorage.setItem("gameCode", result.userData[0].gameCode);
-    }
-  } catch (error) {
-    console.error(error);
-    throw new Error("Failed to create user");
-  }
-}
 
 export default function HomePage() {
   const [checkboxChecked, setCheckboxChecked] = useState(false);
@@ -53,7 +22,6 @@ export default function HomePage() {
   const [username, setUsername] = useState("");
   const [gameCode, setGameCode] = useState("");
   const [showImpressum, setShowImpressum] = useState(false);
-
   const router = useRouter();
   const generateUsername = () =>
     setUsername(
@@ -83,7 +51,7 @@ export default function HomePage() {
       window.localStorage &&
       (localStorage.getItem("userId") === null || username !== undefined)
     ) {
-      await createPlayer(username, mode, gameCode);
+      await getUserService().createPlayer(username, mode, gameCode);
     }
     router.replace("/space");
   };

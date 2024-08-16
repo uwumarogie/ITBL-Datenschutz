@@ -10,6 +10,7 @@ import clsx from "clsx";
 import { AchievementId } from "@/util/achievement-data";
 import { redirect } from "next/navigation";
 import { PersistUserService } from "@/services/user/PersistUserService";
+import {getUserService} from "@/services/user/UserService";
 
 export default function Leaderboard() {
   const [gameCode, setGameCode] = useState("");
@@ -20,7 +21,7 @@ export default function Leaderboard() {
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const userService = new PersistUserService();
+        const userService = getUserService();
         const user = await userService.getUser();
         console.log(user);
         setUsername(user.userName);
