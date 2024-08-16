@@ -68,11 +68,7 @@ export function InlineNavigation() {
     const fetchAchievements = async () => {
       const userService = getUserService();
       const achievements = await userService.getAchievement();
-      if (Array.isArray(achievements)) {
-        setUnlockedAchievements(achievements.map((a) => a.achievementEnum));
-      } else {
-        setUnlockedAchievements(Array.of(achievements.achievementEnum));
-      }
+      setUnlockedAchievements(achievements.map((a) => a.achievementEnum));
     };
 
     fetchAchievements();
