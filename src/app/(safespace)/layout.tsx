@@ -8,6 +8,7 @@ import React, { useEffect, useState } from "react";
 import clsx from "clsx";
 import { useMessages } from "@/services/notfication/message-provider";
 import { AchievementId } from "@/util/achievement-data";
+import LanguageSwitcher from "@/components/language-switcher";
 
 const modulesFinished: AchievementId[] = [
   AchievementId.INTRO_FINISHED,
@@ -87,7 +88,10 @@ export default function Layout({
 
   return (
     <div className="bg-blue-background h-screen bg-fixed relative">
-      <span className="absolute top-4 right-14 text-white hidden text-sm sm:block opacity-50 hover:opacity-100">
+      <span className="absolute top-[10px] right-14">
+        <LanguageSwitcher />
+      </span>
+      <span className="absolute top-4 right-28 text-white hidden text-sm sm:block opacity-50 hover:opacity-100">
         <span className="text-slate-400">Eingeloggt als:</span> {username}
       </span>
       <div className="flex h-reduced-safari sm:h-full px-3 pt-1 sm:py-11 sm:pr-8 sm:pl-0 flex-col sm:flex-row">

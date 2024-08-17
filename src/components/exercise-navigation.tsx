@@ -4,6 +4,7 @@ import ExerciseLink from "@/components/exercise-link";
 import { PersistUserService } from "@/services/user/PersistUserService";
 import React, { useEffect, useState } from "react";
 import { AchievementId } from "@/util/achievement-data";
+import { useTranslations } from "next-intl";
 
 const exerciseLinksData = [
   {
@@ -88,15 +89,17 @@ export function ExerciseNavigation() {
         ) {
           setModulesUnlocked(false);
         }
-      } catch {}
+      } catch { }
     }
     fetchAchievements().then();
   }, []);
 
+  const t = useTranslations('Discover');
+
   return (
     <div className="h-full">
       <h1 className="text-blue-background text-lg md:text-l lg:text-2xl xl:text-4xl max-h-[60px] font-extrabold mb-2 px-6">
-        Sicher unterwegs in sozialen Medien
+        {t('title')}
       </h1>
       <div className="flex flex-col h-reduced-40 justify-center overflow-y-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-x-8 gap-y-2 h-full">

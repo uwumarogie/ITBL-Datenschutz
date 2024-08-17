@@ -4,6 +4,8 @@ import "./globals.css";
 import { MessageProvider } from "@/services/notfication/message-provider";
 import NotificationsProvider from "@/services/notfication/notifications-provider";
 import React from "react";
+import { NextIntlClientProvider } from 'next-intl';
+import { getLocale, getMessages } from 'next-intl/server';
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -12,17 +14,22 @@ export const metadata: Metadata = {
   description: "Sicher unterwegs in sozialen Medien",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const locale = await getLocale();
+  const messages = await getMessages();
+
   return (
-    <html lang="en">
+    <html lang="de">
       <body className={inter.className}>
-        <MessageProvider>
-          <NotificationsProvider>{children}</NotificationsProvider>
-        </MessageProvider>
+        <NextIntlClientProvider messages={messages}>
+          <MessageProvider>
+            <NotificationsProvider>{children}</NotificationsProvider>
+          </MessageProvider>
+        </NextIntlClientProvider>
       </body>
     </html>
   );
