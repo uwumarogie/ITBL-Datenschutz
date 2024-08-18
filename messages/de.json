@@ -1,5 +1,250 @@
 {
-    "Discover": {
+    "common": {
+        "notifications": {
+            "login": "Du musst eingeloggt sein, um SafeSpace zu verwenden!"
+        },
+        "loggedInAs": "Eingeloggt als:",
+        "impressum": "Impressum"
+    },
+    "notfound": {
+        "wrongUrl": "Du hast die falsche Url eingegeben.",
+        "tryAgain": "Nochmal versuchen"
+    },
+    "discover": {
         "title": "Sicher unterwegs in sozialen Medien"
+    },
+    "landingpage": {
+        "welcome": "Willkommen zum Spiel!",
+        "dataProtectionPrompt": "Um fortzufahren, müssen Sie unserer Datenschutzerklärung zustimmen.",
+        "dataProtectionTitle": "Datenschutzerklärung",
+        "section1": {
+            "title": "1. Allgemeines",
+            "subtitle1": "1.1 Allgemeine Datenverarbeitung",
+            "content1": "Wir erheben und verwenden personenbezogene Daten unserer Nutzer nur, soweit dies zur Bereitstellung einer funktionalen Webseite sowie unserer Inhalte und Leistungen erforderlich ist.",
+            "subtitle2": "1.2 Rechtsgrundlage für die Datenverarbeitung",
+            "content2": {
+                "subtitle": "1.2.1 Einwilligung",
+                "paragraph": "Sofern die Verarbeitung personenbezogener Daten auf der Einwilligung der betroffenen Person beruht, dient Art. 6 Abs. 1 lit. a DSGVO als Rechtsgrundlage.",
+                "list": {
+                    "item1": "Die IP-Adresse des Nutzers",
+                    "item2": "Datum und Uhrzeit des Zugriffs",
+                    "item3": "Zeitzonendifferenz zur Greenwich Mean Time (GMT)",
+                    "item4": "Inhalt der Anforderung (konkrete Seite)",
+                    "item5": "Zugriffsstatus/HTTP-Statuscode",
+                    "item6": "Menge der jeweils übertragenen Daten",
+                    "item7": "Website, von der die Anforderung kommt",
+                    "item8": "Browser",
+                    "item9": "Betriebssystem und dessen Oberfläche"
+                },
+                "p1": "Diese Daten werden auch in den Logfiles unseres Systems gespeichert. Eine Speicherung dieser Daten zusammen mit anderen personenbezogenen Daten des Nutzers findet nicht statt.",
+                "p2": "Die Rechtsgrundlage für die vorübergehende Speicherung der Daten und der Logfiles ist Art. 6 Abs. 1 lit. f DSGVO."
+            },
+            "content3": {
+                "subtitle": "1.2.2 Vertragserfüllung",
+                "paragraph": "Sofern die Verarbeitung personenbezogener Daten für die Erfüllung eines Vertrags, dessen Vertragspartei die betroffene Person ist, erforderlich ist, dient Art. 6 Abs. 1 lit. b DSGVO als Rechtsgrundlage."
+            },
+            "content4": {
+                "subtitle": "1.2.3 Rechtliche Verpflichtung",
+                "paragraph": "Sofern die Verarbeitung personenbezogener Daten zur Erfüllung einer rechtlichen Verpflichtung erforderlich ist, der unsere Firma unterliegt, dient Art. 6 Abs. 1 lit. c DSGVO als Rechtsgrundlage."
+            },
+            "content5": {
+                "subtitle": "1.2.4 Schutz lebenswichtiger Interessen",
+                "paragraph": "Sofern die Verarbeitung erforderlich ist, um lebenswichtige Interessen der betroffenen Person oder einer anderen natürlichen Person zu schützen, dient Art. 6 Abs. 1 lit. d DSGVO als Rechtsgrundlage."
+            }
+        },
+        "section2": {
+            "title": "2. Datenverarbeitung auf unserer Website",
+            "paragraph": "Beim Besuch unserer Website sendet der auf Ihrem Endgerät verwendete Browser automatisch Informationen an den Server unserer Website. Diese Informationen werden vorübergehend in einer sogenannten Logdatei gespeichert."
+        },
+        "agreementText": "Ich stimme der Datenschutzerklärung zu.",
+        "continue": "Weiter",
+        "singlePlayer": "Einzelspieler",
+        "multiPlayer": "Mehrspieler",
+        "start": "Spiel starten",
+        "impressum": "Impressum",
+        "back": "Zurück"
+    },
+    "leaderboard": {
+        "title": "Wer hat die meisten Erfolge?",
+        "classCode": "Klassencode:",
+        "loading": "Loading ...",
+        "you": "(Du)"
+    },
+    "impressum": {
+        "title": "Impressum",
+        "info": "Angaben gemäß § 5 TMG:",
+        "addressName": "Name: Technische Universität München",
+        "addressStreet": "Straße: Arcisstraße 21",
+        "addressZipCity": "PLZ: 80333 München",
+        "contact": "Kontakt",
+        "contactName": "Anna Weber",
+        "contactEmail": "Mail: annaweberhamburg@gmail.com",
+        "contactPhone": "Telefon: 01511 7832202",
+        "euDisputeResolution": "EU-Streitschlichtung",
+        "euDisputeResolutionLink": "Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: ",
+        "euDisputeResolutionEmail": "Unsere E-Mail-Adresse finden Sie oben im Impressum.",
+        "disclaimerTitle": "Haftungsausschluss (Disclaimer)",
+        "disclaimerContentTitle": "Haftung für Inhalte",
+        "disclaimerContent": "Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.",
+        "disclaimerContentContinuation": "Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den allgemeinen Gesetzen bleiben hiervon unberührt. Eine diesbezügliche Haftung ist jedoch erst ab dem Zeitpunkt der Kenntnis einer konkreten Rechtsverletzung möglich. Bei Bekanntwerden von entsprechenden Rechtsverletzungen werden wir diese Inhalte umgehend entfernen.",
+        "linksTitle": "Haftung für Links",
+        "linksContent": "Unser Angebot enthält Links zu externen Webseiten Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich. Die verlinkten Seiten wurden zum Zeitpunkt der Verlinkung auf mögliche Rechtsverstöße überprüft. Rechtswidrige Inhalte waren zum Zeitpunkt der Verlinkung nicht erkennbar.",
+        "linksContentContinuation": "Eine permanente inhaltliche Kontrolle der verlinkten Seiten ist jedoch ohne konkrete Anhaltspunkte einer Rechtsverletzung nicht zumutbar. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Links umgehend entfernen.",
+        "copyrightTitle": "Urheberrecht",
+        "copyrightContent": "Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers. Downloads und Kopien dieser Seite sind nur für den privaten, nicht kommerziellen Gebrauch gestattet.",
+        "copyrightContentContinuation": "Soweit die Inhalte auf dieser Seite nicht vom Betreiber erstellt wurden, werden die Urheberrechte Dritter beachtet. Insbesondere werden Inhalte Dritter als solche gekennzeichnet. Sollten Sie trotzdem auf eine Urheberrechtsverletzung aufmerksam werden, bitten wir um einen entsprechenden Hinweis. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Inhalte umgehend entfernen."
+    },
+    "achievements": {
+        "progressTitle": "Dein Fortschritt",
+        "achievementsTitle": "Erfolge",
+        "masterQuiz": "Master Quiz"
+    },
+    "intro": {
+        "welcomeMessage": "Hey! Willkommen! Ich bin Robo-X. Ich möchte dich besser kennenlernen. Sag mir doch mal, wie du heißt?",
+        "namePlaceholder": "Gib deinen Namen ein",
+        "socialMediaMessage": "Schön dich kennenzulernen, [Name]! Welche Social Media Plattformen nutzt du denn am liebsten?",
+        "optionInstagram": "Instagram",
+        "optionTiktok": "Tiktok",
+        "optionSnapchat": "Snapchat",
+        "optionTwitter": "Twitter / X",
+        "optionOther": "Andere",
+        "hobbiesMessage": "Oh, das ist super! Und verrätst du mir auch, welche Hobbys du hast?",
+        "hobbiesPlaceholder": "Nenne deine Hobbys.",
+        "locationRequest": "Deine Adresse brauch ich auch noch. Gibst du mir bitte deinen Standort frei?",
+        "birthdayRequest": "Klasse! Und wann ist dein Geburtstag?",
+        "warningMessage": "Halt, stopp! [Name], Robo-X will hier gerade all deine persönlichen Daten abfangen! Das ist super gefährlich!",
+        "evilResponse": "Hey, was soll das? Ich wollte nur ein paar Infos...",
+        "safeBotExplanation": "Robo-X, das reicht! [Name], du siehst, wie schnell man unbewusst wichtige persönliche Informationen preisgeben kann. Das kann böse Konsequenzen haben.",
+        "optionHarmless": "Wirklich? Ich dachte, das wäre alles harmlos..",
+        "safeSpacePurpose": "Genau deshalb sind wir hier. Durch SafeSpace lernst du, wie du deine Daten sicher schützt und welche Gefahren auf Social Media Plattformen lauern.",
+        "motivationMessage": "Lass uns gemeinsam durchstarten und sicherstellen, dass dir sowas nie wieder passiert!",
+        "readyToStart": "Bist du bereit? Starte jetzt mit SafeSpace und werde ein Meister im Schutz deiner Daten!",
+        "next": "Weiter"
+    },
+    "masterquiz": {
+        "question1": "Wie solltest du dich nicht verhalten, wenn ein Fake-Profil mit dir Kontakt aufnehmen möchte?",
+        "answer1-1": "Freundschaftsanfrage annehmen und persönliche Daten teilen",
+        "answer1-2": "Profil blockieren",
+        "answer1-3": "Profil melden",
+        "answer1-4": "Freundschaftsanfrage ablehnen",
+        "question2": "Was ist kein Anzeichen für ein echtes Profil?",
+        "answer2-1": "Verifizierung",
+        "answer2-2": "Viele Beiträge mit vielen Kommentaren",
+        "answer2-3": "Privates Profil einer bekannten Persönlichkeit",
+        "answer2-4": "Sehr viele Follower",
+        "question3": "Warum solltest du bei der Weitergabe deiner persönlichen Daten im Internet vorsichtig sein?",
+        "answer3-1": "Um Spam zu vermeiden",
+        "answer3-2": "Um Identitätsdiebstahl zu vermeiden",
+        "answer3-3": "Um die Internetflut zu reduzieren",
+        "answer3-4": "Um Speicherplatz zu sparen",
+        "question4": "Welche der folgenden Methoden ist NICHT geeignet, um deine persönlichen Daten online zu schützen?",
+        "answer4-1": "Die Verwendung starker, eindeutiger Passwörter für verschiedene Konten",
+        "answer4-2": "Anklicken unbekannter Links",
+        "answer4-3": "Aktivieren der Zwei-Faktor-Authentifizierung",
+        "answer4-4": "Deine Software und Anwendungen auf dem neuesten Stand halten",
+        "question5": "Was solltest du tun, wenn du den Verdacht hast, dass deine persönlichen Daten kompromittiert worden sind?",
+        "answer5-1": "Sofort deine Passwörter ändern",
+        "answer5-2": "Die Sache ignorieren und auf das Beste hoffen",
+        "answer5-3": "Alle deine Konten in sozialen Netzwerken löschen",
+        "answer5-4": "Es in sozialen Netzwerken posten",
+        "question6": "Wie lang sollte dein Passwort mindestens sein?",
+        "answer6-1": "6 Zeichen",
+        "answer6-2": "7 Zeichen",
+        "answer6-3": "8 Zeichen",
+        "answer6-4": "9 Zeichen",
+        "question7": "Welches der folgenden Passwörter ist am sichersten?",
+        "answer7-1": "Hbs4f6dk",
+        "answer7-2": "d0s3!dkq",
+        "answer7-3": "Ab!l_skt+",
+        "answer7-4": "nj§f6s+A",
+        "question8": "Was versteht man unter Datenverarbeitung?",
+        "answer8-1": "Die Speicherung deiner Daten auf deinem Gerät",
+        "answer8-2": "Die Analyse und Nutzung gesammelter Daten zur Erkennung von Mustern und Anpassung von Inhalten",
+        "answer8-3": "Die Löschung deiner Daten nach einer bestimmten Zeit",
+        "answer8-4": "Die Übertragung deiner Daten auf ein anderes Gerät",
+        "question9": "Was solltest du tun, um deine Daten vor unbefugtem Zugriff zu schützen?",
+        "answer9-1": "Einfache Passwörter verwenden, die leicht zu merken sind",
+        "answer9-2": "Regelmäßig Software-Updates durchführen und sensible Daten verschlüsseln",
+        "answer9-3": "Alle deine Daten in sozialen Medien teilen",
+        "answer9-4": "Deine Passwörter mit Freunden teilen",
+        "question10": "Welche Rechte gibt dir die Datenschutz-Grundverordnung (DSGVO)?",
+        "answer10-1": "Das Recht, keine persönlichen Daten online zu teilen",
+        "answer10-2": "Das Recht auf kostenlose Produkte von Social Media-Plattformen",
+        "answer10-3": "Das Recht auf Auskunft über gespeicherte Daten und deren Löschung",
+        "answer10-4": "Das Recht, beliebige Daten anderer Nutzer zu sammeln und zu speichern",
+        "question11": "Welche Rechte hast du gemäß der DSGVO, wenn ein Unternehmen deine personenbezogenen Daten verarbeitet?",
+        "answer11-1": "Du hast das Recht, jederzeit eine Entschädigung zu verlangen.",
+        "answer11-2": "Du hast das Recht, das Unternehmen zu verklagen, wenn du keine Werbung erhältst.",
+        "answer11-3": "Du hast das Recht, die Verarbeitung deiner Daten ohne Angabe von Gründen zu stoppen.",
+        "answer11-4": "Du hast das Recht, jederzeit die Löschung deiner personenbezogenen Daten zu verlangen.",
+        "question12": "Welche Maßnahmen sollten Social-Media-Plattformen ergreifen, um den Datenschutz ihrer Nutzer zu gewährleisten?",
+        "answer12-1": "Veröffentlichung aller Nutzerdaten für Transparenz.",
+        "answer12-2": "Sicherstellung, dass Nutzerdaten nur nach Zustimmung des Nutzers verarbeitet werden.",
+        "answer12-3": "Verkauf von Nutzerdaten an Drittunternehmen.",
+        "answer12-4": "Erlaubnis zur unbegrenzten Datenspeicherung ohne Benachrichtigung der Nutzer.",
+        "question13": "Welches Recht hast du bezüglich der Verarbeitung deiner personenbezogenen Daten durch Social-Media-Unternehmen?",
+        "answer13-1": "Das Recht, alle deine Daten auf dem Profil eines anderen Nutzers anzuzeigen.",
+        "answer13-2": "Das Recht, eine vollständige Kopie aller deiner gespeicherten Daten zu erhalten.",
+        "answer13-3": "Das Recht, die Datenschutzbestimmungen zu ändern.",
+        "answer13-4": "Das Recht, das Unternehmen zu verpflichten, Werbung zu senden."
+    },
+    "password": {
+        "builder": {
+            "instruction": "Du kannst jetzt im Passwortgenerator ausprobieren und vergleichen, wie sicher verschiedene Passwörter sind. Wenn du bereit bist, kannst du mit dem Passwort Profi Spiel weitermachen und Passwörter nach ihrer Stärke bewerten.",
+            "startGameButton": "Start",
+            "createSecurePassword": "Erstelle ein sicheres Passwort!",
+            "passwordCheckButton": "Passwortcheck",
+            "passwordCheckError": "Bitte gib zuerst ein Passwort ein",
+            "passwordProfiTitle": "Passwort Profi",
+            "passwordProfiDescription": "Bewerte die Sicherheit unserer Passwörter",
+            "safetyFirstTitle": "Safety First",
+            "safetyFirstDescription": "Lerne was ein gutes Passwort ausmacht",
+            "playAgainButton": "Erneut spielen",
+            "hintText": "Was denkst du wie lange es dauern würde dein Passwort zu knacken?",
+            "showSolutionButton": "Lösung anzeigen",
+            "hintSolutionText": "Ein Hacker bräuchte bei einem Brute Force Angriff ungefähr",
+            "hintEndText": "um dieses Passwort zu knacken",
+            "initialHint": "0.00 Sekunden",
+            "infiniteHint": "Unendlich"
+        },
+        "startGame": {
+            "questionMarkAlt": "Fragezeichen",
+            "cancelAlt": "Abbrechen",
+            "hintCardTitle": {
+                "0": "Top Ten deutsche Passwörter 2023",
+                "1": "Welche Buchstaben werden oft ersetzt?",
+                "3": "Kann ein Brute-Force-Angriff immer erfolgreich sein?",
+                "4": "Wie kann man Brute-Force-Angriffe abwehren?"
+            },
+            "hintCardButtonText": "Anzeigen",
+            "hintText": {
+                "0": "Top Ten deutsche Passwörter 2023",
+                "1": "Welche Buchstaben werden oft ersetzt?",
+                "3": "Theoretisch ja, aber praktisch kann es Jahre dauern, ein sehr starkes Passwort zu knacken, was den Angriff ineffektiv macht.",
+                "4": "Verwenden Sie lange und komplexe Passwörter, aktivieren Sie Zwei-Faktor-Authentifizierung und setzen Sie Account-Sperrungen nach mehreren Fehlversuchen ein."
+            }
+        },
+        "passwordStrength": {
+            "state1Text": "Herzlichen Glückwunsch! Du hast gelernt, wie man sichere Passwörter erstellt und erkennt: mindestens 8 Zeichen lang und eine Mischung aus Kleinbuchstaben, Großbuchstaben, Sonderzeichen und Zahlen.",
+            "state2Text": "Um deine Sicherheit weiter zu erhöhen, nutze die Zwei-Faktor-Authentifizierung (2FA). Damit brauchst du zusätzlich zum Passwort einen Code, der dir über SMS oder E-Mail zugesendet wird.",
+            "state3Text": "Außerdem solltest du niemals dasselbe Passwort für mehrere Konten verwenden. Ein Passwort-Manager kann dir helfen, einzigartige und sichere Passwörter zu erstellen. Bleib sicher!",
+            "introHeadline": "Bewerte die Stärke des Passworts",
+            "instruction": "Ein Passwort gilt nur als stark, wenn alle Kriterien erfüllt sind. Ist nur eine Bedingung falsch gilt das Passwort als mittel und ansonsten als schwach. Du bekommst für jedes richtig eingeordnete Passwort einen Punkt. Falls du das Passwort falsch einordnest wird deine Punktzahl auf 0 zurückgesetzt.",
+            "startGameButton": "Spiel starten",
+            "scoreText": "Punkte: {{score}}",
+            "strongButton": "stark",
+            "mediumButton": "mittel",
+            "weakButton": "schwach",
+            "hintTitle": "Was muss ich machen?",
+            "hintButtonText": "Aufgabe anzeigen",
+            "incorrectAnswerMessage": "Das war leider falsch. {{explanation}}"
+        },
+        "moduleIntro": {
+            "title": "Passwortsicherheit",
+            "description": "Lerne, wie du starke Passwörter erstellst und welche zu vermeiden sind. Erfahre, was ein gutes Passwort ausmacht und warum einfache Muster gefährlich sind. Entdecke, wie schwer es für Hacker ist, Passwörter zu knacken und warum regelmäßiges Ändern und die Verwendung unterschiedlicher Passwörter wichtig sind.",
+            "chapter1Title": "Teste dein Wissen zu Passwörter",
+            "chapter2Title": "Bilde starke Passwörter",
+            "chapter3Title": "Bewerte Passwortstärken"
+          }
     }
 }

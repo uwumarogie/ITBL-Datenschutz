@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { ProgressBar } from "@/components/progress-bar";
 import { Achievement, AchievementData } from "@/util/achievement-data";
 import { PersistUserService } from "@/services/user/PersistUserService";
+import { useTranslations } from "next-intl";
 
 export type ReturnAchievement = {
   achievementEnum: string;
@@ -13,6 +14,7 @@ export type ReturnAchievement = {
 };
 
 export default function Achievements() {
+  const t = useTranslations('achievements');
   const [progress, setProgress] = useState(0.6);
   const [achievements, setAchievements] = useState<Achievement[]>([]);
 
@@ -59,23 +61,25 @@ export default function Achievements() {
       false
     );
   }
+  
   const steps = [
     {
       progress: 0.8,
-      text: "Master Quiz",
+      text: t('masterQuiz'),
       icon: "star.svg",
     },
   ];
+
   return (
     <div className="px-8 overflow-y-auto h-full">
       <h1 className="text-sky-900 text-4xl font-extrabold mt-2 mb-2">
-        Dein Fortschritt
+        {t('progressTitle')}
       </h1>
       <div className="flex gap-4 pt-12 pb-8">
         <ProgressBar progress={progress} steps={steps} />
       </div>
       <h3 className="text-sky-background text-3xl font-bold text-sky-900 pb-8">
-        Erfolge
+        {t('achievementsTitle')}
       </h3>
       <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4">
         {achievements.map((a) => (

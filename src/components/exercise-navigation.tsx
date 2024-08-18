@@ -94,7 +94,7 @@ export function ExerciseNavigation() {
     fetchAchievements().then();
   }, []);
 
-  const t = useTranslations('Discover');
+  const t = useTranslations('discover');
 
   return (
     <div className="h-full">

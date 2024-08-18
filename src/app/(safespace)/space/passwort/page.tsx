@@ -1,23 +1,32 @@
 "use client";
+
 import ModuleIntro from "@/components/module-intro";
 import { Question, Textbox, ThumbsUp } from "@phosphor-icons/react";
+import { useTranslations } from 'next-intl';
 
 export default function Passwort() {
+  const t = useTranslations('moduleIntro');
+
   return (
     <div className="flex flex-wrap items-start max-w-[1800px]">
       <ModuleIntro
-        title="Passwortsicherheit"
-        description="Lerne, wie du starke Passwörter erstellst und welche zu vermeiden sind. Erfahre, was ein gutes Passwort ausmacht und warum einfache Muster gefährlich sind. Entdecke, wie schwer es für Hacker ist, Passwörter zu knacken und warum regelmäßiges Ändern und die Verwendung unterschiedlicher Passwörter wichtig sind."
+        title={t('title')}
+        description={t('description')}
         entryPath="/space/passwort/quiz"
         background="/passwort.png"
         chapter={[
           {
-            title: "Teste dein Wissen zu Passwörter",
+            title: t('chapter1Title'),
             icon: <Question />,
           },
-
-          { title: "Bilde starke Passwörter", icon: <Textbox /> },
-          { title: "Bewerte Passwortstärken", icon: <ThumbsUp /> },
+          {
+            title: t('chapter2Title'),
+            icon: <Textbox />,
+          },
+          {
+            title: t('chapter3Title'),
+            icon: <ThumbsUp />,
+          },
         ]}
       />
     </div>

@@ -14,70 +14,10 @@ import { State } from "@/app/(safespace)/space/daten-verarbeitung/kapitel2/compo
 import RobotInPasswort from "@/components/robot-in-passwort";
 import { AchievementId } from "@/util/achievement-data";
 import { HintCard } from "@/components/hint-card";
+import { useTranslations } from 'next-intl';
 
-const states: State[] = [
-  {
-    expression: "smiling",
-    rotation: 0,
-    text: "",
-    style: {
-      marginLeft: "calc(100% + 400px)",
-    },
-  },
-
-  {
-    expression: "smiling",
-    rotation: 0,
-    text:
-      "Herzlichen Glückwunsch! Du hast gelernt, wie man sichere Passwörter erstell " +
-      "und erkennt: mindestens 8 Zeichen lang und eine Mischung aus Kleinbuchstaben, " +
-      "Großbuchstaben, Sonderzeichen und Zahlen.",
-    style: {
-      width: "150px",
-      height: "150px",
-    },
-  },
-  {
-    expression: "smiling",
-    rotation: 0,
-    text:
-      " Um deine Sicherheit weiter zu erhöhen, nutze die Zwei-Faktor-Authentifizierung " +
-      "(2FA). Damit brauchst du zusätzlich zum Passwort einen Code, der dir über SMS " +
-      "oder E-Mail zugesendet wird.",
-    style: {
-      width: "150px",
-      height: "150px",
-    },
-  },
-  {
-    expression: "smiling",
-    rotation: 0,
-    text:
-      "Außerdem solltest du niemals dasselbe Passwort für mehrere Konten verwenden. \n" +
-      "Ein Passwort-Manager kann dir helfen, einzigartige und sichere Passwörter zu \n" +
-      "erstellen. Bleib sicher!",
-    style: {
-      width: "150px",
-      height: "150px",
-    },
-  },
-  {
-    expression: "smiling",
-    rotation: 0,
-    text: "",
-    style: {
-      width: "150px",
-      height: "150px",
-      marginRight: "calc(100% + 400px)",
-    },
-    delay: 3000,
-    end: true,
-  },
-];
-const instruction =
-  "Ein Passwort gilt nur als stark, wenn alle Kriterien erfüllt sind. Ist nur eine Bedingung falsch gilt das Passwort als mittel und ansonten als schwach. Du bekommst für jedes richtig eingeordnete Passwort einen Punkt. Falls du das Passwort falsch einordnest wird deine Punktzahl auf 0 zurückgesetzt.";
-
-export default function PasswordStrength() {
+const PasswordStrength = () => {
+  const t = useTranslations('passwordStrength');
   const [highscore, setHighscore] = useState(0);
   const [currentScore, setCurrentScore] = useState(0);
   const [gameStarted, setGameStarted] = useState(false);
@@ -94,6 +34,55 @@ export default function PasswordStrength() {
   const [moduleFinished, setModuleFinished] = useState(false);
   const userServiceRef = useRef<PersistUserService | null>(null);
   const messageService = useMessages();
+  const states: State[] = [
+    {
+      expression: "smiling",
+      rotation: 0,
+      text: "",
+      style: {
+        marginLeft: "calc(100% + 400px)",
+      },
+    },
+    {
+      expression: "smiling",
+      rotation: 0,
+      text: t('state1Text'),
+      style: {
+        width: "150px",
+        height: "150px",
+      },
+    },
+    {
+      expression: "smiling",
+      rotation: 0,
+      text: t('state2Text'),
+      style: {
+        width: "150px",
+        height: "150px",
+      },
+    },
+    {
+      expression: "smiling",
+      rotation: 0,
+      text: t('state3Text'),
+      style: {
+        width: "150px",
+        height: "150px",
+      },
+    },
+    {
+      expression: "smiling",
+      rotation: 0,
+      text: "",
+      style: {
+        width: "150px",
+        height: "150px",
+        marginRight: "calc(100% + 400px)",
+      },
+      delay: 3000,
+      end: true,
+    },
+  ];
 
   useEffect(() => {
     const context = new PersistUserService();
@@ -155,8 +144,8 @@ export default function PasswordStrength() {
       goToNextQuestion();
     } else {
       addMessage(
-        "Das war leider falsch. " + currentQuestion.explanation,
-        "error",
+        t('incorrectAnswerMessage', { explanation: currentQuestion.explanation }),
+        "error"
       );
       setCurrentScore(0);
       setAnimateShake(true);
@@ -192,17 +181,15 @@ export default function PasswordStrength() {
     <div className="flex flex-col w-full lg:px-6 justify-start">
       <div className="flex justify-between mt-4 gap-8 h-full">
         {!gameStarted ? (
-          <>
-            <Intro
-              setGameStarted={setGameStarted}
-              currentQuestion={currentQuestion}
-              setDisplayPassword={setDisplayPassword}
-            />
-          </>
+          <Intro
+            setGameStarted={setGameStarted}
+            currentQuestion={currentQuestion}
+            setDisplayPassword={setDisplayPassword}
+          />
         ) : (
           <div className="flex flex-col w-full overflow-hidden">
-            {highscore == 10 && !continueGame && !moduleFinished ? (
-              <div className="flex  flex-col justify-center items-center mt-72">
+            {highscore === 10 && !continueGame && !moduleFinished ? (
+              <div className="flex flex-col justify-center items-center mt-72">
                 <RobotInPasswort
                   states={states}
                   setContinueGame={setContinueGame}
@@ -227,9 +214,9 @@ export default function PasswordStrength() {
                     Zurück zur Modulübersicht
                   </Button>
                   <HintCard
-                    text={"Was muss ich machen?"}
-                    buttonText={"Aufgabe anzeigen"}
-                    hint={instruction}
+                    text={t('hintTitle')}
+                    buttonText={t('hintButtonText')}
+                    hint={t('instruction')}
                     className="max-w-[250px] sm:max-w-[400px] ml-2 flex-end p-2"
                   />
                 </div>
@@ -254,7 +241,7 @@ export default function PasswordStrength() {
       </div>
     </div>
   );
-}
+};
 
 type IntroProps = {
   setGameStarted: (bool: boolean) => void;
@@ -267,11 +254,13 @@ function Intro({
   currentQuestion,
   setDisplayPassword,
 }: IntroProps) {
+  const t = useTranslations('passwordStrength');
+  
   return (
     <div className="flex flex-col gap-y-12">
       <IntroductionText
-        headline="Bewerte die Stärke des Passworts"
-        text={instruction}
+        headline={t('introHeadline')}
+        text={t('instruction')}
       />
       <Button
         onClick={() => {
@@ -280,7 +269,7 @@ function Intro({
         }}
         className="max-w-[300px]"
       >
-        Spiel starten
+        {t('startGameButton')}
       </Button>
     </div>
   );
@@ -303,6 +292,8 @@ function PlayGame({
   displayPassword: string;
   handleButtonClick: (index: number) => void;
 }) {
+  const t = useTranslations('passwordStrength');
+
   return (
     <div className="flex flex-col justify-between align-center w-full mt-24 md:mt-14">
       <div>
@@ -313,7 +304,7 @@ function PlayGame({
               animatePulse && "animate-pointIncrease",
             )}
           >
-            Punkte: {currentScore}
+            {t('scoreText', { score: currentScore })}
           </span>
 
           <div className="flex justify-center w-full">
@@ -341,7 +332,7 @@ function PlayGame({
             }
             className="max-w-[200px] w-full"
           >
-            stark
+            {t('strongButton')}
           </Button>
           <Button
             onClick={() => handleButtonClick(1)}
@@ -354,7 +345,7 @@ function PlayGame({
             }
             className="max-w-[200px] w-full"
           >
-            mittel
+            {t('mediumButton')}
           </Button>
           <Button
             onClick={() => handleButtonClick(0)}
@@ -367,10 +358,12 @@ function PlayGame({
             }
             className="max-w-[200px] w-full"
           >
-            schwach
+            {t('weakButton')}
           </Button>
         </div>
       </div>
     </div>
   );
 }
+
+export default PasswordStrength;

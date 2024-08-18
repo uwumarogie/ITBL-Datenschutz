@@ -10,6 +10,7 @@ import {
 } from "@/util/passwort/password-quiz-data";
 import QuizList from "@/components/Quiz/quiz-list";
 import { AchievementId } from "@/util/achievement-data";
+import { useTranslations } from "next-intl";
 
 const hintCards = [
   {
@@ -58,6 +59,7 @@ export default function StartGame() {
   const router = useRouter();
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [showHint, setShowHint] = useState(false);
+  const t = useTranslations('password.startGame');
 
   const handleQuestionChange = () => {
     setCurrentQuestionIndex(currentQuestionIndex + 1);
@@ -88,7 +90,7 @@ export default function StartGame() {
             <div className="absolute top-[-26px] left-[-26px] w-16 h-16 rounded-full flex items-center justify-center">
               <Image
                 src="/question-mark.svg"
-                alt="Question Mark"
+                alt={t('questionMarkAlt')}
                 width={50}
                 height={50}
                 priority
@@ -100,7 +102,7 @@ export default function StartGame() {
                   <div className="flex flex-col items-end">
                     <Image
                       src="/cancel.svg"
-                      alt="cancel"
+                      alt={t('cancelAlt')}
                       width={30}
                       height={30}
                       onClick={() => setShowHint(false)}
@@ -114,10 +116,10 @@ export default function StartGame() {
                 <div className="flex justify-between flex-col h-full">
                   <div className="flex flex-col relative justify-start items-start p-6">
                     <span className="font-semibold text-sm pb-4 text-blue-background">
-                      {currentHintCard.text}
+                      {t('hintCardTitle', { questionIndex: currentQuestionIndex })}
                     </span>
                     <Button onClick={() => setShowHint(true)}>
-                      {currentHintCard.buttonText}
+                      {t('hintCardButtonText')}
                     </Button>
                   </div>
                 </div>

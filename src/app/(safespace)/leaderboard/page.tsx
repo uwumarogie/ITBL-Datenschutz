@@ -10,12 +10,15 @@ import clsx from "clsx";
 import { AchievementId } from "@/util/achievement-data";
 import { redirect } from "next/navigation";
 import { PersistUserService } from "@/services/user/PersistUserService";
+import { useTranslations } from "next-intl";
 
 export default function Leaderboard() {
   const [gameCode, setGameCode] = useState("");
   const [username, setUsername] = useState("");
   const [leaderboardData, setLeaderboardData] =
     useState<LeaderboardEntry | null>(null);
+  
+  const t = useTranslations('leaderboard');
 
   useEffect(() => {
     const fetchUserData = async () => {
@@ -63,14 +66,14 @@ export default function Leaderboard() {
     <div className="px-6 mb-6 pt-2">
       <div className="flex justify-between">
         <h1 className="text-blue-background text-lg lg:text-4xl font-extrabold mb-6">
-          Wer hat die meisten Erfolge?
+          {t('title')}
         </h1>
         <span className="font-bold max-w-[100px] mt-[-10px]">
-          Klassencode: {gameCode}
+          {t('classCode')} {gameCode}
         </span>
       </div>
       {!leaderboardData ? (
-        <>Loading ...</>
+        <>{t('loading')}</>
       ) : (
         <div className="w-full max-w-4xl space-y-2 max-h-[calc(100vh-230px)] lg:max-h-[calc(100vh-200px)] overflow-y-auto">
           {leaderboardData.map((user, index) => (
@@ -99,8 +102,7 @@ export default function Leaderboard() {
                   {capitalizeName(user.name)}{" "}
                   {username === user.name && (
                     <span className="text-blue-background font-medium">
-                      {" "}
-                      (Du)
+                      {t('you')}
                     </span>
                   )}
                 </span>

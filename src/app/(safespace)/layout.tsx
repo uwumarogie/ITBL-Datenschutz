@@ -9,6 +9,7 @@ import clsx from "clsx";
 import { useMessages } from "@/services/notfication/message-provider";
 import { AchievementId } from "@/util/achievement-data";
 import LanguageSwitcher from "@/components/language-switcher";
+import { useTranslations } from "next-intl";
 
 const modulesFinished: AchievementId[] = [
   AchievementId.INTRO_FINISHED,
@@ -31,6 +32,7 @@ export default function Layout({
   const [masterQuizUnlocked, setMasterQuizUnlocked] = useState(false);
   const router = useRouter();
   const { addMessage } = useMessages();
+  const t = useTranslations('common')
 
   async function fetchData() {
     const userService = new PersistUserService();
@@ -48,7 +50,6 @@ export default function Layout({
       );
 
       if (unlocked) {
-        console.log("Master quiz unlocked");
         setMasterQuizUnlocked(true);
       }
     });
@@ -63,7 +64,7 @@ export default function Layout({
       ) {
         router.replace("/");
         addMessage(
-          "Du musst eingeloggt sein, um SafeSpace zu verwenden!",
+          t('notifications.login'),
           "error",
         );
         return;
@@ -92,7 +93,7 @@ export default function Layout({
         <LanguageSwitcher />
       </span>
       <span className="absolute top-4 right-28 text-white hidden text-sm sm:block opacity-50 hover:opacity-100">
-        <span className="text-slate-400">Eingeloggt als:</span> {username}
+        <span className="text-slate-400">{t('loggedInAs')}</span> {username}
       </span>
       <div className="flex h-reduced-safari sm:h-full px-3 pt-1 sm:py-11 sm:pr-8 sm:pl-0 flex-col sm:flex-row">
         <div
@@ -122,7 +123,7 @@ export default function Layout({
           onClick={() => router.push("/impressum")}
           className="text-white text-sm opacity-50 hover:opacity-100 hover:underline hover:cursor-pointer"
         >
-          Impressum
+          {t('impressum')}
         </span>
       </span>
     </div>

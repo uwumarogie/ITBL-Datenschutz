@@ -11,6 +11,7 @@ import {
   uniqueNamesGenerator,
 } from "unique-names-generator";
 import Impressum from "./(safespace)/impressum/page";
+import { useTranslations } from "next-intl";
 
 type Mode = "singlePlayer" | "multiPlayer";
 
@@ -47,6 +48,7 @@ async function createPlayer(username: string, mode: string, gameCode: string) {
 }
 
 export default function HomePage() {
+  const t = useTranslations('landingpage');
   const [checkboxChecked, setCheckboxChecked] = useState(false);
   const [dataProtectionAgreed, setDataProtectionAgreed] = useState(false);
   const [mode, setMode] = useState<Mode | null>(null);
@@ -103,209 +105,80 @@ export default function HomePage() {
       {!showImpressum ? (
         <>
           <h1 className="flex text-xl lg:text-5xl text-white font-mono mb-10 ">
-            Willkommen zu Safe Space
+            {t('welcome')}
           </h1>
           {!dataProtectionAgreed && (
             <div className="flex flex-col space-y-4 mx-4 lg:mx-10 w-200 p-4 lg:p-10 shadow-lg bg-blue-200 rounded-3xl max-h-[80%]">
               <p>
-                Bevor du in SafeSpace einsteigen kannst, bitten wir dich, die
-                Datenschutzerklärung durchzulesen.
+                {t('dataProtectionPrompt')}
               </p>
               <div className="py-4 px-6 bg-white rounded-xl overflow-y-auto">
                 <h3 className="text-2xl font-semibold text-blue-background">
-                  Datenschutzerklärung
+                  {t('dataProtectionTitle')}
                 </h3>
                 <div>
                   <h4 className="text-xl font-semibold mb-4 mt-6">
-                    I. Informationen über die Verarbeitung Ihrer Daten gemäß
-                    Art. 13 der Datenschutz-Grundverordnung (DS-GVO)
+                    {t('section1.title')}
                   </h4>
                   <h5 className="text-lg font-semibold mb-2 mt-4">
-                    1. Verantwortlicher und Datenschutzbeauftragter
+                    {t('section1.subtitle1')}
                   </h5>
-                  Verantwortlich für diese Website ist Anna Weber. Den
-                  Datenschutzbeauftragten erreichen Sie per E-Mail unter
-                  ge89duk@mytum.de.
+                  {t('section1.content1')}
                   <h5 className="text-lg font-semibold mb-2 mt-4">
-                    2. Daten, die für die Bereitstellung der Website und die
-                    Erstellung der Protokolldateien verarbeitet werden
+                    {t('section1.subtitle2')}
                   </h5>
                   <h6 className="text-sm font-semibold mb-1 mt-2">
-                    a. Welche Daten werden für welchen Zweck verarbeitet?
+                    {t('section1.content2.subtitle')}
                   </h6>
-                  Bei jedem Zugriff auf Inhalte der Website werden vorübergehend
-                  Daten gespeichert, die möglicherweise eine Identifizierung
-                  zulassen. Die folgenden Daten können hierbei erhoben:
+                  {t('section1.content2.paragraph')}
                   <ul className="list-disc ml-4">
-                    <li>Datum und Uhrzeit des Zugriffs</li>
-
-                    <li>IP-Adresse</li>
-
-                    <li>Hostname des zugreifenden Rechners</li>
-
-                    <li>Website, von der aus die Website aufgerufen wurde</li>
-
-                    <li>Websites, die über die Website aufgerufen werden</li>
-
-                    <li>Besuchte Seite auf unserer Website</li>
-
-                    <li>Meldung, ob der Abruf erfolgreich war</li>
-
-                    <li>Übertragene Datenmenge</li>
-
-                    <li>
-                      Informationen über den Browsertyp und die verwendete
-                      Version
-                    </li>
-
-                    <li>Betriebssystem</li>
+                    <li>{t('section1.content2.list.item1')}</li>
+                    <li>{t('section1.content2.list.item2')}</li>
+                    <li>{t('section1.content2.list.item3')}</li>
+                    <li>{t('section1.content2.list.item4')}</li>
+                    <li>{t('section1.content2.list.item5')}</li>
+                    <li>{t('section1.content2.list.item6')}</li>
+                    <li>{t('section1.content2.list.item7')}</li>
+                    <li>{t('section1.content2.list.item8')}</li>
+                    <li>{t('section1.content2.list.item9')}</li>
                   </ul>
-                  <p>
-                    Die vorübergehende Speicherung der Daten ist für den Ablauf
-                    eines Websitebesuchs erforderlich, um eine Auslieferung der
-                    Website zu ermöglichen. Eine weitere Speicherung in
-                    Protokolldateien erfolgt, um die Funktionsfähigkeit der
-                    Website und die Sicherheit der informationstechnischen
-                    Systeme sicherzustellen. In diesen Zwecken liegt auch unser
-                    berechtigtes Interesse an der Datenverarbeitung.
-                  </p>
-                  <p>
-                    Zusätzlich verwenden wir Cookies, um Nutzernamen zu
-                    speichern und einen internen Videoplayer bereitzustellen.
-                    Diese Cookies helfen uns, die Benutzerfreundlichkeit unserer
-                    Website zu verbessern und dir eine personalisierte Erfahrung
-                    zu bieten.
-                  </p>
+                  <p>{t('section1.content2.p1')}</p>
+                  <p>{t('section1.content2.p2')}</p>
                   <h6 className="text-sm font-semibold mb-1 mt-2">
-                    b. Auf welcher Rechtsgrundlage werden diese Daten
-                    verarbeitet?
+                    {t('section1.content3.subtitle')}
                   </h6>
-                  <p>
-                    Die Daten werden auf der Grundlage des Art. 6 Abs. 1
-                    Buchstabe f DS-GVO verarbeitet.
-                  </p>
+                  <p>{t('section1.content3.paragraph')}</p>
                   <h6 className="text-sm font-semibold mb-1 mt-2">
-                    c. Wie lange werden die Daten gespeichert?
+                    {t('section1.content4.subtitle')}
                   </h6>
-                  <p>
-                    Die Daten werden gelöscht, sobald sie für die Erreichung des
-                    Zwecks ihrer Erhebung nicht mehr erforderlich sind. Bei der
-                    Bereitstellung der Website ist dies der Fall, wenn die
-                    jeweilige Sitzung beendet ist. Die Protokolldateien werden
-                    direkt und ausschließlich für Administratoren zugänglich
-                    aufbewahrt. Danach sind sie nur noch indirekt über die
-                    Rekonstruktion von Sicherungsbändern verfügbar und werden
-                    nach […, maximal vier Wochen] endgültig gelöscht.
-                  </p>
+                  <p>{t('section1.content4.paragraph')}</p>
+                  <h6 className="text-sm font-semibold mb-1 mt-2">
+                    {t('section1.content5.subtitle')}
+                  </h6>
+                  <p>{t('section1.content5.paragraph')}</p>
                   <h5 className="text-lg font-semibold mb-2 mt-4">
-                    3. Betroffenenrechte
+                    {t('section2.title')}
                   </h5>
-                  <h6 className="text-sm font-semibold mb-1 mt-2">
-                    a. Recht auf Auskunft
-                  </h6>
-                  <p>
-                    Sie können Auskunft nach Art. 15 DS-GVO über Ihre
-                    personenbezogenen Daten verlangen, die wir verarbeiten.
-                  </p>
-                  <h6 className="text-sm font-semibold mb-1 mt-2">
-                    b. Recht auf Widerspruch:
-                  </h6>
-                  <p>
-                    Sie haben ein Recht auf Widerspruch aus besonderen Gründen
-                    (siehe unter Punkt II).
-                  </p>
-                  <h6 className="text-sm font-semibold mb-1 mt-2">
-                    c. Recht auf Berichtigung
-                  </h6>
-                  <p>
-                    Sollten die Sie betreffenden Angaben nicht (mehr) zutreffend
-                    sein, können Sie nach Art. 16 DS-GVO eine Berichtigung
-                    verlangen. Sollten Ihre Daten unvollständig sein, können Sie
-                    eine Vervollständigung verlangen.
-                  </p>
-                  <h6 className="text-sm font-semibold mb-1 mt-2">
-                    d. Recht auf Löschung
-                  </h6>
-                  <p>
-                    Sie können nach Art. 17 DS-GVO die Löschung Ihrer
-                    personenbezogenen Daten verlangen.
-                  </p>
-                  <h6 className="text-sm font-semibold mb-1 mt-2">
-                    e. Recht auf Einschränkung der Verarbeitung
-                  </h6>
-                  <p>
-                    Sie haben nach Art. 18 DS-GVO das Recht, eine Einschränkung
-                    der Verarbeitung Ihrer personenbezogenen Daten zu verlangen.
-                  </p>
-                  <h6 className="text-sm font-semibold mb-1 mt-2">
-                    f. Recht auf Beschwerde
-                  </h6>
-                  <p>
-                    Wenn Sie der Ansicht sind, dass die Verarbeitung Ihrer
-                    personenbezogenen Daten gegen Datenschutzrecht verstößt,
-                    haben Sie nach Ar. 77 Abs. 1 DS-GVO das Recht, sich bei
-                    einer Datenschutzaufsichtsbehörde eigener Wahl zu
-                    beschweren. Hierzu gehört auch die für den Verantwortlichen
-                    zuständige Datenschutzaufsichtsbehörde: Bayerische
-                    Landesbeauftragte für den Datenschutz
-                    (https://www.lda.bayern.de/de/index.html)
-                  </p>
-                  <h6 className="text-sm font-semibold mb-1 mt-2">
-                    g. Recht auf Datenübertragbarkeit
-                  </h6>
-                  <p>
-                    Für den Fall, dass die Voraussetzungen des Art. 20 Abs. 1
-                    DS-GVO vorliegen, steht Ihnen das Recht zu, sich Daten, die
-                    wir auf Grundlage Ihrer Einwilligung oder in Erfüllung eines
-                    Vertrags automatisiert verarbeiten, an sich oder an Dritte
-                    aushändigen zu lassen. Die Erfassung der Daten zur
-                    Bereitstellung der Website und die Speicherung der
-                    Protokolldateien sind für den Betrieb der Internetseite
-                    zwingend erforderlich. Sie beruhen daher nicht auf einer
-                    Einwilligung nach Art. 6 Abs. 1 Buchstabe a DS-GVO oder auf
-                    einem Vertrag nach Art. 6 Abs. 1 Buchstabe b DS-GVO, sondern
-                    sind nach Art. 6 Abs. 1 Buchstabe f DS-GVO gerechtfertigt.
-                    Die Voraussetzungen des Art. 20 Abs. 1 DS-GVO sind demnach
-                    insoweit nicht erfüllt.
-                  </p>
-                  <h4 className="text-xl font-semibold mb-4 mt-6">
-                    II. Recht auf Widerspruch gemäß Art. 21 Abs. 1 DS-GVO
-                  </h4>
-                  <p>
-                    Sie haben das Recht, aus Gründen, die sich aus Ihrer
-                    besonderen Situation ergeben, jederzeit gegen die
-                    Verarbeitung Ihrer personenbezogenen Daten, die aufgrund von
-                    Artikel 6 Abs. 1 Buchstabe f DS-GVO erfolgt, Widerspruch
-                    einzulegen. Der Verantwortliche verarbeitet die
-                    personenbezogenen Daten dann nicht mehr, es sei denn, er
-                    kann zwingende schutzwürdige Gründe für die Verarbeitung
-                    nachweisen, die die Interessen, Rechte und Freiheiten der
-                    betroffenen Person überwiegen, oder die Verarbeitung dient
-                    der Geltendmachung, Ausübung oder Verteidigung von
-                    Rechtsansprüchen. Die Erfassung der Daten zur Bereitstellung
-                    der Website und die Speicherung der Protokolldateien sind
-                    für den Betrieb der Internetseite zwingend erforderlich.
-                  </p>
+                  <p>{t('section2.paragraph')}</p>
                 </div>
               </div>
               <div className="flex flex-col">
                 <div>
                   <input
-                    id="data_aggreement"
+                    id="data_agreement"
                     type="checkbox"
                     className="mr-2"
                     onChange={(ev) => setCheckboxChecked(ev.target.checked)}
                   />
-                  <label htmlFor="data_aggreement">
-                    Ich habe die Informationen gelesen und stimme der
-                    anonymisierten Datenspeicherung und -verarbeitung zu.
+                  <label htmlFor="data_agreement">
+                    {t('agreementText')}
                   </label>
                 </div>
                 <Button
                   className="mt-4"
                   onClick={() => setDataProtectionAgreed(checkboxChecked)}
                 >
-                  Weiter
+                  {t('continue')}
                 </Button>
               </div>
             </div>
@@ -320,13 +193,13 @@ export default function HomePage() {
                         onClick={() => handleModeSelection("singlePlayer")}
                         className="flex justify-center w-full md:w-72 h-14 p-5 text-2xl"
                       >
-                        Single Player
+                        {t('singlePlayer')}
                       </Button>
                       <Button
                         onClick={() => handleModeSelection("multiPlayer")}
                         className="flex justify-center w-full md:w-72 h-14 p-5 text-2xl"
                       >
-                        Multiplayer
+                        {t('multiPlayer')}
                       </Button>
                     </div>
                   )}
@@ -352,7 +225,7 @@ export default function HomePage() {
                       onClick={handleStartGame}
                       className="flex justify-center text-xl w-full h-14 p-5 mb-2"
                     >
-                      Start
+                      {t('start')}
                     </Button>
                   )}
                 </div>
@@ -365,7 +238,7 @@ export default function HomePage() {
               onClick={() => setShowImpressum(true)}
               className="text-white text-sm opacity-50 hover:opacity-100 hover:underline hover:cursor-pointer"
             >
-              Impressum
+              {t('impressum')}
             </span>
           </span>
         </>
@@ -376,9 +249,9 @@ export default function HomePage() {
           </span>
           <Button
             onClick={() => setShowImpressum(false)}
-            className="ml-6 mt-4 max-w-[150px]"
+            className="ml-6 mt-4 max-w-[10rem]"
           >
-            Schließen
+            {t('back')}
           </Button>
         </div>
       )}

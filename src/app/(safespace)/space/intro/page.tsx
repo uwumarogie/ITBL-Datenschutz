@@ -7,6 +7,7 @@ import { useRouter } from "next/navigation";
 import Robot, { RobotExpression } from "@/components/robot/robot";
 import AnimatedText from "@/components/animated/animated-text";
 import { CSSProperties, useCallback, useEffect, useState } from "react";
+import { useTranslations } from "next-intl";
 
 type IntroInput = {
   type: "text" | "options" | "location";
@@ -45,121 +46,6 @@ const styleGoodRight = {
   right: "calc(25% - 4.5rem)",
 };
 
-const states: State[] = [
-  {
-    typeEvil: "disguised",
-    styleEvil: styleEvilCenter,
-    styleGood: styleGoodHidden,
-  },
-  {
-    text: "Hey! Willkommen! Ich bin Robo-X. Ich möchte dich besser kennenlernen. Sag mir doch mal, wie du heißt?",
-    typeEvil: "disguised",
-    styleEvil: styleEvilCenter,
-    styleGood: styleGoodHidden,
-    input: {
-      type: "text",
-      placeholder: "Gib deinen Namen ein",
-    },
-  },
-  {
-    text: "Schön dich kennenzulernen, [Name]! Welche Social Media Plattformen nutzt du denn am liebsten?",
-    typeEvil: "disguised",
-    expressionEvil: "smiling",
-    styleEvil: styleEvilCenter,
-    styleGood: styleGoodHidden,
-    input: {
-      type: "options",
-      options: ["Instagram", "Tiktok", "Snapchat", "Twitter / X", "andere"],
-    },
-  },
-  {
-    text: "Oh, das ist super! Und verrätst du mir auch, welche Hobbys du hast?",
-    typeEvil: "disguised",
-    styleEvil: styleEvilCenter,
-    styleGood: styleGoodHidden,
-    input: {
-      type: "text",
-      placeholder: "Nenne deine Hobbys.",
-    },
-  },
-  {
-    text: "Deine Adresse brauch ich auch noch. Gibst du mir bitte deinen Standort frei?",
-    typeEvil: "disguised",
-    styleEvil: styleEvilCenter,
-    styleGood: styleGoodHidden,
-    input: {
-      type: "location",
-    },
-  },
-  {
-    text: "Klasse! Und wann ist dein Geburtstag?",
-    typeEvil: "disguised",
-    styleEvil: styleEvilCenter,
-    styleGood: styleGoodHidden,
-    input: {
-      type: "text",
-    },
-  },
-  {
-    text: "Halt, stopp! [Name], Robo-X will hier gerade all deine persönlichen Daten abfangen! Das ist super gefährlich!",
-    typeEvil: "disguised",
-    expressionEvil: "sad",
-    expressionGood: "angry",
-    speaker: "SafeBot",
-    styleEvil: styleEvilLeft,
-    styleGood: styleGoodRight,
-  },
-  {
-    text: "Hey, was soll das? Ich wollte nur ein paar Infos...",
-    typeEvil: "evil",
-    expressionEvil: "angry",
-    expressionGood: "angry",
-    speaker: "Robo-X",
-    styleEvil: styleEvilLeft,
-    styleGood: styleGoodRight,
-  },
-  {
-    text: "Robo-X, das reicht! [Name], du siehst, wie schnell man unbewusst wichtige persönliche Informationen preisgeben kann. Das kann böse Konsequenzen haben.",
-    typeEvil: "evil",
-    expressionEvil: "angry",
-    expressionGood: "angry",
-    speaker: "SafeBot",
-    styleEvil: styleEvilLeft,
-    styleGood: { ...styleGoodRight, width: "12rem", height: "12rem" },
-    input: {
-      type: "options",
-      options: ["Wirklich? Ich dachte, das wäre alles harmlos.."],
-    },
-  },
-  {
-    text: "Genau deshalb sind wir hier. Durch SafeSpace lernst du, wie du deine Daten sicher schützt und welche Gefahren auf Social Media Plattformen lauern.",
-    typeEvil: "evil",
-    expressionEvil: "angry",
-    expressionGood: "resting",
-    speaker: "SafeBot",
-    styleEvil: styleEvilHidden,
-    styleGood: styleEvilCenter,
-  },
-  {
-    text: "Lass uns gemeinsam durchstarten und sicherstellen, dass dir sowas nie wieder passiert!",
-    typeEvil: "evil",
-    expressionEvil: "angry",
-    expressionGood: "smiling",
-    speaker: "SafeBot",
-    styleEvil: styleEvilHidden,
-    styleGood: styleEvilCenter,
-  },
-  {
-    text: "Bist du bereit? Starte jetzt mit SafeSpace und werde ein Meister im Schutz deiner Daten!",
-    typeEvil: "evil",
-    expressionEvil: "angry",
-    expressionGood: "resting",
-    speaker: "SafeBot",
-    styleEvil: styleEvilHidden,
-    styleGood: styleEvilCenter,
-  },
-];
-
 async function geoFindMe() {
   return new Promise<void>((resolve, reject) => {
     if (!navigator.geolocation) {
@@ -174,10 +60,125 @@ async function geoFindMe() {
 }
 
 export default function Intro() {
+  const t = useTranslations('intro');
   const [state, setState] = useState(0);
   const [name, setName] = useState("");
   const [textInput, setTextInput] = useState("");
   const router = useRouter();
+  const states: State[] = [
+    {
+      typeEvil: "disguised",
+      styleEvil: styleEvilCenter,
+      styleGood: styleGoodHidden,
+    },
+    {
+      text: t('welcomeMessage'),
+      typeEvil: "disguised",
+      styleEvil: styleEvilCenter,
+      styleGood: styleGoodHidden,
+      input: {
+        type: "text",
+        placeholder: t('namePlaceholder'),
+      },
+    },
+    {
+      text: t('socialMediaMessage'),
+      typeEvil: "disguised",
+      expressionEvil: "smiling",
+      styleEvil: styleEvilCenter,
+      styleGood: styleGoodHidden,
+      input: {
+        type: "options",
+        options: [t('optionInstagram'), t('optionTiktok'), t('optionSnapchat'), t('optionTwitter'), t('optionOther')],
+      },
+    },
+    {
+      text: t('hobbiesMessage'),
+      typeEvil: "disguised",
+      styleEvil: styleEvilCenter,
+      styleGood: styleGoodHidden,
+      input: {
+        type: "text",
+        placeholder: t('hobbiesPlaceholder'),
+      },
+    },
+    {
+      text: t('locationRequest'),
+      typeEvil: "disguised",
+      styleEvil: styleEvilCenter,
+      styleGood: styleGoodHidden,
+      input: {
+        type: "location",
+      },
+    },
+    {
+      text: t('birthdayRequest'),
+      typeEvil: "disguised",
+      styleEvil: styleEvilCenter,
+      styleGood: styleGoodHidden,
+      input: {
+        type: "text",
+      },
+    },
+    {
+      text: t('warningMessage'),
+      typeEvil: "disguised",
+      expressionEvil: "sad",
+      expressionGood: "angry",
+      speaker: "SafeBot",
+      styleEvil: styleEvilLeft,
+      styleGood: styleGoodRight,
+    },
+    {
+      text: t('evilResponse'),
+      typeEvil: "evil",
+      expressionEvil: "angry",
+      expressionGood: "angry",
+      speaker: "Robo-X",
+      styleEvil: styleEvilLeft,
+      styleGood: styleGoodRight,
+    },
+    {
+      text: t('safeBotExplanation'),
+      typeEvil: "evil",
+      expressionEvil: "angry",
+      expressionGood: "angry",
+      speaker: "SafeBot",
+      styleEvil: styleEvilLeft,
+      styleGood: { ...styleGoodRight, width: "12rem", height: "12rem" },
+      input: {
+        type: "options",
+        options: [t('optionHarmless')],
+      },
+    },
+    {
+      text: t('safeSpacePurpose'),
+      typeEvil: "evil",
+      expressionEvil: "angry",
+      expressionGood: "resting",
+      speaker: "SafeBot",
+      styleEvil: styleEvilHidden,
+      styleGood: styleEvilCenter,
+    },
+    {
+      text: t('motivationMessage'),
+      typeEvil: "evil",
+      expressionEvil: "angry",
+      expressionGood: "smiling",
+      speaker: "SafeBot",
+      styleEvil: styleEvilHidden,
+      styleGood: styleEvilCenter,
+    },
+    {
+      text: t('readyToStart'),
+      typeEvil: "evil",
+      expressionEvil: "angry",
+      expressionGood: "resting",
+      speaker: "SafeBot",
+      styleEvil: styleEvilHidden,
+      styleGood: styleEvilCenter,
+    },
+  ];
 
   const {
     text,
@@ -274,7 +275,7 @@ export default function Intro() {
 
         {((input?.type == "text" && textInput != "") || !input) && (
           <Button onClick={next} className="mt-6">
-            Weiter
+            {t('next')}
           </Button>
         )}
       </div>
