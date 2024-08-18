@@ -4,6 +4,7 @@ import {
   UserService,
 } from "@/services/user/UserService";
 import { HighScoreType } from "@/server/database/schema";
+import {fromBase64, toBase64} from "@/util/base64";
 
 type UserData = {
   userName: string;
@@ -86,7 +87,7 @@ export class LocalUserService implements UserService {
   }
 
   save() {
-    window.localStorage.setItem("user", JSON.stringify(this.data));
+    window.localStorage.setItem("user", toBase64(JSON.stringify(this.data)));
   }
 
   load(): UserData | null {
@@ -94,12 +95,16 @@ export class LocalUserService implements UserService {
     if (data == null) {
       return null;
     }
-    const parsed = JSON.parse(data);
-    if (parsed == null) {
+    try {
+      const parsed = JSON.parse(fromBase64(data));
+      if (parsed == null) {
+        return null;
+      }
+      this.data = parsed;
+      return this.data;
+    }catch(e: any) {
       return null;
     }
-    this.data = parsed;
-    return this.data;
   }
 
   async createPlayer(username: string, mode: string, gameCode: string) {
