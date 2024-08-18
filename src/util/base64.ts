@@ -1,4 +1,3 @@
-
 // Unicode strings can cause problems with the native btoa() and atob() functions
 // From: https://developer.mozilla.org/en-US/docs/Glossary/Base64
 
@@ -14,13 +13,13 @@ function bytesToBase64(bytes: Uint8Array) {
   return btoa(binString);
 }
 
-const encoder = new TextEncoder()
-const decoder = new TextDecoder()
+const encoder = new TextEncoder();
+const decoder = new TextDecoder();
 
-export function toBase64(str: string){
-  return bytesToBase64(encoder.encode(str))
+export function toBase64(str: string) {
+  return bytesToBase64(encoder.encode(str));
 }
 
 export function fromBase64(base64: string) {
-  return decoder.decode(base64ToBytes(base64))
+  return decoder.decode(base64ToBytes(base64));
 }

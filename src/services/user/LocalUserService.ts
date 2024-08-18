@@ -4,7 +4,7 @@ import {
   UserService,
 } from "@/services/user/UserService";
 import { HighScoreType } from "@/server/database/schema";
-import {fromBase64, toBase64} from "@/util/base64";
+import { fromBase64, toBase64 } from "@/util/base64";
 
 type UserData = {
   userName: string;
@@ -102,7 +102,7 @@ export class LocalUserService implements UserService {
       }
       this.data = parsed;
       return this.data;
-    }catch(e: any) {
+    } catch (e: any) {
       return null;
     }
   }
