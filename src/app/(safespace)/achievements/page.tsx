@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { ProgressBar } from "@/components/progress-bar";
 import { Achievement, AchievementData } from "@/util/achievement-data";
 import { PersistUserService } from "@/services/user/PersistUserService";
+import { getUserService } from "@/services/user/UserService";
 
 export type ReturnAchievement = {
   achievementEnum: string;
@@ -18,7 +19,7 @@ export default function Achievements() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const context = new PersistUserService();
+      const context = getUserService();
       const achievementData = await context.getAchievement();
       const fetchedAchievements = AchievementData.achievements
         .map(

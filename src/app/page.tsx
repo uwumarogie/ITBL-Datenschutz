@@ -11,49 +11,19 @@ import {
   uniqueNamesGenerator,
 } from "unique-names-generator";
 import Impressum from "./(safespace)/impressum/page";
-
-type Mode = "singlePlayer" | "multiPlayer";
-
-async function createPlayer(username: string, mode: string, gameCode: string) {
-  try {
-    const response = await fetch("/api/createUser", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ username, mode, gameCode }),
-    });
-
-    if (!response.ok) {
-      throw new Error("Failed to create user");
-    }
-    const result = await response.json();
-
-    if (typeof window !== "undefined" && window.localStorage) {
-      localStorage.setItem("userId", result.userData[0].id);
-    }
-
-    if (
-      gameCode !== "" &&
-      typeof window !== "undefined" &&
-      window.localStorage
-    ) {
-      localStorage.setItem("gameCode", result.userData[0].gameCode);
-    }
-  } catch (error) {
-    console.error(error);
-    throw new Error("Failed to create user");
-  }
-}
+import {
+  getUserService,
+  ServiceMode,
+  setUserServiceMode,
+} from "@/services/user/UserService";
 
 export default function HomePage() {
   const [checkboxChecked, setCheckboxChecked] = useState(false);
   const [dataProtectionAgreed, setDataProtectionAgreed] = useState(false);
-  const [mode, setMode] = useState<Mode | null>(null);
+  const [mode, setMode] = useState<ServiceMode | null>(null);
   const [username, setUsername] = useState("");
   const [gameCode, setGameCode] = useState("");
   const [showImpressum, setShowImpressum] = useState(false);
-
   const router = useRouter();
   const generateUsername = () =>
     setUsername(
@@ -70,20 +40,14 @@ export default function HomePage() {
     }
   }, [username]);
 
-  const handleModeSelection = (
-    selectedMode: "singlePlayer" | "multiPlayer",
-  ) => {
+  const handleModeSelection = (selectedMode: ServiceMode) => {
     setMode(selectedMode);
   };
 
   const handleStartGame = async () => {
-    if (
-      mode !== null &&
-      typeof window !== "undefined" &&
-      window.localStorage &&
-      (localStorage.getItem("userId") === null || username !== undefined)
-    ) {
-      await createPlayer(username, mode, gameCode);
+    if (mode !== null && username != null) {
+      setUserServiceMode(mode);
+      await getUserService().createPlayer(username, mode, gameCode);
     }
     router.replace("/space");
   };

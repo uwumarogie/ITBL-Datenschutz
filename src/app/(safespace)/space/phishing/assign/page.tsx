@@ -12,6 +12,7 @@ import Task from "@/components/task";
 import { PersistUserService } from "@/services/user/PersistUserService";
 import { AchievementId } from "@/util/achievement-data";
 import { useMessages } from "@/services/notfication/message-provider";
+import { getUserService } from "@/services/user/UserService";
 
 type Profile = {
   instagramProfile: InstagramProfileData;
@@ -30,7 +31,7 @@ export default function Assign() {
   const handleRating = async (isReal: boolean) => {
     if (profiles[activeIndex].isRealProfile == isReal) {
       if (activeIndex + 1 == profiles.length) {
-        const userService = new PersistUserService();
+        const userService = getUserService();
         await userService
           .setAchievement(AchievementId.PHISHING_FINISHED, true)
           .then((res) => {

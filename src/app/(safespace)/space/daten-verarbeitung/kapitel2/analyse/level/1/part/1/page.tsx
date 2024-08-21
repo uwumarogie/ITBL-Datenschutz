@@ -13,6 +13,7 @@ import { PersistUserService } from "@/services/user/PersistUserService";
 import { AchievementId } from "@/util/achievement-data";
 import { CheckCircle, Info } from "@phosphor-icons/react";
 import TagList from "@/app/(safespace)/space/daten-verarbeitung/kapitel2/analyse/components/tag-list";
+import { getUserService } from "@/services/user/UserService";
 
 type Item = {
   img: string;
@@ -175,7 +176,7 @@ export default function DataProcessingPart1() {
   }
 
   async function next() {
-    const context = new PersistUserService();
+    const context = getUserService();
     await context.setAchievement(
       AchievementId.DATA_PROCESSING_CHECKPOINT_COLLECT,
       true,
