@@ -7,7 +7,6 @@ import { useState } from "react";
 import useAllTerms = CollectData.useAllTerms;
 import {useTranslations} from "next-intl";
 
-// TODO: Localize!!!!
 export default function TagList({
   show,
   onClose,

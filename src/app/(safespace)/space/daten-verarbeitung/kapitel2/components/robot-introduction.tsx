@@ -18,7 +18,6 @@ export type State = {
   style?: CSSProperties | undefined;
 };
 
-// TODO: Localize
 export default function RobotIntroduction({
   states,
   href,

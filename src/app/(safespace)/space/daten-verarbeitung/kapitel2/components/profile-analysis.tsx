@@ -25,7 +25,6 @@ type ProfileAnalysisProps = {
 
 const MAX_DISTANCE = 1;
 
-// TODO: Localize
 export default function ProfileAnalysis({
   profile,
   robotText,
