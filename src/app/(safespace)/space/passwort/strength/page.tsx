@@ -1,82 +1,26 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { IntroductionText } from "@/components/introduction-text";
 import { useRouter } from "next/navigation";
 import Button from "@/components/button";
 import Image from "next/image";
 import { useMessages } from "@/services/notfication/message-provider";
 import clsx from "clsx";
 import { PersistUserService } from "@/services/user/PersistUserService";
-import { PasswordData, passwordData } from "@/util/passwort/password-quiz-data";
+import {
+  passwordData,
+  states,
+  instruction,
+} from "@/util/passwort/password-quiz-data";
 import { passwordAnimation } from "@/util/passwort/strength-helper";
-import { State } from "@/app/(safespace)/space/daten-verarbeitung/kapitel2/components/recommendation-quiz";
 import RobotInPasswort from "@/components/robot-in-passwort";
 import { AchievementId } from "@/util/achievement-data";
 import { HintCard } from "@/components/hint-card";
+import StrengthIntro from "@/app/(safespace)/space/passwort/components/strength-introduction";
 
-const states: State[] = [
-  {
-    expression: "smiling",
-    rotation: 0,
-    text: "",
-    style: {
-      marginLeft: "calc(100% + 400px)",
-    },
-  },
+type ButtonColor = "green" | "red" | "default";
 
-  {
-    expression: "smiling",
-    rotation: 0,
-    text:
-      "Herzlichen Glückwunsch! Du hast gelernt, wie man sichere Passwörter erstell " +
-      "und erkennt: mindestens 8 Zeichen lang und eine Mischung aus Kleinbuchstaben, " +
-      "Großbuchstaben, Sonderzeichen und Zahlen.",
-    style: {
-      width: "150px",
-      height: "150px",
-    },
-  },
-  {
-    expression: "smiling",
-    rotation: 0,
-    text:
-      " Um deine Sicherheit weiter zu erhöhen, nutze die Zwei-Faktor-Authentifizierung " +
-      "(2FA). Damit brauchst du zusätzlich zum Passwort einen Code, der dir über SMS " +
-      "oder E-Mail zugesendet wird.",
-    style: {
-      width: "150px",
-      height: "150px",
-    },
-  },
-  {
-    expression: "smiling",
-    rotation: 0,
-    text:
-      "Außerdem solltest du niemals dasselbe Passwort für mehrere Konten verwenden. \n" +
-      "Ein Passwort-Manager kann dir helfen, einzigartige und sichere Passwörter zu \n" +
-      "erstellen. Bleib sicher!",
-    style: {
-      width: "150px",
-      height: "150px",
-    },
-  },
-  {
-    expression: "smiling",
-    rotation: 0,
-    text: "",
-    style: {
-      width: "150px",
-      height: "150px",
-      marginRight: "calc(100% + 400px)",
-    },
-    delay: 3000,
-    end: true,
-  },
-];
-const instruction =
-  "Ein Passwort gilt nur als stark, wenn alle Kriterien erfüllt sind. Ist nur eine Bedingung falsch gilt das Passwort als mittel und ansonten als schwach. Du bekommst für jedes richtig eingeordnete Passwort einen Punkt. Falls du das Passwort falsch einordnest wird deine Punktzahl auf 0 zurückgesetzt.";
-
+type PasswordStrength = "strong" | "medium" | "weak";
 export default function PasswordStrength() {
   const [highscore, setHighscore] = useState(0);
   const [currentScore, setCurrentScore] = useState(0);
@@ -84,8 +28,6 @@ export default function PasswordStrength() {
   const router = useRouter();
   const { addMessage } = useMessages();
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-  const [buttonStyleWrong, setButtonStyleWrong] = useState(-1);
-  const [buttonStyleCorrect, setButtonStyleCorrect] = useState(-1);
   const [displayPassword, setDisplayPassword] = useState("");
   const currentQuestion = passwordData[currentQuestionIndex];
   const [animateShake, setAnimateShake] = useState(false);
@@ -142,16 +84,14 @@ export default function PasswordStrength() {
     }
   }, [gameStarted, currentQuestionIndex, currentQuestion.password]);
 
-  const handleButtonClick = (strength: number) => {
-    if (currentQuestion.strength === strength) {
+  const handleButtonClick = (strength: ButtonColor) => {
+    if (strength === "green") {
       setCurrentScore((prevScore) => prevScore + 1);
       if (currentScore >= highscore) {
         saveHighScore();
       }
       setAnimatePulse(true);
       setTimeout(() => setAnimatePulse(false), 300);
-      setButtonStyleCorrect(strength);
-      setButtonStyleWrong(-1);
       goToNextQuestion();
     } else {
       addMessage(
@@ -161,8 +101,6 @@ export default function PasswordStrength() {
       setCurrentScore(0);
       setAnimateShake(true);
       setTimeout(() => setAnimateShake(false), 500);
-      setButtonStyleWrong(strength);
-      setButtonStyleCorrect(-1);
     }
   };
 
@@ -177,7 +115,6 @@ export default function PasswordStrength() {
         passwordData[0]?.password,
       setDisplayPassword,
     );
-    setTimeout(() => setButtonStyleCorrect(-1), 1200);
   };
 
   const saveHighScore = async () => {
@@ -193,7 +130,7 @@ export default function PasswordStrength() {
       <div className="flex justify-between mt-4 gap-8 h-full">
         {!gameStarted ? (
           <>
-            <Intro
+            <StrengthIntro
               setGameStarted={setGameStarted}
               currentQuestion={currentQuestion}
               setDisplayPassword={setDisplayPassword}
@@ -213,8 +150,6 @@ export default function PasswordStrength() {
                 <PlayGame
                   animatePulse={animatePulse}
                   animateShake={animateShake}
-                  buttonStyleCorrect={buttonStyleCorrect}
-                  buttonStyleWrong={buttonStyleWrong}
                   currentScore={currentScore}
                   displayPassword={displayPassword}
                   handleButtonClick={handleButtonClick}
@@ -227,8 +162,8 @@ export default function PasswordStrength() {
                     Zurück zur Modulübersicht
                   </Button>
                   <HintCard
-                    text={"Was muss ich machen?"}
-                    buttonText={"Aufgabe anzeigen"}
+                    text="Was muss ich machen?"
+                    buttonText="Aufgabe anzeigen"
                     hint={instruction}
                     className="max-w-[250px] sm:max-w-[400px] ml-2 flex-end p-2"
                   />
@@ -256,53 +191,94 @@ export default function PasswordStrength() {
   );
 }
 
-type IntroProps = {
-  setGameStarted: (bool: boolean) => void;
-  currentQuestion: PasswordData;
-  setDisplayPassword: (str: string) => void;
-};
-
-function Intro({
-  setGameStarted,
-  currentQuestion,
-  setDisplayPassword,
-}: IntroProps) {
-  return (
-    <div className="flex flex-col gap-y-12">
-      <IntroductionText
-        headline="Bewerte die Stärke des Passworts"
-        text={instruction}
-      />
-      <Button
-        onClick={() => {
-          setGameStarted(true);
-          passwordAnimation(currentQuestion.password, setDisplayPassword);
-        }}
-        className="max-w-[300px]"
-      >
-        Spiel starten
-      </Button>
-    </div>
-  );
-}
-
 function PlayGame({
   animatePulse,
   animateShake,
-  buttonStyleCorrect,
-  buttonStyleWrong,
   currentScore,
   displayPassword,
   handleButtonClick,
 }: {
   animatePulse: boolean;
   animateShake: boolean;
-  buttonStyleCorrect: number;
-  buttonStyleWrong: number;
   currentScore: number;
   displayPassword: string;
-  handleButtonClick: (index: number) => void;
+  handleButtonClick: (strength: ButtonColor) => void;
 }) {
+  type PasswordStrength = "strong" | "medium" | "weak";
+
+  const [strength, setStrength] = useState<PasswordStrength | null>(null);
+  const [buttonStates, setButtonStates] = useState<{
+    strong: ButtonColor;
+    medium: ButtonColor;
+    weak: ButtonColor;
+  }>({
+    strong: "default",
+    medium: "default",
+    weak: "default",
+  });
+
+  function checkStrengthPassword(password: string) {
+    if (password.length === 0) {
+      setStrength(null);
+    } else {
+      const isMediumPassword =
+        /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*"'()+,-./:;<=>?[\]^_`{|}~])(?=.{8,})/.test(
+          password,
+        );
+      const isStrongPassword =
+        /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*"'()+,-./:;<=>?[\]^_`{|}~])(?=.{10,})/.test(
+          password,
+        );
+      setStrength(
+        isStrongPassword ? "strong" : isMediumPassword ? "medium" : "weak",
+      );
+    }
+  }
+  function submitAnswer(clickStrength: PasswordStrength) {
+    if (clickStrength === strength) {
+      setButtonStates((prev) => ({ ...prev, [clickStrength]: "green" }));
+    } else {
+      setButtonStates((prev) => ({ ...prev, [clickStrength]: "red" }));
+    }
+
+    setTimeout(() => {
+      setButtonStates({
+        strong: "default",
+        medium: "default",
+        weak: "default",
+      });
+    }, 1000);
+  }
+
+  useEffect(() => {
+    const currentType = Object.keys(buttonStates).find(
+      (key) => buttonStates[key as PasswordStrength] !== "default",
+    );
+    if (currentType) {
+      handleButtonClick(buttonStates[currentType as PasswordStrength]);
+      setTimeout(() => {
+        setButtonStates({
+          strong: "default",
+          medium: "default",
+          weak: "default",
+        });
+      }, 2000);
+    }
+  }, [buttonStates]);
+
+  function translateToGerman(type: PasswordStrength) {
+    if (type === "weak") {
+      return "schwach";
+    } else if (type === "medium") {
+      return "mittel";
+    } else {
+      return "stark";
+    }
+  }
+  useEffect(() => {
+    checkStrengthPassword(displayPassword);
+  }, [displayPassword]);
+
   return (
     <div className="flex flex-col justify-between align-center w-full mt-24 md:mt-14">
       <div>
@@ -330,45 +306,18 @@ function PlayGame({
           </div>
         </div>
         <div className="flex w-full flex-col md:flex-row items-center md:justify-center space-y-8 md:space-y-0 md:space-x-8">
-          <Button
-            onClick={() => handleButtonClick(2)}
-            style={
-              buttonStyleWrong === 2
-                ? "red"
-                : buttonStyleCorrect === 2
-                  ? "green"
-                  : "default"
-            }
-            className="max-w-[200px] w-full"
-          >
-            stark
-          </Button>
-          <Button
-            onClick={() => handleButtonClick(1)}
-            style={
-              buttonStyleWrong === 1
-                ? "red"
-                : buttonStyleCorrect === 1
-                  ? "green"
-                  : "default"
-            }
-            className="max-w-[200px] w-full"
-          >
-            mittel
-          </Button>
-          <Button
-            onClick={() => handleButtonClick(0)}
-            style={
-              buttonStyleWrong === 0
-                ? "red"
-                : buttonStyleCorrect === 0
-                  ? "green"
-                  : "default"
-            }
-            className="max-w-[200px] w-full"
-          >
-            schwach
-          </Button>
+          {["weak", "medium", "strong"].map((type) => (
+            <Button
+              key={type}
+              onClick={() => {
+                submitAnswer(type as PasswordStrength);
+              }}
+              style={buttonStates[type as PasswordStrength]}
+              className="max-w-[200px] w-full"
+            >
+              {translateToGerman(type as PasswordStrength)}
+            </Button>
+          ))}
         </div>
       </div>
     </div>

@@ -1,6 +1,12 @@
 import React from "react";
 import { QuizParams } from "@/components/Quiz/quiz";
+import { State } from "@/app/(safespace)/space/daten-verarbeitung/kapitel2/components/recommendation-quiz";
 
+export type PasswordData = {
+  password: string;
+  strength: number;
+  explanation: string;
+};
 export const topTenPasswords = [
   "123456789",
   "12345678",
@@ -78,16 +84,10 @@ export const quizzes: QuizParams[] = [
   },
 ];
 
-export type PasswordData = {
-  password: string;
-  strength: number;
-  explanation: string;
-};
-
 export const passwordData: PasswordData[] = [
   {
     password: "JosP7s+sw",
-    strength: 2,
+    strength: 1,
     explanation: "Das Passwort erfüllt alle Bedingungen.",
   },
   {
@@ -342,3 +342,66 @@ export const passwordData: PasswordData[] = [
     explanation: "Das Passwort erfüllt alle Bedingungen.",
   },
 ];
+
+export const states: State[] = [
+  {
+    expression: "smiling",
+    rotation: 0,
+    text: "",
+    style: {
+      marginLeft: "calc(100% + 400px)",
+    },
+  },
+
+  {
+    expression: "smiling",
+    rotation: 0,
+    text:
+      "Herzlichen Glückwunsch! Du hast gelernt, wie man sichere Passwörter erstell " +
+      "und erkennt: mindestens 8 Zeichen lang und eine Mischung aus Kleinbuchstaben, " +
+      "Großbuchstaben, Sonderzeichen und Zahlen.",
+    style: {
+      width: "150px",
+      height: "150px",
+    },
+  },
+  {
+    expression: "smiling",
+    rotation: 0,
+    text:
+      " Um deine Sicherheit weiter zu erhöhen, nutze die Zwei-Faktor-Authentifizierung " +
+      "(2FA). Damit brauchst du zusätzlich zum Passwort einen Code, der dir über SMS " +
+      "oder E-Mail zugesendet wird.",
+    style: {
+      width: "150px",
+      height: "150px",
+    },
+  },
+  {
+    expression: "smiling",
+    rotation: 0,
+    text:
+      "Außerdem solltest du niemals dasselbe Passwort für mehrere Konten verwenden. \n" +
+      "Ein Passwort-Manager kann dir helfen, einzigartige und sichere Passwörter zu \n" +
+      "erstellen. Bleib sicher!",
+    style: {
+      width: "150px",
+      height: "150px",
+    },
+  },
+  {
+    expression: "smiling",
+    rotation: 0,
+    text: "",
+    style: {
+      width: "150px",
+      height: "150px",
+      marginRight: "calc(100% + 400px)",
+    },
+    delay: 3000,
+    end: true,
+  },
+];
+
+export const instruction =
+  "Ein Passwort gilt nur als stark, wenn alle Kriterien erfüllt sind. Ist nur eine Bedingung falsch gilt das Passwort als mittel und ansonten als schwach. Du bekommst für jedes richtig eingeordnete Passwort einen Punkt. Falls du das Passwort falsch einordnest wird deine Punktzahl auf 0 zurückgesetzt.";
