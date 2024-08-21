@@ -1,12 +1,13 @@
 "use client";
 
-import Robot, { RobotExpression } from "@/components/robot/robot";
-import { CSSProperties, useEffect, useState } from "react";
+import Robot, {RobotExpression} from "@/components/robot/robot";
+import {CSSProperties, useEffect, useState} from "react";
 import Button from "@/components/button";
 import clsx from "clsx";
-import { useRouter } from "next/navigation";
+import {useRouter} from "next/navigation";
 import AnimatedText from "@/components/animated/animated-text";
 import RobotIntroduction from "@/app/(safespace)/space/daten-verarbeitung/kapitel2/components/robot-introduction";
+import {useTranslations} from "next-intl";
 
 export type State = {
   expression: RobotExpression;
@@ -14,69 +15,74 @@ export type State = {
   text: string;
   style?: CSSProperties | undefined;
 };
-const states: State[] = [
-  {
-    expression: "smiling",
-    rotation: 0,
-    text: "",
-    style: {
-      marginLeft: "calc(100% + 400px)",
+
+function useStates(): State[] {
+  const t = useTranslations("datenverarbeitung.collect.level.0.part.0")
+  return [
+    {
+      expression: "smiling",
+      rotation: 0,
+      text: "",
+      style: {
+        marginLeft: "calc(100% + 400px)",
+      },
     },
-  },
-  {
-    expression: "smiling",
-    rotation: 0,
-    text: "Hallo! Da bin ich wieder.",
-  },
-  {
-    expression: "resting",
-    rotation: -0.4,
-    text: "Nachdem du dich nun etwas mit Datenverarbeitung beschäftigt hast, hätte ich eine Aufgabe für dich.",
-    style: {
-      marginLeft: "100px",
-      marginBottom: "30px",
+    {
+      expression: "smiling",
+      rotation: 0,
+      text: t("robot1"),
     },
-  },
-  {
-    expression: "resting",
-    rotation: 0.6,
-    text: "Mein Chef hat mich gebeten, das Social Media Profil von Marie anzusehen.",
-    style: {
-      marginRight: "150px",
-      marginTop: "30px",
+    {
+      expression: "resting",
+      rotation: -0.4,
+      text: t("robot2"),
+      style: {
+        marginLeft: "100px",
+        marginBottom: "30px",
+      },
     },
-  },
-  {
-    expression: "sad",
-    rotation: -0.1,
-    text: "Mein Arbeitsspeicher ist leider etwas voll heute, deswegen brauche ich deine Unterstützung.",
-  },
-  {
-    expression: "smiling",
-    rotation: 0.2,
-    text: "Alle Infos aus Maries Profil werden wir später noch brauchen.",
-  },
-  {
-    expression: "smiling",
-    rotation: 0,
-    text: "Lass uns also gleich mal loslegen! ",
-    style: {
-      width: "300px",
-      height: "300px",
+    {
+      expression: "resting",
+      rotation: 0.6,
+      text: t("robot3"),
+      style: {
+        marginRight: "150px",
+        marginTop: "30px",
+      },
     },
-  },
-  {
-    expression: "smiling",
-    rotation: 1.5,
-    text: "",
-    style: {
-      position: "absolute",
-      marginLeft: "calc(100% + 400px)",
+    {
+      expression: "sad",
+      rotation: -0.1,
+      text: t("robot4"),
     },
-  },
-];
+    {
+      expression: "smiling",
+      rotation: 0.2,
+      text: t("robot5"),
+    },
+    {
+      expression: "smiling",
+      rotation: 0,
+      text: t("robot6"),
+      style: {
+        width: "300px",
+        height: "300px",
+      },
+    },
+    {
+      expression: "smiling",
+      rotation: 1.5,
+      text: "",
+      style: {
+        position: "absolute",
+        marginLeft: "calc(100% + 400px)",
+      },
+    },
+  ]
+}
 
 export default function DataProcessing0() {
+  const states = useStates()
   return (
     <RobotIntroduction
       states={states}

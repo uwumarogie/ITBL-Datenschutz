@@ -4,7 +4,10 @@ import clsx from "clsx";
 import { X } from "@phosphor-icons/react";
 import { CollectData } from "@/app/(safespace)/space/daten-verarbeitung/data/collect";
 import { useState } from "react";
+import useAllTerms = CollectData.useAllTerms;
+import {useTranslations} from "next-intl";
 
+// TODO: Localize!!!!
 export default function TagList({
   show,
   onClose,
@@ -12,6 +15,8 @@ export default function TagList({
   show: boolean;
   onClose: () => void;
 }) {
+  const termsAll = useAllTerms()
+  const t = useTranslations("datenverarbeitung.analyse")
   return (
     <div
       className={clsx(
@@ -21,14 +26,14 @@ export default function TagList({
     >
       <div className="bg-white rounded-xl shadow-md relative z-10 w-full max-w-[700px] h-full max-h-[80%] flex flex-col">
         <div className="flex justify-between w-full flex-shrink-0 px-6 py-4">
-          <h3 className="font-semibold">Gesammelte Daten</h3>
+          <h3 className="font-semibold">{t("tagListTitle")}</h3>
           <X
             className="transition-transform hover:scale-110 cursor-pointer"
             onClick={onClose}
           />
         </div>
         <div className="flex flex-wrap gap-2 h-full overflow-y-auto px-6 pb-4">
-          {CollectData.termsAll.map((t) => (
+          {termsAll.map((t) => (
             <span
               key={t}
               className="bg-blue-100 px-2 py-1 rounded-full text-blue-900"

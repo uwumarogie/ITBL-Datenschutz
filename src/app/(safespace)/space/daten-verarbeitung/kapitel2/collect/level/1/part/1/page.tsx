@@ -22,184 +22,192 @@ import {
   ThumbsDown,
 } from "@phosphor-icons/react";
 import { CollectData } from "@/app/(safespace)/space/daten-verarbeitung/data/collect";
+import {useTranslations} from "next-intl";
+import useAllTerms = CollectData.useAllTerms;
+import useAllTermsTagged = CollectData.useAllTermsTagged;
 
-const profile: InstagramProfileData = {
-  username: "marie_magic2007",
-  profileImageSrc: "/posts/profile_marie.png",
-  followers: 97,
-  followingCount: 189,
-  description: "MUC\n17 yo",
-  posts: [
+function useProfile(): InstagramProfileData {
+  const t = useTranslations("datenverarbeitung.collect.level.1.part.1")
+  return {
+    username: "marie_magic2007",
+      profileImageSrc: "/posts/profile_marie.png",
+    followers: 97,
+    followingCount: 189,
+    description: "MUC\n17 yo",
+    posts: [
     {
       imageSrc: "/datenverarbeitung/level0/IMG_0614.JPG",
-      caption:
-        "Die neusten Nike WMNS  AIR JORDAN 1 MID 365 in lila, weiß, schwarz sind verfügbar. Ich könnte auf Wunsch welche in unserem Store zurücklegen.",
+      caption: t("caption_1"),
     },
     {
       imageSrc: "/datenverarbeitung/level0/IMG_0605.JPG",
-      caption: "Schon wieder eine Gruppenarbeit",
+      caption: t("caption_2"),
       location: "Franz von Miller Gymnasium München",
     },
     {
       imageSrc: "/datenverarbeitung/level0/IMG_0459.jpg",
-      caption:
-        "Wir, wenn der Matheunterricht entfällt. @Michael, @Sarah, @Lena, @Lukas, @Livia",
+      caption: t("caption_3"),
       likedBy: "Michael, Sarah und 3 weiteren",
       location: "Cafe Kaffee",
     },
     {
       imageSrc: "/datenverarbeitung/level0/IMG_0401.JPG",
-      caption:
-        "Auch, wenn wir uns immer wieder mal streiten habe ich dich ganz doll lieb, Lea. Ich bin stolz deine große Schwester sein zu dürfen.",
+      caption: t("caption_4"),
       likedBy: "Lea",
     },
     {
       imageSrc: "/datenverarbeitung/level0/IMG_0608.JPG",
-      caption: "Schreibe gleich eine Mathe Klausur, wünscht mir Glück!",
+      caption: t("caption_5"),
       location: "Franz von Miller Gymnasium München",
     },
     {
       imageSrc: "/datenverarbeitung/level0/IMG_0613.JPG",
-      caption: "Mein neuer Ferienjob im Schuhstore. Kommt vorbei!",
+      caption: t("caption_6"),
       location: "SneakON - München",
     },
     {
       imageSrc: "/datenverarbeitung/level0/IMG_0610.JPG",
-      caption: "NEUES FAMILIENMITGLIED!!",
+      caption: t("caption_7"),
     },
     {
       imageSrc: "/datenverarbeitung/level0/IMG_0612.JPG",
-      caption: "Ohne meinem Kaffee kann ich nicht lernen.",
+      caption: t("caption_8"),
       likedBy: "Justus und Mara",
     },
     {
       imageSrc: "/datenverarbeitung/level0/IMG_0602.JPG",
-      caption: "Bester Tag in meinem Leben #BilliEilish #Konzert2023 #Dortmund",
+      caption: t("caption_9"),
       location: "Dortmund",
     },
     {
       imageSrc: "/datenverarbeitung/level0/IMG_0601.JPG",
-      caption:
-        "Omg, ihr neues Album ist draußen! Ich feier das Lied “Everything I wanted“",
+      caption: t("caption_10"),
       song: "Everything I wanted - Billie Eilish",
     },
     {
       imageSrc: "/datenverarbeitung/level0/IMG_0609.JPG",
-      caption: "Ich hoffe das viele Lernen lohnt sich...",
+      caption: t("caption_11"),
       location: "Franz von Miller Gymnasium München",
     },
     {
       imageSrc: "/datenverarbeitung/level0/IMG_0460.JPG",
-      caption: "Lieblingscafe Tante Emma",
+      caption: t("caption_12"),
       location: "Cafe Kaffee",
     },
     {
       imageSrc: "/datenverarbeitung/level0/IMG_0603.JPG",
-      caption: "Auf dem Weg zur Schule Billie Eilish zu hören ist Therapie.",
+      caption: t("caption_13"),
       song: "BIRDS OF A FEATHER - Billie Eilish",
     },
     {
       imageSrc: "/datenverarbeitung/level0/IMG_0617.JPG",
-      caption: "Meinung zu meinen neuen Schuhen?",
+      caption: t("caption_14"),
     },
   ],
-};
+  }
+}
 
-const terms = CollectData.termsAll;
 
-const historyPost: HistoryPost[] = [
-  {
-    src: "/datenverarbeitung/collect/level1/post-history/post_history1.jpg",
-    caption: "Baliurlaub",
-    like: true,
-    time: "65 Sekunden",
-    tags: ["Urlaub", "Reisen", "See"],
-    date: "gerade eben",
-  },
-  {
-    src: "/datenverarbeitung/collect/level1/post-history/post_history_dislike4.jpg",
-    caption: "Nachrichtenbeitrag - Ukraine",
-    date: "gestern",
-    time: "4 Sekunden",
-    tags: ["Nachrichten", "Ukraine", "Bürgergeld", "Sozialstaat"],
-  },
-  {
-    src: "/datenverarbeitung/collect/level1/post-history/post_history_dislike5.jpg",
-    caption: "Geschirr - Deko",
-    tags: ["Deko", "Haushalt", "Einrichtung"],
-  },
-  {
-    src: "/datenverarbeitung/collect/level1/post-history/post_history_dislike2.jpg",
-    caption: "Deutschrap Brandneu - Playlist",
-    time: "1 Sekunde",
-    tags: ["Musik", "Deutschrap", "Rap"],
-  },
-  {
-    src: "/datenverarbeitung/collect/level1/post-history/post_history3.jpg",
-    caption: "Meme",
-    date: "vor vier Tagen",
-    comment: 'Kommentiert mit "@Lukas, du 😂"',
-    tags: ["Spongebob", "Meme"],
-  },
-  {
-    src: "/datenverarbeitung/collect/level1/post-history/post_history7.jpg",
-    caption: "Neue Jacke - Jetzt bestellen",
-    date: "gestern",
-    send: "an Lisa gesendet",
-    tags: ["Jacke", "Mode", "Klamotten"],
-  },
-  {
-    src: "/datenverarbeitung/collect/level1/post-history/post_history4.jpg",
-    caption: "Schule - Kritik",
-    save: true,
-    tags: ["Schule", "Fächer", "Politik"],
-  },
-  {
-    src: "/datenverarbeitung/collect/level1/post-history/post_history2.jpg",
-    caption: "Technische Universität München",
-    send: "An @Tanja",
-    tags: ["Universität", "Technik"],
-  },
-  {
-    src: "/datenverarbeitung/collect/level1/post-history/post_history6.jpg",
-    caption: "Gebäck",
-    like: true,
-    time: "63 Sekunden",
-    tags: ["Backen", "Süßigkeiten", "Handwerk"],
-  },
-  {
-    src: "/datenverarbeitung/collect/level1/post-history/post_history_dislike1.jpg",
-    caption: "Fußball EM 2024",
-    dislike: true,
-    tags: ["Fußball", "EM", "Österreich", "Frankreich"],
-  },
-  {
-    src: "/datenverarbeitung/collect/level1/post-history/post_history_dislike6.jpg",
-    caption: "Supermärkte",
-    dislike: true,
-    time: "2 Sekunden",
-    tags: ["Markt", "Einkaufen", "Lebensmittel", "Gründung", "Lokal"],
-  },
-  {
-    src: "/datenverarbeitung/collect/level1/post-history/post_history5.jpg",
-    caption: "Vögel - Tiere",
-    like: true,
-    date: "vor 1 Stunde",
-    tags: ["Tiere", "Vögel", "Niedlich"],
-  },
-  {
-    src: "/datenverarbeitung/collect/level1/post-history/post_history_dislike3.jpg",
-    caption: "Buchvorstellung",
-    tags: ["Literatur", "Bücher", "Kinder"],
-  },
-];
+function useHistoryPost(): HistoryPost[] {
+  const t = useTranslations("datenverarbeitung.collect.level.1.part.1.history")
+  return [
+    {
+      src: "/datenverarbeitung/collect/level1/post-history/post_history1.jpg",
+      caption: t("caption_1"),
+      like: true,
+      time: t("time_1"),
+      tags: t("tags_1").split(", "),
+      date: t("date_1"),
+    },
+    {
+      src: "/datenverarbeitung/collect/level1/post-history/post_history_dislike4.jpg",
+      caption: t("caption_2"),
+      date: t("date_2"),
+      time: t("time_2"),
+      tags: t("tags_2").split(", "),
+    },
+    {
+      src: "/datenverarbeitung/collect/level1/post-history/post_history_dislike5.jpg",
+      caption: t("caption_3"),
+      tags: t("tags_3").split(", "),
+    },
+    {
+      src: "/datenverarbeitung/collect/level1/post-history/post_history_dislike2.jpg",
+      caption: t("caption_4"),
+      time: t("time_4"),
+      tags: t("tags_4").split(", "),
+    },
+    {
+      src: "/datenverarbeitung/collect/level1/post-history/post_history3.jpg",
+      caption: t("caption_5"),
+      date: t("date_5"),
+      comment: t("comment_5"),
+      tags: t("tags_5").split(", "),
+    },
+    {
+      src: "/datenverarbeitung/collect/level1/post-history/post_history7.jpg",
+      caption: t("caption_6"),
+      date: t("date_6"),
+      send: t("send_6"),
+      tags: t("tags_6").split(", "),
+    },
+    {
+      src: "/datenverarbeitung/collect/level1/post-history/post_history4.jpg",
+      caption: t("caption_7"),
+      save: true,
+      tags: t("tags_7").split(", "),
+    },
+    {
+      src: "/datenverarbeitung/collect/level1/post-history/post_history2.jpg",
+      caption: t("caption_8"),
+      send: "An @Tanja",
+      tags: t("tags_8").split(", "),
+    },
+    {
+      src: "/datenverarbeitung/collect/level1/post-history/post_history6.jpg",
+      caption: t("caption_9"),
+      like: true,
+      time: t("time_9"),
+      tags: t("tags_9").split(", "),
+    },
+    {
+      src: "/datenverarbeitung/collect/level1/post-history/post_history_dislike1.jpg",
+      caption: t("caption_10"),
+      dislike: true,
+      tags: t("tags_10").split(", "),
+    },
+    {
+      src: "/datenverarbeitung/collect/level1/post-history/post_history_dislike6.jpg",
+      caption: t("caption_11"),
+      dislike: true,
+      time: t("time_11"),
+      tags: t("tags_11").split(", "),
+    },
+    {
+      src: "/datenverarbeitung/collect/level1/post-history/post_history5.jpg",
+      caption: t("caption_12"),
+      like: true,
+      date:t("date_12"),
+      tags: t("tags_12").split(", "),
+    },
+    {
+      src: "/datenverarbeitung/collect/level1/post-history/post_history_dislike3.jpg",
+      caption: t("caption_13"),
+      tags: t("tags_13").split(", "),
+    },
+  ];;
+}
 
-const robotText =
-  'Hier siehst du wieder Maries Profil. Zusätzlich habe ich dir Maries zuletzt gesehene Posts hinzugefüht. Klicke dafür auf den "Verlauf"-Tab. Wieder die gleiche Aufgabe: Sammle mindestens 15 Aspekte, die Maries Profil beschreiben.';
-const task =
-  "Untersuche Maries Profil und Verlauf und finde 15 Eigenschaften und Aspekte, die Marie interessant finden könnte. Beziehe dich v.a. auf den Verlauf.";
 
 export default function DataProcessing1() {
+  const t = useTranslations("datenverarbeitung.collect.level.1.part.1")
+  const profile = useProfile()
+  const historyPost = useHistoryPost()
+  const terms = useAllTerms()
+
+  const robotText = t("robot_text")
+  const task = t("task")
+
   return (
     <ProfileAnalysis
       profile={profile}
@@ -207,16 +215,16 @@ export default function DataProcessing1() {
       task={task}
       terms={terms}
       minFoundTerms={15}
-      hint="Was kannst du aus dem Postverlauf lesen? Mit wem interagiert Marie? Welche Verbindungen gibt es zu anderen Profilen? Versuche einen Schritt weiter zu denken und verbindungen herzustellen."
+      hint={t("hint")}
       href="/space/daten-verarbeitung/kapitel2/collect/level/1/part/2"
     >
       <Tabs className="h-full flex flex-col">
         <TabList className="flex border-b-2 flex-shrink-0">
           <Tab className="cursor-pointer p-4 text-center outline-none w-full border-b-sky-800">
-            Profil
+            {t("profil_tab")}
           </Tab>
           <Tab className="cursor-pointer p-4 text-center outline-none w-full border-b-sky-800">
-            Verlauf
+            {t("history_tab")}
           </Tab>
         </TabList>
 
@@ -225,7 +233,7 @@ export default function DataProcessing1() {
         </TabPanel>
         <TabPanel className="overflow-y-auto">
           <span className="m-4 block italic opacity-50">
-            Diese Posts wurden Marie zuletzt angezeigt.
+            {t("histroy_description")}
           </span>
           <PostHistory posts={historyPost} />
         </TabPanel>

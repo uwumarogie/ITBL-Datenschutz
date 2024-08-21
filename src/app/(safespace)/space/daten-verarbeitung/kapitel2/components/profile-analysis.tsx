@@ -11,6 +11,7 @@ import { HintCard } from "@/components/hint-card";
 import { distance } from "fastest-levenshtein";
 import { useMessages } from "@/services/notfication/message-provider";
 import Link from "next/link";
+import {useTranslations} from "next-intl";
 
 type ProfileAnalysisProps = {
   profile: InstagramProfileData;
@@ -24,6 +25,7 @@ type ProfileAnalysisProps = {
 
 const MAX_DISTANCE = 1;
 
+// TODO: Localize
 export default function ProfileAnalysis({
   profile,
   robotText,
@@ -39,6 +41,7 @@ export default function ProfileAnalysis({
   const [showRobot, setShowRobot] = useState(true);
   const [foundTerms, setFoundTerms] = useState<string[]>([]);
   const router = useRouter();
+  const t = useTranslations("datenverarbeitung.profile_analysis")
   const { addMessage } = useMessages();
 
   function checkTerm() {
@@ -56,7 +59,7 @@ export default function ProfileAnalysis({
     for (let { term, distance } of distances) {
       if (foundTerms.includes(term)) {
         addMessage(
-          "Du hast diesen Begriff bereits gefunden. Finde eine andere Eigenschaft!",
+          t("alertAlreadyFound"),
           "info",
         );
         return;
@@ -70,7 +73,7 @@ export default function ProfileAnalysis({
 
     if (!newTermFound) {
       addMessage(
-        "Dieser Begriff scheint nicht zu passen. Versuche einen ähnliche oder ganz anderen Begriff.",
+        t("alertWrong"),
         "error",
       );
     }
@@ -96,7 +99,7 @@ export default function ProfileAnalysis({
                 className="w-full mt-4"
                 onClick={() => setShowRobot(false)}
               >
-                Los gehts
+                {t("start")}
               </Button>
             </p>
             <Robot
@@ -115,7 +118,7 @@ export default function ProfileAnalysis({
               <Task className="w-full">{task}</Task>
             )}
             <span className="font-semibold">
-              Gefundene Eigenschaften: ({foundTerms.length}/{minFoundTerms})
+              {t("foundTerms")} ({foundTerms.length}/{minFoundTerms})
             </span>
             <ul className="list-disc ml-8">
               {foundTerms.map((t, i) => (
@@ -124,7 +127,7 @@ export default function ProfileAnalysis({
             </ul>
             <input
               className="w-full border-[1px] border-gray-200 rounded-xl resize-none outline-none py-4 px-6 block"
-              placeholder="Eigenschaft / Aspekt"
+              placeholder={t("hintInput")}
               value={termInput}
               onChange={(ev) => setTermInput(ev.target.value ?? "")}
               onKeyUp={(ev) => ev.key == "Enter" && checkTerm()}
@@ -135,13 +138,13 @@ export default function ProfileAnalysis({
                 foundTerms.length >= minFoundTerms ? "secondary" : "default"
               }
             >
-              Überprüfen
+              {t("check")}
             </Button>
             {hint && foundTerms.length < minFoundTerms && (
               <div className="px-2 pt-4">
                 <HintCard
-                  text="Welche Infos soll ich suchen?"
-                  buttonText="Tipp zeigen"
+                  text={t("hintCardText")}
+                  buttonText={t("hintCardButton")}
                   hint={hint}
                 />
               </div>
@@ -150,11 +153,11 @@ export default function ProfileAnalysis({
               <div className="flex flex-col justify-center items-center h-full">
                 <Robot expression="smiling" />
                 <span className="text-center font-medium mt-8 mb-4">
-                  Klasse! Du hast alle Begriffe gefunden!
+                  {t("messageSuccess")}
                 </span>
                 <Link href={href}>
                   <Button onClick={() => {}} className="animate-bounce">
-                    Weiter
+                    {t("next")}
                   </Button>
                 </Link>
               </div>

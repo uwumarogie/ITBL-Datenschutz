@@ -245,6 +245,600 @@
             "chapter1Title": "Teste dein Wissen zu Passwörter",
             "chapter2Title": "Bilde starke Passwörter",
             "chapter3Title": "Bewerte Passwortstärken"
-          }
+        }
+    },
+    "datenverarbeitung": {
+        "title": "Datenverarbeitung",
+        "description": "In diesem Modul lernst du, wie Daten im digitalen Zeitalter gesammelt, verarbeitet und geschützt werden. Im Anschluss kannst du dein Wissen testen und es dann im Laufe des Kapitels anwenden. Ein besonderes Highlight dieses Moduls: Verstehe nicht nur, wie deine Daten gesammelt werden, sondern übernimm selbst die Rolle eines Recommender-Algorithmus. Starte jetzt, um mehr zu erfahren.",
+        "chapter1": "Infos & Quiz",
+        "chapter2": "Insta Inside",
+        "chapter3": "Werde zum Recommender Algorithmus",
+        "overview": {
+            "steps": {
+                "introduction": "Einführung",
+                "collect": "Sammeln",
+                "process": "Verarbeiten"
+            },
+            "title": "Datenverarbeitung",
+            "description": "Was genau ist Datenverarbeitung und was passiert dabei eigentlich? Diese Fragen werden in den folgenden Kapiteln beantwortet. Erweitere dein Wissen und wende es direkt in den Aufgaben dieses Moduls an.",
+            "chapter": {
+                "1": {
+                    "title": "1. Einführung - Was ist Datenverarbeitung?",
+                    "description": "Was bedeutet Datenverarbeitung überhaupt? Ein kurzer Überblick.",
+                    "buttonText": "Einführung starten"
+                },
+                "2": {
+                    "title": "2. Datensammlung",
+                    "description": "Analysiere Social Media Profile und sammle möglichst viele Daten!",
+                    "buttonText": "Kapitel starten"
+                },
+                "3": {
+                    "title": "3. Datenverarbeitung",
+                    "description": "Nutze deine analysierten Daten und wähle perfekt zugeschnittene Angebote aus!",
+                    "buttonText": "Spiel starten."
+                }
+            }
+        },
+        "introduction": {
+            "headline": "Datenverarbeitung - Was ist das?",
+            "text": "Datenverarbeitung bezieht sich auf die Sammlung, Speicherung und Nutzung deiner personenbezogenen Daten. Es ist wichtig zu verstehen, wie und warum deine Daten verarbeitet werden, um deine Privatsphäre zu schützen.  Aber was bedeutet Datenverarbeitung genau, und welche Maßnahmen kannst du ergreifen, um deine Daten sicher zu halten?",
+            "task": "Klicke dich durch die verschiedenen Bereiche der Datenverarbeitung. Wenn du dich informiert fühlst, drücke auf den Knopf unten, um das Quiz zu starten!",
+            "tab1": "1. Sammlung und Speicherung",
+            "tab2": "2. Verarbeitung und Datenweitergabe",
+            "tab3": "3. Verantwortungsvoller Umgang mit Daten",
+            "tab1Text": "Datensammlung bezieht sich auf das Erfassen und Sammeln von Informationen über dich und dein Verhalten, meist durch Websites, Apps und Social Media. Diese Daten können beinhalten, was du online suchst, welche Seiten du besuchst und welche Posts du likest. Die gesammelten Daten werden dann gespeichert, entweder lokal auf einem Gerät oder in der Cloud. Cloud-Speicherung bedeutet, dass deine Daten auf Servern im Internet gesichert werden, was praktisch, aber auch risikoreich sein kann, wenn diese Server nicht gut geschützt sind. Es ist wichtig zu wissen, wo und wie deine Daten gespeichert werden, um deren Sicherheit einschätzen zu können.",
+            "tab2Text": "Datenverarbeitung bedeutet, dass gesammelte Daten analysiert und genutzt werden, um Muster zu erkennen, Entscheidungen zu treffen oder Inhalte anzupassen. Beispielsweise können Social Media-Plattformen deine Daten nutzen, um dir personalisierte Werbung anzuzeigen. Manchmal werden deine Daten auch an Dritte weitergegeben, etwa an Werbefirmen oder Partnerunternehmen, oft ohne dass du es direkt bemerkst. Das birgt Risiken, da du die Kontrolle über deine Daten verlierst. Achte darauf, welche Daten du preisgibst und überprüfe die Datenschutzrichtlinien der Dienste, die du nutzt.",
+            "tab3Text": "Ein verantwortungsvoller Umgang mit Daten bedeutet, bewusst und vorsichtig mit deinen eigenen und den Daten anderer umzugehen. Überlege dir gut, welche Informationen du online teilst und wer darauf zugreifen kann. Achte auf die Datenschutzeinstellungen deiner Social Media-Profile und nutze die Möglichkeiten, die Privatsphäre-Einstellungen zu konfigurieren. Denke daran, dass einmal geteilte Daten schwer zurückzuholen sind. Schütze deine Daten und respektiere auch die Daten anderer, indem du sie nicht unbedacht weitergibst.",
+            "buttonReady": "Genug informiert?",
+            "buttonCheck": "Überprüfe dein Wissen!",
+            "quiz": {
+                "question1": "Was bedeutet Cloud-Speicherung?",
+                "question1answer1": "Deine Daten werden nur lokal auf deinem Gerät gespeichert",
+                "question1answer2": "Deine Daten werden in der Wolke aufbewahrt",
+                "question1answer3": "Deine Daten werden auf Servern im Internet gespeichert ",
+                "question1answer4": "Deine Daten werden auf einem USB-Stick gespeichert",
+                "question2": "Warum werden deine Daten manchmal an Dritte weitergegeben?",
+                "question2answer1": "Um deine Daten zu löschen",
+                "question2answer2": "Um dir personalisierte Werbung anzuzeigen",
+                "question2answer3": "Um deine Passwörter zu ändern",
+                "question2answer4": "Um dir kostenlose Produkte zu schicken",
+                "question3": "Welches Gesetz regelt den Schutz deiner persönlichen Daten in der EU?",
+                "question3answer1": "Allgemeine Datenschutzregelung (ADR)",
+                "question3answer2": "Datenschutz-Grundverordnung (DSGVO)",
+                "question3answer3": "Europäische Datenschutzrichtlinie (EDR)",
+                "question3answer4": "Persönliche Datenschutzverordnung (PDV)",
+                "question4": "Welche Maßnahme trägt nicht zur Sicherheit deiner Daten bei?",
+                "question4answer1": "Nutzung starker Passwörter",
+                "question4answer2": "Regelmäßige Software-Updates",
+                "question4answer3": "Teilen deiner Passwörter mit Freunden",
+                "question4answer4": "Verschlüsselung sensibler Daten",
+                "question5": "Was bedeutet ein verantwortungsvoller Umgang mit Daten?",
+                "question5answer1": "Alle Daten öffentlich teilen",
+                "question5answer2": "Nur die Daten anderer schützen",
+                "question5answer3": "Keine Daten online nutzen",
+                "question5answer4": "Vorsichtig und bewusst mit den eigenen und den Daten anderer umgehen"
+            }
+        },
+        "collect": {
+            "level": {
+                "0": {
+                    "part": {
+                        "0": {
+                            "robot1": "Hallo! Da bin ich wieder.",
+                            "robot2": "Nachdem du dich nun etwas mit Datenverarbeitung beschäftigt hast, hätte ich eine Aufgabe für dich.",
+                            "robot3": "Mein Chef hat mich gebeten, das Social Media Profil von Marie anzusehen.",
+                            "robot4": "Mein Arbeitsspeicher ist leider etwas voll heute, deswegen brauche ich deine Unterstützung.",
+                            "robot5": "Alle Infos aus Maries Profil werden wir später noch brauchen.",
+                            "robot6": "Lass uns also gleich mal loslegen! "
+                        },
+                        "1": {
+                            "profile": {
+                                "caption1": "Die neusten Nike WMNS  AIR JORDAN 1 MID 365 in lila, weiß, schwarz sind verfügbar. Ich könnte auf Wunsch welche in unserem Store zurücklegen.",
+                                "caption2": "Schon wieder eine Gruppenarbeit",
+                                "caption3": "Wir, wenn der Matheunterricht entfällt. @Michael, @Sarah, @Lena, @Lukas, @Livia",
+                                "caption4": "Auch, wenn wir uns immer wieder mal streiten habe ich dich ganz doll lieb, Lea. Ich bin stolz deine große Schwester sein zu dürfen.",
+                                "caption5": "Schreibe gleich eine Mathe Klausur, wünscht mir Glück!",
+                                "caption6": "Mein neuer Ferienjob im Schuhstore. Kommt vorbei!",
+                                "caption7": "NEUES FAMILIENMITGLIED!!",
+                                "caption8": "Ohne meinem Kaffee kann ich nicht lernen.",
+                                "caption9": "Bester Tag in meinem Leben #BilliEilish #Konzert2023 #Dortmund",
+                                "caption10": "Omg, ihr neues Album ist draußen! Ich feier das Lied “Everything I wanted“",
+                                "caption11": "Ich hoffe das viele Lernen lohnt sich...",
+                                "caption12": "Lieblingscafe Tante Emma",
+                                "caption13": "Auf dem Weg zur Schule Billie Eilish zu hören ist Therapie.",
+                                "caption14": "Meinung zu meinen neuen Schuhen?"
+                            },
+                            "robotText": "Hier siehst du Maries Instagram Feed. Wie lässt sie sich durch ihre Posts beschreiben? Schreibe dir mindestens fünf Aspekte auf.",
+                            "task": "Untersuche Maries Profil und finde 5 Eigenschaften und Aspekte, die ihre Person bzw. Persönlichkeit beschreiben.",
+                            "hint": "Wie alt ist sie? Was macht sie in ihrem Leben? Welche Hobbies hat sie? "
+                        },
+                        "2": {
+                            "caption": "Was konnten wir aus dem Profil herauslesen?",
+                            "explanation": " Es gibt viele Möglichkeiten, wie man die Daten einer Person durch ihr Profil erhält. Lass uns gemeinsam herausfinden, welche Informationen wir aus Maries Profil entnehmen können.",
+                            "profile_description": {
+                                "title": "Profilbeschreibung",
+                                "description": "Durch die Profilbeschreibung erhalten wir folgende Informationen:",
+                                "list": {
+                                    "0": "Maries voller Name ist Marie Magic",
+                                    "1": "sie wurde 2007 geboren",
+                                    "2": "Marie lebt in München",
+                                    "3": "ist 17 Jahre alt",
+                                    "4": "hat 14 Posts => postet also gelegentlich",
+                                    "5": "hat 97 Follower => privates Profil, sie ist keine Influencerin",
+                                    "6": "folgt 189 Profilen"
+                                },
+                                "subtext": "Vor allem Follower und gefolgte Profile werden später noch wichtig. Behalte sie am besten gleich im Kopf!"
+                            },
+                            "pictures": {
+                                "title": "Veröffentlichte Bilder",
+                                "description": "Mit fast jedem Foto erhält man zusätzliche Daten. Hier zum Beispiel erfahren wir, dass sie Hunde sehr gerne mag."
+                            },
+                            "captions": {
+                                "title": "Postbeschreibung",
+                                "description": "Auch durch die Caption, können neue Daten verarbeitet werden. Auf dem Foto is ein jüngeres Mädchen zu erkennen. Mithilfe dem hinzugefügten Text lässt sich erschließen, dass das ihre jüngere Schwester Lea ist"
+                            },
+                            "hashtags": {
+                                "title": "Hashtags",
+                                "description": " Das Foto zeigt nur den Besuch eines Konzerts. Es soll auch der beste Tag ihres Lebens gewesen sein. Mehr Informationen haben wir jedoch nicht. Oft helfen einem Hashtags gewisse Lücken zu füllen. Durch die hinzugefügten Hashtags wissen wir, dass es ein Konzert von Billie Eilish war, welches 2023 in Dortmund stattgefunden hat. Hashtags sind für Algorithmen besonders einfach, da sie direkt Begriffe darstellen, die für Vorschläge verwendet werden können."
+                            },
+                            "tags": {
+                                "title": "Freunde markieren",
+                                "description": "Hin und wieder markiert Marie gerne ihre Freunde. Somit werden neue Verbindungen hergestellt. Wir erfahren, dass Michael, Sarah, Lena, Lukas und Livia ihre Schulfreunde sind."
+                            },
+                            "next": "Weiter"
+                        },
+                        "3": {
+                            "text_1": "Nach unserer ersten Analyse wissen wir nun schon viele Dinge über Marie. Wir sammeln alle Informationen in einer Art Mind Map.",
+                            "text_2": "Wir können schon allgemeine Dinge über sie erfahren: Alter, Wohnort, Geschlecht, Schule ...",
+                            "text_3": "Wir wissen nun auch einiges über ihre aktuelle Hobbies und Dinge, die sie mag.",
+                            "text_4": "Wenn sie emotionale Lieder wie \"Everything I wanted\" hört, können wir vermuten, dass ihr andere emotionale Lieder ebenso gefallen könnten.",
+                            "text_5": "Und das war es auch noch nicht. Wir können immer noch ein paar andere Dinge von Marie analysieren und speichern.",
+                            "text_6": "Einige detailliertere Informationen haben wir noch ausgelassen. Fügen wir sie hinzu haben wir schon ein relativ genaues Bild von Marie.",
+                            "text_7": "Einige detailliertere Informationen haben wir noch ausgelassen. Fügen wir sie hinzu haben wir schon ein relativ genaues Bild von Marie.",
+                            "text_8": "In diesem ersten Schritt haben wir schon bei einer kurzen Analyse viele Informationen über Marie erhalten.",
+                            "text_9": "Wir gehen nun einen Schritt weiter und versuchen noch mehr Daten zu erhalten.",
+                            "text_10": "Wow! Das waren jetzt aber viele neue Punkte! Zoome mit dem Mausrad in die Mind-Map, um mehr Details zu sehen.",
+                            "label_1": "Marie Magic",
+                            "label_2": "Allgemein",
+                            "label_3": "Schule",
+                            "label_4": "17 Jahre alt",
+                            "label_5": "lebt in München",
+                            "label_6": "Aussehen",
+                            "label_7": "97 Follower",
+                            "label_8": "folgt 189 Personen",
+                            "label_9": "12. Klasse",
+                            "label_10": "Franz von Miller Gymnasium in München",
+                            "label_11": "lernt viel",
+                            "label_12": "Stress",
+                            "label_13": "Musik",
+                            "label_14": "Billie Eilish",
+                            "label_15": "Konzert",
+                            "label_16": "Dortmund",
+                            "label_17": "Everything I wanted",
+                            "label_18": "Emotional",
+                            "label_19": "Sentimental",
+                            "label_20": "Familie",
+                            "label_21": "Schwester Lea",
+                            "label_22": "Hund",
+                            "label_23": "Familienmensch",
+                            "label_24": "Ferienjob",
+                            "label_25": "Nike AIR JORDAN 1",
+                            "label_26": "Sneaker",
+                            "label_27": "Schließen",
+                            "robot_text": "Wow! Das waren jetzt aber viele neue Punkte! Zoome mit dem Mausrad  in die Mind-Map, um mehr Details zu sehen.",
+                            "close": "Schließen"
+                        }
+                    }
+                },
+                "1": {
+                    "part": {
+                        "0": {
+                            "text_1": "Du hast schon mal gute Arbeit geleistet! Wir kennen uns nun schon gut mit Marie aus.",
+                            "text_2": "Wir können aber noch viel mehr erfahren!",
+                            "text_3": "Hast du dir angesehen, wer Maries posts geliket hat?",
+                            "text_4": "Oder welchen Profilen Marie alles folgt?",
+                            "text_5": "Ich habe dir ein paar mehr Daten aus Maries Interaktionen geschickt.",
+                            "text_6": "Schauen wir doch gleich etwas genauer rein!"
+                        },
+                        "1": {
+                            "caption_1": "Die neusten Nike WMNS AIR JORDAN 1 MID 365 in lila, weiß, schwarz sind verfügbar. Ich könnte auf Wunsch welche in unserem Store zurücklegen.",
+                            "caption_2": "Schon wieder eine Gruppenarbeit",
+                            "caption_3": "Wir, wenn der Matheunterricht entfällt. @Michael, @Sarah, @Lena, @Lukas, @Livia",
+                            "caption_4": "Auch, wenn wir uns immer wieder mal streiten habe ich dich ganz doll lieb, Lea. Ich bin stolz deine große Schwester sein zu dürfen.",
+                            "caption_5": "Schreibe gleich eine Mathe Klausur, wünscht mir Glück!",
+                            "caption_6": "Mein neuer Ferienjob im Schuhstore. Kommt vorbei!",
+                            "caption_7": "NEUES FAMILIENMITGLIED!!",
+                            "caption_8": "Ohne meinem Kaffee kann ich nicht lernen.",
+                            "caption_9": "Bester Tag in meinem Leben #BilliEilish #Konzert2023 #Dortmund",
+                            "caption_10": "Omg, ihr neues Album ist draußen! Ich feier das Lied “Everything I wanted“",
+                            "caption_11": "Ich hoffe das viele Lernen lohnt sich...",
+                            "caption_12": "Lieblingscafe Tante Emma",
+                            "caption_13": "Auf dem Weg zur Schule Billie Eilish zu hören ist Therapie.",
+                            "caption_14": "Meinung zu meinen neuen Schuhen?",
+                            "history": {
+                                "caption_1": "Baliurlaub",
+                                "time_1": "65 Sekunden",
+                                "date_1": "gerade eben",
+                                "tags_1": "Urlaub, Reisen, See",
+                                "caption_2": "Nachrichtenbeitrag - Ukraine",
+                                "date_2": "gestern",
+                                "time_2": "4 Sekunden",
+                                "tags_2": "Nachrichten, Ukraine, Bürgergeld, Sozialstaat",
+                                "caption_3": "Geschirr - Deko",
+                                "tags_3": "Deko, Haushalt, Einrichtung",
+                                "caption_4": "Deutschrap Brandneu - Playlist",
+                                "time_4": "1 Sekunde",
+                                "tags_4": "Musik, Deutschrap, Rap",
+                                "caption_5": "Meme",
+                                "comment_5": "Kommentiert mit \"@Lukas, du \uD83D\uDE02\"",
+                                "date_5": "vor vier Tagen",
+                                "tags_5": "Spongebob, Meme",
+                                "caption_6": "Neue Jacke - Jetzt bestellen",
+                                "date_6": "gestern",
+                                "send_6": "an Lisa gesendet",
+                                "tags_6": "Jacke, Mode, Klamotten",
+                                "caption_7": "Schule - Kritik",
+                                "tags_7": "Schule, Fächer, Politik",
+                                "caption_8": "Technische Universität München",
+                                "tags_8": "Universität, Technik",
+                                "caption_9": "Gebäck",
+                                "time_9": "63 Sekunden",
+                                "tags_9": "Backen, Süßigkeiten, Handwerk",
+                                "caption_10": "Fußball EM 2024",
+                                "tags_10": "Fußball, EM, Österreich, Frankreich",
+                                "caption_11": "Supermärkte",
+                                "tags_11": "Markt, Einkaufen, Lebensmittel, Gründung, Lokal",
+                                "time_11": "2 Sekunden",
+                                "caption_12": "Vögel - Tiere",
+                                "tags_12": "Tiere, Vögel, Niedlich",
+                                "date_12": "vor 1 Stunde",
+                                "caption_13": "Buchvorstellung",
+                                "tags_13": "Literatur, Bücher, Kinder"
+                            },
+                            "robot_text": "Hier siehst du wieder Maries Profil. Zusätzlich habe ich dir Maries zuletzt gesehene Posts hinzugefüht. Klicke dafür auf den \"Verlauf\"-Tab. Wieder die gleiche Aufgabe: Sammle mindestens 15 Aspekte, die Maries Profil beschreiben.",
+                            "task": "Untersuche Maries Profil und Verlauf und finde 15 Eigenschaften und Aspekte, die Marie interessant finden könnte. Beziehe dich v.a. auf den Verlauf.",
+                            "hint": "Was kannst du aus dem Postverlauf lesen? Mit wem interagiert Marie? Welche Verbindungen gibt es zu anderen Profilen? Versuche einen Schritt weiter zu denken und verbindungen herzustellen.",
+                            "profil_tab": "Profil",
+                            "history_tab": "Verlauf",
+                            "history_description": "Diese Posts wurden Marie zuletzt angezeigt."
+                        },
+                        "2": {
+                            "title": "Was konnten wir aus dem Profil herauslesen?",
+                            "likedPostHeading": "Beitrag geliket",
+                            "likedPostDescription": "Dadurch, dass Marie ein Meme geliked hat konnte der Algorithmus hier Daten über ihre Präferenzen sammeln.",
+                            "likeAlt": "Like",
+                            "savedContentHeading": "Gespeicherte Inhalte",
+                            "savedContentDescription": "Durch die Speicherung von Rezepten, konnte über Marie diese Information gesammelt und gespeichert werden. Dadurch passt der Algorithmus weitere Inhalte auf dieses potentielle Hobby an.",
+                            "saveAlt": "Save",
+                            "userInteractionHeading": "Nutzerinteraktion",
+                            "userInteractionDescription": "Durch die Zeit, die Marie jeweils auf bestimmten Posts verbracht hat, kann festgestellt werden, welche Inhalte Marie besonders gut gefallen und welche gar nicht. Man geht davon aus, dass lange Interaktionszeiten tendenziell auf ein höheres Interesse schließen.",
+                            "screenTimeAlt": "Screen Time",
+                            "sentPostsHeading": "Gesendete Posts",
+                            "sentPostsDescription": "Marie hat an ihre Freundin Lisa eine Jacke gesendet, die sie toll findet. Dadurch können weitere ihrer Präferenzen in Bezug auf Kleidung gespeichert werden und passendere Inhalte auf Sie zugeschnitten werden.",
+                            "sendAlt": "Send",
+                            "friendsOfFriendsHeading": "Freunde von Freunden",
+                            "friendsOfFriendsDescription": "Durch das Netzwerk von Lisa auf Social Media, können weitere Informationen über sie und ihre Präferenzen gesammelt werden. Wenn wir wissen, dass Marie und Lisa befreundet sind, können wir davon ausgehen, dass sie ähnliche Interessen haben. Findet nun Lisa einen bestimmten Künstler interessant, könnte es Marie vielleicht genau so gefallen.",
+                            "referenceAlt1": "Reference 1",
+                            "referenceAlt2": "Reference 2",
+                            "similarProfilesHeading": "Ähnliche Profile",
+                            "similarProfilesDescription": "Diese Beziehung können wir auch mit fremden Konten herstellen. Gibt es Profile, die ähnliche Interessen wie Marie haben, können Marie nun neue Inhalte vorgeschlagen werden. Marie hat zwar noch nicht von \"Olivia Rodrigo\" gehört, aber Profile mit ähnlichen Interessen kennen sie. Marie könnte der neue Künstler dann auch gefallen.",
+                            "similarAccountsAlt": "Similar Accounts",
+                            "nextButtonText": "Weiter"
+                        }
+                        ,
+                        "3": {
+                            "text_1": "Aus unserer vorherigen Analyse haben wir durch die Dinge, die Marie aktiv veröffentlicht hat, viel über sie gelernt",
+                            "text_2": "Über Daten, die Marie unbewusst generiert hat, haben wir nun neue Verbindungen herstellen können.",
+                            "text_3": "Wir haben außerdem neue Beziehungen durch Freunde und Follower.",
+                            "text_4": "Nehmen wir als Beispiel Lukas.",
+                            "text_5": "Lukas hat sein eigenes Universum an Daten um sich herum",
+                            "text_6": "Wenn wir nun Verbindung zwischen Marie und Lukas herstellen, ...",
+                            "text_7": "Können wir von Marie aus auf ganz neue Themen kommen.",
+                            "text_8": "Über diese Beziehungen können wir nun ganz neue Themen vorschlagen, die Marie gefallen könnten."
+                        }
+                    }
+                }
+            }
+        },
+        "analyse": {
+            "level": {
+                "0": {
+                    "part": {
+                        "0": {
+                            "pageTitle": "4-You Page erstellen",
+                            "introParagraph1": "Kennst du das manchmal auch, dass du nur kurz Instagram oder Tiktok öffnen willst und du aber plötzlich einige Minuten, manchmal sogar Stunden durch die Posts scrollst? Wie kann das jedoch sein?",
+                            "introParagraph2": "Instagram analysiert deine Daten und speichert sie. Das haben wir bereits erledigt. Anhand dieser Daten schlägt dir die App einen Feed vor, der auf deine Interessen zugeschnitten ist. Somit gefallen dir die vorgeschlagenen Posts wahrscheinlich und du klickst dich unbewusst lange durch die App durch.",
+                            "introParagraph3": "Um das Prinzip besser nachvollziehen zu können, wollen wir gemeinsam einen Feed aufbauen, der Maries Aufmerksamkeit anziehen könnte.",
+                            "taskDescription": "Auf der linken Seite wirst du einige unterschiedliche Fotos finden. Suche dir diejenigen Fotos aus, die Marie am meisten ansprechen könnten.",
+                            "startButtonText": "Los gehts!"
+                        },
+                        "1": {
+                            "alertDone": "Du hast alle passenden Posts gefunden!",
+                            "alertMissing": "Es fehlen noch einige Posts. Du hast {correct} von {total} richtigen Posts gefunden.",
+                            "task": "Wähle aus den verfügbaren Posts diejenigen aus, die Marie am  meisten gefallen könnten.",
+                            "collectedData": "Gesammelte Daten",
+                            "check": "Erfolg prüfen",
+                            "next": "Weiter"
+                        }
+                    }
+                },
+                "1": {
+                    "part": {
+                        "0": {
+                            "adSelectionTitle": "Werbung auswählen",
+                            "adSelectionIntro": "Unsere Daten werden im Internet gesammelt, um unter anderem damit passende Werbungen anzuzeigen. Welche Werbungen würdest du bei Marie freischalten?",
+                            "adSelectionTask": "Wähle aus den folgenden Werbeanzeigen diejenigen aus, die Marie am interessantesten finden könnte. Nutze auch die gesammelten Daten, die dir auf der nächsten Seite mitgegeben werden.",
+                            "startButtonText": "Los gehts!"
+                        },
+                        "1": {
+                            "alertSuccess": "Super! Du hast alle Anzeigen gefunden, die bei Marie besonders gut ankommen können.",
+                            "alertErrorTooMany": "Du hast Anzeigen ausgewählt, die bei Marie vermutlich nicht gut ankommen.",
+                            "alertErrorTooFew": "Es fehlen noch einige Anzeigen, die Marie gefallen könnten.",
+                            "task": "Wähle alle Werbeanzeigen aus, die Marie gefallen könnten.",
+                            "check": "Erfolg prüfen",
+                            "collectedData": "Gesammelte Daten",
+                            "next": "Weiter",
+                            "allAds": "Alle Werbeanzeigen",
+                            "successfulAds": "Erfolgreiche Werbeanzeigen",
+                            "ads": {
+                                "0": {
+                                    "text": "Cafe GLONDJAD",
+                                    "attributes": "Kaffee, Bar, Musik, Chillen, Treffen, Stadt"
+                                },
+                                "1": {
+                                    "text": "MayStreem - Kostenlos Musik und Podcasts streamen!",
+                                    "attributes": "Musik, Streaming, Abo, App, Handy, Artists"
+                                },
+                                "2": {
+                                    "text": "Web Programmierkurs - Jetzt starten!",
+                                    "attributes": "Programmieren, Computer, Technik, Javascript, Web"
+                                },
+                                "3": {
+                                    "text": "JBL New Sound X2",
+                                    "attributes": "Musik, Headphones, Black, HiFi, Sound"
+                                },
+                                "4": {
+                                    "text": "Neueröffnung Schuhstore Hype",
+                                    "attributes": "Sneaker, Schuhe, Shoppen, Bunt, Hype, Stadt"
+                                },
+                                "5": {
+                                    "text": "Hundezubehör GmbH",
+                                    "attributes": "Essen, Hunde, Spielzeug, Tier, Wasserschale"
+                                },
+                                "6": {
+                                    "text": "VVW - Volleyball Verein Wolfsburg",
+                                    "attributes": "Volleyball, Sport, Verein, Team, Sommer"
+                                },
+                                "7": {
+                                    "text": "Aktienboom! Investiere in diese Unternehmen.",
+                                    "attributes": "Aktien, Investment, Geld, Stocks, DAX"
+                                },
+                                "8": {
+                                    "text":  "Autocar - Ausbildung zum Mechatroniker",
+                                    "attributes": "Ausbildung, Schule, Autos, BMW, Porsche"
+                                },
+                                "9": {
+                                    "text": "Kinderwagen Babyroller 20 - Jetzt 50% Rabatt",
+                                    "attributes": "Baby, Kindersitten, Kinderwagen"
+                                },
+                                "10": {
+                                    "text": "Entdecke die Technische Universität Bichelheim!",
+                                    "attributes": "Studieren, Universität, Mathe, Technik, Studium, Schule"
+                                },
+                                "11": {
+                                    "text": "RäpX364 - Neue Single",
+                                    "attributes": "Musik, Rap, RnB"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "tagListTitle": "Gesammelte Daten"
+        },
+        "recap": {
+            "robot": {
+                "text_1": "Wir haben heute einiges gemacht!",
+                "text_2": "Ich habe dir mal 3 Key Takeaways aufgeschrieben.",
+                "text_3":  "Versuche doch mal bewusst beim Scrollen durch deine Apps zu beachten, wo du gerade unbewusst Daten generierst!"
+            },
+            "text_1": "Informationen über einen Nutzer können über Text- und Bilddaten  gesammelt werden.",
+            "text_2": "Durch das Interagieren mit Social Media Apps (Liken, Scrollen,  Teilen, ...) generiert man unbewusst wertvolle Daten, die viele  Informationen über einen Preis geben können.",
+            "text_3": "Social Media Portale nutzen diese komplexen Daten, um dir für dich  zugeschnittene Inhalte zu präsentieren. Wie diese Auswahl erstellt  wird, ist oft geheim und sehr komplex.",
+            "next": "Weiter"
+        },
+        "tags": {
+            "level0": {
+                "marie": "Marie",
+                "woman": "Frau",
+                "girl": "Mädchen",
+                "female": "Weiblich",
+                "munich": "München",
+                "muc": "MUC",
+                "17": "17",
+                "17_years": "17 Jahre",
+                "seventeen": "siebzehn",
+                "dog": "Hund",
+                "sister_lea": "Schwester Lea",
+                "lea": "Lea",
+                "student_male": "Schüler",
+                "student_female": "Schülerin",
+                "school": "Schule",
+                "12th_grade": "12.Klasse",
+                "group_work": "Gruppenarbeit",
+                "billie_eilish": "Billie Eilish",
+                "fan": "Fan",
+                "music": "Musik",
+                "concert": "Konzert",
+                "dortmund": "Dortmund",
+                "vacation_job": "Ferienjob",
+                "sneakers": "Sneaker",
+                "shoes": "Schuhe",
+                "coffee": "Kaffee",
+                "friends": "Freunde",
+                "michael": "Michael",
+                "sarah": "Sarah",
+                "lena": "Lena",
+                "lukas": "Lukas",
+                "livia": "Livia",
+                "favorite_cafe": "Lieblingscafé",
+                "aunt_emma": "Tante Emma",
+                "sister": "Schwester"
+            },
+            "level1": {
+                "vacation": "Urlaub",
+                "vacation_pictures": "Urlaubsbilder",
+                "bali": "Bali",
+                "travel": "Reisen",
+                "lake": "See",
+                "decor": "Deko",
+                "household": "Haushalt",
+                "interior_design": "Einrichtung",
+                "spongebob": "Spongebob",
+                "meme": "Meme",
+                "school": "Schule",
+                "subjects": "Fächer",
+                "school_subjects": "Schulfächer",
+                "university": "Universität",
+                "technology": "Technik",
+                "baking": "Backen",
+                "sweets": "Süßigkeiten",
+                "crafts": "Handwerk",
+                "animals": "Tiere",
+                "birds": "Vögel",
+                "cute": "Niedlich",
+                "holidays": "Ferien",
+                "adventure": "Abenteuer",
+                "beach": "Strand",
+                "decoration": "Dekoration",
+                "household_tips": "Haushaltstipps",
+                "furniture": "Möbel",
+                "spongebob_squarepants": "SpongeBob Schwammkopf",
+                "joke": "Witz",
+                "teaching": "Unterricht",
+                "topics": "Themen",
+                "government": "Regierung",
+                "teaching_subjects": "Unterrichtsfächer",
+                "college": "Hochschule",
+                "technology2": "Technologie",
+                "cake": "Kuchen",
+                "candies": "Bonbons",
+                "do_it_yourself": "DIY",
+                "pets": "Haustiere",
+                "parrots": "Papageien",
+                "kawaii": "Kawaii",
+                "relaxation": "Erholung",
+                "tourism": "Tourismus",
+                "lake_shore": "Seeufer",
+                "home_accessories": "Wohnaccessoires",
+                "kitchen_helpers": "Küchenhelfer",
+                "home_design": "Wohnraumgestaltung",
+                "cartoon": "Cartoon",
+                "gif": "GIF",
+                "education": "Bildungswesen",
+                "study_subjects": "Studienfächer",
+                "choice": "Wahl",
+                "education2": "Bildung",
+                "uni": "Uni",
+                "tum": "TUM",
+                "studying": "Studieren",
+                "technical_university_munich": "Technische Universität München",
+                "innovation": "Innovation",
+                "cookies": "Plätzchen",
+                "treats": "Nascherei",
+                "wildlife": "Wildtiere",
+                "songbirds": "Singvögel",
+                "sweet": "Süß",
+                "leisure": "Freizeit",
+                "excursion": "Exkursion",
+                "waters": "Gewässer",
+                "crafting": "Basteln",
+                "everyday_helpers": "Alltagshelfer",
+                "decor2": "Dekor",
+                "animated_series": "Zeichentrick",
+                "prank": "Scherz",
+                "school_education": "Schulbildung",
+                "study_fields": "Studienrichtungen",
+                "courses": "Kurse",
+                "campus": "Campus",
+                "invention": "Erfindung",
+                "pastries": "Gebäck",
+                "delicacies": "Leckereien",
+                "handicrafts": "Handarbeit",
+                "fauna": "Fauna",
+                "ornithology": "Ornithologie",
+                "adorable": "Herzallerliebst",
+                "vacation_spot": "Urlaubsort",
+                "long_distance_travel": "Fernreisen",
+                "swimming_lake": "Badesee",
+                "room_design": "Raumgestaltung",
+                "cleaning_products": "Putzmittel",
+                "home_ideas": "Wohnideen",
+                "nickelodeon": "Nickelodeon",
+                "internet_phenomenon": "Internetphänomen",
+                "curriculum": "Lehrplan",
+                "specializations": "Spezialgebiete",
+                "election_campaign": "Wahlkampf",
+                "areas_of_knowledge": "Wissensgebiete",
+                "academy": "Akademie",
+                "gadgets": "Gadgets",
+                "pastry_shop": "Konditorei",
+                "confectionery": "Süßwaren",
+                "craft_work": "Bastelarbeit",
+                "animal_protection": "Tierschutz",
+                "bird_food": "Vogelfutter",
+                "cuteness": "Niedlichkeit",
+                "outing": "Ausflug",
+                "travel_destinations": "Reiseziele",
+                "beachfront": "Badestrand",
+                "interior": "Interieur",
+                "household_goods": "Haushaltswaren",
+                "apartment_furnishing": "Wohnungseinrichtung",
+                "comic_character": "Comicfigur",
+                "online_meme": "Online-Meme",
+                "governments": "Regierungen",
+                "teaching_subjects2": "Unterrichtsfächer",
+                "applied_sciences": "Fachhochschule",
+                "it": "IT",
+                "confectionery_craft": "Konditorenhandwerk",
+                "sugar_confectionery": "Zuckerwaren",
+                "diy_projects": "Heimwerkerprojekte",
+                "zoo_animals": "Zootiere",
+                "bird_species": "Vögelarten",
+                "baby_animals": "Babytiere",
+                "jacket": "Jacke",
+                "fashion": "Mode",
+                "clothes": "Klamotten",
+                "lisa": "Lisa",
+                "lukas": "Lukas",
+                "tanja": "Tanja"
+            }
+        },
+        "next": "Weiter",
+        "profile_analysis": {
+            "alertAlreadyFound": "Du hast diesen Begriff bereits gefunden. Finde eine andere Eigenschaft!",
+            "alertWrong": "Dieser Begriff scheint nicht zu passen. Versuche einen ähnliche oder ganz anderen Begriff.",
+            "foundTerms": "Gefundene Eigenschaften:",
+            "hintInput": "Eigenschaft / Aspekt",
+            "hintCardText": "Welche Infos soll ich suchen?",
+            "hintCardButton": "Tipp zeigen",
+            "messageSuccess": "Klasse! Du hast alle Begriffe gefunden!",
+            "next": "Weiter",
+            "start": "Los gehts",
+            "check": "Überprüfen"
+        },
+        "recommendation_quiz": {
+            "robot": {
+                "text_0": "Ich habe hier ein paar Werbeanzeigen für dich. Welche würde bei Marie am besten ankommen?",
+                "text_1": "Alles klar! Ich schicke ihr gleich deinen Vorschlag und melde dir, ob er bei Marie gut angekommen ist."
+            },
+            "success": "Super! Marie hat sofort auf die Anzeige gedrückt, als sie bei ihr aufgeploppt ist!",
+            "error": "Schlechte Nachrichten, Marie hat einfach weitergedrückt. Die Anzeige ist nicht gut angekommen.",
+            "your_notes": "Deine Notizen",
+            "next": "Weiter"
+        },
+        "robot_introduction": {
+            "next": "Weiter"
+        }
     }
 }

@@ -2,7 +2,7 @@
 
 import RecommendationQuiz from "@/app/(safespace)/space/daten-verarbeitung/kapitel2/components/recommendation-quiz";
 import Image from "next/image";
-import { useState } from "react";
+import {useMemo, useState} from "react";
 import Task from "@/components/task";
 import Button from "@/components/button";
 import clsx from "clsx";
@@ -13,6 +13,7 @@ import { PersistUserService } from "@/services/user/PersistUserService";
 import { AchievementId } from "@/util/achievement-data";
 import { CheckCircle, Info } from "@phosphor-icons/react";
 import TagList from "@/app/(safespace)/space/daten-verarbeitung/kapitel2/analyse/components/tag-list";
+import {useTranslations} from "next-intl";
 
 type Item = {
   img: string;
@@ -21,87 +22,85 @@ type Item = {
   isSuccessful?: boolean;
 };
 
-const items: Item[] = [
-  {
-    img: "/datenverarbeitung/analyse/level1/correct_advertisement4.jpg",
-    text: "Cafe GLONDJAD",
-    attributes: ["Kaffee", "Bar", "Musik", "Chillen", "Treffen", "Stadt"],
-    isSuccessful: true,
-  },
-  {
-    img: "/datenverarbeitung/analyse/level1/correct_advertisement6.jpg",
-    text: "MayStreem - Kostenlos Musik und Podcasts streamen!",
-    attributes: ["Musik", "Streaming", "Abo", "App", "Handy", "Artists"],
-    isSuccessful: true,
-  },
-  {
-    img: "/datenverarbeitung/analyse/level1/incorrect_advertisement4.jpg",
-    text: "Web Programmierkurs - Jetzt starten!",
-    attributes: ["Programmieren", "Computer", "Technik", "Javascript", "Web"],
-    isSuccessful: false,
-  },
-  {
-    img: "/datenverarbeitung/analyse/level1/correct_advertisement5.jpg",
-    text: "JLB New Sound X2",
-    attributes: ["Musik", "Headphones", "Black", "HiFi", "Sound"],
-    isSuccessful: true,
-  },
-  {
-    img: "/datenverarbeitung/analyse/level1/correct_advertisement3.jpg",
-    text: "Neueröffnung Schuhstore Hype",
-    attributes: ["Sneaker", "Schuhe", "Shoppen", "Bunt", "Hype", "Stadt"],
-    isSuccessful: true,
-  },
-  {
-    img: "/datenverarbeitung/analyse/level1/correct_advertisement1.jpg",
-    text: "Hundezubehör GmbH",
-    attributes: ["Essen", "Hunde", "Spielzeug", "Tier", "Wasserschale"],
-    isSuccessful: true,
-  },
-  {
-    img: "/datenverarbeitung/analyse/level1/incorrect_advertisement2.jpg",
-    text: "VVW - Volleyball Verein Wolfsburg",
-    attributes: ["Volleyball", "Sport", "Verein", "Team", "Sommer"],
-    isSuccessful: false,
-  },
-  {
-    img: "/datenverarbeitung/analyse/level1/incorrect_advertisement5.jpg",
-    text: "Aktienboom! Investiere in diese Unternehmen.",
-    attributes: ["Aktien", "Investment", "Geld", "Stocks", "DAX"],
-    isSuccessful: false,
-  },
-  {
-    img: "/datenverarbeitung/analyse/level1/incorrect_advertisement6.jpg",
-    text: "Autocar - Ausbildung zum Mechatroniker",
-    attributes: ["Ausbildung", "Schule", "Autos", "BMW", "Porsche"],
-    isSuccessful: false,
-  },
-  {
-    img: "/datenverarbeitung/analyse/level1/incorrect_advertisement1.jpg",
-    text: "Kinderwagen Babyroller 20 - Jetzt 50% Rabatt",
-    attributes: ["Baby", "Kindersitten", "Kinderwagen"],
-    isSuccessful: false,
-  },
-  {
-    img: "/datenverarbeitung/analyse/level1/correct_advertisement2.jpg",
-    text: "Entdecke die Technische Universität Bichelheim!",
-    attributes: [
-      "Studieren",
-      "Universität",
-      "Mathe",
-      "Technik",
-      "Studium",
-      "Schule",
-    ],
-    isSuccessful: true,
-  },
-  {
-    img: "/datenverarbeitung/analyse/level1/incorrect_advertisement3.jpg",
-    text: "RäpX364 - Neue Single",
-    attributes: ["Musik", "Rap", "RnB"],
-    isSuccessful: false,
-  },
-];
+function useItems(): Item[]  {
+  const t = useTranslations("datenverarbeitung.analyse.level.1.part.1.ads")
+  return useMemo(() => {
+    return [
+      {
+        img: "/datenverarbeitung/analyse/level1/correct_advertisement4.jpg",
+        text: t("0.text"),
+        attributes: t("0.attributes").split(", "),
+        isSuccessful: true,
+      },
+      {
+        img: "/datenverarbeitung/analyse/level1/correct_advertisement6.jpg",
+        text: t("1.text"),
+        attributes: t("1.attributes").split(", "),
+        isSuccessful: true,
+      },
+      {
+        img: "/datenverarbeitung/analyse/level1/incorrect_advertisement4.jpg",
+        text: t("2.text"),
+        attributes: t("2.attributes").split(", "),
+        isSuccessful: false,
+      },
+      {
+        img: "/datenverarbeitung/analyse/level1/correct_advertisement5.jpg",
+        text: t("3.text"),
+        attributes: t("3.attributes").split(", "),
+        isSuccessful: true,
+      },
+      {
+        img: "/datenverarbeitung/analyse/level1/correct_advertisement3.jpg",
+        text: t("4.text"),
+        attributes: t("4.attributes").split(", "),
+        isSuccessful: true,
+      },
+      {
+        img: "/datenverarbeitung/analyse/level1/correct_advertisement1.jpg",
+        text: t("5.text"),
+        attributes: t("5.attributes").split(", "),
+        isSuccessful: true,
+      },
+      {
+        img: "/datenverarbeitung/analyse/level1/incorrect_advertisement2.jpg",
+        text: t("6.text"),
+        attributes: t("6.attributes").split(", "),
+        isSuccessful: false,
+      },
+      {
+        img: "/datenverarbeitung/analyse/level1/incorrect_advertisement5.jpg",
+        text: t("7.text"),
+        attributes: t("7.attributes").split(", "),
+        isSuccessful: false,
+      },
+      {
+        img: "/datenverarbeitung/analyse/level1/incorrect_advertisement6.jpg",
+        text: t("8.text"),
+        attributes: t("8.attributes").split(", "),
+        isSuccessful: false,
+      },
+      {
+        img: "/datenverarbeitung/analyse/level1/incorrect_advertisement1.jpg",
+        text: t("9.text"),
+        attributes: t("9.attributes").split(", "),
+        isSuccessful: false,
+      },
+      {
+        img: "/datenverarbeitung/analyse/level1/correct_advertisement2.jpg",
+        text: t("10.text"),
+        attributes: t("10.attributes").split(", "),
+        isSuccessful: true,
+      },
+      {
+        img: "/datenverarbeitung/analyse/level1/incorrect_advertisement3.jpg",
+        text: t("11.text"),
+        attributes: t("11.attributes").split(", "),
+        isSuccessful: false,
+      },
+    ];
+  }, [t])
+}
 
 function Item({
   img,
@@ -164,6 +163,8 @@ export default function DataProcessingPart1() {
   const [showData, setShowData] = useState(false);
   const { addMessage } = useMessages();
   const router = useRouter();
+  const t = useTranslations("datenverarbeitung.analyse.level.1.part.1")
+  const items = useItems()
 
   function selectItem(item: Item) {
     if (success) return;
@@ -192,18 +193,18 @@ export default function DataProcessingPart1() {
     if (truePos == totalPos && falsePos == 0) {
       setSuccess(true);
       addMessage(
-        "Super! Du hast alle Anzeigen gefunden, die bei Marie besonders gut ankommen können.",
+        t("alertSuccess"),
         "success",
       );
     } else {
       if (falsePos > 0) {
         addMessage(
-          "Du hast Anzeigen ausgewählt, die bei Marie vermutlich nicht gut ankommen.",
+          t("alertErrorTooMany"),
           "error",
         );
       } else {
         addMessage(
-          "Es fehlen noch einige Anzeigen, die Marie gefallen könnten.",
+          t("alertErrorTooFew"),
           "error",
         );
       }
@@ -215,17 +216,17 @@ export default function DataProcessingPart1() {
       <TagList show={showData} onClose={() => setShowData(false)} />
       {!success && (
         <div className="flex items-center gap-4 w-full">
-          <Task>Wähle alle Werbeanzeigen aus, die Marie gefallen könnten.</Task>
+          <Task>{t("task")}</Task>
           <Button style="secondary" onClick={() => setShowData(true)}>
-            <Info weight="fill" className="mr-4" /> Gesammelte Daten
+            <Info weight="fill" className="mr-4" /> {t("collectedData")}
           </Button>
-          <Button onClick={checkSuccess}>Erfolg prüfen</Button>
+          <Button onClick={checkSuccess}>{t("check")}</Button>
         </div>
       )}
 
       {success && (
         <Button className="my-6" onClick={next}>
-          Weiter
+          {t("next")}
         </Button>
       )}
 
@@ -233,7 +234,7 @@ export default function DataProcessingPart1() {
         {!success && (
           <div className="w-full flex flex-col gap-8 items-center">
             <span className="text-2xl font-semibold mb-8 inline-block">
-              Alle Werbeanzeigen
+              {t("allAds")}
             </span>
             <div className="grid grid-cols-1 auto-rows-min 2xl:grid-cols-2 w-full gap-4 max-w-[800px]">
               {items
@@ -251,7 +252,7 @@ export default function DataProcessingPart1() {
 
         <div className="w-full flex flex-col gap-8 items-center">
           <span className="text-2xl font-semibold inline-flex items-center gap-4">
-            <CheckCircle weight="fill" /> Erfolgreiche Werbeanzeigen (
+            <CheckCircle weight="fill" /> {t("successfulAds")} (
             {selected.length})
           </span>
           <div className="grid grid-cols-1 auto-rows-min 2xl:grid-cols-2 w-full gap-4 max-w-[800px]">

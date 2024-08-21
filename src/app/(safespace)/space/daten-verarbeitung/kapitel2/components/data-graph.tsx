@@ -7,6 +7,7 @@ import { circular } from "graphology-layout";
 import ForceSupervisor from "graphology-layout-force/worker";
 import AnimatedText from "@/components/animated/animated-text";
 import Button from "@/components/button";
+import {useTranslations} from "next-intl";
 
 export type Node = {
   name: string;
@@ -43,6 +44,7 @@ export default function DataGraph({
   const sigmaContainer = useRef(null);
   const [state, setState] = useState(0);
   const router = useRouter();
+  const t = useTranslations("datenverarbeitung")
 
   const graph = useMemo(() => {
     const g = new Graph();
@@ -124,7 +126,7 @@ export default function DataGraph({
       <div className="h-full w-full" ref={sigmaContainer}></div>
 
       <Button className="mt-4" onClick={onClick}>
-        Weiter
+        {t("next")}
       </Button>
     </div>
   );

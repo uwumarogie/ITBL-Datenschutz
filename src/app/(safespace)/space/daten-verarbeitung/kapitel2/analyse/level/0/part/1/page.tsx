@@ -21,6 +21,7 @@ import { useMessages } from "@/services/notfication/message-provider";
 import Link from "next/link";
 import { CollectData } from "@/app/(safespace)/space/daten-verarbeitung/data/collect";
 import TagList from "@/app/(safespace)/space/daten-verarbeitung/kapitel2/analyse/components/tag-list";
+import {useTranslations} from "next-intl";
 
 type FeedPost = string;
 const posts = [
@@ -65,6 +66,7 @@ export default function DataProcessingPart1() {
   const [done, setDone] = useState(false);
   const [showData, setShowData] = useState(false);
   const { addMessage } = useMessages();
+  const t = useTranslations("datenverarbeitung.analyse.level.0.part.1")
 
   function onSelect(post: string) {
     if (selectedPosts.includes(post)) {
@@ -80,16 +82,10 @@ export default function DataProcessingPart1() {
       correctPosts.includes(p),
     ).length;
     if (correct == correctPosts.length) {
-      addMessage("Du hast alle passenden Posts gefunden!", "success");
+      addMessage(t("alertDone"), "success");
       setDone(true);
     } else {
-      addMessage(
-        "Es fehlen noch einige Posts. Du hast " +
-          correct +
-          " von " +
-          correctPosts.length +
-          " richtigen Posts gefunden.",
-      );
+      addMessage( t("alertMissing", {correct, total: correctPosts.length}));
     }
   }
 
@@ -101,15 +97,14 @@ export default function DataProcessingPart1() {
         {!done && (
           <div>
             <Task>
-              Wähle aus den verfügbaren Posts diejenigen aus, die Marie am
-              meisten gefallen könnten.
+              {t("task")}
             </Task>
             <Button
               style="secondary"
               className="mt-4"
               onClick={() => setShowData(!showData)}
             >
-              <Info weight="fill" className="mr-4" /> Gesammelte Daten
+              <Info weight="fill" className="mr-4" /> {t("collectedData")}
             </Button>
           </div>
         )}
@@ -169,12 +164,12 @@ export default function DataProcessingPart1() {
         </div>
         {!done && (
           <Button onClick={check} className="flex-shrink-0">
-            Erfolg prüfen
+            {t("check")}
           </Button>
         )}
         {done && (
           <Link href="/space/daten-verarbeitung/kapitel2/analyse/level/1/part/0">
-            <Button onClick={() => {}}>Weiter</Button>
+            <Button onClick={() => {}}>{t("next")}</Button>
           </Link>
         )}
       </div>

@@ -10,6 +10,7 @@ import { useRouter } from "next/navigation";
 import { AchievementId } from "@/util/achievement-data";
 import { PersistUserService } from "@/services/user/PersistUserService";
 import { useMessages } from "@/services/notfication/message-provider";
+import {useTranslations} from "next-intl";
 
 export type State = {
   text?: string;
@@ -17,60 +18,65 @@ export type State = {
   style?: CSSProperties | undefined;
 };
 
-const states: State[] = [
-  {
-    text: "",
-    style: {
-      left: "calc(100% + 4rem)",
+function useStates(): State[] {
+  const t = useTranslations("datenverarbeitung.recap.robot")
+  return [
+    {
+      text: "",
+      style: {
+        left: "calc(100% + 4rem)",
+      },
     },
-  },
-  {
-    text: "Wir haben heute einiges gemacht!",
-    expression: "smiling",
-    style: {
-      top: "calc(50% - 4rem)",
-      left: "calc(50% - 4rem)",
+    {
+      text: t("text_1"),
+      expression: "smiling",
+      style: {
+        top: "calc(50% - 4rem)",
+        left: "calc(50% - 4rem)",
+      },
     },
-  },
-  {
-    text: "Ich habe dir mal 3 Key Takeaways aufgeschrieben.",
-    expression: "smiling",
-    style: {
-      top: "calc(40% - 4rem)",
-      left: "calc(50% - 4rem)",
+    {
+      text: t("text_2"),
+      expression: "smiling",
+      style: {
+        top: "calc(40% - 4rem)",
+        left: "calc(50% - 4rem)",
+      },
     },
-  },
-  {
-    style: {
-      top: "calc(16.6% - 4rem)",
-      left: "calc(25% - 4rem)",
+    {
+      style: {
+        top: "calc(16.6% - 4rem)",
+        left: "calc(25% - 4rem)",
+      },
     },
-  },
-  {
-    style: {
-      top: "calc(50% - 4rem)",
-      left: "calc(25% - 4rem)",
+    {
+      style: {
+        top: "calc(50% - 4rem)",
+        left: "calc(25% - 4rem)",
+      },
     },
-  },
-  {
-    style: {
-      top: "calc(83.3% - 4rem)",
-      left: "calc(25% - 4rem)",
+    {
+      style: {
+        top: "calc(83.3% - 4rem)",
+        left: "calc(25% - 4rem)",
+      },
     },
-  },
-  {
-    text: "Versuche doch mal bewusst beim Scrollen durch deine Apps zu beachten, wo du gerade unbewusst Daten generierst!",
-    style: {
-      top: "calc(30% - 4rem)",
-      left: "calc(25% - 4rem)",
+    {
+      text: t("text_3"),
+      style: {
+        top: "calc(30% - 4rem)",
+        left: "calc(25% - 4rem)",
+      },
     },
-  },
-];
+  ];
+}
 
 export default function DataProcessingRecap() {
   const [state, setState] = useState(0);
   const router = useRouter();
   const messageService = useMessages();
+  const states = useStates()
+  const t = useTranslations("datenverarbeitung.recap")
 
   useEffect(() => {
     setState(1);
@@ -123,8 +129,7 @@ export default function DataProcessingRecap() {
             <span className="bg-sky-800 text-white font-bold rounded-full w-6 h-6 inline-flex justify-center items-center mr-2">
               1
             </span>{" "}
-            Informationen über einen Nutzer können über Text- und Bilddaten
-            gesammelt werden.
+            {t("text_1")}
           </span>
           <span
             className={clsx(
@@ -135,9 +140,7 @@ export default function DataProcessingRecap() {
             <span className="bg-sky-800 text-white font-bold rounded-full w-6 h-6 inline-flex justify-center items-center mr-2">
               2
             </span>{" "}
-            Durch das Interagieren mit Social Media Apps (Liken, Scrollen,
-            Teilen, ...) generiert man unbewusst wertvolle Daten, die viele
-            Informationen über einen Preis geben können.
+            {t("text_2")}
           </span>
           <span
             className={clsx(
@@ -148,14 +151,12 @@ export default function DataProcessingRecap() {
             <span className="bg-sky-800 text-white font-bold rounded-full w-6 h-6 inline-flex justify-center items-center mr-2">
               3
             </span>{" "}
-            Social Media Portale nutzen diese komplexen Daten, um dir für dich
-            zugeschnittene Inhalte zu präsentieren. Wie diese Auswahl erstellt
-            wird, ist oft geheim und sehr komplex.
+            {t("text_3")}
           </span>
         </div>
       </div>
       <Button className="flex-shrink-0 mt-10" onClick={next}>
-        Weiter
+        {t("next")}
       </Button>
     </div>
   );

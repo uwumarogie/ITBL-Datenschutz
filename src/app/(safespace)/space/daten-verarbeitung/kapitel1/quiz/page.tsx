@@ -5,68 +5,72 @@ import QuizList from "@/components/Quiz/quiz-list";
 import { QuizParams } from "@/components/Quiz/quiz";
 import { PersistUserService } from "@/services/user/PersistUserService";
 import { AchievementId } from "@/util/achievement-data";
+import {useTranslations} from "next-intl";
 
-const quizzes: QuizParams[] = [
-  {
-    question: "Was bedeutet Cloud-Speicherung?",
-    answers: [
-      "Deine Daten werden nur lokal auf deinem Gerät gespeichert",
-      "Deine Daten werden in der Wolke aufbewahrt",
-      "Deine Daten werden auf Servern im Internet gespeichert ",
-      "Deine Daten werden auf einem USB-Stick gespeichert",
-    ],
-    correctAnswer: 2,
-    showCorrectAnswer: true,
-  },
-  {
-    question: "Warum werden deine Daten manchmal an Dritte weitergegeben?",
-    answers: [
-      "Um deine Daten zu löschen",
-      "Um dir personalisierte Werbung anzuzeigen",
-      "Um deine Passwörter zu ändern",
-      "Um dir kostenlose Produkte zu schicken",
-    ],
-    correctAnswer: 1,
-    showCorrectAnswer: true,
-  },
-  {
-    question:
-      "Welches Gesetz regelt den Schutz deiner persönlichen Daten in der EU?",
-    answers: [
-      "Allgemeine Datenschutzregelung (ADR)",
-      "Datenschutz-Grundverordnung (DSGVO)",
-      "Europäische Datenschutzrichtlinie (EDR)",
-      "Persönliche Datenschutzverordnung (PDV)",
-    ],
-    correctAnswer: 1,
-    showCorrectAnswer: true,
-  },
-  {
-    question: "Welche Maßnahme trägt nicht zur Sicherheit deiner Daten bei?",
-    answers: [
-      "Nutzung starker Passwörter",
-      "Regelmäßige Software-Updates",
-      "Teilen deiner Passwörter mit Freunden",
-      "Verschlüsselung sensibler Daten",
-    ],
-    correctAnswer: 2,
-    showCorrectAnswer: true,
-  },
-  {
-    question: "Was bedeutet ein verantwortungsvoller Umgang mit Daten?",
-    answers: [
-      "Alle Daten öffentlich teilen",
-      "Nur die Daten anderer schützen",
-      "Keine Daten online nutzen",
-      "Vorsichtig und bewusst mit den eigenen und den Daten anderer umgehen",
-    ],
-    correctAnswer: 3,
-    showCorrectAnswer: true,
-  },
-];
+function useQuizzes(): QuizParams[] {
+  const t = useTranslations("datenverarbeitung.introduction.quiz")
+  return [
+    {
+      question: t("question1"),
+      answers: [
+        t("question1answer1"),
+        t("question1answer2"),
+        t("question1answer3"),
+        t("question1answer4")
+      ],
+      correctAnswer: 2,
+      showCorrectAnswer: true,
+    },
+    {
+      question: t("question2"),
+      answers: [
+        t("question2answer1"),
+        t("question2answer2"),
+        t("question2answer3"),
+        t("question2answer4")
+      ],
+      correctAnswer: 1,
+      showCorrectAnswer: true,
+    },
+    {
+      question: t("question3"),
+      answers: [
+        t("question3answer1"),
+        t("question3answer2"),
+        t("question3answer3"),
+        t("question3answer4")
+      ],
+      correctAnswer: 1,
+      showCorrectAnswer: true,
+    },
+    {
+      question: t("question4"),
+      answers: [
+        t("question4answer1"),
+        t("question4answer2"),
+        t("question4answer3"),
+        t("question4answer4")
+      ],
+      correctAnswer: 2,
+      showCorrectAnswer: true,
+    },
+    {
+      question: t("question5"),
+      answers: [
+        t("question5answer1"),
+        t("question5answer2"),
+        t("question5answer3"),
+        t("question5answer4")
+      ],
+      correctAnswer: 3,
+      showCorrectAnswer: true,
+    },
+  ];
+}
 
 export default function DataProtectionChapter1Quiz() {
   const router = useRouter();
+  const quizzes = useQuizzes()
   return (
     <div className="flex h-full w-full items-center justify-center @container">
       <div className="w-full @4xl:w-1/2 mb-20">

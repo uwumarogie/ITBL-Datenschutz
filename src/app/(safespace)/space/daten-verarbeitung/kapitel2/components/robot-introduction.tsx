@@ -4,6 +4,7 @@ import Button from "@/components/button";
 import clsx from "clsx";
 import { CSSProperties, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import {useTranslations} from "next-intl";
 
 type RobotIntroductionProps = {
   states: State[];
@@ -17,12 +18,14 @@ export type State = {
   style?: CSSProperties | undefined;
 };
 
+// TODO: Localize
 export default function RobotIntroduction({
   states,
   href,
 }: RobotIntroductionProps) {
   const [state, setState] = useState(0);
   const router = useRouter();
+  const t = useTranslations("datenverarbeitung.robot_introduction")
 
   useEffect(() => {
     const id = setTimeout(() => {
@@ -62,7 +65,7 @@ export default function RobotIntroduction({
           )}
           onClick={onClick}
         >
-          Weiter
+          {t("next")}
         </Button>
       </div>
     </div>

@@ -8,6 +8,7 @@ import Robot, { RobotExpression } from "@/components/robot/robot";
 import AnimatedText from "@/components/animated/animated-text";
 import Button from "@/components/button";
 import Link from "next/link";
+import {useTranslations} from "next-intl";
 
 export type State = {
   expression: RobotExpression;
@@ -22,74 +23,83 @@ export type State = {
   style?: CSSProperties | undefined;
 };
 
-const states: State[] = [
-  {
-    expression: "smiling",
-    rotation: 0,
-    text: "",
-    style: {
-      marginLeft: "calc(100% + 400px)",
+function useStates(): State[] {
+  const t = useTranslations("datenverarbeitung.recommendation_quiz.robot")
+  return [
+    {
+      expression: "smiling",
+      rotation: 0,
+      text: "",
+      style: {
+        marginLeft: "calc(100% + 400px)",
+      },
     },
-  },
-  {
-    expression: "resting",
-    rotation: 0,
-    isRobotQuestion: true,
-    text: "Ich habe hier ein paar Werbeanzeigen für dich. Welche würde bei Marie am besten ankommen?",
-    style: {},
-    manualNext: true,
-    hideButton: true,
-  },
-  {
-    expression: "resting",
-    rotation: 0,
-    text: "",
-  },
-  {
-    expression: "smiling",
-    rotation: 0,
-    text: "Alles klar! Ich schicke ihr gleich deinen Vorschlag und melde dir, ob er bei Marie gut angekommen ist.",
-    manualNext: true,
-  },
-  {
-    expression: "resting",
-    rotation: 1.5,
-    text: "",
-    loading: true,
-    style: {
-      rotate: "30deg",
-      marginLeft: "calc(100% + 400px)",
+    {
+      expression: "resting",
+      rotation: 0,
+      isRobotQuestion: true,
+      text: t("text_0"),
+      style: {},
+      manualNext: true,
+      hideButton: true,
     },
-  },
-  {
-    expression: "resting",
-    rotation: -1.5,
-    text: "",
-    loading: true,
-    style: {
-      rotate: "-30deg",
-      marginLeft: "calc(100% + 400px)",
+    {
+      expression: "resting",
+      rotation: 0,
+      text: "",
     },
-  },
-  {
-    expression: "resting",
-    rotation: 0,
-    text: "",
-  },
-];
+    {
+      expression: "smiling",
+      rotation: 0,
+      text: t("text_1"),
+      manualNext: true,
+    },
+    {
+      expression: "resting",
+      rotation: 1.5,
+      text: "",
+      loading: true,
+      style: {
+        rotate: "30deg",
+        marginLeft: "calc(100% + 400px)",
+      },
+    },
+    {
+      expression: "resting",
+      rotation: -1.5,
+      text: "",
+      loading: true,
+      style: {
+        rotate: "-30deg",
+        marginLeft: "calc(100% + 400px)",
+      },
+    },
+    {
+      expression: "resting",
+      rotation: 0,
+      text: "",
+    },
+  ];
+}
 
-const stateSuccess: State = {
-  expression: "smiling",
-  rotation: 0,
-  text: "Super! Marie hat sofort auf die Anzeige gedrückt, als sie bei ihr aufgeploppt ist!",
-  end: true,
+function useStateSuccess(): State {
+  const t = useTranslations("datenverarbeitung.recommendation_quiz")
+  return {
+    expression: "smiling",
+    rotation: 0,
+    text: t("success"),
+    end: true,
+  }
 };
 
-const stateFailure: State = {
-  expression: "sad",
-  rotation: 0,
-  text: "Schlechte Nachrichten, Marie hat einfach weitergedrückt. Die Anzeige ist nicht gut angekommen.",
-  end: true,
+function useStateFailure(): State {
+  const t = useTranslations("datenverarbeitung.recommendation_quiz")
+  return {
+    expression: "sad",
+    rotation: 0,
+    text: t("error"),
+    end: true,
+  }
 };
 
 type RecommendationQuizProps<T extends { isSuccessful: boolean }> = {
@@ -108,6 +118,10 @@ export default function RecommendationQuiz<
   const notes = decodeURIComponent(query.get("notes") ?? "");
   const [showNotes, setNotesShowing] = useState(false);
   const [selection, selectSelection] = useState<T | null>(null);
+  const states = useStates()
+  const stateSuccess = useStateSuccess()
+  const stateFailure = useStateFailure()
+  const t = useTranslations("datenverarbeitung.recommendation_quiz")
 
   useEffect(() => {
     const id = setTimeout(() => {
@@ -160,7 +174,7 @@ export default function RecommendationQuiz<
 
           {showNotes && (
             <div className="xl:max-w-[50%] w-full bg-white shadow-xl py-4 px-6 rounded-xl z-30 mt-4">
-              <h3 className="font-medium">Deine Notizen</h3>
+              <h3 className="font-medium">{t("your_notes")}</h3>
               <span className="whitespace-pre-wrap">{notes}</span>
             </div>
           )}
@@ -212,13 +226,13 @@ export default function RecommendationQuiz<
 
         {getState().manualNext && !getState().hideButton && (
           <Button className="mt-10" onClick={onButtonClick}>
-            Weiter
+            {t("next")}
           </Button>
         )}
         {getState().end && (
           <Link href={href}>
             <Button className="mt-10" onClick={() => {}}>
-              Weiter
+              {t("next")}
             </Button>{" "}
           </Link>
         )}
