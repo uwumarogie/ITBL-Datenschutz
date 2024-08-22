@@ -210,18 +210,17 @@
         "startGame": {
             "questionMarkAlt": "Fragezeichen",
             "cancelAlt": "Abbrechen",
-            "hintCardTitle": {
-                "0": "Top Ten deutsche Passwörter 2023",
-                "1": "Welche Buchstaben werden oft ersetzt?",
-                "3": "Kann ein Brute-Force-Angriff immer erfolgreich sein?",
-                "4": "Wie kann man Brute-Force-Angriffe abwehren?"
-            },
-            "hintCardButtonText": "Anzeigen",
-            "hintText": {
-                "0": "Top Ten deutsche Passwörter 2023",
-                "1": "Welche Buchstaben werden oft ersetzt?",
-                "3": "Theoretisch ja, aber praktisch kann es Jahre dauern, ein sehr starkes Passwort zu knacken, was den Angriff ineffektiv macht.",
-                "4": "Verwenden Sie lange und komplexe Passwörter, aktivieren Sie Zwei-Faktor-Authentifizierung und setzen Sie Account-Sperrungen nach mehreren Fehlversuchen ein."
+            "hintCardTitle": "Hinweis für Frage",
+            "hintCardButtonText": "Hinweis anzeigen",
+            "hintCard": {
+                "topTenTitle": "Top Ten deutsche Passwörter 2023",
+                "showButtonText": "Anzeigen",
+                "replacedLettersTitle": "Welche Buchstaben werden oft ersetzt?",
+                "learnMoreButtonText": "Mehr erfahren",
+                "bruteForceTitle": "Kann ein Brute-Force-Angriff immer erfolgreich sein?",
+                "bruteForceHint": "Theoretisch ja, aber praktisch kann es Jahre dauern, ein sehr starkes Passwort zu knacken, was den Angriff ineffektiv macht.",
+                "defenseTitle": "Wie kann man Brute-Force-Angriffe abwehren?",
+                "defenseHint": "Verwenden Sie lange und komplexe Passwörter, aktivieren Sie Zwei-Faktor-Authentifizierung und setzen Sie Account-Sperrungen nach mehreren Fehlversuchen ein."
             }
         },
         "passwordStrength": {
@@ -231,13 +230,13 @@
             "introHeadline": "Bewerte die Stärke des Passworts",
             "instruction": "Ein Passwort gilt nur als stark, wenn alle Kriterien erfüllt sind. Ist nur eine Bedingung falsch gilt das Passwort als mittel und ansonsten als schwach. Du bekommst für jedes richtig eingeordnete Passwort einen Punkt. Falls du das Passwort falsch einordnest wird deine Punktzahl auf 0 zurückgesetzt.",
             "startGameButton": "Spiel starten",
-            "scoreText": "Punkte: {{score}}",
+            "scoreText": "Punkte:",
             "strongButton": "stark",
             "mediumButton": "mittel",
             "weakButton": "schwach",
             "hintTitle": "Was muss ich machen?",
             "hintButtonText": "Aufgabe anzeigen",
-            "incorrectAnswerMessage": "Das war leider falsch. {{explanation}}"
+            "incorrectAnswerMessage": "Das war leider falsch."
         },
         "moduleIntro": {
             "title": "Passwortsicherheit",
@@ -524,8 +523,7 @@
                             "similarProfilesDescription": "Diese Beziehung können wir auch mit fremden Konten herstellen. Gibt es Profile, die ähnliche Interessen wie Marie haben, können Marie nun neue Inhalte vorgeschlagen werden. Marie hat zwar noch nicht von \"Olivia Rodrigo\" gehört, aber Profile mit ähnlichen Interessen kennen sie. Marie könnte der neue Künstler dann auch gefallen.",
                             "similarAccountsAlt": "Similar Accounts",
                             "nextButtonText": "Weiter"
-                        }
-                        ,
+                        },
                         "3": {
                             "text_1": "Aus unserer vorherigen Analyse haben wir durch die Dinge, die Marie aktiv veröffentlicht hat, viel über sie gelernt",
                             "text_2": "Über Daten, die Marie unbewusst generiert hat, haben wir nun neue Verbindungen herstellen können.",
@@ -614,7 +612,7 @@
                                     "attributes": "Aktien, Investment, Geld, Stocks, DAX"
                                 },
                                 "8": {
-                                    "text":  "Autocar - Ausbildung zum Mechatroniker",
+                                    "text": "Autocar - Ausbildung zum Mechatroniker",
                                     "attributes": "Ausbildung, Schule, Autos, BMW, Porsche"
                                 },
                                 "9": {
@@ -640,7 +638,7 @@
             "robot": {
                 "text_1": "Wir haben heute einiges gemacht!",
                 "text_2": "Ich habe dir mal 3 Key Takeaways aufgeschrieben.",
-                "text_3":  "Versuche doch mal bewusst beim Scrollen durch deine Apps zu beachten, wo du gerade unbewusst Daten generierst!"
+                "text_3": "Versuche doch mal bewusst beim Scrollen durch deine Apps zu beachten, wo du gerade unbewusst Daten generierst!"
             },
             "text_1": "Informationen über einen Nutzer können über Text- und Bilddaten  gesammelt werden.",
             "text_2": "Durch das Interagieren mit Social Media Apps (Liken, Scrollen,  Teilen, ...) generiert man unbewusst wertvolle Daten, die viele  Informationen über einen Preis geben können.",
@@ -839,6 +837,228 @@
         },
         "robot_introduction": {
             "next": "Weiter"
+        }
+    },
+    "phishing": {
+        "assignModule": {
+            "completionTitle": "Gut gemacht!",
+            "completionMessage": "Du hast das Modul abgeschlossen. Denke aber daran, dass es durch den Einsatz von KI immer schwieriger wird, fake Profile zu erkennen, da realistische Bilder und glaubwürdige Texte generiert werden können.",
+            "backToStart": "Zurück zur Startseite",
+            "instructions": "Du wirst jetzt eine Reihe von Profilen gezeigt bekommen, die entweder Anzeichen von realen Profilen aufweisen oder aber Hinweise darauf enthalten, dass es sich eher um Phishing- bzw. Fake-Profile handelt. Ordne die Profile einer der beiden Kategorien zu.",
+            "startButton": "Starten",
+            "taskWarning": "Achtung! Alle Profile sind von uns zu Übungszwecken erstellt!",
+            "profileAssessment1": "Wie würdest du",
+            "profileAssessment2": "einschätzen?",
+            "fakeButton": "eher Fake/Phishing-Profil",
+            "realButton": "eher reales Profil",
+            "help": "Brauchst du Hilfe?",
+            "showHint": "Tipp anzeigen",
+            "hints": {
+                "hint1": "Bei diesem Profil ist es recht offensichtlich, dass es sich nicht um den echten Cristiano Ronaldo handelt. Am auffälligsten sind die wenigen Follower und der Name, der falsch geschrieben ist",
+                "hint2": "Bei diesem Profil ist der Link in der Beschreibung besonders auffällig und ein guter Indikator dafür, dass es sich um ein Phishing Profil handelt",
+                "hint3": "Das Profil scheint eher ein reales Profil zu sein. Hinweise drauf sind vor allem das Verifizierungshäkchen und die vielen Follower.",
+                "hint4": "Hier sollte man bei dem aufdringlichen Text in der Bio vorsichtig sein. Auch hier ist der Link wieder auffällig"
+            }
+        },
+        "profiling": {
+            "signsFakeProfile": {
+                "noProfilePicture": "kein Profilbild",
+                "blurryProfilePicture": "verschwommenes Profilbild",
+                "fewFollowers": "kaum Follower",
+                "slightlyAlteredName": "Name von bekanntem Profil leicht abgeändert",
+                "privateProfileOfKnownPerson": "privates Profil einer bekannten Persönlichkeit",
+                "fewPosts": "Kaum Beiträge",
+                "fewComments": "Kaum Kommentare",
+                "wonSomething": "Etwas gewonnen",
+                "links": "Links"
+            },
+            "signsRealProfile": {
+                "verifiedProfile": "Verifiziertes Profil",
+                "manyFollowers": "viele Follower",
+                "samePersonInManyPictures": "gleiche Person auf vielen Bildern zu sehen",
+                "publicProfileOfKnownPerson": "öffentliches Profil einer bekannten Persönlichkeit",
+                "manyPosts": "Viele Beiträge",
+                "manyComments": "Viele Kommentare",
+                "regularStories": "Regelmäßige Storys",
+                "videosWithPerson": "Videos mit Person zu sehen"
+            },
+            "completedText": {
+                "title": "Gut gemacht!",
+                "description": "Du hast alle Anzeichen richtig zugeordnet. Als nächstes wird deine Aufgabe sein dein Wissen anzuwenden und Fake-Profile zu erkennen.",
+                "buttonText": "Weiter"
+            },
+            "fakeProfileHeader": "Anzeichen für Fake Profile",
+            "realProfileHeader": "Anzeichen für echte Profile",
+            "checkButton": "Überprüfen",
+            "remainingButton": "noch ",
+            "hintCard": {
+                "text": "Was muss ich machen?",
+                "buttonText": "Aufgabe anzeigen",
+                "hint": "Ordne die oben aufgeführten Anzeichen den entsprechenden Kategorien zu: \"Anzeichen für Fake Profile\" oder \"Anzeichen für Echte Profile\". Ziehe die einzelnen Anzeichen aus dem Wörter-Pool und lege sie in die entsprechende Kategorie."
+            },
+            "task": "Ordne die oben aufgeführten Anzeichen den entsprechenden Kategorien zu: \"Anzeichen für Fake Profile\" oder \"Anzeichen für Echte Profile\". Ziehe die einzelnen Anzeichen aus dem Wörter-Pool und lege sie in die entsprechende Kategorie.",
+            "startButton": "Starten"
+        },
+        "dataProcessing": {
+            "title": "Phishing",
+            "description": "In diesem Modul lernst du, wie du Phishing-Angriffe auf sozialen Medien erkennst und vermeidest. Dabei wird dir beigracht wie du Fake Profile von realen Profilen unterscheiden kannst und wie du dich verhalten solltest, wenn du eins entdeckst.",
+            "chapter": {
+                "introduction": {
+                    "title": "Einführung"
+                },
+                "knowledgeCheck": {
+                    "title": "Wissenüberprüfung"
+                },
+                "recognizeFakeProfiles": {
+                    "title": "Fake Profile erkennen"
+                }
+            }
+        }
+    },
+    "privacy": {
+        "intro": {
+            "title": {
+                "personalData": "Was sind personenbezogene Daten?",
+                "whyProtect": "Warum sollte ich die Daten schützen?"
+            },
+            "description": {
+                "personalData": "Personenbezogene Daten sind alle Informationen, die sich auf eine identifizierte oder identifizierbare lebende Person beziehen. Verschiedene Teilinformationen, die gemeinsam zur Identifizierung einer bestimmten Person führen können, stellen ebenfalls personenbezogene Daten dar.",
+                "whyProtect": "Personenbezogene Daten können tiefgehende Einblicke in das Privatleben einer Person geben. Der Schutz dieser Daten bewahrt die individuelle Autonomie und verhindert ungewollte Einblicke in das persönliche Leben."
+            },
+            "button": {
+                "continue": "Weiter zum Quiz"
+            }
+        },
+        "perso1": {
+            "hint": "Personenbezogene Daten sind alle Informationen, die sich auf eine identifizierte oder identifizierbare lebende Person beziehen. Verschiedene Teilinformationen, die gemeinsam zur Identifizierung einer bestimmten Person führen können, stellen ebenfalls personenbezogene Daten dar.",
+            "title": "Finde alle personenbezogenen Daten, die sich auf der Vorderseite eines Ausweis befinden",
+            "intro": {
+                "text": "Jetzt spielen wir ein Spiel über Datenschutz. Eure Aufgabe ist es, herauszufinden, welche Daten eure Privatsphäre gefährden. Seid ihr bereit? Dann los!",
+                "button": "Weiter"
+            },
+            "instructions": {
+                "text": "Das Spiel funktioniert so: Ihr seht eine Liste mit Datentypen und Kästchen daneben. Kreuze die Kästchen an, die privat bleiben sollten und nicht ins Internet gehören. Überlegt, welche Daten gefährlich sein könnten, wenn sie in die falschen Hände geraten.",
+                "button": "Los geht's"
+            },
+            "checkboxes": {
+                "logoEU": "Logo der Europäischen Union",
+                "photo": "Lichtbild",
+                "idNumber": "Ausweisnummer",
+                "firstName": "Vorname",
+                "lastName": "Nachname",
+                "dob": "Geburtsdatum",
+                "nationality": "Staatsangehörigkeit",
+                "birthPlace": "Geburtsort",
+                "accessNumber": "Zugangsnummer",
+                "signature": "Unterschrift",
+                "expiryDate": "Gültigkeitsdatum"
+            }
+        },
+        "perso2": {
+            "hint": "Personenbezogene Daten sind alle Informationen, die sich auf eine identifizierte oder identifizierbare lebende Person beziehen. Verschiedene Teilinformationen, die gemeinsam zur Identifizierung einer bestimmten Person führen können, stellen ebenfalls personenbezogene Daten dar.",
+            "title": "Finde alle personenbezogenen Daten, die sich auf der Rückseite eines Ausweis befinden",
+            "completion": {
+                "text": "Super gemacht! Du hast es drauf. Je mehr du weißt, was du geheim halten musst, desto sicherer bist du online. Deine nächste Challenge wird sein zu entscheiden ob die folgenden Daten personenbezogen sind oder nicht. Schaffst du eine perfekte Punktzahl und wirst zum Datenschutz-Meister?",
+                "button": "Starten"
+            },
+            "checkboxes": {
+                "eyeColor": "Augenfarbe",
+                "address": "Anschrift",
+                "height": "Größe",
+                "issueDate": "Austellungsdatum",
+                "issuingAuthority": "Ausstellende Behörde",
+                "idCardLogo": "Personalausweislogo",
+                "federalPrintingOffice": "Bundesdruckerei Aufschrift"
+            }
+        },
+        "persoComponent": {
+            "title": "Finde alle personenbezogenen Daten, die sich auf der Rückseite eines Ausweis befinden",
+            "imageAlt": "Personalausweis",
+            "validation": {
+                "errorMessage": "Leider hast du noch nicht alle personenbezogenen Daten gefunden. Versuchs nochmal!"
+            },
+            "button": {
+                "continue": "Weiter",
+                "help": "Hilfe"
+            }
+        },
+        "quiz": {
+            "question1": "Was bedeutet der Begriff \"Privatsphäre\" im Zusammenhang mit sozialen Medien?",
+            "answer1_1": "Die Anzahl der Follower, die du hast",
+            "answer1_2": "Zusammenstellung aller von dir hochgeladenen Fotos",
+            "answer1_3": "Schutz der persönlichen Daten während deiner Online-Aktivitäten",
+            "answer1_4": "Privater Chat mit einem Freund",
+            "explanation1": "Im Zusammenhang mit den sozialen Medien bedeutet Datenschutz, dass deine persönlichen Daten und Online-Aktivitäten vor unbefugtem Zugriff und Missbrauch geschützt werden. Deshalb ist Antwort C richtig.",
+            "question2": "Welche Informationen solltest du nicht in sozialen Netzwerken teilen, um deine Privatsphäre zu schützen?",
+            "answer2_1": "Deine Wohnanschrift und Telefonnummer.",
+            "answer2_2": "Fotos mit deinen Freunden",
+            "answer2_3": "Deine Schule",
+            "answer2_4": "Deine Haustiere",
+            "explanation2": "Um Ihre Privatsphäre in sozialen Netzwerken zu schützen, solltest du es vermeiden, sensible persönliche Informationen zu teilen. Deshalb ist Antwort A richtig.",
+            "question3": "Warum ist es wichtig, die Datenschutzeinstellungen in den sozialen Medien regelmäßig zu aktualisieren?",
+            "answer3_1": "Um bekannter zu werden und mehr Follower zu bekommen.",
+            "answer3_2": "Um neue Funktionen zu haben",
+            "answer3_3": "Um weniger Werbung zu erhalten",
+            "answer3_4": "Um deine personenbezogenen Daten zu schützen, wenn Plattformen ihre Datenschutzrichtlinien aktualisieren.",
+            "explanation3": "Die regelmäßige Aktualisierung deiner Datenschutzeinstellungen in sozialen Medien ist wichtig, da die Plattformen ihre Datenschutzrichtlinien häufig aktualisieren. Deshalb ist Antwort D richtig.",
+            "question4": "Wann sollte man seine persönlichen Daten online weitergeben?",
+            "answer4_1": "Wenn die Plattform mich fragt",
+            "answer4_2": "Nur auf vertrauenswürdigen Plattformen und mit Personen, die du kennst.",
+            "answer4_3": "In einer Gruppe mit Fremden",
+            "answer4_4": "Wenn dir jemand privat schreibt, weil er sie braucht.",
+            "explanation4": "Die Weitergabe persönlicher Daten auf unzuverlässigen Websites oder an Fremde kann Risiken wie Identitätsdiebstahl, Betrug und anderen bösartigen Aktivitäten bergen. Deshalb ist Antwort B richtig.",
+            "question5": "Was ist der Hauptzweck von Datenschutzeinstellungen in sozialen Netzwerken?",
+            "answer5_1": "Kontrolle darüber, wer deine Daten sehen und nutzen kann.",
+            "answer5_2": "Um dein Profil zu bearbeiten",
+            "answer5_3": "Zum Zugang zu den Informationen deiner Posts",
+            "answer5_4": "Um auf die Daten deiner Follower zuzugreifen",
+            "explanation5": "Mit den Datenschutzeinstellungen kannst du deine Online-Präsenz verwalten, indem du festlegen, wer deine Beiträge, persönliche Informationen und Aktivitäten sehen kann. Deshalb ist Antwort A richtig.",
+            "hintCard": {
+                "title": "Erklärung",
+                "buttonText": "Anzeigen"
+            }
+        },
+        "swipe": {
+            "question1": "Maria ist verheiratet",
+            "explanation1": "Informationen über den Familienstand einer Person (verheiratet, geschieden, verwitwet, ledig) sind personenbezogen, da sie sensible Details über den privaten und sozialen Status offenlegen und rechtliche, finanzielle sowie persönliche Auswirkungen haben können.",
+            "question2": "Saras Telefonnummer lautet 0176 12345678",
+            "explanation2": "Eine Telefonnummer ist eindeutig einer Person zugeordnet und kann verwendet werden, um diese Person direkt zu kontaktieren. Daher ist sie eine personenbezogene Information.",
+            "question3": "Markus Sozialversicherungsnummer",
+            "explanation3": "Die Sozialversicherungsnummer ist eine eindeutige Identifikationsnummer, die einer Person zugeordnet ist und zur Verfolgung ihrer Sozialversicherungsansprüche verwendet wird. Daher ist sie personenbezogen.",
+            "question4": "Max Standort: 48°10.19361' = 48°10'11.6163'' = 48.16989342°",
+            "explanation4": "Der Standort einer Person ist eine personenbezogene Information, da sie genaue Angaben darüber macht, wo sich diese Person zu einem bestimmten Zeitpunkt befindet.",
+            "question5": "Kreditkartennummer einer Person",
+            "explanation5": "Eine Kreditkartennummer ist eindeutig einer Person zugeordnet und kann zur Identifizierung dieser Person sowie zur Durchführung von Finanztransaktionen verwendet werden. Daher ist sie personenbezogen.",
+            "question6": "Lisa ist evangelisch getauft",
+            "explanation6": "Religiöse Zugehörigkeit, wie die Information, dass Lisa evangelisch getauft ist, zählt zu den besonders sensiblen personenbezogenen Daten, da sie Aufschluss über persönliche Überzeugungen gibt.",
+            "question7": "Fingerabdrücke",
+            "explanation7": "Fingerabdrücke sind biometrische Daten, die eine Person eindeutig identifizieren können und daher als personenbezogene Daten gelten.",
+            "question8": "Krankenakte",
+            "explanation8": "Eine Krankenakte enthält umfassende Informationen über die Gesundheit einer Person und gehört zu den besonders sensiblen personenbezogenen Daten.",
+            "question9": "28°C°F\nNiederschlag: 0%\nLuftfeuchte: 43%\nWind: 10 km/h",
+            "explanation9": "Diese Wetterinformationen sind allgemeine Daten über die Umweltbedingungen und enthalten keine personenbezogenen Informationen.",
+            "question10": "Anzahl der Kalorien in einem Lebensmittel",
+            "explanation10": "Die Kalorienanzahl eines Lebensmittels ist eine allgemeine Information über das Lebensmittel selbst und enthält keine personenbezogenen Daten.",
+            "question11": "Sonnenaufgang heute um 03:28 Uhr",
+            "explanation11": "Die Zeit des Sonnenaufgangs ist eine allgemeine Information über natürliche Phänomene und enthält keine personenbezogenen Daten.",
+            "question12": "1345 User haben heute diese Seite geöffnet",
+            "explanation12": "Diese Information beschreibt die Gesamtzahl der Benutzer, die eine Website besucht haben, und enthält keine personenbezogenen Daten.",
+            "question13": "48° 10.19361' = 48° 10' 11.6163'' = 48.16989342°",
+            "explanation13": "Der Standort ohne Bezug zu einer Person ist keine personenbezogene Information, da sie keine Angaben darüber macht, wo sich eine Person zu einem bestimmten Zeitpunkt befindet.",
+            "question14": "Flugnummer nach Prag MS 197",
+            "explanation14": "Eine Flugnummer kann indirekt personenbezogen sein, aber nur wenn man eine Person zum Flug zuordnen kann.",
+            "question15": "Ein Ferrari kann über 350 km/h fahren",
+            "explanation15": "Diese Information bezieht sich auf die Leistungsfähigkeit eines Fahrzeugs und enthält keine personenbezogenen Daten."
+        },
+        "moduleIntro": {
+            "title": "Privatsphäre",
+            "description": "In diesem Modul lernst du, was personenbezogene Daten sind. Außerdem wirst du einen Überblick darüber bekommen, wie wichtig es ist deine Privatsphäre zu schützen.",
+            "chapter": {
+                "introduction": "Einführung",
+                "quiz": "Quiz",
+                "idScan": "ID Scan",
+                "privacyOrNot": "Privat oder nicht?"
+            }
         }
     }
 }

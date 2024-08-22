@@ -5,7 +5,7 @@ import { Question, Textbox, ThumbsUp } from "@phosphor-icons/react";
 import { useTranslations } from 'next-intl';
 
 export default function Passwort() {
-  const t = useTranslations('moduleIntro');
+  const t = useTranslations('password.moduleIntro');
 
   return (
     <div className="flex flex-wrap items-start max-w-[1800px]">

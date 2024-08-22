@@ -15,34 +15,12 @@ import { PersistUserService } from "@/services/user/PersistUserService";
 import { AchievementId } from "@/util/achievement-data";
 import { useMessages } from "@/services/notfication/message-provider";
 import Task from "@/components/task";
+import { useTranslations } from "next-intl";
 
 type Column = {
   id: string;
   items: string[];
 };
-
-const signsFakeProfile = [
-  "kein Profilbild",
-  "verschwommenes Profilbild",
-  "kaum Follower",
-  "Name von bekanntem Profil leicht abgeändert",
-  "privates Profil einer bekannten Persönlichkeit",
-  "Kaum Beiträge",
-  "Kaum Kommentare",
-  "Etwas gewonnen",
-  "Links",
-];
-
-const signsRealProfile = [
-  "Verifiziertes Profil",
-  "viele Follower",
-  "gleiche Person auf vielen Bildern zu sehen",
-  "öffentliches Profil einer bekannten Persönlichkeit",
-  "Viele Beiträge",
-  "Viele Kommentare",
-  "Regelmäßige Storys",
-  "Videos mit Person zu sehen",
-];
 
 function shuffleArray(array: string[]) {
   const shuffledArray = array.slice();
@@ -79,11 +57,35 @@ const initialColumns: { [key: string]: Column } = {
 export default function Profiling() {
   const router = useRouter();
   const messageService = useMessages();
+  const t = useTranslations('phishing')
   const [columns, setColumns] = useState(initialColumns);
   const [instructionRead, setInstructionsRead] = useState(false);
-  const [wrongAnmiation, setWrongAnimation] = useState(false);
+  const [wrongAnimation, setWrongAnimation] = useState(false);
   const [moduleFinished, setModuleFinished] = useState(false);
   const [firstTry, setFirstTry] = useState(true);
+
+  const signsFakeProfile = [
+    t("profiling.signsFakeProfile.noProfilePicture"),
+    t("profiling.signsFakeProfile.blurryProfilePicture"),
+    t("profiling.signsFakeProfile.fewFollowers"),
+    t("profiling.signsFakeProfile.slightlyAlteredName"),
+    t("profiling.signsFakeProfile.privateProfileOfKnownPerson"),
+    t("profiling.signsFakeProfile.fewPosts"),
+    t("profiling.signsFakeProfile.fewComments"),
+    t("profiling.signsFakeProfile.wonSomething"),
+    t("profiling.signsFakeProfile.links"),
+  ];
+
+  const signsRealProfile = [
+    t("profiling.signsRealProfile.verifiedProfile"),
+    t("profiling.signsRealProfile.manyFollowers"),
+    t("profiling.signsRealProfile.samePersonInManyPictures"),
+    t("profiling.signsRealProfile.publicProfileOfKnownPerson"),
+    t("profiling.signsRealProfile.manyPosts"),
+    t("profiling.signsRealProfile.manyComments"),
+    t("profiling.signsRealProfile.regularStories"),
+    t("profiling.signsRealProfile.videosWithPerson"),
+  ];
 
   useEffect(() => {
     const shuffledItems = shuffleArray(
@@ -147,22 +149,20 @@ export default function Profiling() {
     <>
       {moduleFinished ? (
         <div className="flex flex-col items-center text-center gap-6 md:mt-6">
-          <span className="text-5xl text-blue-background">Gut gemacht!</span>
+          <span className="text-5xl text-blue-background">{t("profiling.completedText.title")}</span>
           <Robot expression="smiling" />
           <span className="max-w-[600px]">
-            {" "}
-            Du hast alle Anzeichen richtig zugeordnet. Als nächstes wird deine
-            Aufgabe sein dein Wissen anzuwenden und Fake-Profile zu erkennen.
+            {t("profiling.completedText.description")}
           </span>
           <Button onClick={() => router.push("/space/phishing/assign")}>
-            Weiter
+            {t("profiling.completedText.buttonText")}
           </Button>
         </div>
       ) : (
         <div>
           <DragDropContext onDragEnd={onDragEnd}>
             <div className="container">
-              {columns.wordsPool.items.length != 0 && (
+              {columns.wordsPool.items.length !== 0 && (
                 <Droppable droppableId="wordsPool">
                   {(provided) => (
                     <div
@@ -211,9 +211,9 @@ export default function Profiling() {
                           >
                             <h3 className="text-md lg:text-xl mb-1 text-blue-background font-medium">
                               {columnId === "fakeProfile"
-                                ? "Anzeichen für Fake Profile"
+                                ? t("profiling.fakeProfileHeader")
                                 : columnId === "realProfile"
-                                  ? "Anzeichen für echte Profile"
+                                  ? t("profiling.realProfileHeader")
                                   : ""}
                             </h3>
                             <div className="flex flex-col gap-2 py-2 px-4 border-gray-300 border-2 rounded-2xl min-h-[20vh]">
@@ -230,7 +230,7 @@ export default function Profiling() {
                                       {...provided.dragHandleProps}
                                       className={clsx(
                                         "p-2 bg-module-blue text-blue-background rounded-xl text-xs sm:text-sm lg:text-base",
-                                        wrongAnmiation &&
+                                        wrongAnimation &&
                                           "animate-shake text-white bg-red-500",
                                       )}
                                     >
@@ -253,30 +253,23 @@ export default function Profiling() {
                         className="min-w-[150px] mt-6"
                         onClick={() => handleFinish()}
                         style={
-                          columns.wordsPool.items.length == 0
+                          columns.wordsPool.items.length === 0
                             ? "default"
                             : "neutral"
                         }
-                        disabled={columns.wordsPool.items.length != 0}
+                        disabled={columns.wordsPool.items.length !== 0}
                       >
-                        {columns.wordsPool.items.length == 0
-                          ? "Überprüfen"
-                          : "noch " +
-                            columns.wordsPool.items.length +
-                            "/" +
-                            (signsFakeProfile.length +
-                              signsRealProfile.length) +
-                            "zuordnen"}
+                        {columns.wordsPool.items.length === 0
+                          ? t("profiling.checkButton")
+                          : `${t("profiling.remainingButton")} ${
+                              columns.wordsPool.items.length
+                            }/${signsFakeProfile.length + signsRealProfile.length}`}
                       </Button>
                     </div>
                     <HintCard
-                      text={"Was muss ich machen?"}
-                      buttonText={"Aufgabe anzeigen"}
-                      hint='Ordne die oben aufgeführten Anzeichen den entsprechenden
-                      Kategorien zu: "Anzeichen für Fake Profile" oder
-                      "Anzeichen für Echte Profile". Ziehe die einzelnen
-                      Anzeichen aus dem Wörter-Pool und lege sie in die
-                      entsprechende Kategorie.'
+                      text={t("profiling.hintCard.text")}
+                      buttonText={t("profiling.hintCard.buttonText")}
+                      hint={t("profiling.hintCard.hint")}
                       className="max-w-[250px] sm:max-w-[400px] ml-2 mt-8 flex-end p-2"
                     />
                   </div>
@@ -285,17 +278,13 @@ export default function Profiling() {
               {!instructionRead && (
                 <div className="p-2 flex flex-col gap-4 lg:mt-4">
                   <Task>
-                    Ordne die oben aufgeführten Anzeichen den entsprechenden
-                    Kategorien zu: &quot;Anzeichen für Fake Profile&quot; oder
-                    &quot;Anzeichen für Echte Profile&quot;. Ziehe die einzelnen
-                    Anzeichen aus dem Wörter-Pool und lege sie in die
-                    entsprechende Kategorie.
+                    {t("profiling.task")}
                   </Task>
                   <Button
                     onClick={() => setInstructionsRead(true)}
                     className="max-w-[150px]"
                   >
-                    Starten
+                    {t("profiling.startButton")}
                   </Button>
                 </div>
               )}

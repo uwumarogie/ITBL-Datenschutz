@@ -3,85 +3,88 @@ import { useState } from "react";
 import PersoComponent, { CheckboxData } from "../perso";
 import Button from "@/components/button";
 import Robot from "@/components/robot/robot";
+import { useTranslations } from "next-intl";
 
 export default function Perso() {
   const [moduleStarted, setModuleStarted] = useState(false);
   const [instructionsRead, setInstructionsRead] = useState(false);
+  const t = useTranslations('privacy.perso1');
+
   const [checkboxes, setCheckboxes] = useState<CheckboxData[]>([
     {
       bottom: 77,
       left: 6,
-      hoverText: "Logo der Europäischen Union",
+      hoverText: t('checkboxes.logoEU'),
       isChecked: false,
       isPersonalData: false,
     },
     {
       bottom: 60,
       left: 10,
-      hoverText: "Lichtbild",
+      hoverText: t('checkboxes.photo'),
       isChecked: false,
       isPersonalData: true,
     },
     {
       bottom: 89,
       left: 65,
-      hoverText: "Ausweisnummer",
+      hoverText: t('checkboxes.idNumber'),
       isChecked: false,
       isPersonalData: true,
     },
     {
       bottom: 52,
       left: 57,
-      hoverText: "Vorname",
+      hoverText: t('checkboxes.firstName'),
       isChecked: false,
       isPersonalData: true,
     },
     {
       bottom: 66,
       left: 70,
-      hoverText: "Nachname",
+      hoverText: t('checkboxes.lastName'),
       isChecked: false,
       isPersonalData: true,
     },
     {
       bottom: 38,
       left: 39,
-      hoverText: "Geburtsdatum",
+      hoverText: t('checkboxes.dob'),
       isChecked: false,
       isPersonalData: true,
     },
     {
       bottom: 38,
       left: 83,
-      hoverText: "Staatsangehörigkeit",
+      hoverText: t('checkboxes.nationality'),
       isChecked: false,
       isPersonalData: true,
     },
     {
       bottom: 29,
       left: 59,
-      hoverText: "Geburtsort",
+      hoverText: t('checkboxes.birthPlace'),
       isChecked: false,
       isPersonalData: true,
     },
     {
       bottom: 18,
       left: 72,
-      hoverText: "Zugangsnummer",
+      hoverText: t('checkboxes.accessNumber'),
       isChecked: false,
       isPersonalData: true,
     },
     {
       bottom: 7,
       left: 70,
-      hoverText: "Unterschrift",
+      hoverText: t('checkboxes.signature'),
       isChecked: false,
       isPersonalData: true,
     },
     {
       bottom: 16,
       left: 39,
-      hoverText: "Gültigkeitsdatum",
+      hoverText: t('checkboxes.expiryDate'),
       isChecked: false,
       isPersonalData: false,
     },
@@ -94,13 +97,8 @@ export default function Perso() {
           checkboxes={checkboxes}
           imgSrc="/id-front.png"
           setCheckboxes={setCheckboxes}
-          hint='"Personenbezogene Daten sind alle Informationen, die sich auf
-      eine identifizierte oder identifizierbare lebende Person beziehen.
-      Verschiedene Teilinformationen, die gemeinsam zur Identifizierung
-      einer bestimmten Person führen können, stellen ebenfalls
-      personenbezogene Daten dar."'
-          title="Finde alle personenbezogenen Daten, die sich auf der Vorderseite
-      eines Ausweis befinden"
+          hint={t('hint')}
+          title={t('title')}
           nextPageHref="/space/privatsphaere/perso/2"
         />
       ) : (
@@ -109,32 +107,26 @@ export default function Perso() {
             <>
               <Robot expression="resting" className="mb-6" />
               <span className="text-center max-w-[700px]">
-                Jetzt spielen wir ein Spiel über Datenschutz. Eure Aufgabe ist
-                es, herauszufinden, welche Daten eure Privatsphäre gefährden.
-                Seid ihr bereit? Dann los!
+                {t('intro.text')}
               </span>
               <Button
                 onClick={() => setModuleStarted(true)}
                 className="max-w-[150px] lg:mt-4"
               >
-                Weiter
+                {t('intro.button')}
               </Button>
             </>
           ) : (
             <>
               <Robot expression="resting" className="mb-6" />
               <span className="text-center max-w-[700px]">
-                &quot;Das Spiel funktioniert so: Ihr seht eine Liste mit
-                Datentypen und Kästchen daneben. Kreuze die Kästchen an, die
-                privat bleiben sollten und nicht ins Internet gehören. Überlegt,
-                welche Daten gefährlich sein könnten, wenn sie in die falschen
-                Hände geraten.&quot;
+                {t('instructions.text')}
               </span>
               <Button
                 onClick={() => setInstructionsRead(true)}
                 className="max-w-[150px] lg:mt-4"
               >
-                Los geht&lsquo;s
+                {t('instructions.button')}
               </Button>
             </>
           )}

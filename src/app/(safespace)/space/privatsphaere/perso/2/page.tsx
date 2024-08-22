@@ -4,57 +4,60 @@ import PersoComponent, { CheckboxData } from "../perso";
 import Robot from "@/components/robot/robot";
 import Button from "@/components/button";
 import { useRouter } from "next/navigation";
+import { useTranslations } from "next-intl";
 
 export default function Perso() {
   const router = useRouter();
+  const t = useTranslations('privacy.perso2');
+
   const [moduleFinished, setModuleFinished] = useState(false);
   const [checkboxes, setCheckboxes] = useState<CheckboxData[]>([
     {
       bottom: 88,
       left: 15,
-      hoverText: "Augenfarbe",
+      hoverText: t('checkboxes.eyeColor'),
       isChecked: false,
       isPersonalData: true,
     },
     {
       bottom: 88,
       left: 68,
-      hoverText: "Anschrift",
+      hoverText: t('checkboxes.address'),
       isChecked: false,
       isPersonalData: true,
     },
     {
       bottom: 78,
       left: 18,
-      hoverText: "Größe",
+      hoverText: t('checkboxes.height'),
       isChecked: false,
       isPersonalData: true,
     },
     {
       bottom: 69,
       left: 22,
-      hoverText: "Austellungsdatum",
+      hoverText: t('checkboxes.issueDate'),
       isChecked: false,
       isPersonalData: false,
     },
     {
       bottom: 58,
       left: 27,
-      hoverText: "Ausstellende Behörde",
+      hoverText: t('checkboxes.issuingAuthority'),
       isChecked: false,
       isPersonalData: true,
     },
     {
       bottom: 44,
       left: 90,
-      hoverText: "Personalausweislogo",
+      hoverText: t('checkboxes.idCardLogo'),
       isChecked: false,
       isPersonalData: false,
     },
     {
       bottom: -3,
       left: 90,
-      hoverText: "Bundesdruckerei Aufschrift",
+      hoverText: t('checkboxes.federalPrintingOffice'),
       isChecked: false,
       isPersonalData: false,
     },
@@ -66,17 +69,13 @@ export default function Perso() {
         <div className="p-2 flex flex-col items-center gap-4 lg:mt-8">
           <Robot expression="resting" className="mb-6" />
           <span className="text-center max-w-[700px]">
-            &quot;Super gemacht! Du hast es drauf. Je mehr du weißt, was du
-            geheim halten musst, desto sicherer bist du online. Deine nächste
-            Challenge wird sein zu entscheiden ob die folgenden Daten
-            personenbezogen sind oder nicht. Schaffst du eine perfekte Punktzahl
-            und wirst zum Datenschutz-Meister?&quot;
+            {t('completion.text')}
           </span>
           <Button
             onClick={() => router.push("/space/privatsphaere/swipe")}
             className="max-w-[150px] lg:mt-4"
           >
-            Starten
+            {t('completion.button')}
           </Button>
         </div>
       ) : (
@@ -84,15 +83,10 @@ export default function Perso() {
           checkboxes={checkboxes}
           imgSrc="/id-back.png"
           setCheckboxes={setCheckboxes}
-          hint='"Personenbezogene Daten sind alle Informationen, die sich auf
-      eine identifizierte oder identifizierbare lebende Person beziehen.
-      Verschiedene Teilinformationen, die gemeinsam zur Identifizierung
-      einer bestimmten Person führen können, stellen ebenfalls
-      personenbezogene Daten dar."'
-          title="Finde alle personenbezogenen Daten, die sich auf der Rückseite
-      eines Ausweis befinden"
+          hint={t('hint')}
+          title={t('title')}
           nextPageHref="/space/privatsphaere"
-          onFinish={setModuleFinished}
+          onFinish={() => setModuleFinished(true)}
         />
       )}
     </>

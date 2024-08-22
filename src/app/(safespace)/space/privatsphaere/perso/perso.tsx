@@ -5,6 +5,7 @@ import { useMessages } from "@/services/notfication/message-provider";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { SetStateAction, useState } from "react";
+import { useTranslations } from "next-intl";
 
 export type CheckboxData = {
   bottom: number;
@@ -36,6 +37,7 @@ export default function PersoComponent({
   onFinish: setFinished,
 }: Props) {
   const router = useRouter();
+  const t = useTranslations('privacy.persoComponent');
   const [showHint, setShowHint] = useState(false);
   const { addMessage } = useMessages();
 
@@ -61,7 +63,7 @@ export default function PersoComponent({
       }
     } else {
       addMessage(
-        "Leider hast du noch nicht alle personenbezogenen Daten gefunden. Versuchs nochmal!",
+        t('validation.errorMessage'),
         "error",
       );
     }
@@ -74,14 +76,16 @@ export default function PersoComponent({
           <h1 className="text-xl lg:text-3xl text-blue-background font-semibold">
             {title}
           </h1>
-          <span className="text-base lg:text-base sm:text-wrap md:text-wrap text-blue-background">
-            {description}
-          </span>
+          {description && (
+            <span className="text-base lg:text-base sm:text-wrap md:text-wrap text-blue-background">
+              {description}
+            </span>
+          )}
         </div>
         <div className="relative w-full lg:max-w-[40vw]">
           <Image
             src={imgSrc}
-            alt="Personalausweis"
+            alt={t('imageAlt')}
             layout="responsive"
             width={200}
             height={200}
@@ -103,13 +107,13 @@ export default function PersoComponent({
       </div>
       <div className="flex flex-row">
         <Button className="m-4 w-24 h-11" onClick={validateInput}>
-          Weiter
+          {t('button.continue')}
         </Button>
         <Button
           className="m-4 w-24 h-11 bg-gray-400 hover:bg-gray-500"
           onClick={() => setShowHint((prev) => !prev)}
         >
-          Hilfe
+          {t('button.help')}
         </Button>
       </div>
       <span

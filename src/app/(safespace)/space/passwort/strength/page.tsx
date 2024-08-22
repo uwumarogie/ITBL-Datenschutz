@@ -17,7 +17,7 @@ import { HintCard } from "@/components/hint-card";
 import { useTranslations } from 'next-intl';
 
 const PasswordStrength = () => {
-  const t = useTranslations('passwordStrength');
+  const t = useTranslations('password.passwordStrength');
   const [highscore, setHighscore] = useState(0);
   const [currentScore, setCurrentScore] = useState(0);
   const [gameStarted, setGameStarted] = useState(false);
@@ -144,7 +144,7 @@ const PasswordStrength = () => {
       goToNextQuestion();
     } else {
       addMessage(
-        t('incorrectAnswerMessage', { explanation: currentQuestion.explanation }),
+        t('incorrectAnswerMessage') + ": " + currentQuestion.explanation,
         "error"
       );
       setCurrentScore(0);
@@ -163,7 +163,7 @@ const PasswordStrength = () => {
     }
     passwordAnimation(
       passwordData[currentQuestionIndex + 1]?.password ||
-        passwordData[0]?.password,
+      passwordData[0]?.password,
       setDisplayPassword,
     );
     setTimeout(() => setButtonStyleCorrect(-1), 1200);
@@ -254,8 +254,8 @@ function Intro({
   currentQuestion,
   setDisplayPassword,
 }: IntroProps) {
-  const t = useTranslations('passwordStrength');
-  
+  const t = useTranslations('password.passwordStrength');
+
   return (
     <div className="flex flex-col gap-y-12">
       <IntroductionText
@@ -292,7 +292,7 @@ function PlayGame({
   displayPassword: string;
   handleButtonClick: (index: number) => void;
 }) {
-  const t = useTranslations('passwordStrength');
+  const t = useTranslations('password.passwordStrength');
 
   return (
     <div className="flex flex-col justify-between align-center w-full mt-24 md:mt-14">
@@ -304,7 +304,7 @@ function PlayGame({
               animatePulse && "animate-pointIncrease",
             )}
           >
-            {t('scoreText', { score: currentScore })}
+            {t('scoreText')} {" " + currentScore}
           </span>
 
           <div className="flex justify-center w-full">

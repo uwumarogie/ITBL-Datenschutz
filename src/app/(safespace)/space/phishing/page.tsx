@@ -1,30 +1,32 @@
 "use client";
 import ModuleIntro, { ModuleChapter } from "@/components/module-intro";
 import { InstagramLogo, Lightbulb, ListDashes } from "@phosphor-icons/react";
-
-const title = "Phishing";
-const description =
-  "In diesem Modul lernst du, wie du Phishing-Angriffe auf sozialen Medien erkennst und vermeidest. Dabei wird dir beigbracht wie du Fake Profile von realen Profilen unterscheiden kannst und wie du dich verhalten solltest, wenn du eins entdeckst.";
-const entryPath = "/space/phishing/video";
-const chapter: ModuleChapter[] = [
-  {
-    title: "Einführung",
-    icon: <Lightbulb />,
-    minutes: "6",
-  },
-  {
-    title: "Wissenüberprüfung",
-    icon: <ListDashes />,
-    minutes: "5",
-  },
-  {
-    title: "Fake Profile erkennen",
-    icon: <InstagramLogo />,
-    minutes: "5",
-  },
-];
+import { useTranslations } from "next-intl";
 
 export default function DataProcessing() {
+  const t = useTranslations('phishing.dataProcessing');
+  
+  const title = t("title");
+  const description = t("description");
+  const entryPath = "/space/phishing/video";
+  const chapter: ModuleChapter[] = [
+    {
+      title: t("chapter.introduction.title"),
+      icon: <Lightbulb />,
+      minutes: "6",
+    },
+    {
+      title: t("chapter.knowledgeCheck.title"),
+      icon: <ListDashes />,
+      minutes: "5",
+    },
+    {
+      title: t("chapter.recognizeFakeProfiles.title"),
+      icon: <InstagramLogo />,
+      minutes: "5",
+    },
+  ];
+  
   return (
     <div className="relative h-full w-full flex flex-col">
       <ModuleIntro

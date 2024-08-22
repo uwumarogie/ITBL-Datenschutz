@@ -5,9 +5,15 @@ import { useState } from "react";
 import QuizList from "@/components/Quiz/quiz-list";
 import { QuizParams } from "@/components/Quiz/quiz";
 import { AchievementId } from "@/util/achievement-data";
+import { useTranslations } from "next-intl";
 
 export default function StartGame() {
+  const router = useRouter();
+  const t = useTranslations('quiz');
+
   const [showHintCard, setShowHintCard] = useState(false);
+  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+
   function onAnswerClick() {
     setShowHintCard(true);
   }
@@ -15,110 +21,80 @@ export default function StartGame() {
   const quiz: { quiz: QuizParams; explanation: string }[] = [
     {
       quiz: {
-        question:
-          'Was bedeutet der Begriff "Privatsphäre" im Zusammenhang mit sozialen Medien?',
+        question: t('question1'),
         answers: [
-          "Die Anzahl der Follower, die du hat",
-          "Zusammenstellung aller von dir hochgeladenen Fotos ",
-          "Schutz der persönlichen Daten während deiner Online-Aktivitäten",
-          "Privater Chat mit einem Freund ",
+          t('answer1_1'),
+          t('answer1_2'),
+          t('answer1_3'),
+          t('answer1_4'),
         ],
         showCorrectAnswer: true,
         correctAnswer: 2,
         onAnswerClick: onAnswerClick,
       },
-      explanation:
-        "Im Zusammenhang mit den sozialen Medien bedeutet Datenschutz, dass deine persönlichen Daten und Online-Aktivitäten vor unbefugtem Zugriff und Missbrauch geschützt werden. Deshalb ist Antwort B richtig.",
+      explanation: t('explanation1'),
     },
     {
       quiz: {
-        question:
-          "Welche Informationen solltest du nicht in sozialen Netzwerken teilen, um deine Privatsphäre zu schützen?",
+        question: t('question2'),
         answers: [
-          "Deine Wohnanschrift und Telefonnummer.",
-          "Fotos mit deinen Freunden",
-          "Deine Schule",
-          "Deine Haustiere",
+          t('answer2_1'),
+          t('answer2_2'),
+          t('answer2_3'),
+          t('answer2_4'),
         ],
         showCorrectAnswer: true,
         correctAnswer: 0,
         onAnswerClick: onAnswerClick,
       },
-      explanation:
-        "Um Ihre Privatsphäre in sozialen Netzwerken zu schützen, solltest du es vermeiden, sensible persönliche Informationen zu teilen. Deshalb ist Antwort A richtig.",
+      explanation: t('explanation2'),
     },
     {
       quiz: {
-        question:
-          "Warum ist es wichtig, die Datenschutzeinstellungen in den sozialen Medien regelmäßig zu aktualisieren?",
+        question: t('question3'),
         answers: [
-          "Um bekannter zu werden und mehr Follower zu bekommen.",
-          "Um neue Funktionen zu haben",
-          "Um weniger Werbung zu erhalten",
-          "Um deine personenbezogenen Daten zu schützen, wenn Plattformen ihre Datenschutzrichtlinien aktualisieren.",
+          t('answer3_1'),
+          t('answer3_2'),
+          t('answer3_3'),
+          t('answer3_4'),
         ],
         showCorrectAnswer: true,
         correctAnswer: 3,
         onAnswerClick: onAnswerClick,
       },
-      explanation:
-        "Die regelmäßige Aktualisierung deiner Datenschutzeinstellungen in sozialen Medien ist wichtig, da die Plattformen ihre Datenschutzrichtlinien häufig aktualisieren. Deshalb ist Antwort D richtig",
+      explanation: t('explanation3'),
     },
     {
       quiz: {
-        question:
-          "Wann sollte man seine persönlichen Daten online weitergeben?",
+        question: t('question4'),
         answers: [
-          "Wenn die Plattform mich fragt",
-          "Nur auf vertrauenswürdigen Plattformen und mit Personen, die du kennst.",
-          "In einer Gruppe mit Fremden",
-          "Wenn dir jemand privat schreibt, weil er sie braucht.",
+          t('answer4_1'),
+          t('answer4_2'),
+          t('answer4_3'),
+          t('answer4_4'),
         ],
         showCorrectAnswer: true,
         correctAnswer: 1,
         onAnswerClick: onAnswerClick,
       },
-      explanation:
-        "Die Weitergabe persönlicher Daten auf unzuverlässigen Websites oder an Fremde kann Risiken wie Identitätsdiebstahl, Betrug und anderen bösartigen Aktivitäten bergen. Deshalb ist Antwort B richtig.",
+      explanation: t('explanation4'),
     },
     {
       quiz: {
-        question:
-          "Was ist der Hauptzweck von Datenschutzeinstellungen in sozialen Netzwerken?",
+        question: t('question5'),
         answers: [
-          "Kontrolle darüber, wer deine Daten sehen und nutzen kann.",
-          "Um dein Profil zu bearbeiten",
-          "Zum Zugang zu den Informationen deiner Posts",
-          "Um auf die Daten deiner Follower zuzugreifen",
-        ],
-        showCorrectAnswer: true,
-        correctAnswer: 0,
-        onAnswerClick: onAnswerClick,
-      },
-      explanation:
-        "Mit den Datenschutzeinstellungen kannst du deine Online-Präsenz verwalten, indem du festlegen, wer deine Beiträge, persönliche Informationen und Aktivitäten sehen kann. Deshalb ist Antwort A richtig. ",
-    },
-    {
-      quiz: {
-        question:
-          "Welcher der folgenden Wege ist ein sicherer Weg, um sich an öffentlichen Orten mit dem Internet zu verbinden?",
-        answers: [
-          "Nutzung von kostenlosem Wi-Fi ohne Passwort.",
-          "Verwendung mobiler Daten ",
-          "Die Verwendung eines virtuellen privaten Netzwerks (VPN).",
-          "Mit dem Hotsport eines Freundes verbinden ",
+          t('answer5_1'),
+          t('answer5_2'),
+          t('answer5_3'),
+          t('answer5_4'),
         ],
         showCorrectAnswer: true,
         correctAnswer: 2,
         onAnswerClick: onAnswerClick,
       },
-      explanation:
-        "Ein VPN verschlüsselt Ihre Internetverbindung und macht sie sicher und privat, auch wenn Sie öffentliche Wi-Fi-Netzwerke nutzen. Deshalb ist Antwort C richtig.",
+      explanation: t('explanation5'),
     },
   ];
-
-  const router = useRouter();
-  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
 
   const handleQuestionChange = () => {
     setCurrentQuestionIndex(currentQuestionIndex + 1);
@@ -139,8 +115,8 @@ export default function StartGame() {
       <div className="max-w-[400px]">
         {showHintCard && (
           <HintCard
-            text={"Erklärung"}
-            buttonText={"Anzeigen"}
+            text={t('hintCard.title')}
+            buttonText={t('hintCard.buttonText')}
             hint={quiz[currentQuestionIndex].explanation}
           />
         )}

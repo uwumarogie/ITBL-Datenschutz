@@ -1,5 +1,6 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import ModuleIntro, { ModuleChapter } from "@/components/module-intro";
 import {
   HandSwipeRight,
@@ -8,40 +9,38 @@ import {
   List,
 } from "@phosphor-icons/react";
 
-const title = "Privatsphäre";
-const description =
-  "In diesem Modul lernst du, was personenbezogene Daten sind. Außerdem wirst du einen Überblick darüber bekommen, wie wichtig es ist deine Privatsphäre zu schützen";
-const entryPath = "/space/privatsphaere/overview";
-const chapter: ModuleChapter[] = [
-  {
-    title: "Einführung",
-    icon: <Lightbulb />,
-    minutes: "3",
-  },
-  {
-    title: "Quiz",
-    icon: <List />,
-    minutes: "4",
-  },
-  {
-    title: "ID Scan",
-    icon: <IdentificationCard />,
-    minutes: "3",
-  },
-  {
-    title: "Privat oder nicht?",
-    icon: <HandSwipeRight />,
-    minutes: "5",
-  },
-];
-
 export default function Privacy() {
+  const t = useTranslations("privacy.moduleIntro");
+
+  const chapter: ModuleChapter[] = [
+    {
+      title: t("chapter.introduction"),
+      icon: <Lightbulb />,
+      minutes: "3",
+    },
+    {
+      title: t("chapter.quiz"),
+      icon: <List />,
+      minutes: "4",
+    },
+    {
+      title: t("chapter.idScan"),
+      icon: <IdentificationCard />,
+      minutes: "3",
+    },
+    {
+      title: t("chapter.privacyOrNot"),
+      icon: <HandSwipeRight />,
+      minutes: "5",
+    },
+  ];
+
   return (
     <div className="relative h-full w-full flex flex-col">
       <ModuleIntro
-        title={title}
-        description={description}
-        entryPath={entryPath}
+        title={t("title")}
+        description={t("description")}
+        entryPath="/space/privatsphaere/overview"
         chapter={chapter}
         background="/privacy.png"
       />

@@ -12,54 +12,52 @@ import QuizList from "@/components/Quiz/quiz-list";
 import { AchievementId } from "@/util/achievement-data";
 import { useTranslations } from "next-intl";
 
-const hintCards = [
-  {
-    questionIndex: 0,
-    text: "Top Ten deutsche Passwörter 2023",
-    buttonText: "Anzeigen",
-    hint: (
-      <div className="grid sm:grid-cols-1 grid-cols-3 gap-3 font-bold text-sm">
-        {topTenPasswords.map((password, index) => {
-          return (
-            <span key={index}>
-              <strong>{index + 1}</strong>. {password}
-            </span>
-          );
-        })}
-      </div>
-    ),
-  },
-  {
-    questionIndex: 1,
-    text: "Welche Buchstaben werden oft ersetzt?",
-    buttonText: "Anzeigen",
-    hint: (
-      <div className="grid sm:grid-cols-1 grid-cols-3 gap-3 font-bold text-xs">
-        {replaceCharacter.map((character, index) => {
-          return <span key={index}> {character}</span>;
-        })}
-      </div>
-    ),
-  },
-  {
-    questionIndex: 3,
-    text: "Kann ein Brute-Force-Angriff immer erfolgreich sein?",
-    buttonText: "Mehr erfahren",
-    hint: "Theoretisch ja, aber praktisch kann es Jahre dauern, ein sehr starkes Passwort zu knacken, was den Angriff ineffektiv macht.",
-  },
-  {
-    questionIndex: 4,
-    text: "Wie kann man Brute-Force-Angriffe abwehren?",
-    buttonText: "Mehr erfahren",
-    hint: "Verwenden Sie lange und komplexe Passwörter, aktivieren Sie Zwei-Faktor-Authentifizierung und setzen Sie Account-Sperrungen nach mehreren Fehlversuchen ein.",
-  },
-];
-
 export default function StartGame() {
   const router = useRouter();
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [showHint, setShowHint] = useState(false);
   const t = useTranslations('password.startGame');
+
+  const hintCards = [
+    {
+      questionIndex: 0,
+      text: t("hintCard.topTenTitle"),
+      buttonText: t("hintCard.showButtonText"),
+      hint: (
+        <div className="grid sm:grid-cols-1 grid-cols-3 gap-3 font-bold text-sm">
+          {topTenPasswords.map((password, index) => (
+            <span key={index}>
+              <strong>{index + 1}</strong>. {password}
+            </span>
+          ))}
+        </div>
+      ),
+    },
+    {
+      questionIndex: 1,
+      text: t("hintCard.replacedLettersTitle"),
+      buttonText: t("hintCard.showButtonText"),
+      hint: (
+        <div className="grid sm:grid-cols-1 grid-cols-3 gap-3 font-bold text-xs">
+          {replaceCharacter.map((character, index) => (
+            <span key={index}> {character}</span>
+          ))}
+        </div>
+      ),
+    },
+    {
+      questionIndex: 3,
+      text: t("hintCard.bruteForceTitle"),
+      buttonText: t("hintCard.learnMoreButtonText"),
+      hint: t("hintCard.bruteForceHint"),
+    },
+    {
+      questionIndex: 4,
+      text: t("hintCard.defenseTitle"),
+      buttonText: t("hintCard.learnMoreButtonText"),
+      hint: t("hintCard.defenseHint"),
+    },
+  ];
 
   const handleQuestionChange = () => {
     setCurrentQuestionIndex(currentQuestionIndex + 1);
@@ -116,7 +114,7 @@ export default function StartGame() {
                 <div className="flex justify-between flex-col h-full">
                   <div className="flex flex-col relative justify-start items-start p-6">
                     <span className="font-semibold text-sm pb-4 text-blue-background">
-                      {t('hintCardTitle', { questionIndex: currentQuestionIndex })}
+                      {t('hintCardTitle')} {" " + (currentQuestionIndex + 1)}
                     </span>
                     <Button onClick={() => setShowHint(true)}>
                       {t('hintCardButtonText')}
