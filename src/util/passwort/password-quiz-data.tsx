@@ -100,7 +100,7 @@ export const states: State[] = [
     rotation: 0,
     text:
       "Herzlichen Glückwunsch! Du hast gelernt, wie man sichere Passwörter erstell " +
-      "und erkennt: mindestens 8 Zeichen lang und eine Mischung aus Kleinbuchstaben, " +
+      "und erkennt: mindestens 10 Zeichen lang und eine Mischung aus Kleinbuchstaben, " +
       "Großbuchstaben, Sonderzeichen und Zahlen.",
     style: {
       width: "150px",
