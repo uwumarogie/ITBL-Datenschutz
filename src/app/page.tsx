@@ -55,7 +55,7 @@ export default function HomePage() {
   useEffect(() => {
     async function func() {
       if (await getUserService().isLoggedIn()) {
-        redirect("/space");
+        router.replace("/space");
       }
     }
     func().then();
