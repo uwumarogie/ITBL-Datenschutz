@@ -19,7 +19,6 @@ import { HintCard } from "@/components/hint-card";
 import StrengthIntro from "@/app/(safespace)/space/passwort/components/strength-introduction";
 import { getUserService, UserService } from "@/services/user/UserService";
 
-
 type ButtonColor = "green" | "red" | "default";
 
 type PasswordStrength = "strong" | "medium" | "weak";
