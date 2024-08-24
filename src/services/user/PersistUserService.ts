@@ -35,6 +35,13 @@ export class PersistUserService implements UserService {
     );
   }
 
+  async deleteUser() {
+    if (typeof window !== "undefined" && window.localStorage) {
+      localStorage.removeItem("gameCode");
+      localStorage.removeItem("userId");
+    }
+  }
+
   async createPlayer(username: string, mode: string, gameCode: string) {
     try {
       const response = await fetch("/api/createUser", {

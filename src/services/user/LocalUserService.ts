@@ -14,6 +14,8 @@ type UserData = {
   };
 };
 
+const KEY_USER_DATA = "user";
+
 export class LocalUserService implements UserService {
   private data: UserData | null = this.load();
 
@@ -47,6 +49,11 @@ export class LocalUserService implements UserService {
   async isLoggedIn() {
     this.load();
     return Promise.resolve(this.data != null);
+  }
+
+  async deleteUser() {
+    this.data = null;
+    window.localStorage.removeItem(KEY_USER_DATA);
   }
 
   async setAchievement(
@@ -87,11 +94,14 @@ export class LocalUserService implements UserService {
   }
 
   save() {
-    window.localStorage.setItem("user", toBase64(JSON.stringify(this.data)));
+    window.localStorage.setItem(
+      KEY_USER_DATA,
+      toBase64(JSON.stringify(this.data)),
+    );
   }
 
   load(): UserData | null {
-    const data = window.localStorage.getItem("user");
+    const data = window.localStorage.getItem(KEY_USER_DATA);
     if (data == null) {
       return null;
     }
