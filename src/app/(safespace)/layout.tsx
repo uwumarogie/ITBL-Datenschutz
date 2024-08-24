@@ -8,6 +8,7 @@ import React, { useEffect, useState } from "react";
 import clsx from "clsx";
 import { useMessages } from "@/services/notfication/message-provider";
 import { AchievementId } from "@/util/achievement-data";
+import { getUserService } from "@/services/user/UserService";
 
 const modulesFinished: AchievementId[] = [
   AchievementId.INTRO_FINISHED,
@@ -32,7 +33,7 @@ export default function Layout({
   const { addMessage } = useMessages();
 
   async function fetchData() {
-    const userService = new PersistUserService();
+    const userService = getUserService();
     try {
       const user = await userService.getUser();
       setUsername(user.userName);
@@ -54,12 +55,9 @@ export default function Layout({
   }
 
   useEffect(() => {
+    const userService = getUserService();
     const fetchUserData = async () => {
-      if (
-        typeof window !== "undefined" &&
-        window.localStorage &&
-        !localStorage.getItem("userId")
-      ) {
+      if (!(await userService.isLoggedIn())) {
         router.replace("/");
         addMessage(
           "Du musst eingeloggt sein, um SafeSpace zu verwenden!",

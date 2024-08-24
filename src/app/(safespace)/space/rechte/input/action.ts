@@ -1,6 +1,7 @@
 import { PersistUserService } from "@/services/user/PersistUserService";
 import { AchievementId } from "@/util/achievement-data";
 import { useMessages } from "@/services/notfication/message-provider";
+import { getUserService } from "@/services/user/UserService";
 
 export default async function getFeedback(
   situation: string,
@@ -41,7 +42,7 @@ export async function showAchievementRightInput(
     .map((a) => a.score)
     .reduce((acc, val) => acc + val, 0);
   if (currentScore / (questionLength * 10) > 0) {
-    const userService = new PersistUserService();
+    const userService = getUserService();
     await userService
       .setAchievement(AchievementId.RECHTSANWALT_INPUT, true)
       .then(() => {

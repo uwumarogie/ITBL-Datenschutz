@@ -7,6 +7,7 @@ import { useRouter } from "next/navigation";
 import Robot, { RobotExpression } from "@/components/robot/robot";
 import AnimatedText from "@/components/animated/animated-text";
 import { CSSProperties, useCallback, useEffect, useState } from "react";
+import { getUserService } from "@/services/user/UserService";
 
 type IntroInput = {
   type: "text" | "options" | "location";
@@ -208,7 +209,7 @@ export default function Intro() {
   }
 
   const finish = useCallback(async () => {
-    const userService = new PersistUserService();
+    const userService = getUserService();
     await userService.setAchievement(AchievementId.INTRO_FINISHED, true);
     router.push("/space");
   }, [router]);

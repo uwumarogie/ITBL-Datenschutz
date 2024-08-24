@@ -17,6 +17,8 @@ import RobotInPasswort from "@/components/robot-in-passwort";
 import { AchievementId } from "@/util/achievement-data";
 import { HintCard } from "@/components/hint-card";
 import StrengthIntro from "@/app/(safespace)/space/passwort/components/strength-introduction";
+import { getUserService, UserService } from "@/services/user/UserService";
+
 
 type ButtonColor = "green" | "red" | "default";
 
@@ -34,11 +36,11 @@ export default function PasswordStrength() {
   const [animatePulse, setAnimatePulse] = useState(false);
   const [continueGame, setContinueGame] = useState(false);
   const [moduleFinished, setModuleFinished] = useState(false);
-  const userServiceRef = useRef<PersistUserService | null>(null);
+  const userServiceRef = useRef<UserService | null>(null);
   const messageService = useMessages();
 
   useEffect(() => {
-    const context = new PersistUserService();
+    const context = getUserService();
     const fetchHighScore = async () => {
       const loadedHighScore = await context.getHighScore("PASSWORD_STRENGTH");
       setHighscore(loadedHighScore);
@@ -60,19 +62,14 @@ export default function PasswordStrength() {
   }, [highscore]);
 
   useEffect(() => {
-    userServiceRef.current = new PersistUserService();
+    userServiceRef.current = getUserService();
     const fetchAchievements = async () => {
       let finished;
       const achievements = await userServiceRef.current?.getAchievement();
-      if (Array.isArray(achievements)) {
-        finished = achievements
-          .map((a) => a.achievementEnum)
-          .includes(AchievementId.PASSWORT_FINISHED);
-      } else {
-        finished =
-          AchievementId.PASSWORT_FINISHED === achievements?.achievementEnum;
-      }
-      setModuleFinished(finished);
+      finished = achievements
+        ?.map((a) => a.achievementEnum)
+        ?.includes(AchievementId.PASSWORT_FINISHED);
+      setModuleFinished(finished ?? false);
     };
 
     fetchAchievements();

@@ -4,6 +4,7 @@ import ExerciseLink from "@/components/exercise-link";
 import { PersistUserService } from "@/services/user/PersistUserService";
 import React, { useEffect, useState } from "react";
 import { AchievementId } from "@/util/achievement-data";
+import { getUserService } from "@/services/user/UserService";
 
 const exerciseLinksData = [
   {
@@ -69,7 +70,7 @@ export function ExerciseNavigation() {
   useEffect(() => {
     async function fetchAchievements() {
       try {
-        const userService = new PersistUserService();
+        const userService = getUserService();
         const fetchedAchievements = await userService.getAchievement();
         const achievements = Array.isArray(fetchedAchievements)
           ? fetchedAchievements

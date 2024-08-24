@@ -8,6 +8,7 @@ import { useRouter } from "next/navigation";
 import { PersistUserService } from "@/services/user/PersistUserService";
 import { AchievementId } from "@/util/achievement-data";
 import { useMessages } from "@/services/notfication/message-provider";
+import { getUserService } from "@/services/user/UserService";
 
 type RobotIntroductionProps = {
   states: State[];
@@ -49,7 +50,7 @@ export default function RobotInPasswort({
   }
 
   async function setFinishedAchievement() {
-    const userService = new PersistUserService();
+    const userService = getUserService();
     await userService
       .setAchievement(AchievementId.PASSWORT_FINISHED, true)
       .then((res) => {
