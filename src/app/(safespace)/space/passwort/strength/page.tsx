@@ -221,7 +221,7 @@ function PlayGame({
     if (password.length === 0) {
       setStrength(null);
     } else {
-      const isMediumPassword =
+      const isMediumPasswort =
         /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*"'()+,-./:;<=>?[\]^_`{|}~])(?=.{8,})/.test(
           password,
         );
@@ -230,7 +230,7 @@ function PlayGame({
           password,
         );
       setStrength(
-        isStrongPassword ? "strong" : isMediumPassword ? "medium" : "weak",
+        isStrongPassword ? "strong" : isMediumPasswort ? "medium" : "weak",
       );
     }
   }
@@ -266,7 +266,7 @@ function PlayGame({
     }
   }, [buttonStates]);
 
-  function translateToGerman(type: PasswordStrength) {
+  function translateStrength(type: PasswordStrength) {
     if (type === "weak") {
       return "schwach";
     } else if (type === "medium") {
@@ -315,7 +315,7 @@ function PlayGame({
               style={buttonStates[type as PasswordStrength]}
               className="max-w-[200px] w-full"
             >
-              {translateToGerman(type as PasswordStrength)}
+              {translateStrength(type as PasswordStrength)}
             </Button>
           ))}
         </div>
