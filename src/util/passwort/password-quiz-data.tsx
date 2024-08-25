@@ -1,6 +1,12 @@
 import React from "react";
 import { QuizParams } from "@/components/Quiz/quiz";
+import { State } from "@/app/(safespace)/space/daten-verarbeitung/kapitel2/components/recommendation-quiz";
+import { generatePassword } from "./strength-helper";
 
+export type PasswordData = {
+  password: string;
+  explanation: string;
+};
 export const topTenPasswords = [
   "123456789",
   "12345678",
@@ -78,267 +84,66 @@ export const quizzes: QuizParams[] = [
   },
 ];
 
-export type PasswordData = {
-  password: string;
-  strength: number;
-  explanation: string;
-};
+export const passwordData: PasswordData[] = generatePassword();
+export const states: State[] = [
+  {
+    expression: "smiling",
+    rotation: 0,
+    text: "",
+    style: {
+      marginLeft: "calc(100% + 400px)",
+    },
+  },
 
-export const passwordData: PasswordData[] = [
   {
-    password: "JosP7s+sw",
-    strength: 2,
-    explanation: "Das Passwort erfüllt alle Bedingungen.",
+    expression: "smiling",
+    rotation: 0,
+    text:
+      "Herzlichen Glückwunsch! Du hast gelernt, wie man sichere Passwörter erstell " +
+      "und erkennt: mindestens 10 Zeichen lang und eine Mischung aus Kleinbuchstaben, " +
+      "Großbuchstaben, Sonderzeichen und Zahlen.",
+    style: {
+      width: "150px",
+      height: "150px",
+    },
   },
   {
-    password: "eWg!m8",
-    strength: 1,
-    explanation: "Das Passwort ist zu kurz.",
+    expression: "smiling",
+    rotation: 0,
+    text:
+      " Um deine Sicherheit weiter zu erhöhen, nutze die Zwei-Faktor-Authentifizierung " +
+      "(2FA). Damit brauchst du zusätzlich zum Passwort einen Code, der dir über SMS " +
+      "oder E-Mail zugesendet wird.",
+    style: {
+      width: "150px",
+      height: "150px",
+    },
   },
   {
-    password: "emily2020",
-    strength: 0,
-    explanation:
-      "Das Passwort enthält keinen Großbuchstaben und kein Sonderzeichen.",
+    expression: "smiling",
+    rotation: 0,
+    text:
+      "Außerdem solltest du niemals dasselbe Passwort für mehrere Konten verwenden. \n" +
+      "Ein Passwort-Manager kann dir helfen, einzigartige und sichere Passwörter zu \n" +
+      "erstellen. Bleib sicher!",
+    style: {
+      width: "150px",
+      height: "150px",
+    },
   },
   {
-    password: "HaPPy!",
-    strength: 0,
-    explanation: "Das Passwort enthält keine Zahl und ist zu kurz.",
-  },
-  {
-    password: "Z7gT@f8!3",
-    strength: 2,
-    explanation: "Das Passwort erfüllt alle Bedingungen.",
-  },
-  {
-    password: "helloworld",
-    strength: 0,
-    explanation:
-      "Das Passwort enthält keinen Großbuchstaben, keine Zahl und kein Sonderzeichen.",
-  },
-  {
-    password: "Summer@2021",
-    strength: 2,
-    explanation: "Das Passwort erfüllt alle Bedingungen.",
-  },
-  {
-    password: "P3f!Qx",
-    strength: 1,
-    explanation: "Das Passwort ist zu kurz.",
-  },
-  {
-    password: "Wolke7",
-    strength: 0,
-    explanation: "Das Passwort enthält kein Sonderzeichen und ist zu kurz.",
-  },
-  {
-    password: "Ae7mg?gX",
-    strength: 2,
-    explanation: "Das Passwort erfüllt alle Bedingungen.",
-  },
-  {
-    password: "F4j@Qj$6#",
-    strength: 2,
-    explanation: "Das Passwort erfüllt alle Bedingungen.",
-  },
-  {
-    password: "qwertyuiop",
-    strength: 0,
-    explanation:
-      "Das Passwort enthält keinen Großbuchstaben, kein Sonderzeichen und keine Zahl.",
-  },
-  {
-    password: "letmein2020",
-    strength: 0,
-    explanation:
-      "Das Passwort enthält keinen Großbuchstaben und kein Sonderzeichen.",
-  },
-  {
-    password: "Sunshine$",
-    strength: 1,
-    explanation: "Das Passwort enthält keine Zahl.",
-  },
-  {
-    password: "d7hg&asd1",
-    strength: 1,
-    explanation: "Das Passwort enthält keinen Großbuchstaben.",
-  },
-  {
-    password: "simplepass",
-    strength: 0,
-    explanation:
-      "Das Passwort enthält keinen Großbuchstaben, kein Sonderzeichen und keine Zahl.",
-  },
-  {
-    password: "Z12kL!f?sH",
-    strength: 2,
-    explanation: "Das Passwort erfüllt alle Bedingungen.",
-  },
-  {
-    password: "abc123$%&",
-    strength: 1,
-    explanation: "Das Passwort enthält keinen Großbuchstaben.",
-  },
-  {
-    password: "F4ss!",
-    strength: 1,
-    explanation: "Das Passwort ist zu kurz.",
-  },
-  {
-    password: "WeakPass",
-    strength: 0,
-    explanation: "Das Passwort enthält kein Sonderzeichen und keine Zahl.",
-  },
-  {
-    password: "Id3jf&fsa1",
-    strength: 2,
-    explanation: "Das Passwort erfüllt alle Bedingungen.",
-  },
-  {
-    password: "Football2020",
-    strength: 1,
-    explanation: "Das Passwort enthält kein Sonderzeichen.",
-  },
-  {
-    password: "Basketball!",
-    strength: 1,
-    explanation: "Das Passwort enthält keine Zahl.",
-  },
-  {
-    password: "CharlieBrown1",
-    strength: 1,
-    explanation: "Das Passwort enthält kein Sonderzeichen.",
-  },
-  {
-    password: "sgPPs%3t",
-    strength: 2,
-    explanation: "Das Passwort erfüllt alle Bedingungen.",
-  },
-  {
-    password: "Keyboard!",
-    strength: 1,
-    explanation: "Das Passwort enthält keine Zahl.",
-  },
-  {
-    password: "1234ABCD",
-    strength: 1,
-    explanation:
-      "Das Passwort enthält keinen Kleinbuchstaben und kein Sonderzeichen.",
-  },
-  {
-    password: "GlücksKlee! ",
-    strength: 1,
-    explanation: "Das Passwort enthält keine Zahl.",
-  },
-  {
-    password: "Insecure",
-    strength: 0,
-    explanation: "Das Passwort enthält kein Sonderzeichen und keine Zahl.",
-  },
-  {
-    password: "W2j@Tp$9#",
-    strength: 2,
-    explanation: "Das Passwort erfüllt alle Bedingungen.",
-  },
-  {
-    password: "Black&White",
-    strength: 1,
-    explanation: "Das Passwort enthält keine Zahl.",
-  },
-  {
-    password: "NotSecure",
-    strength: 0,
-    explanation: "Das Passwort enthält kein Sonderzeichen und keine Zahl.",
-  },
-  {
-    password: "Is1gPdkk!",
-    strength: 2,
-    explanation: "Das Passwort erfüllt alle Bedingungen.",
-  },
-  {
-    password: "!Aladdin123!",
-    strength: 2,
-    explanation: "Das Passwort erfüllt alle Bedingungen.",
-  },
-  {
-    password: "GenieLamp!",
-    strength: 1,
-    explanation: "Das Passwort enthält keine Zahl.",
-  },
-  {
-    password: "M3rm@id",
-    strength: 1,
-    explanation: "Das Passwort ist zu kurz.",
-  },
-  {
-    password: "Abc123",
-    strength: 0,
-    explanation: "Das Passwort enthält kein Sonderzeichen und ist zu kurz.",
-  },
-  {
-    password: "TechGeek!123",
-    strength: 2,
-    explanation: "Das Passwort erfüllt alle Bedingungen.",
-  },
-  {
-    password: "Gamer$2020",
-    strength: 2,
-    explanation: "Das Passwort erfüllt alle Bedingungen.",
-  },
-  {
-    password: "Ocean11! ",
-    strength: 2,
-    explanation: "Das Passwort erfüllt alle Bedingungen.",
-  },
-  {
-    password: "Sh?Ts23",
-    strength: 1,
-    explanation: "Das Passwort ist zu kurz.",
-  },
-  {
-    password: "Default1",
-    strength: 1,
-    explanation: "Das Passwort enthält kein Sonderzeichen.",
-  },
-  {
-    password: "Chang3Me!",
-    strength: 2,
-    explanation: "Das Passwort erfüllt alle Bedingungen.",
-  },
-  {
-    password: "N3wP@ssw0rd",
-    strength: 2,
-    explanation: "Das Passwort erfüllt alle Bedingungen.",
-  },
-  {
-    password: "IloveJava1",
-    strength: 1,
-    explanation: "Das Passwort enthält kein Sonderzeichen.",
-  },
-  {
-    password: "Python@2021",
-    strength: 2,
-    explanation: "Das Passwort erfüllt alle Bedingungen.",
-  },
-  {
-    password: "C0d3Rocks!",
-    strength: 2,
-    explanation: "Das Passwort erfüllt alle Bedingungen.",
-  },
-  {
-    password: "L3arn@C0de",
-    strength: 2,
-    explanation: "Das Passwort erfüllt alle Bedingungen.",
-  },
-  {
-    password: "1LoveC0ding",
-    strength: 1,
-    explanation: "Das Passwort enthält kein Sonderzeichen.",
-  },
-  {
-    password: "Devel0per!",
-    strength: 2,
-    explanation: "Das Passwort erfüllt alle Bedingungen.",
+    expression: "smiling",
+    rotation: 0,
+    text: "",
+    style: {
+      width: "150px",
+      height: "150px",
+      marginRight: "calc(100% + 400px)",
+    },
+    delay: 3000,
+    end: true,
   },
 ];
+
+export const instruction =
+  "Ein Passwort gilt nur als stark, wenn alle Kriterien erfüllt sind. Ist nur eine Bedingung falsch gilt das Passwort als mittel und ansonten als schwach. Du bekommst für jedes richtig eingeordnete Passwort einen Punkt. Falls du das Passwort falsch einordnest wird deine Punktzahl auf 0 zurückgesetzt.";
