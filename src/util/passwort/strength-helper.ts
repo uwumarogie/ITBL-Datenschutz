@@ -73,6 +73,7 @@ function generateStrongPassword() {
 
   // Fill the rest of the password to meet the minimum length requirement
   const allChars = lowerCase + upperCase + numbers + specialChars;
+
   while (password.length < 10) {
     password += allChars[Math.floor(Math.random() * allChars.length)];
   }
@@ -115,12 +116,10 @@ function shuffleArray<T>(array: Array<T>) {
 }
 
 function shufflePassword(password: string) {
-  const array = password.split("");
-  for (let i = array.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [array[i], array[j]] = [array[j], array[i]];
-  }
-  return array.join("");
+  return password
+    .split("")
+    .sort(() => Math.random() - 0.5)
+    .join("");
 }
 
 function createPasswordStrength(
