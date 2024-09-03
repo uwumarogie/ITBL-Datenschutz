@@ -33,6 +33,8 @@ export interface UserService {
 
   isLoggedIn(): Promise<boolean>;
 
+  deleteUser(): Promise<void>;
+
   setAchievement(achievement: string, unlocked: boolean): Promise<boolean>;
 
   setHighScore(

@@ -3,6 +3,7 @@ import Image from "next/image";
 import { InlineNavigation } from "@/components/inline-navigation";
 import { useRouter } from "next/navigation";
 import { LockKey, SignOut, Star } from "@phosphor-icons/react";
+import { getUserService } from "@/services/user/UserService";
 
 export function Overlay({
   masterQuizUnlocked,
@@ -33,11 +34,11 @@ export function Overlay({
         <span
           className="flex justify-center items-center gap-2 mt-2 hover:cursor-pointer"
           onClick={() => {
-            if (typeof window !== "undefined" && window.localStorage) {
-              localStorage.removeItem("gameCode");
-              localStorage.removeItem("userId");
-            }
-            router.push("/");
+            getUserService()
+              .deleteUser()
+              .then(() => {
+                router.push("/");
+              });
           }}
         >
           <SignOut size={28} />

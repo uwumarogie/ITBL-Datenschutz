@@ -53,13 +53,12 @@ export default function HomePage() {
   };
 
   useEffect(() => {
-    if (
-      typeof window !== "undefined" &&
-      window.localStorage &&
-      localStorage.getItem("userId") !== null
-    ) {
-      redirect("/space");
+    async function func() {
+      if (await getUserService().isLoggedIn()) {
+        router.replace("/space");
+      }
     }
+    func().then();
   }, []);
 
   return (

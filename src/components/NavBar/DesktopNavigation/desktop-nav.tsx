@@ -6,6 +6,7 @@ import { LockKey, SignOut, Star } from "@phosphor-icons/react";
 import { useRouter } from "next/navigation";
 import clsx from "clsx";
 import Button from "@/components/button";
+import { getUserService } from "@/services/user/UserService";
 
 export function DesktopNav({
   masterQuizUnlocked,
@@ -107,11 +108,11 @@ export function DesktopNav({
         <span
           className="flex justify-center items-center gap-2 mt-2 hover:cursor-pointer"
           onClick={() => {
-            if (typeof window !== "undefined" && window.localStorage) {
-              localStorage.removeItem("gameCode");
-              localStorage.removeItem("userId");
-            }
-            router.push("/");
+            getUserService()
+              .deleteUser()
+              .then(() => {
+                router.push("/");
+              });
           }}
         >
           <SignOut size={28} color="#ffffff" />
