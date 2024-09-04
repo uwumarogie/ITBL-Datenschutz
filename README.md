@@ -2,16 +2,40 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
-First, run the development server:
+Make sure you have the following required software installed:
+- Node v20+ installed on your system. Make sure `npm` is available on your system.
+We recommend to use a version manager like [nvm](https://github.com/nvm-sh/nvm) or [fnm](https://github.com/Schniz/fnm).
+- PostgresDB
+- A project on [supabase](https://supabase.com/) to use for SafeSpace
+
+> [!NOTE]
+> The app should be usable without supabase, but it has not been properly tested.
+
+First, set up your .env (or .env.local) file with the following variables:
+```dotenv
+DATABASE_URL=postgresql://<user>:<password>@<host>:<password>/<databasename>
+NEXT_PUBLIC_API_BASE_URL=http://localhost:3000
+PRODUCTION_URL=<your-production-url>
+NEXT_PUBLIC_SUPABASE_URL=<supabase-url>
+NEXT_PUBLIC_SUPABASE_KEY=<supabase-public-key>
+```
+
+
+
+Then, install the dependencies and run the development server:
 
 ```bash
-npm run dev
+$ npm install
+$ npm run dev
 # or
-yarn dev
+$ yarn install
+$ yarn dev
 # or
-pnpm dev
+$ pnpm install
+$ pnpm dev
 # or
-bun dev
+$ bun install
+$ bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
@@ -29,8 +53,3 @@ To learn more about Next.js, take a look at the following resources:
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
