@@ -1,4 +1,8 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🧑‍🏫 ITBL SafeSpace
+
+SafeSpace is an application designed to help young people understand data protection and data processing in the context of social media. It is intended to be used as part of a teaching unit. This project was created as part of the ‘Designing IT-based learning’ module.
+
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-aThis is the source code developed pp).
 
 ## Getting Started
 
