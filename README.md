@@ -15,9 +15,6 @@ First, set up your .env (or .env.local) file with the following variables:
 ```dotenv
 DATABASE_URL=postgresql://<user>:<password>@<host>:<password>/<databasename>
 NEXT_PUBLIC_API_BASE_URL=http://localhost:3000
-PRODUCTION_URL=<your-production-url>
-NEXT_PUBLIC_SUPABASE_URL=<supabase-url>
-NEXT_PUBLIC_SUPABASE_KEY=<supabase-public-key>
 ```
 
 Then, install the dependencies and run the development server:
