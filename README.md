@@ -20,22 +20,20 @@ NEXT_PUBLIC_SUPABASE_URL=<supabase-url>
 NEXT_PUBLIC_SUPABASE_KEY=<supabase-public-key>
 ```
 
-
-
 Then, install the dependencies and run the development server:
 
 ```bash
-$ npm install
-$ npm run dev
+npm install
+npm run dev
 # or
-$ yarn install
-$ yarn dev
+yarn install
+yarn dev
 # or
-$ pnpm install
-$ pnpm dev
+pnpm install
+pnpm dev
 # or
-$ bun install
-$ bun dev
+bun install
+bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
