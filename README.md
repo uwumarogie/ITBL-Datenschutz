@@ -3,15 +3,16 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 ## Getting Started
 
 Make sure you have the following required software installed:
+
 - Node v20+ installed on your system. Make sure `npm` is available on your system.
-We recommend to use a version manager like [nvm](https://github.com/nvm-sh/nvm) or [fnm](https://github.com/Schniz/fnm).
+  We recommend to use a version manager like [nvm](https://github.com/nvm-sh/nvm) or [fnm](https://github.com/Schniz/fnm).
 - PostgresDB
-- A project on [supabase](https://supabase.com/) to use for SafeSpace
 
 > [!NOTE]
-> The app should be usable without supabase, but it has not been properly tested.
+> The deployed version uses supabase. We might be using more features of supabase in the future. If so, we will note this in the repository.
 
 First, set up your .env (or .env.local) file with the following variables:
+
 ```dotenv
 DATABASE_URL=postgresql://<user>:<password>@<host>:<password>/<databasename>
 NEXT_PUBLIC_API_BASE_URL=http://localhost:3000
@@ -47,4 +48,3 @@ To learn more about Next.js, take a look at the following resources:
 - [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
