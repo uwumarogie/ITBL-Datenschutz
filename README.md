@@ -1,6 +1,3 @@
-If you are an external person do not look at this code. We didn't know better at that time. This project needs a big refactor.
-
-
 # 🧑‍🏫 ITBL SafeSpace
 
 SafeSpace is an application designed to help young people understand data protection and data processing in the context of social media. It is intended to be used as part of a teaching unit. This project was created as part of the ‘Designing IT-based learning’ module.
