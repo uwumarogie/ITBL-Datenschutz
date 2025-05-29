@@ -2,25 +2,9 @@
 
 import Button from "@/components/button";
 import Link from "next/link";
-import StaticGraph, {
-  Node,
-} from "@/app/(safespace)/space/daten-verarbeitung/kapitel2/components/static-graph";
 import Image from "next/image";
 
 export default function DataProcessing3() {
-  const nodes: Node[] = [
-    {
-      name: "marie",
-      attributes: { x: 0, y: 0, size: 15 },
-      edgeTo: "memes",
-    },
-    {
-      name: "memes",
-      attributes: { x: 1, y: 0, size: 15 },
-      edgeAttributes: { label: "Test" },
-    },
-  ];
-
   return (
     <div className="relative h-full w-full overflow-y-auto">
       <h3 className="font-semibold text-3xl mb-10">

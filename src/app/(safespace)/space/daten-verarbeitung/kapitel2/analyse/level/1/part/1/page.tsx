@@ -1,15 +1,11 @@
 "use client";
-
-import RecommendationQuiz from "@/app/(safespace)/space/daten-verarbeitung/kapitel2/components/recommendation-quiz";
 import Image from "next/image";
 import { useState } from "react";
 import Task from "@/components/task";
 import Button from "@/components/button";
 import clsx from "clsx";
 import { useMessages } from "@/services/notfication/message-provider";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { PersistUserService } from "@/services/user/PersistUserService";
 import { AchievementId } from "@/util/achievement-data";
 import { CheckCircle, Info } from "@phosphor-icons/react";
 import TagList from "@/app/(safespace)/space/daten-verarbeitung/kapitel2/analyse/components/tag-list";

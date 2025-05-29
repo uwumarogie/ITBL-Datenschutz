@@ -3,12 +3,7 @@
 import InstagramProfile, {
   InstagramProfileData,
 } from "@/components/instagram-profile";
-import Robot from "@/components/robot/robot";
-import React, { useState } from "react";
-import { useRouter } from "next/navigation";
-import Button from "@/components/button";
-import clsx from "clsx";
-import Task from "@/components/task";
+import React from "react";
 import ProfileAnalysis from "@/app/(safespace)/space/daten-verarbeitung/kapitel2/components/profile-analysis";
 import { CollectData } from "@/app/(safespace)/space/daten-verarbeitung/data/collect";
 

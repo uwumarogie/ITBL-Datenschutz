@@ -1,11 +1,7 @@
 "use client";
 
-import Robot, { RobotExpression } from "@/components/robot/robot";
-import { CSSProperties, useEffect, useState } from "react";
-import Button from "@/components/button";
-import clsx from "clsx";
-import { useRouter } from "next/navigation";
-import AnimatedText from "@/components/animated/animated-text";
+import { RobotExpression } from "@/components/robot/robot";
+import { CSSProperties } from "react";
 import RobotIntroduction from "@/app/(safespace)/space/daten-verarbeitung/kapitel2/components/robot-introduction";
 
 export type State = {

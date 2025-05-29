@@ -1,7 +1,6 @@
 "use client";
 
 import ExerciseLink from "@/components/exercise-link";
-import { PersistUserService } from "@/services/user/PersistUserService";
 import React, { useEffect, useState } from "react";
 import { AchievementId } from "@/util/achievement-data";
 import { getUserService } from "@/services/user/UserService";

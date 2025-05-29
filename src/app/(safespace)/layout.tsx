@@ -2,7 +2,6 @@
 
 import { DesktopNav } from "@/components/NavBar/DesktopNavigation/desktop-nav";
 import { MobileNav } from "@/components/NavBar/MobileNavigation/mobile-nav";
-import { PersistUserService } from "@/services/user/PersistUserService";
 import { usePathname, useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import clsx from "clsx";

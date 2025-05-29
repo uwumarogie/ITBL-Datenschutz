@@ -4,7 +4,7 @@ import { displayText } from "@/util/landing-page";
 import Button from "./button";
 import { useRouter } from "next/navigation";
 import clsx from "clsx";
-import { CheckCircle, Lock, LockKey } from "@phosphor-icons/react";
+import { CheckCircle, LockKey } from "@phosphor-icons/react";
 
 type ExerciseLink = {
   slug: string;

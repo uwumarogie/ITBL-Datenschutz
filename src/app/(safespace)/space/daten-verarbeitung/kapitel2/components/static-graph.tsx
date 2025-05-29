@@ -32,7 +32,7 @@ export default function StaticGraph({
   const graph = useMemo(() => {
     const g = new Graph();
 
-    nodes?.forEach(({ name, attributes, edgeTo, edgeAttributes }) => {
+    nodes?.forEach(({ name, attributes }) => {
       g.addNode(name, attributes);
     });
 
@@ -48,7 +48,6 @@ export default function StaticGraph({
     return g;
   }, [nodes, edges]);
 
-  // Construct graph and setup Sigma.js
   useEffect(() => {
     const sigma = new Sigma(graph, sigmaContainer.current!!, {
       defaultNodeType: "image",

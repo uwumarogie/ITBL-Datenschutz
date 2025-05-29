@@ -117,7 +117,6 @@ export default function DataProcessingChapter1() {
           </div>
         </TabPanel>
       </Tabs>
-
       {showQuizButton ? (
         <Button
           onClick={() => router.push("/space/daten-verarbeitung/kapitel1/quiz")}

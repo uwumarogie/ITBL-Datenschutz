@@ -2,7 +2,7 @@
 
 import Button from "@/components/button";
 import Link from "next/link";
-import { GameController, Gear, GearSix } from "@phosphor-icons/react";
+import { GameController, Gear } from "@phosphor-icons/react";
 import Task from "@/components/task";
 
 export default function DataProcessingPart0() {

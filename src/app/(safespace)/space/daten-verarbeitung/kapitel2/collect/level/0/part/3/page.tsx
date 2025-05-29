@@ -1,20 +1,7 @@
 "use client";
 
-import { NodeImageProgram } from "@sigma/node-image";
-import { useEffect, useMemo, useRef, useState } from "react";
-import Graph from "graphology";
-import Sigma from "sigma";
-import forceAtlas2 from "graphology-layout-forceatlas2";
-import { assignLayout } from "graphology-layout/utils";
-import { circular, random } from "graphology-layout";
-import { animateNodes } from "sigma/utils";
-import forceLayout from "graphology-layout-force";
-import ForceSupervisor from "graphology-layout-force/worker";
+import { useState } from "react";
 import Button from "@/components/button";
-import { useRouter } from "next/navigation";
-import { motion } from "framer-motion";
-import AnimatedText from "@/components/animated/animated-text";
-import { atRule } from "postcss";
 import DataGraph, {
   DataGraphState,
 } from "@/app/(safespace)/space/daten-verarbeitung/kapitel2/components/data-graph";

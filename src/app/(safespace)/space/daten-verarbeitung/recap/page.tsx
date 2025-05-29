@@ -1,14 +1,12 @@
 "use client";
 
 import Button from "@/components/button";
-import Link from "next/link";
 import Robot, { RobotExpression } from "@/components/robot/robot";
 import { CSSProperties, useEffect, useState } from "react";
 import clsx from "clsx";
 import AnimatedText from "@/components/animated/animated-text";
 import { useRouter } from "next/navigation";
 import { AchievementId } from "@/util/achievement-data";
-import { PersistUserService } from "@/services/user/PersistUserService";
 import { useMessages } from "@/services/notfication/message-provider";
 import { getUserService } from "@/services/user/UserService";
 
@@ -81,9 +79,7 @@ export default function DataProcessingRecap() {
     if (state < states.length - 1) {
       setState(state + 1);
     } else {
-      // router.push("/space/daten-verarbeitung/done")
       const userService = getUserService();
-      // await context.setAchievement(AchievementId.DATENVERARBEITUNG_FINISHED, true)
       await userService
         .setAchievement(AchievementId.DATENVERARBEITUNG_FINISHED, true)
         .then(() => {

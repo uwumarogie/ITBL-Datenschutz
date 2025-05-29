@@ -1,7 +1,5 @@
 "use client";
-import { NavButton, NavButtonType } from "@/components/nav-button";
-import { achievements } from "@/server/database/schema";
-import { PersistUserService } from "@/services/user/PersistUserService";
+import { NavButton } from "@/components/nav-button";
 import { AchievementId } from "@/util/achievement-data";
 import {
   CloudArrowDown,

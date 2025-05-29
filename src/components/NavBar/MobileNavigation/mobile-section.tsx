@@ -1,5 +1,3 @@
-"use client";
-
 import { Props } from "../Section";
 import { MobileSectionItem } from "./mobile-section-item";
 

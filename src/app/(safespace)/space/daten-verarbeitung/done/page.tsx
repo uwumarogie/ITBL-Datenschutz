@@ -1,7 +1,9 @@
+import React from "react";
+
 export default function DataProcessingDone() {
   return (
-    <div>
+    <React.Fragment>
       <span>Done!</span>
-    </div>
+    </React.Fragment>
   );
 }

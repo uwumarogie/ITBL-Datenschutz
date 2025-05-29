@@ -1,5 +1,4 @@
 "use client";
-
 import React, { useEffect, useState } from "react";
 import {
   capitalizeName,
@@ -9,7 +8,6 @@ import {
 import clsx from "clsx";
 import { AchievementId } from "@/util/achievement-data";
 import { redirect } from "next/navigation";
-import { PersistUserService } from "@/services/user/PersistUserService";
 import { getUserService } from "@/services/user/UserService";
 
 export default function Leaderboard() {

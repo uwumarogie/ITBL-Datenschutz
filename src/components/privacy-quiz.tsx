@@ -6,7 +6,6 @@ import Button from "./button";
 import { useRouter } from "next/navigation";
 import { PrivacyQuizQuestion } from "@/app/(safespace)/space/privatsphaere/swipe/page";
 import Robot from "@/components/robot/robot";
-import { PersistUserService } from "@/services/user/PersistUserService";
 import { AchievementId } from "@/util/achievement-data";
 import { useMessages } from "@/services/notfication/message-provider";
 import { getUserService } from "@/services/user/UserService";
