@@ -23,7 +23,6 @@ export default function Leaderboard() {
       try {
         const userService = getUserService();
         const user = await userService.getUser();
-        console.log(user);
         setUsername(user.userName);
       } catch (error) {
         console.error("User not found", error);

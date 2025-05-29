@@ -44,7 +44,7 @@ export class PersistUserService implements UserService {
 
   async createPlayer(username: string, mode: string, gameCode: string) {
     try {
-      const response = await fetch("/api/createUser", {
+      const response = await fetch("/api/create-user", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

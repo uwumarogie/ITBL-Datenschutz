@@ -218,7 +218,6 @@ const states: DataGraphState[] = [
 export default function DataProcessing3() {
   const [showRobot, setShowRobot] = useState(false);
   function onStateChange(state: number) {
-    console.log(state);
     if (state == 6) {
       setShowRobot(true);
     }

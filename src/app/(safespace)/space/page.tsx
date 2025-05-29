@@ -19,11 +19,7 @@ export default function Page() {
         achievements.find(
           (a) => a.achievementEnum == AchievementId.INTRO_FINISHED,
         ) != null;
-
-      console.log(introFinished);
-
       if (!introFinished) {
-        console.log("Start intro");
         setShowRobotIntroduction(true);
       }
     });

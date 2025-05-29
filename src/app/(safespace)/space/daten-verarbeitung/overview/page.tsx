@@ -73,7 +73,6 @@ export default function DataProcessingOverview() {
     let progress = 0;
     if (checkpoints.includes("INTRODUCTION")) progress += 0.2;
     if (checkpoints.includes("COLLECT")) progress += 0.5;
-    console.log("checkpoints", checkpoints);
     if (checkpoints.includes("ANALYSE")) progress += 0.3;
     return progress;
   }

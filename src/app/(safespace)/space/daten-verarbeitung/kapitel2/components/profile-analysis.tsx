@@ -50,8 +50,6 @@ export default function ProfileAnalysis({
       .filter(({ distance }) => distance <= MAX_DISTANCE)
       .sort((a, b) => a.distance - b.distance);
 
-    console.log(distances);
-
     let newTermFound = false;
     for (let { term, distance } of distances) {
       if (foundTerms.includes(term)) {

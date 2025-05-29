@@ -4,12 +4,13 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbo",
+    "clean": "rm -rf .next",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
     "db:generate": "dotenv -e .env drizzle-kit generate",
     "db:push": "dotenv -e .env drizzle-kit push",
-    "db:migrate": "dotenv -e .env npx tsx ./src/server/database/migdrate.ts",
+    "db:migrate": "dotenv -e .env npx tsx ./src/server/database/migrate.ts",
     "format": "prettier --write ."
   },
   "dependencies": {

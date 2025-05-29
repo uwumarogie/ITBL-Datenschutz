@@ -180,9 +180,6 @@ export default function Profiling() {
       }
       const column = columns[columnId];
       const isCorrect = column.items[0] === articleExampleMap[columnId];
-      console.log(column.items[0]);
-      console.log(articleExampleMap[columnId]);
-      console.log("\n");
       if (!isCorrect) {
         newIncorrectItems[columnId] = column.items;
         isFinished = false;

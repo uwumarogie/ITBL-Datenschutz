@@ -22,8 +22,6 @@ export function InputValidation({ input = "" }: { input: string }) {
     { check: hasLengthGreaterThanEight, label: "Passwortlänge 8 oder mehr" },
   ];
 
-  console.log(validations.map(({ check, label }) => check(input)));
-
   return (
     <div className="flex flex-col items-start space-y-2 lg:space-y-1 w-72">
       {validations.map(({ check, label }) => (

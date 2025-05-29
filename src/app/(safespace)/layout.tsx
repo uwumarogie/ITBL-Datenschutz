@@ -48,7 +48,6 @@ export default function Layout({
       );
 
       if (unlocked) {
-        console.log("Master quiz unlocked");
         setMasterQuizUnlocked(true);
       }
     });

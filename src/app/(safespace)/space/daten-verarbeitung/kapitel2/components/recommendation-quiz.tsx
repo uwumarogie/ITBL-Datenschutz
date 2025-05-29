@@ -125,7 +125,6 @@ export default function RecommendationQuiz<
   }
 
   async function onItemClick(item: T) {
-    console.log("Click");
     selectSelection(item);
     setState(2);
     await delay(1400);

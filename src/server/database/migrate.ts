@@ -9,7 +9,6 @@ const main = async () => {
     await migrate(databaseUrl, {
       migrationsFolder: "src/server/database/migrations",
     });
-    console.log("Migration complete");
   } catch (error) {
     console.error(error);
   }

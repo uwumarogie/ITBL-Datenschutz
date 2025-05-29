@@ -37,7 +37,7 @@ export const users = pgTable("users", {
 export const achievements = pgTable("achievements", {
   id: serial("id").primaryKey(),
   userId: integer("user_id")
-    .references(() => users.id, { onDelete: "cascade" })
+    .references(() => users.id, { onDelete: "cascade", onUpdate: "cascade" })
     .notNull(),
   achievementEnum: varchar("achievement_enum", {
     enum: achievementEnum,
@@ -50,7 +50,7 @@ export const achievements = pgTable("achievements", {
 export const highScores = pgTable("highscores", {
   id: serial("id").primaryKey().notNull(),
   userId: integer("user_id")
-    .references(() => users.id, { onDelete: "cascade" })
+    .references(() => users.id, { onDelete: "cascade", onUpdate: "cascade" })
     .notNull(),
   highScore: integer("highScore").notNull(),
   highScoreEnum: varchar("highscore_enum", {
