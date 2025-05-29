@@ -94,7 +94,6 @@ export default function DataGraph({
     for (const node of data.addNodes ?? []) {
       graph.addNode(node.name, node.attributes);
       if (node.edgeTo) {
-        console.log("Edge to");
         graph.addEdge(node.name, node.edgeTo, node.edgeAttributes);
       }
       await new Promise((resolve) => {

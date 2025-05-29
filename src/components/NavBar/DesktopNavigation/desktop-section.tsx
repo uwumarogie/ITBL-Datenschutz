@@ -1,5 +1,3 @@
-"use client";
-
 import clsx from "clsx";
 import { Props } from "../Section";
 import { DesktopSectionItem } from "@/components/NavBar/DesktopNavigation/desktop-section-item";

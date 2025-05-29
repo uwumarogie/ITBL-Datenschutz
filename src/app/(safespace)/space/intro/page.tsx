@@ -1,7 +1,6 @@
 "use client";
 
 import Button from "@/components/button";
-import { PersistUserService } from "@/services/user/PersistUserService";
 import { AchievementId } from "@/util/achievement-data";
 import { useRouter } from "next/navigation";
 import Robot, { RobotExpression } from "@/components/robot/robot";

@@ -3,12 +3,7 @@
 import InstagramProfile, {
   InstagramProfileData,
 } from "@/components/instagram-profile";
-import Robot from "@/components/robot/robot";
-import React, { useState } from "react";
-import { useRouter } from "next/navigation";
-import Button from "@/components/button";
-import clsx from "clsx";
-import Task from "@/components/task";
+import React from "react";
 import ProfileAnalysis from "@/app/(safespace)/space/daten-verarbeitung/kapitel2/components/profile-analysis";
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import Image from "next/image";
@@ -17,7 +12,6 @@ import {
   ChatCircle,
   Heart,
   Hourglass,
-  PaperPlaneRight,
   PaperPlaneTilt,
   ThumbsDown,
 } from "@phosphor-icons/react";

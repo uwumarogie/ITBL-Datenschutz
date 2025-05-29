@@ -4,7 +4,6 @@ import { ExerciseNavigation } from "@/components/exercise-navigation";
 import React, { useEffect, useState } from "react";
 import RobotIntroduction from "@/components/robot-introduction";
 import { AchievementId } from "@/util/achievement-data";
-import { PersistUserService } from "@/services/user/PersistUserService";
 import { getUserService } from "@/services/user/UserService";
 
 export default function Page() {
@@ -19,11 +18,7 @@ export default function Page() {
         achievements.find(
           (a) => a.achievementEnum == AchievementId.INTRO_FINISHED,
         ) != null;
-
-      console.log(introFinished);
-
       if (!introFinished) {
-        console.log("Start intro");
         setShowRobotIntroduction(true);
       }
     });

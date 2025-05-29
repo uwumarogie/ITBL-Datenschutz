@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 import { InlineNavigation } from "@/components/inline-navigation";
 import { useRouter } from "next/navigation";
 import { LockKey, SignOut, Star } from "@phosphor-icons/react";

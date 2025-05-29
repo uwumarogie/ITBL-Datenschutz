@@ -1,5 +1,4 @@
 "use client";
-
 import React, { useEffect, useState } from "react";
 import {
   capitalizeName,
@@ -9,7 +8,6 @@ import {
 import clsx from "clsx";
 import { AchievementId } from "@/util/achievement-data";
 import { redirect } from "next/navigation";
-import { PersistUserService } from "@/services/user/PersistUserService";
 import { getUserService } from "@/services/user/UserService";
 
 export default function Leaderboard() {
@@ -23,7 +21,6 @@ export default function Leaderboard() {
       try {
         const userService = getUserService();
         const user = await userService.getUser();
-        console.log(user);
         setUsername(user.userName);
       } catch (error) {
         console.error("User not found", error);

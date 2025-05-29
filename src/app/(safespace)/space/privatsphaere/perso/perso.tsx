@@ -1,4 +1,3 @@
-"use client";
 import Button from "@/components/button";
 import Checkbox from "@/components/checkbox";
 import { useMessages } from "@/services/notfication/message-provider";

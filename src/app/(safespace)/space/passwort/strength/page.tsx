@@ -6,7 +6,6 @@ import Button from "@/components/button";
 import Image from "next/image";
 import { useMessages } from "@/services/notfication/message-provider";
 import clsx from "clsx";
-import { PersistUserService } from "@/services/user/PersistUserService";
 import {
   passwordData,
   states,

@@ -13,7 +13,7 @@ export class PersistUserService implements UserService {
     if (this.userId === null) {
       return Promise.reject("User not found.");
     }
-    const response = await fetch("/api/getUser", {
+    const response = await fetch("/api/get-user", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -44,7 +44,7 @@ export class PersistUserService implements UserService {
 
   async createPlayer(username: string, mode: string, gameCode: string) {
     try {
-      const response = await fetch("/api/createUser", {
+      const response = await fetch("/api/create-user", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -76,7 +76,7 @@ export class PersistUserService implements UserService {
 
   async setAchievement(achievement: string, unlocked: boolean) {
     try {
-      const response = await fetch("/api/setAchievement", {
+      const response = await fetch("/api/set-achievement", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -99,7 +99,7 @@ export class PersistUserService implements UserService {
 
   async setHighScore(highScoreEnum: HighScoreType, highScore: number) {
     try {
-      const response = await fetch("/api/setHighScore", {
+      const response = await fetch("/api/set-highScore", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -126,7 +126,7 @@ export class PersistUserService implements UserService {
 
   async getHighScore(highScoreEnum: HighScoreType): Promise<any> {
     try {
-      const response = await fetch("/api/getHighScores", {
+      const response = await fetch("/api/get-highScores", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -148,7 +148,7 @@ export class PersistUserService implements UserService {
 
   async getAchievement(): Promise<UserDataAchievement[]> {
     try {
-      const response = await fetch("/api/getAchievement", {
+      const response = await fetch("/api/get-achievement", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

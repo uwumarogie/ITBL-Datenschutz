@@ -11,9 +11,6 @@ export async function POST(rqq: NextRequest) {
   try {
     const _content = await rqq.json();
     const { situation, userInput, solution } = requestSchema.parse(_content);
-    console.debug("Input", userInput);
-    console.debug("Solution", solution);
-    console.debug("question", solution);
 
     const response = await fetch("https://api.openai.com/v1/chat/completions", {
       method: "POST",
@@ -67,9 +64,8 @@ export async function POST(rqq: NextRequest) {
       status: 200,
       statusText: "answer received",
     });
-  } catch (error) {
-    console.log("Error processing POST request", error);
-    console.log((error as Error).message);
+  } catch (error: unknown) {
+    console.error((error as Error).message);
     return new NextResponse("Error", {
       status: 400,
       statusText: "Error",

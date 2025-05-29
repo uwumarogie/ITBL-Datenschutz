@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import {
   DragDropContext,
@@ -11,7 +11,6 @@ import Button from "@/components/button";
 import clsx from "clsx";
 import { HintCard } from "@/components/hint-card";
 import Robot from "@/components/robot/robot";
-import { PersistUserService } from "@/services/user/PersistUserService";
 import { AchievementId } from "@/util/achievement-data";
 import { useMessages } from "@/services/notfication/message-provider";
 import { Question } from "@phosphor-icons/react";
@@ -180,9 +179,6 @@ export default function Profiling() {
       }
       const column = columns[columnId];
       const isCorrect = column.items[0] === articleExampleMap[columnId];
-      console.log(column.items[0]);
-      console.log(articleExampleMap[columnId]);
-      console.log("\n");
       if (!isCorrect) {
         newIncorrectItems[columnId] = column.items;
         isFinished = false;
@@ -261,7 +257,7 @@ export default function Profiling() {
   };
 
   return (
-    <>
+    <React.Fragment>
       {moduleFinished ? (
         <div className="flex flex-col items-center text-center gap-6 md:mt-6">
           <span className="text-5xl text-blue-background">Gut gemacht!</span>
@@ -451,6 +447,6 @@ export default function Profiling() {
           </DragDropContext>
         </div>
       )}
-    </>
+    </React.Fragment>
   );
 }

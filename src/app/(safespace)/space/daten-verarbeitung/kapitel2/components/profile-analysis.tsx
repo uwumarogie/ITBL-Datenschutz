@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
-import InstagramProfile, {
-  InstagramProfileData,
-} from "@/components/instagram-profile";
+import { InstagramProfileData } from "@/components/instagram-profile";
 import Task from "@/components/task";
 import Button from "@/components/button";
 import Robot from "@/components/robot/robot";
@@ -25,7 +23,6 @@ type ProfileAnalysisProps = {
 const MAX_DISTANCE = 1;
 
 export default function ProfileAnalysis({
-  profile,
   robotText,
   task,
   terms,
@@ -34,7 +31,6 @@ export default function ProfileAnalysis({
   href,
   children,
 }: ProfileAnalysisProps & { children?: React.ReactNode }) {
-  const [state, setState] = useState(0);
   const [termInput, setTermInput] = useState("");
   const [showRobot, setShowRobot] = useState(true);
   const [foundTerms, setFoundTerms] = useState<string[]>([]);
@@ -49,8 +45,6 @@ export default function ProfileAnalysis({
       }))
       .filter(({ distance }) => distance <= MAX_DISTANCE)
       .sort((a, b) => a.distance - b.distance);
-
-    console.log(distances);
 
     let newTermFound = false;
     for (let { term, distance } of distances) {

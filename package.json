@@ -4,12 +4,13 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbo",
+    "clean": "rm -rf .next",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
     "db:generate": "dotenv -e .env drizzle-kit generate",
     "db:push": "dotenv -e .env drizzle-kit push",
-    "db:migrate": "dotenv -e .env npx tsx ./src/server/database/migdrate.ts",
+    "db:migrate": "dotenv -e .env npx tsx ./src/server/database/migrate.ts",
     "format": "prettier --write ."
   },
   "dependencies": {
@@ -31,7 +32,7 @@
     "postgres": "3.4.4",
     "react": "18",
     "react-beautiful-dnd": "13.1.1",
-    "react-canvas-confetti": "^2.0.7",
+    "react-canvas-confetti": "2.0.7",
     "react-dom": "18",
     "react-tabs": "6.0.2",
     "sigma": "3.0.0-beta.18",

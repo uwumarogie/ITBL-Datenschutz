@@ -4,9 +4,7 @@ import { IntroductionText } from "@/components/introduction-text";
 import { ActionCard } from "@/components/action-card";
 import Image from "next/image";
 import { ProgressBar } from "@/components/progress-bar";
-import React, { useEffect, useState } from "react";
-import { PersistUserService } from "@/services/user/PersistUserService";
-import { HighScoreEnum } from "@/server/database/schema";
+import React, { useState } from "react";
 import { useAsyncEffect } from "@/util/effect";
 import clsx from "clsx";
 import { AchievementId } from "@/util/achievement-data";
@@ -73,7 +71,6 @@ export default function DataProcessingOverview() {
     let progress = 0;
     if (checkpoints.includes("INTRODUCTION")) progress += 0.2;
     if (checkpoints.includes("COLLECT")) progress += 0.5;
-    console.log("checkpoints", checkpoints);
     if (checkpoints.includes("ANALYSE")) progress += 0.3;
     return progress;
   }

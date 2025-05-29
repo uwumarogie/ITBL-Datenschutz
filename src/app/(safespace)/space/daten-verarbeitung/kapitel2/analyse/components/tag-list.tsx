@@ -1,9 +1,6 @@
-"use client";
-
 import clsx from "clsx";
 import { X } from "@phosphor-icons/react";
 import { CollectData } from "@/app/(safespace)/space/daten-verarbeitung/data/collect";
-import { useState } from "react";
 
 export default function TagList({
   show,

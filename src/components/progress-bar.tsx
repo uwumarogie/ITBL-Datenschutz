@@ -15,10 +15,7 @@ export function ProgressBar({
   steps: initSteps,
 }: ProgressBarProps) {
   const [progress, setProgress] = useState(0);
-
   const steps = [{ progress: 0 }, { progress: 1 }, ...initSteps];
-
-  // Set the actual progress later, so that the css animation will be triggered
   useEffect(() => {
     setProgress(initialProgress);
   }, [initialProgress]);

@@ -4,7 +4,6 @@ import Image from "next/image";
 import { useState } from "react";
 import Task from "@/components/task";
 import {
-  Cross,
   House,
   Info,
   MagnifyingGlass,
@@ -19,7 +18,6 @@ import clsx from "clsx";
 import Button from "@/components/button";
 import { useMessages } from "@/services/notfication/message-provider";
 import Link from "next/link";
-import { CollectData } from "@/app/(safespace)/space/daten-verarbeitung/data/collect";
 import TagList from "@/app/(safespace)/space/daten-verarbeitung/kapitel2/analyse/components/tag-list";
 
 type FeedPost = string;

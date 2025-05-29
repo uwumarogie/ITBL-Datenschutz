@@ -1,4 +1,3 @@
-import { PersistUserService } from "@/services/user/PersistUserService";
 import { AchievementId } from "@/util/achievement-data";
 import { useMessages } from "@/services/notfication/message-provider";
 import { getUserService } from "@/services/user/UserService";
@@ -8,7 +7,7 @@ export default async function getFeedback(
   userInput: string,
   solution: string,
 ): Promise<string> {
-  const response = await fetch("/api/getAnswer", {
+  const response = await fetch("/api/get-answer", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

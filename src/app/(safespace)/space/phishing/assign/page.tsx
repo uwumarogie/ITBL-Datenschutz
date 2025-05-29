@@ -1,4 +1,5 @@
 "use client";
+import React from "react";
 import { useRouter } from "next/navigation";
 import InstagramProfile, {
   InstagramProfileData,
@@ -9,7 +10,6 @@ import { HintCard } from "@/components/hint-card";
 import clsx from "clsx";
 import Robot from "@/components/robot/robot";
 import Task from "@/components/task";
-import { PersistUserService } from "@/services/user/PersistUserService";
 import { AchievementId } from "@/util/achievement-data";
 import { useMessages } from "@/services/notfication/message-provider";
 import { getUserService } from "@/services/user/UserService";
@@ -49,7 +49,7 @@ export default function Assign() {
   };
 
   return (
-    <>
+    <React.Fragment>
       {moduleFinished ? (
         <div className="flex flex-col items-center text-center gap-6 md:mt-6">
           <span className="text-5xl text-blue-background">Gut gemacht!</span>
@@ -64,7 +64,7 @@ export default function Assign() {
           </Button>
         </div>
       ) : (
-        <>
+        <React.Fragment>
           {!instructionsRead ? (
             <div className="p-2 flex flex-col items-center gap-4 lg:mt-8">
               <Robot expression="resting" className="mb-6" />
@@ -154,9 +154,9 @@ export default function Assign() {
               </div>
             </div>
           )}
-        </>
+        </React.Fragment>
       )}
-    </>
+    </React.Fragment>
   );
 }
 

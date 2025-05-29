@@ -3,9 +3,7 @@
 import DataGraph, {
   DataGraphState,
   Node,
-  Edge,
 } from "@/app/(safespace)/space/daten-verarbeitung/kapitel2/components/data-graph";
-import { PersistUserService } from "@/services/user/PersistUserService";
 import { AchievementId } from "@/util/achievement-data";
 import { getUserService } from "@/services/user/UserService";
 
